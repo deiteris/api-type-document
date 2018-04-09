@@ -1,0 +1,66 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<dom-module id="api-type-document">
+  <template>
+    <style>
+    :host {
+      display: block;
+      @apply --api-type-document;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+    </style>
+
+
+  </template>
+  <script>
+  /**
+   * `api-type-document`
+   *
+   * ## Styling
+   *
+   * `<api-type-document>` provides the following custom properties and mixins for styling:
+   *
+   * Custom property | Description | Default
+   * ----------------|-------------|----------
+   * `--api-type-document` | Mixin applied to this elment | `{}`
+   *
+   * @customElement
+   * @polymer
+   * @demo demo/index.html
+   * @memberof ApiElements
+   */
+  class apiTypeDocument extends Polymer.Element {
+    static get is() { return 'api-type-document'; }
+    static get properties() {
+      return {
+        /**
+         * `raml-aware` scope property to use.
+         */
+        aware: String,
+        /**
+         * Generated AMF json/ld model form the API spec.
+         * The element assumes the object of the first array item to be a
+         * type of `"http://raml.org/vocabularies/document#Document`
+         * on AMF vocabulary.
+         *
+         * It is only usefult for the element to resolve references.
+         *
+         * @type {Object|Array}
+         */
+        amfModel: Object,
+        /**
+         * A type properties to render.
+         *
+         * @type {Object}
+         */
+        typeProperties: {
+          type: Array
+        }
+      };
+    }
+  }
+  window.customElements.define(apiTypeDocument.is, apiTypeDocument);
+  </script>
+</dom-module>
