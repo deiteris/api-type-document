@@ -1,0 +1,120 @@
+#%RAML 1.0
+title: My super cool, example API
+version: v1
+baseUri: http://{environment}.api.domain.com/{version}/
+mediaType: [ application/json, application/xml ]
+
+types:
+  Image: !include resourceTypes/image.raml
+  Resource: !include resourceTypes/resource.raml
+  AppPerson: !include resourceTypes/app-person.raml
+  Product: !include resourceTypes/product.raml
+  EnurableType:
+    type: object
+    properties:
+      e1:
+        type: string
+        displayName: Enumerable 1
+        description: |
+          Example enumerable type to test the documentation
+          element.
+
+          It renders `Markdown` model.
+        enum: [v1, v2, v3, v4]
+        required: false
+        examples:
+          - v1
+          - v2
+        pattern: "v[1-4]"
+        default: v1
+      e2:
+        type: string
+        enum: [e1, e2, e3, e4]
+        required: true
+  ArrayType:
+    type: array
+    items: Image
+    description: |
+      Hello world
+  ErrorResource:
+    description: A response that is errored
+    type: object
+    properties:
+      error:
+        type: boolean
+        required: true
+        example: true
+        default: true
+        description: Indicate that the response is errored.
+      message:
+        type: string
+        description: The error message associated with the error.
+        example: <<example>>
+        required: true
+  Feature:
+    description: A feature to test enum values in the URI parameters.
+    type: number
+    enum:
+        - 1
+        - 2
+        - 3
+  Unionable:
+    type: ErrorResource | Product
+  PropertyUnion:
+    type: object
+    properties:
+      etag:
+        type: string
+      data: Feature | ErrorResource | Product
+resourceTypes:
+  ErrorredResource:
+    get:
+  ResourceNotFound:
+    type: ErrorredResource
+    get:
+      responses:
+        404:
+          body:
+            application/json:
+              displayName: Not found response
+              type: ErrorResource
+            application/xml:
+              displayName: Not found response
+              type: !include schemas/error-response.xsd
+              example: !include examples/e404.xml
+  UnauthorizedResponse:
+    type: ErrorredResource
+    get:
+      responses:
+        404:
+          body:
+            application/json:
+              displayName: Unauthorized response
+              type: ErrorResource
+            application/xml:
+              displayName: Unauthorized response
+              type: !include schemas/error-response.xsd
+              example: !include examples/e401.xml
+  RequestErrorResponse:
+    type: ErrorredResource
+    get:
+      responses:
+        400:
+          description: The error response when one of the parameters is invalid and can't be parsed. Nothing can be done at the time except correcting the request to send valid data.
+          body:
+            application/json:
+              displayName: Invalid request
+              type: ErrorResource
+            application/xml:
+              displayName: Invalid request
+              type: !include schemas/error-response.xsd
+              example: !include examples/e400.xml
+
+/test:
+  post:
+    body:
+      type: Product
+    responses:
+      200:
+        body:
+          type: AppPerson

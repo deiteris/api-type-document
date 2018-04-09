@@ -1,4 +1,7 @@
 <link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../polymer/lib/elements/dom-if.html">
+<link rel="import" href="../polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="property-shape-document.html">
 <dom-module id="api-type-document">
   <template>
     <style>
@@ -12,7 +15,11 @@
     }
     </style>
 
-
+    <template is="dom-repeat" items="[[typeProperties]]">
+      <template is="dom-if" if="[[_hasType(item.*, 'http://www.w3.org/ns/shacl#PropertyShape')]]">
+        <property-shape-document shape="[[item]]"></property-shape-document>
+      </template>
+    </template>
   </template>
   <script>
   /**
@@ -31,7 +38,7 @@
    * @demo demo/index.html
    * @memberof ApiElements
    */
-  class apiTypeDocument extends Polymer.Element {
+  class ApiTypeDocument extends Polymer.Element {
     static get is() { return 'api-type-document'; }
     static get properties() {
       return {
@@ -60,7 +67,20 @@
         }
       };
     }
+    /**
+     * Checks if property item has a type.
+     * @param {Object} record Model item change record.
+     * @param {String} type A type to lookup
+     * @return {Boolean}
+     */
+    _hasType(record, type) {
+      if (!record || !record.base || !record.base) {
+        return false;
+      }
+      const types = record.base['@type'] || [];
+      return types.findIndex((item) => item === type) !== -1;
+    }
   }
-  window.customElements.define(apiTypeDocument.is, apiTypeDocument);
+  window.customElements.define(ApiTypeDocument.is, ApiTypeDocument);
   </script>
 </dom-module>

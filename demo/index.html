@@ -16,6 +16,10 @@
     <link rel="import" href="../../api-navigation/api-navigation.html">
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
+      --arc-font-subhead: {
+        @apply --paper-font-subhead;
+      };
+
       [role="main"] {
         max-width: 1100px;
         @apply --layout-horizontal;
@@ -24,7 +28,12 @@
 
       api-navigation {
         width: 320px;
+        min-width: 320px;
         overflow: auto;
+      }
+
+      api-type-document {
+        margin-left: 40px;
       }
       </style>
     </custom-style>
