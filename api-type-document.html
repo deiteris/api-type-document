@@ -2,7 +2,9 @@
 <link rel="import" href="../polymer/lib/elements/dom-if.html">
 <link rel="import" href="../polymer/lib/elements/dom-repeat.html">
 <link rel="import" href="../raml-aware/raml-aware.html">
+<link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="property-shape-document.html">
+<link rel="import" href="propery-document-mixin.html">
 <dom-module id="api-type-document">
   <template>
     <style>
@@ -18,14 +20,42 @@
     property-shape-document {
       margin: 8px 0;
     }
+
+    paper-button[active] {
+      background-color: var(--api-type-document-union-button-background-color, #CDDC39);
+    }
+
+    .union-type-selector {
+      margin: 20px 0;
+    }
     </style>
     <template is="dom-if" if="[[aware]]">
       <raml-aware raml="{{amfModel}}" scope="[[aware]]"></raml-aware>
     </template>
-    <template is="dom-repeat" items="[[typeProperties]]">
-      <template is="dom-if" if="[[_hasType(item.*, 'http://www.w3.org/ns/shacl#PropertyShape')]]">
+    <template is="dom-if" if="[[isObject]]">
+      <template is="dom-repeat" items="[[_computeProperties(type)]]">
         <property-shape-document shape="[[item]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]"></property-shape-document>
       </template>
+    </template>
+
+    <template is="dom-if" if="[[isArray]]">
+      <template is="dom-repeat" items="[[_computeArrayProperties(type)]]">
+        <property-shape-document shape="[[item]]" amf-model="[[amfModel]]" parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]"></property-shape-document>
+      </template>
+    </template>
+
+    <template is="dom-if" if="[[isScalar]]">
+      <property-shape-document shape="[[type]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]"></property-shape-document>
+    </template>
+
+    <template is="dom-if" if="[[isUnion]]">
+      <div class="union-type-selector">
+        <span>Any of:</span>
+        <template is="dom-repeat" items="[[unionTypes]]">
+          <paper-button toggles active="[[_unionTypeActive(selectedUnion, index)]]" on-click="_selectUnion" title$="Select [[item.label]] type">[[item.label]]</paper-button>
+        </template>
+      </div>
+      <api-type-document amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[_computeUnionProperty(type, selectedUnion)]]"></api-type-document>
     </template>
   </template>
   <script>
@@ -71,8 +101,9 @@
    * @polymer
    * @demo demo/index.html
    * @memberof ApiElements
+   * @appliesMixin ArcBehaviors.PropertyDocumentMixin
    */
-  class ApiTypeDocument extends Polymer.Element {
+  class ApiTypeDocument extends ArcBehaviors.PropertyDocumentMixin(Polymer.Element) {
     static get is() { return 'api-type-document'; }
     static get properties() {
       return {
@@ -92,18 +123,61 @@
          */
         amfModel: Object,
         /**
-         * A type properties to render.
+         * A type definition to render.
+         * This should be a one of the following AMF types:
+         *
+         * - `http://www.w3.org/ns/shacl#NodeShape` (Object)
+         * - `http://raml.org/vocabularies/shapes#UnionShape` (Union)
+         * - `http://raml.org/vocabularies/shapes#ArrayShape` (Array)
+         * - `http://raml.org/vocabularies/shapes#ScalarShape` (single property)
+         *
+         * The component computes the list of properties to render.
          *
          * @type {Object}
          */
-        typeProperties: {
-          type: Array
+        type: {
+          type: Object,
+          observer: '_typeChanged'
         },
         /**
          * Should be set if described properties has a parent type.
          * This is used when recursively iterating over properties.
          */
-        parentTypeName: String
+        parentTypeName: String,
+
+        isScalar: {
+          type: Boolean,
+          readOnly: true
+        },
+        isArray: {
+          type: Boolean,
+          readOnly: true
+        },
+        isObject: {
+          type: Boolean,
+          readOnly: true
+        },
+        isUnion: {
+          type: Boolean,
+          readOnly: true
+        },
+        /**
+         * Computed list of union type types to render in union type
+         * selector.
+         * Each item has `label` and `isScalar` property.
+         *
+         * @type {Array<Object>}
+         */
+        unionTypes: {
+          type: Array,
+          observer: '_unionTypesChanged'
+        },
+        /**
+         * Selected index of union type in `unionTypes` array.
+         */
+        selectedUnion: {
+          type: Number
+        }
       };
     }
     /**
@@ -112,12 +186,94 @@
      * @param {String} type A type to lookup
      * @return {Boolean}
      */
-    _hasType(record, type) {
+    _hasTypeChangeRecord(record, type) {
       if (!record || !record.base || !record.base) {
         return false;
       }
       const types = record.base['@type'] || [];
       return types.findIndex((item) => item === type) !== -1;
+    }
+
+    _typeChanged(type) {
+      if (!type) {
+        return;
+      }
+      let isScalar = false;
+      let isArray = false;
+      let isObject = false;
+      let isUnion = false;
+      if (this._hasType(type, 'http://raml.org/vocabularies/shapes#ScalarShape') || this._hasType(type, 'http://raml.org/vocabularies/shapes#NilShape')) {
+        isScalar = true;
+        this._effectiveProperties = type;
+      } else if (this._hasType(type, 'http://raml.org/vocabularies/shapes#UnionShape')) {
+        isUnion = true;
+        this.unionTypes = this._computeUnionTypes(true, type);
+      } else if (this._hasType(type, 'http://raml.org/vocabularies/shapes#ArrayShape')) {
+        isArray = true;
+      } else if (this._hasType(type, 'http://www.w3.org/ns/shacl#NodeShape')) {
+        isObject = true;
+      }
+      this._setIsScalar(isScalar);
+      this._setIsArray(isArray);
+      this._setIsObject(isObject);
+      this._setIsUnion(isUnion);
+    }
+
+    _computeArrayParentName(parent) {
+      return parent || 'Array';
+    }
+
+    /**
+     * Resets union selection when union types list changes.
+     *
+     * @param {?Array} types List of current union types.
+     */
+    _unionTypesChanged(types) {
+      if (!types) {
+        return;
+      }
+      this.selectedUnion = 0;
+    }
+    /**
+     * Handler for union type button click.
+     * Sets `selectedUnion` property.
+     *
+     * @param {ClickEvent} e
+     */
+    _selectUnion(e) {
+      const index = e.model.get('index');
+      this.selectedUnion = index;
+    }
+    /**
+     * Computes if selectedUnion equals current item index.
+     *
+     * @param {Number} selectedUnion
+     * @param {Number} index
+     * @return {Boolean}
+     */
+    _unionTypeActive(selectedUnion, index) {
+      return selectedUnion === index;
+    }
+    
+    _computeUnionProperty(type, selected) {
+      if (!type) {
+        return;
+      }
+      const data = type['http://raml.org/vocabularies/shapes#anyOf'];
+      if (!data) {
+        return;
+      }
+      const item = data[selected];
+      if (!item) {
+        return;
+      }
+      if (this._hasType(item, 'http://raml.org/vocabularies/shapes#ArrayShape')) {
+        const items = item['http://raml.org/vocabularies/shapes#items'];
+        if (items && items.length === 1) {
+          return items[0];
+        }
+      }
+      return item;
     }
   }
   window.customElements.define(ApiTypeDocument.is, ApiTypeDocument);

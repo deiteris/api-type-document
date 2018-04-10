@@ -103,6 +103,24 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       return 'Unknown type';
     }
     /**
+     * Computes value for `range` property.
+     * @param {Object} shape Current shape object.
+     * @return {Object} Range object
+     */
+    _computeRange(shape) {
+      if (!shape) {
+        return;
+      }
+      let data;
+      if (this._hasType(shape, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
+        data = shape;
+      } else {
+        data = shape['http://raml.org/vocabularies/shapes#range'];
+        data = (data && data.length) ? data[0] : undefined;
+      }
+      return data;
+    }
+    /**
      * Checks if property item has a type.
      * @param {Object} model Model item.
      * @param {String} type A type to lookup
@@ -144,6 +162,155 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
         return;
       }
       return data.map((item) => item['@value']);
+    }
+    /**
+     * Helper function for the view. Extracts `http://www.w3.org/ns/shacl#property`
+     * from the shape model
+     *
+     * @param {Object} item Range object
+     * @return {Object} Shape object
+     */
+    _computeProperties(item) {
+      return item && item['http://www.w3.org/ns/shacl#property'];
+    }
+    /**
+     * Computes properties to render Array items documentation.
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {Array<Object>|undefined} List of Array items.
+     */
+    _computeArrayProperties(range) {
+      if (!range) {
+        return;
+      }
+      let items = range['http://raml.org/vocabularies/shapes#items'];
+      if (!items) {
+        return;
+      }
+      items = items[0];
+      return items['http://www.w3.org/ns/shacl#property'];
+    }
+    /**
+     * Computes value for `isUnion` property.
+     * Union type is identified as a `http://raml.org/vocabularies/shapes#UnionShape`
+     * type.
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {Boolean}
+     */
+    _computeIsUnion(range) {
+      return this._hasType(range, 'http://raml.org/vocabularies/shapes#UnionShape');
+    }
+    /**
+     * Computes value for `isObject` property.
+     * Object type is identified as a `http://raml.org/vocabularies/shapes#NodeShape`
+     * type.
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {Boolean}
+     */
+    _computeIsObject(range) {
+      return this._hasType(range, 'http://www.w3.org/ns/shacl#NodeShape');
+    }
+    /**
+     * Computes value for `isArray` property.
+     * Array type is identified as a `http://raml.org/vocabularies/shapes#ArrayShape`
+     * type.
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {Boolean}
+     */
+    _computeIsArray(range) {
+      return this._hasType(range, 'http://raml.org/vocabularies/shapes#ArrayShape');
+    }
+    /**
+     * Computes list of union type labels to render.
+     *
+     * @param {Boolean} isUnion
+     * @param {Object} range
+     * @return {Array<Object>}
+     */
+    _computeUnionTypes(isUnion, range) {
+      if (!isUnion || !range) {
+        return;
+      }
+      const list = range['http://raml.org/vocabularies/shapes#anyOf'];
+      if (!list) {
+        return;
+      }
+      return list.map((item) => {
+        let isScalar = this._hasType(item, 'http://raml.org/vocabularies/shapes#ScalarShape');
+        const isNil = this._hasType(item, 'http://raml.org/vocabularies/shapes#NilShape');
+        if (!isScalar && isNil) {
+          isScalar = true;
+        }
+        let isArray = this._hasType(item, 'http://raml.org/vocabularies/shapes#ArrayShape');
+        let isType = !isScalar && !isArray;
+        let label;
+        if (isArray) {
+          label = this._computeArrayUnionLabel(item['http://raml.org/vocabularies/shapes#items']);
+        } else if (isNil) {
+          label = 'Null';
+        } else {
+          label = this._getValue(item, 'http://schema.org/name');
+          if (!label) {
+            label = this._getValue(item, 'http://www.w3.org/ns/shacl#name');
+          }
+          if (!label && this._hasType(item, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
+            label = this._computeRangeDataType(item);
+          }
+        }
+        if (!label) {
+          label = 'Unnamed type';
+        }
+        return {
+          isScalar,
+          isArray,
+          isType,
+          label
+        };
+      });
+    }
+    /**
+     * Computes union type label when the union is in Array.
+     *
+     * @param {Array} items Array items property
+     * @return {String|undefined} Label for the union type.
+     */
+    _computeArrayUnionLabel(items) {
+      if (!items || !(items instanceof Array)) {
+        return;
+      }
+      const item = items[0];
+      if (this._hasType(item, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
+        return this._computeRangeDataType(item);
+      }
+      return this._computeDisplayName(item);
+    }
+
+    /**
+     * Computes name label for the shape.
+     *
+     * @param {Object} range Range object of current shape.
+     * @param {Object} shape The shape of the property.
+     * @return {String} Display name of the property
+     */
+    _computeDisplayName(range, shape) {
+      let name = this._getValue(range, 'http://schema.org/name');
+      if (!name) {
+        name = this._getValue(range, 'http://www.w3.org/ns/shacl#name');
+      }
+      if (name === 'type' && this._hasType(range, 'http://www.w3.org/ns/shacl#NodeShape')) {
+        name = '';
+      }
+      if (!name) {
+        // File and Union types does not have "name" on range object.
+        name = this._getValue(shape, 'http://www.w3.org/ns/shacl#name');
+      }
+      if (name && name[name.length - 1] === '?') {
+        name = name.substr(0, name.length - 1);
+      }
+      return name;
     }
   }
 return PDmixin;

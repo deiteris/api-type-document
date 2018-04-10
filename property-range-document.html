@@ -218,8 +218,7 @@
          * @type {Object}
          */
         propertyDataType: {
-          type: String,
-          computed: '_computeRangeDataType(range)'
+          type: String
         },
         /**
          * Computed value form the shape. True if the property is required.
@@ -287,6 +286,20 @@
           computed: '_computeEnumValues(isEnum, range)'
         }
       };
+    }
+
+    static get observers() {
+      return [
+        '_computeType(range, shape)'
+      ];
+    }
+
+    _computeType(range, shape) {
+      let type = range && this._computeRangeDataType(range);
+      if (!type) {
+        type = shape  && this._computeRangeDataType(shape);
+      }
+      this.propertyDataType = type;
     }
     /**
      * Computes value for `hasExamples`.
