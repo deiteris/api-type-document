@@ -12,9 +12,9 @@
 /// <reference path="../polymer/types/lib/elements/dom-if.d.ts" />
 /// <reference path="../polymer/types/lib/elements/dom-repeat.d.ts" />
 /// <reference path="../iron-flex-layout/iron-flex-layout.d.ts" />
-/// <reference path="../paper-button/paper-button.d.ts" />
 /// <reference path="api-type-document.d.ts" />
 /// <reference path="property-range-document.d.ts" />
+/// <reference path="propery-document-mixin.d.ts" />
 
 declare namespace ApiElements {
 
@@ -76,13 +76,6 @@ declare namespace ApiElements {
     readonly isUnion: boolean|null|undefined;
 
     /**
-     * Computed list of union type types to render in union type
-     * selector.
-     * Each item has `label` and `isScalar` property.
-     */
-    readonly unionTypes: Array<object|null>|null;
-
-    /**
      * Computed value, true if current property is an object.
      */
     readonly isObject: boolean|null|undefined;
@@ -97,43 +90,6 @@ declare namespace ApiElements {
      * This is used when recursively iterating over properties.
      */
     parentTypeName: string|null|undefined;
-
-    /**
-     * Selected index of union type in `unionTypes` array.
-     */
-    selectedUnion: number|null|undefined;
-
-    /**
-     * True when selected union type is a scalar value.
-     */
-    readonly unionIsScalar: boolean|null|undefined;
-
-    /**
-     * True when selected union type is a type value.
-     */
-    readonly unionIsType: boolean|null|undefined;
-
-    /**
-     * True when selected union type is an array value.
-     */
-    readonly unionIsArray: boolean|null|undefined;
-
-    /**
-     * Computes value for `range` property.
-     *
-     * @param shape Current shape object.
-     * @returns Range object
-     */
-    _computeRange(shape: object|null): object|null;
-
-    /**
-     * Computes name label for the shape.
-     *
-     * @param range Range object of current shape.
-     * @param shape The shape of the property.
-     * @returns Display name of the property
-     */
-    _computeDisplayName(range: object|null, shape: object|null): String|null;
 
     /**
      * Computes name of the property. This may be different from the
@@ -160,110 +116,6 @@ declare namespace ApiElements {
      * @param shape Current shape object
      */
     _computeIsRequired(shape: object|null): Boolean|null;
-
-    /**
-     * Computes value for `isUnion` property.
-     * Union type is identified as a `http://raml.org/vocabularies/shapes#UnionShape`
-     * type.
-     *
-     * @param range Range object of current shape.
-     */
-    _computeIsUnion(range: object|null): Boolean|null;
-
-    /**
-     * Computes value for `isObject` property.
-     * Object type is identified as a `http://raml.org/vocabularies/shapes#NodeShape`
-     * type.
-     *
-     * @param range Range object of current shape.
-     */
-    _computeIsObject(range: object|null): Boolean|null;
-
-    /**
-     * Computes value for `isArray` property.
-     * Array type is identified as a `http://raml.org/vocabularies/shapes#ArrayShape`
-     * type.
-     *
-     * @param range Range object of current shape.
-     */
-    _computeIsArray(range: object|null): Boolean|null;
-
-    /**
-     * Computes properties to render Array items documentation.
-     *
-     * @param range Range object of current shape.
-     * @returns List of Array items.
-     */
-    _computeArrayProperties(range: object|null): Array<object|null>|null|undefined;
-
-    /**
-     * Computes list of union type labels to render.
-     */
-    _computeUnionTypes(isUnion: Boolean|null, range: object|null): Array<object|null>|null;
-
-    /**
-     * Computes union type label when the union is in Array.
-     *
-     * @param items Array items property
-     * @returns Label for the union type.
-     */
-    _computeArrayUnionLabel(items: any[]|null): String|null|undefined;
-
-    /**
-     * Computes if selectedUnion equals current item index.
-     */
-    _unionTypeActive(selectedUnion: Number|null, index: Number|null): Boolean|null;
-
-    /**
-     * Resets union selection when union types list changes.
-     *
-     * @param types List of current union types.
-     */
-    _unionTypesChanged(types: any[]|null): void;
-
-    /**
-     * Handler for union type button click.
-     * Sets `selectedUnion` property.
-     */
-    _selectUnion(e: ClickEvent|null): void;
-
-    /**
-     * Handler for union type selection change.
-     * Updates helper peoprties valus that determine proper view for a
-     * type.
-     *
-     * @param selected Currently selected type.
-     * @param types Types list
-     */
-    _unionSelectionChanged(selected: Number|null, types: Array<object|null>|null): void;
-
-    /**
-     * Computes a property value for scalar type union item.
-     *
-     * @param record Range change record.
-     * @param selected Selected union item index.
-     * @returns Range object
-     */
-    _computeUnionProperty(record: object|null, selected: Number|null): object|null|undefined;
-
-    /**
-     * Computes list of properties for union item of a type of
-     * `http://www.w3.org/ns/shacl#NodeShape`
-     *
-     * @param record Range change record.
-     * @param selected Selected union item index.
-     * @returns List of properties
-     */
-    _computeUnionProperties(record: object|null, selected: Number|null): any[]|null|undefined;
-
-    /**
-     * Helper function for the view. Extracts `http://www.w3.org/ns/shacl#property`
-     * from the shape model
-     *
-     * @param item Range object
-     * @returns Shape object
-     */
-    _computeProperties(item: object|null): object|null;
   }
 }
 

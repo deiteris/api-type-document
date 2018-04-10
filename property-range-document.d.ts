@@ -53,7 +53,7 @@ declare namespace ApiElements {
     /**
      * Computed value of shape data type
      */
-    readonly propertyDataType: object|null;
+    propertyDataType: object|null;
 
     /**
      * Computed value form the shape. True if the property is required.
@@ -103,6 +103,42 @@ declare namespace ApiElements {
     readonly enumValues: Array<String|null>|null;
 
     /**
+     * Computes properties to render Array items documentation.
+     *
+     * @param range Range object of current shape.
+     * @returns List of Array items.
+     */
+    _computeArrayProperties(range: object|null): Array<object|null>|null|undefined;
+
+    /**
+     * Computes value for `isUnion` property.
+     * Union type is identified as a `http://raml.org/vocabularies/shapes#UnionShape`
+     * type.
+     *
+     * @param range Range object of current shape.
+     */
+    _computeIsUnion(range: object|null): Boolean|null;
+
+    /**
+     * Computes value for `isObject` property.
+     * Object type is identified as a `http://raml.org/vocabularies/shapes#NodeShape`
+     * type.
+     *
+     * @param range Range object of current shape.
+     */
+    _computeIsObject(range: object|null): Boolean|null;
+
+    /**
+     * Computes value for `isArray` property.
+     * Array type is identified as a `http://raml.org/vocabularies/shapes#ArrayShape`
+     * type.
+     *
+     * @param range Range object of current shape.
+     */
+    _computeIsArray(range: object|null): Boolean|null;
+    _computeType(range: any, shape: any): void;
+
+    /**
      * Computes value for `hasExamples`.
      *
      * @param range Range object of current shape.
@@ -137,46 +173,11 @@ declare namespace ApiElements {
     _computeDescription(range: object|null): String|null;
 
     /**
-     * Computes value for `isUnion` property.
-     * Union type is identified as a `http://raml.org/vocabularies/shapes#UnionShape`
-     * type.
-     *
-     * @param range Range object of current shape.
-     */
-    _computeIsUnion(range: object|null): Boolean|null;
-
-    /**
-     * Computes value for `isObject` property.
-     * Object type is identified as a `http://raml.org/vocabularies/shapes#NodeShape`
-     * type.
-     *
-     * @param range Range object of current shape.
-     */
-    _computeIsObject(range: object|null): Boolean|null;
-
-    /**
-     * Computes value for `isArray` property.
-     * Array type is identified as a `http://raml.org/vocabularies/shapes#ArrayShape`
-     * type.
-     *
-     * @param range Range object of current shape.
-     */
-    _computeIsArray(range: object|null): Boolean|null;
-
-    /**
      * Computes value for `isFile` property
      *
      * @param range Range object of current shape.
      */
     _computeIsFile(range: object|null): Boolean|null;
-
-    /**
-     * Computes properties to render Array items documentation.
-     *
-     * @param range Range object of current shape.
-     * @returns List of Array items.
-     */
-    _computeArrayProperties(range: object|null): Array<object|null>|null|undefined;
     _computeObjectProperties(range: any): any;
 
     /**

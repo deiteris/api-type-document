@@ -12,7 +12,9 @@
 /// <reference path="../polymer/types/lib/elements/dom-if.d.ts" />
 /// <reference path="../polymer/types/lib/elements/dom-repeat.d.ts" />
 /// <reference path="../raml-aware/raml-aware.d.ts" />
+/// <reference path="../paper-button/paper-button.d.ts" />
 /// <reference path="property-shape-document.d.ts" />
+/// <reference path="propery-document-mixin.d.ts" />
 
 declare namespace ApiElements {
 
@@ -54,12 +56,9 @@ declare namespace ApiElements {
    * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
    * `--api-type-document-type-attribute-color` | Color of each attribute that describes a property | `#616161`
    */
-  class ApiTypeDocument extends Polymer.Element {
-
-    /**
-     * `raml-aware` scope property to use.
-     */
-    aware: string|null|undefined;
+  class ApiTypeDocument extends
+    ArcBehaviors.PropertyDocumentMixin(
+    Polymer.Element) {
 
     /**
      * Generated AMF json/ld model form the API spec.
@@ -72,15 +71,44 @@ declare namespace ApiElements {
     amfModel: object|any[]|null;
 
     /**
-     * A type properties to render.
+     * `raml-aware` scope property to use.
      */
-    typeProperties: object|null;
+    aware: string|null|undefined;
+
+    /**
+     * A type definition to render.
+     * This should be a one of the following AMF types:
+     *
+     * - `http://www.w3.org/ns/shacl#NodeShape` (Object)
+     * - `http://raml.org/vocabularies/shapes#UnionShape` (Union)
+     * - `http://raml.org/vocabularies/shapes#ArrayShape` (Array)
+     * - `http://raml.org/vocabularies/shapes#ScalarShape` (single property)
+     *
+     * The component computes the list of properties to render.
+     */
+    type: object|null;
 
     /**
      * Should be set if described properties has a parent type.
      * This is used when recursively iterating over properties.
      */
     parentTypeName: string|null|undefined;
+    readonly isScalar: boolean|null|undefined;
+    readonly isArray: boolean|null|undefined;
+    readonly isObject: boolean|null|undefined;
+    readonly isUnion: boolean|null|undefined;
+
+    /**
+     * Computed list of union type types to render in union type
+     * selector.
+     * Each item has `label` and `isScalar` property.
+     */
+    unionTypes: Array<object|null>|null;
+
+    /**
+     * Selected index of union type in `unionTypes` array.
+     */
+    selectedUnion: number|null|undefined;
 
     /**
      * Checks if property item has a type.
@@ -88,7 +116,28 @@ declare namespace ApiElements {
      * @param record Model item change record.
      * @param type A type to lookup
      */
-    _hasType(record: object|null, type: String|null): Boolean|null;
+    _hasTypeChangeRecord(record: object|null, type: String|null): Boolean|null;
+    _typeChanged(type: any): void;
+    _computeArrayParentName(parent: any): any;
+
+    /**
+     * Resets union selection when union types list changes.
+     *
+     * @param types List of current union types.
+     */
+    _unionTypesChanged(types: any[]|null): void;
+
+    /**
+     * Handler for union type button click.
+     * Sets `selectedUnion` property.
+     */
+    _selectUnion(e: ClickEvent|null): void;
+
+    /**
+     * Computes if selectedUnion equals current item index.
+     */
+    _unionTypeActive(selectedUnion: Number|null, index: Number|null): Boolean|null;
+    _computeUnionProperty(type: any, selected: any): any;
   }
 }
 
