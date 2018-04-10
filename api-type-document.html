@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../polymer/lib/elements/dom-if.html">
 <link rel="import" href="../polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="../raml-aware/raml-aware.html">
 <link rel="import" href="property-shape-document.html">
 <dom-module id="api-type-document">
   <template>
@@ -18,7 +19,9 @@
       margin: 8px 0;
     }
     </style>
-
+    <template is="dom-if" if="[[aware]]">
+      <raml-aware raml="{{amfModel}}" scope="[[aware]]"></raml-aware>
+    </template>
     <template is="dom-repeat" items="[[typeProperties]]">
       <template is="dom-if" if="[[_hasType(item.*, 'http://www.w3.org/ns/shacl#PropertyShape')]]">
         <property-shape-document shape="[[item]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]"></property-shape-document>
@@ -29,6 +32,11 @@
   /**
    * `api-type-document`
    *
+   * An element that recuresively renders a documentation for a data type
+   * using from model.
+   *
+   * Pass AMF's shape type `property` array to render the documentation.
+   *
    * ## Styling
    *
    * `<api-type-document>` provides the following custom properties and mixins for styling:
@@ -36,6 +44,28 @@
    * Custom property | Description | Default
    * ----------------|-------------|----------
    * `--api-type-document` | Mixin applied to this elment | `{}`
+   *
+   * From `property-shape-document`
+   *
+   * Custom property | Description | Default
+   * ----------------|-------------|----------
+   * `--property-shape-document` | Mixin applied each proeprty element | `{}`
+   * `--property-shape-document-array-color` | Property border color when type is an array | `#8BC34A`
+   * `--property-shape-document-object-color` | Property border color when type is an object | `#FF9800`
+   * `--property-shape-document-union-color` | Property border color when type is an union | `#FFEB3B`
+   * `--arc-font-subhead` | Theme mixin, applied to the property title | `{}`
+   * `--property-shape-document-title` | Mixin applied to the property title | `{}`
+   * `--api-type-document-property-parent-color` | Color of the parent property label | `#757575`
+   * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
+   *
+   * From `property-range-document`
+   *
+   * Custom property | Description | Default
+   * ----------------|-------------|----------
+   * `--property-range-document` | Mixin applied to this elment | `{}`
+   * `--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`
+   * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
+   * `--api-type-document-type-attribute-color` | Color of each attribute that describes a property | `#616161`
    *
    * @customElement
    * @polymer

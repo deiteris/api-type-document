@@ -16,15 +16,15 @@
     }
 
     :host([is-array]) {
-      border-left: 1px #8BC34A solid;
+      border-left: 1px var(--property-shape-document-array-color, #8BC34A) solid;
     }
 
     :host([is-object]) {
-      border-left: 1px #FF9800 solid;
+      border-left: 1px var(--property-shape-document-object-color, #FF9800) solid;
     }
 
     :host([is-union]) {
-      border-left: 1px #FFEB3B solid;
+      border-left: 1px var(--property-shape-document-union-color, #FFEB3B) solid;
     }
 
     :host > .children {
@@ -42,16 +42,16 @@
     }
 
     .parent-label {
-      color: #757575;
+      color: var(--api-type-document-property-parent-color, #757575);
     }
 
     .property-name {
       font-weight: 400;
-      color: #757575;
+      color: var(--api-type-document-property-color, #757575);
     }
 
     paper-button[active] {
-      background-color: #CDDC39;
+      background-color: var(--api-type-document-union-button-background-color, #CDDC39);
     }
 
     .union-type-selector {
@@ -111,6 +111,13 @@
    * Custom property | Description | Default
    * ----------------|-------------|----------
    * `--property-shape-document` | Mixin applied to this elment | `{}`
+   * `--property-shape-document-array-color` | Property border color when type is an array | `#8BC34A`
+   * `--property-shape-document-object-color` | Property border color when type is an object | `#FF9800`
+   * `--property-shape-document-union-color` | Property border color when type is an union | `#FFEB3B`
+   * `--arc-font-subhead` | Theme mixin, applied to the property title | `{}`
+   * `--property-shape-document-title` | Mixin applied to the property title | `{}`
+   * `--api-type-document-property-parent-color` | Color of the parent property label | `#757575`
+   * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
    *
    * @customElement
    * @polymer
