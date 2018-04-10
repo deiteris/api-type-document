@@ -17,10 +17,6 @@
       @apply --property-range-document;
     }
 
-    [hidden] {
-      display: none !important;
-    }
-
     .property-traits {
       @apply --layout-horizontal;
       @apply --layout-wrap;
@@ -62,6 +58,17 @@
     .attribute-value ul {
       margin: 0;
       padding-left: 18px;
+    }
+
+    .examples-section-title {
+      @apply --arc-font-body1;
+      font-size: 16px;
+    }
+
+    .example-title {
+      @apply --arc-font-body1;
+      font-size: 15px;
+      margin: 0;
     }
     </style>
     <div class="property-traits">
@@ -159,10 +166,10 @@
     </template>
     <api-annotation-document shape="[[range]]"></api-annotation-document>
     <template is="dom-if" if="[[hasExamples]]">
-      <h5>Examples</h5>
+      <h5 class="examples-section-title">Examples</h5>
       <template is="dom-repeat" items="[[examples]]">
         <template is="dom-if" if="[[item.hasName]]">
-          <h6>[[item.name]]</h6>
+          <h6 class="example-title">[[item.name]]</h6>
         </template>
         <marked-element markdown="[[_computeExampleDisplay(item.value)]]">
           <div slot="markdown-html" class="markdown-body"></div>
@@ -223,7 +230,10 @@
         /**
          * Computed value form the shape. True if the property is required.
          */
-        isRequired: Boolean,
+        isRequired: {
+          type: Boolean,
+          computed: '_computeIsRequired(shape)'
+        },
         /**
          * Computed value form the shape. True if the property is ENUM.
          */
@@ -485,6 +495,18 @@
         return '';
       }
       return '```\n' + value + '\n```';
+    }
+    /**
+     * Computes value for `isRequired` property.
+     * In AMF model a property is required when `http://www.w3.org/ns/shacl#minCount`
+     * does not equal `0`.
+     *
+     * @param {Object} shape Current shape object
+     * @return {Boolean}
+     */
+    _computeIsRequired(shape) {
+      const data = this._getValue(shape, 'http://www.w3.org/ns/shacl#minCount');
+      return data !== 0;
     }
   }
   window.customElements.define(PropertyRangeDocument.is, PropertyRangeDocument);

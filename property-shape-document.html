@@ -10,33 +10,14 @@
     <style>
     :host {
       display: block;
-      padding: 4px 8px;
+      margin: 12px 0;
       @apply --property-shape-document;
-    }
-
-    :host([is-array]) {
-      border-left: 1px var(--property-shape-document-array-color, #8BC34A) solid;
-    }
-
-    :host([is-object]) {
-      border-left: 1px var(--property-shape-document-object-color, #FF9800) solid;
-    }
-
-    :host([is-union]) {
-      border-left: 1px var(--property-shape-document-union-color, #FFEB3B) solid;
-    }
-
-    :host > .children {
-      margin-left: 4px; /* It adds to 8 px padding from :host */
-    }
-
-    [hidden] {
-      display: none !important;
     }
 
     .property-title {
       @apply --arc-font-subhead;
       margin: 0 0 12px 0;
+      font-size: 18px;
       @apply --property-shape-document-title;
     }
 
@@ -48,6 +29,47 @@
       font-weight: 400;
       color: var(--api-type-document-property-color, #757575);
     }
+
+    .doc-wrapper {
+      @apply --layout-horizontal;
+      transition: background-color 0.4s linear;
+    }
+
+    .doc-border {
+      width: 2px;
+      background-color: transparent;
+      cursor: pointer;
+    }
+
+    .doc-content {
+      @apply --layout-flex;
+      margin-left: 12px;
+      padding: 8px 0;
+    }
+
+    :host([is-union]) .doc-border {
+      background-color: var(--property-shape-document-union-color, #FFEB3B);
+    }
+
+    :host([is-union][active]) .doc-wrapper {
+      background-color: var(--property-shape-document-union-color-active, rgba(255, 235, 59, 0.24));
+    }
+
+    :host([is-array]) .doc-border {
+      background-color: var(--property-shape-document-array-color, #8BC34A);
+    }
+
+    :host([is-array][active]) .doc-wrapper {
+      background-color: var(--property-shape-document-array-color-active, rgba(139, 195, 74, 0.24));
+    }
+
+    :host([is-object]) .doc-border {
+      background-color: var(--property-shape-document-object-color, #FF9800);
+    }
+
+    :host([is-object][active]) .doc-wrapper {
+      background-color: var(--property-shape-document-object-color-active, rgba(255, 152, 0, 0.24));
+    }
     </style>
     <template is="dom-if" if="[[displayName]]">
       <h4 class="property-title">
@@ -57,16 +79,21 @@
         </template>
       </h4>
     </template>
-    <property-range-document amf-model="[[amfModel]]" shape="[[shape]]" range="[[range]]"></property-range-document>
-    <template is="dom-if" if="[[isArray]]">
-      <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="item"></api-type-document>
-    </template>
-    <template is="dom-if" if="[[isObject]]">
-      <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="[[displayName]]"></api-type-document>
-    </template>
-    <template is="dom-if" if="[[isUnion]]">
-      <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="[[displayName]]"></api-type-document>
-    </template>
+    <div class="doc-wrapper">
+      <div class="doc-border" on-mouseover="_borderHover" on-mouseout="_borderBlur"></div>
+      <div class="doc-content">
+        <property-range-document amf-model="[[amfModel]]" shape="[[shape]]" range="[[range]]"></property-range-document>
+        <template is="dom-if" if="[[isArray]]">
+          <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="item"></api-type-document>
+        </template>
+        <template is="dom-if" if="[[isObject]]">
+          <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="[[displayName]]"></api-type-document>
+        </template>
+        <template is="dom-if" if="[[isUnion]]">
+          <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="[[displayName]]"></api-type-document>
+        </template>
+      </div>
+    </div>
   </template>
   <script>
   /**
@@ -132,13 +159,6 @@
           computed: '_computeHasDisplayName(range)'
         },
         /**
-         * Computed value form the shape. True if the property is required.
-         */
-        isRequired: {
-          type: Boolean,
-          computed: '_computeIsRequired(shape)'
-        },
-        /**
          * Computed value, true if current property is an union.
          */
         isUnion: {
@@ -190,16 +210,20 @@
       return !!this._getValue(range, 'http://schema.org/name');
     }
     /**
-     * Computes value for `isRequired` property.
-     * In AMF model a property is required when `http://www.w3.org/ns/shacl#minCount`
-     * does not equal `0`.
-     *
-     * @param {Object} shape Current shape object
-     * @return {Boolean}
+     * Sets "active" attribute on this element when the border is hovered.
      */
-    _computeIsRequired(shape) {
-      const data = this._getValue(shape, 'http://www.w3.org/ns/shacl#minCount');
-      return data !== 0;
+    _borderHover() {
+      if (!this.getAttribute('active')) {
+        this.setAttribute('active', true);
+      }
+    }
+    /**
+     * Removes "active" attribute on this element when the border is not hovered.
+     */
+    _borderBlur() {
+      if (this.getAttribute('active')) {
+        this.removeAttribute('active');
+      }
     }
   }
   window.customElements.define(PropertyShapeDocument.is, PropertyShapeDocument);

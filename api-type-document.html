@@ -13,14 +13,6 @@
       @apply --api-type-document;
     }
 
-    [hidden] {
-      display: none !important;
-    }
-
-    property-shape-document {
-      margin: 8px 0;
-    }
-
     paper-button[active] {
       background-color: var(--api-type-document-union-button-background-color, #CDDC39);
     }
@@ -254,7 +246,7 @@
     _unionTypeActive(selectedUnion, index) {
       return selectedUnion === index;
     }
-    
+
     _computeUnionProperty(type, selected) {
       if (!type) {
         return;

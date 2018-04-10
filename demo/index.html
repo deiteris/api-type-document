@@ -11,14 +11,20 @@
     <link rel="import" href="../../polymer/lib/elements/dom-if.html">
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../paper-styles/typography.html">
     <link rel="import" href="../api-type-document.html">
     <link rel="import" href="../../raml-aware/raml-aware.html">
     <link rel="import" href="../../api-navigation/api-navigation.html">
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
-      --arc-font-subhead: {
-        @apply --paper-font-subhead;
-      };
+      :root {
+        --arc-font-subhead: {
+          @apply --paper-font-subhead;
+        };
+        --arc-font-body1: {
+          @apply --paper-font-body1;
+        };
+      }
 
       [role="main"] {
         max-width: 1100px;
@@ -44,7 +50,7 @@
       <template is="dom-bind">
         <div class="vertical-section-container" role="main">
           <raml-aware raml="{{amfModel}}" scope="model"></raml-aware>
-          <api-navigation aware="model"></api-navigation>
+          <api-navigation aware="model" types-opened></api-navigation>
           <template is="dom-if" if="[[hasType]]">
             <api-type-document aware="model" type="[[dataProperties]]"></api-type-document>
           </template>
