@@ -4,6 +4,18 @@ version: v1
 baseUri: http://{environment}.api.domain.com/{version}/
 mediaType: [ application/json, application/xml ]
 
+annotationTypes:
+  MarkAnnotation: nil
+  deprecated: string
+  clearanceLevel:
+    properties:
+      level:
+        enum: [ low, medium, high ]
+        required: true
+      signature:
+        pattern: "\\d{3}-\\w{12}"
+        required: true
+
 types:
   Image: !include resourceTypes/image.raml
   Resource: !include resourceTypes/resource.raml
@@ -13,6 +25,14 @@ types:
     type: object
     properties:
       e1:
+        (MarkAnnotation):
+        (deprecated): |
+          This property is deprecated.
+
+          Please, do not use it in new projects.
+        (clearanceLevel):
+          level: low
+          signature: 230-ghtwvfrs1itr
         type: string
         displayName: Enumerable 1
         description: |
@@ -31,6 +51,7 @@ types:
         type: string
         enum: [e1, e2, e3, e4]
         required: true
+        example: e1
   ArrayType:
     type: array
     items: Image
@@ -66,6 +87,19 @@ types:
       etag:
         type: string
       data: Feature | ErrorResource | Product
+  PropertyArray:
+    type: object
+    properties:
+      etag:
+        type: string
+      nextPageToken:
+        type: string
+      data:
+        type: array
+        items: Product
+      complex:
+        type: array
+        items: string | number | Product
 resourceTypes:
   ErrorredResource:
     get:

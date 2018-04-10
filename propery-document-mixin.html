@@ -1,0 +1,152 @@
+<!--
+@license
+Copyright 2018 The Advanced REST client authors <arc@mulesoft.com>
+Licensed under the Apache License, Version 2.0 (the "License"); you may not
+use this file except in compliance with the License. You may obtain a copy of
+the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations under
+the License.
+-->
+<link rel="import" href="../polymer/lib/utils/mixin.html">
+<script>
+(function(global) {
+'use strict';
+if (!global.ArcBehaviors) {
+  /**
+   * @namespace ArcBehaviors
+   */
+  global.ArcBehaviors = {};
+}
+/**
+ * A mixin that contains common function for `property-*-document` elements.
+ *
+ * @polymer
+ * @mixinFunction
+ * @memberof ArcBehaviors
+ */
+ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
+  /**
+   * @polymer
+   * @mixinClass
+   */
+  class PDmixin extends base {
+    static get properties() {
+      return {
+        /**
+         * Generated AMF json/ld model form the API spec.
+         * The element assumes the object of the first array item to be a
+         * type of `"http://raml.org/vocabularies/document#Document`
+         * on AMF vocabulary.
+         *
+         * It is only usefult for the element to resolve references.
+         *
+         * @type {Object|Array}
+         */
+        amfModel: Object,
+        /**
+         * A property shape definition of AMF.
+         *
+         * @type {Object}
+         */
+        shape: Object,
+        /**
+         * Computes value of shape's http://raml.org/vocabularies/shapes#range
+         * @type {Object}
+         */
+        range: Object
+      };
+    }
+
+    /**
+     * Computes type from a `http://raml.org/vocabularies/shapes#range` object
+     *
+     * @param {Object} range AMF property range object
+     * @return {String} Data type of the property.
+     */
+    _computeRangeDataType(range) {
+      if (!range) {
+        return;
+      }
+      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#UnionShape')) {
+        return 'Union';
+      }
+      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#ArrayShape')) {
+        return 'Array';
+      }
+      if (this._hasType(range, 'http://www.w3.org/ns/shacl#NodeShape')) {
+        return 'Object';
+      }
+      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#FileShape')) {
+        return 'File';
+      }
+      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#NilShape')) {
+        return 'Null';
+      }
+      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
+        switch (range['http://www.w3.org/ns/shacl#datatype'][0]['@id']) {
+          case 'http://raml.org/vocabularies/shapes#number': return 'Number';
+          case 'http://www.w3.org/2001/XMLSchema#integer': return 'Integer';
+          case 'http://www.w3.org/2001/XMLSchema#string': return 'String';
+          case 'http://www.w3.org/2001/XMLSchema#boolean': return 'Boolean';
+          case 'http://www.w3.org/2001/XMLSchema#date': return 'Date';
+          case 'http://www.w3.org/2001/XMLSchema#time': return 'Time';
+          case 'http://www.w3.org/2001/XMLSchema#dateTime': return 'DateTime';
+          case 'http://raml.org/vocabularies/shapes#dateTimeOnly': return 'Time';
+          case 'http://www.w3.org/2001/XMLSchema#float': return 'Float';
+        }
+      }
+      debugger;
+      return 'Unknown type';
+    }
+    /**
+     * Checks if property item has a type.
+     * @param {Object} model Model item.
+     * @param {String} type A type to lookup
+     * @return {Boolean}
+     */
+    _hasType(model, type) {
+      if (!model) {
+        return false;
+      }
+      const types = model['@type'] || [];
+      return types.findIndex((item) => item === type) !== -1;
+    }
+    /**
+     * Gets a signle scalar value from a model.
+     * @param {Object} model Amf model to extract the value from.
+     * @param {String} key Model key to search for the value
+     * @return {any} Value for key
+     */
+    _getValue(model, key) {
+      let data = (model && model[key]);
+      if (!data || !(data instanceof Array)) {
+        return;
+      }
+      data = data[0];
+      if (!data) {
+        return;
+      }
+      return data['@value'];
+    }
+    /**
+     * Gets a list of scalar values from a model.
+     * @param {Object} model Amf model to extract the value from.
+     * @param {String} key Model key to search for the value
+     * @return {Array<any>} Value for key
+     */
+    _getValues(model, key) {
+      let data = (model && model[key]);
+      if (!data || !(data instanceof Array)) {
+        return;
+      }
+      return data.map((item) => item['@value']);
+    }
+  }
+return PDmixin;
+});
+})(window);
+</script>

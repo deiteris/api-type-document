@@ -2,16 +2,33 @@
 <link rel="import" href="../polymer/lib/elements/dom-if.html">
 <link rel="import" href="../polymer/lib/elements/dom-repeat.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../markdown-styles/markdown-styles.html">
-<link rel="import" href="../marked-element/marked-element.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="api-type-document.html">
+<link rel="import" href="property-range-document.html">
 
 <dom-module id="property-shape-document">
   <template>
-    <style include="markdown-styles"></style>
     <style>
     :host {
       display: block;
+      padding: 4px 8px;
       @apply --property-shape-document;
+    }
+
+    :host([is-array]) {
+      border-left: 1px #8BC34A solid;
+    }
+
+    :host([is-object]) {
+      border-left: 1px #FF9800 solid;
+    }
+
+    :host([is-union]) {
+      border-left: 1px #FFEB3B solid;
+    }
+
+    :host > .children {
+      margin-left: 4px; /* It adds to 8 px padding from :host */
     }
 
     [hidden] {
@@ -20,47 +37,65 @@
 
     .property-title {
       @apply --arc-font-subhead;
+      margin: 0 0 12px 0;
       @apply --property-shape-document-title;
     }
 
-    .property-traits {
-      @apply --layout-horizontal;
-      @apply --layout-wrap;
+    .parent-label {
+      color: #757575;
     }
 
-    .property-traits > span {
-      display: inline-block;
-      margin-right: 8px;
-      padding: 4px 8px;
-      background-color: #EEEEEE;
-      border-radius: 3px;
+    .property-name {
+      font-weight: 400;
+      color: #757575;
     }
 
-    .property-traits > span.data-type {
-      background-color: #2196F3;
-      color: white;
+    paper-button[active] {
+      background-color: #CDDC39;
     }
 
-    .property-description {
-      margin-top: 20px;
+    .union-type-selector {
+      margin: 20px 0;
     }
     </style>
-    <h4 class="property-title">[[displayName]]</h4>
-    <div class="property-traits">
-      <span class="data-type">[[propertyDataType]]</span>
-      <template is="dom-if" if="[[isRequired]]">
-        <span class="required-type">Required</span>
+    <h4 class="property-title">
+      <template is="dom-if" if="[[parentTypeName]]"><span class="parent-label">[[parentTypeName]].</span></template><span>[[displayName]]</span>
+      <template is="dom-if" if="[[hasDisplayName]]">
+        <span class="property-name" title="Parameter name in API communication">([[propertyName]])</span>
       </template>
-      <template is="dom-if" if="[[isEnum]]">
-        <span class="enym-type">Enum</span>
-      </template>
-    </div>
-    <template is="dom-if" if="[[propertyDescription]]">
-      <div class="property-description">
-        <marked-element markdown="[[propertyDescription]]">
-          <div slot="markdown-html" class="markdown-body"></div>
-        </marked-element>
+    </h4>
+    <property-range-document amf-model="[[amfModel]]" shape="[[shape]]" range="[[range]]"></property-range-document>
+
+    <template is="dom-if" if="[[isArray]]">
+      <api-type-document class="children" amf-model="[[amfModel]]" type-properties="[[_computeArrayProperties(range)]]" parent-type-name="item"></api-type-document>
+    </template>
+
+    <template is="dom-if" if="[[isObject]]">
+      <api-type-document class="children" amf-model="[[amfModel]]" type-properties="[[_computeProperties(range)]]" parent-type-name="[[displayName]]"></api-type-document>
+    </template>
+
+    <template is="dom-if" if="[[isUnion]]">
+      <div class="union-type-selector">
+        <template is="dom-repeat" items="[[unionTypes]]">
+          <paper-button toggles active="[[_unionTypeActive(selectedUnion, index)]]" on-click="_selectUnion" title$="Select [[item.label]] type">[[item.label]]</paper-button>
+        </template>
       </div>
+      <template is="dom-if" if="[[unionIsScalar]]">
+        <property-range-document class="children" amf-model="[[amfModel]]" range="[[_computeUnionProperty(range.*, selectedUnion)]]" parent-type-name="[[displayName]]"></property-range-document>
+      </template>
+      <template is="dom-if" if="[[unionIsType]]">
+        <api-type-document class="children" amf-model="[[amfModel]]" type-properties="[[_computeUnionProperties(range.*, selectedUnion)]]" parent-type-name="[[displayName]]"></api-type-document>
+      </template>
+      <template is="dom-if" if="[[unionIsArray]]">
+        <template is="dom-repeat" items="[[_computeUnionProperties(range.*, selectedUnion)]]">
+          <template is="dom-if" if="[[_hasType(item, 'http://www.w3.org/ns/shacl#NodeShape')]]">
+            <api-type-document class="children" amf-model="[[amfModel]]" type-properties="[[_computeProperties(item)]]" parent-type-name="[[displayName]]"></api-type-document>
+          </template>
+          <template is="dom-if" if="[[!_hasType(item, 'http://www.w3.org/ns/shacl#NodeShape')]]">
+            <property-range-document class="children" amf-model="[[amfModel]]" range="[[item]]" parent-type-name="[[displayName]]"></property-range-document>
+          </template>
+        </template>
+      </template>
     </template>
   </template>
   <script>
@@ -81,22 +116,17 @@
    * @polymer
    * @demo demo/index.html
    * @memberof ApiElements
+   * @appliesMixin ArcBehaviors.PropertyDocumentMixin
    */
-  class PropertyShapeDocument extends Polymer.Element {
+  class PropertyShapeDocument extends ArcBehaviors.PropertyDocumentMixin(Polymer.Element) {
     static get is() { return 'property-shape-document'; }
     static get properties() {
       return {
         /**
-         * A property shape definition of AMF.
-         *
+         * Computed value of shape's http://raml.org/vocabularies/shapes#range
          * @type {Object}
          */
-        shape: Object,
-        /**
-         * Computes value of shape's http://raml.org/vocabularies/shapes#range
-         * @type {Object}
-         */
-        shapeRange: {
+        range: {
           type: Object,
           computed: '_computeRange(shape)'
         },
@@ -105,15 +135,24 @@
          */
         displayName: {
           type: String,
-          computed: '_computeDisplayName(shape)'
+          computed: '_computeDisplayName(range, shape)'
         },
         /**
-         * Computed value of shape data type
-         * @type {Object}
+         * A type property name.
+         * This may be different from `displayName` property if
+         * `displayName` was specified in the API spec for this property.
          */
-        propertyDataType: {
+        propertyName: {
           type: String,
-          computed: '_computeRangeDataType(shapeRange)'
+          computed: '_computePropertyName(range, shape)'
+        },
+        /**
+         * Computed value, true if `displayName` has been defined for this
+         * property.
+         */
+        hasDisplayName: {
+          type: Boolean,
+          computed: '_computeHasDisplayName(range)'
         },
         /**
          * Computed value form the shape. True if the property is required.
@@ -123,52 +162,83 @@
           computed: '_computeIsRequired(shape)'
         },
         /**
-         * Computed value form the shape. True if the property is ENUM.
-         *
-         * TODO: This is mocked right now. I am not sure that is the data
-         * model for this.
+         * Computed value, true if current property is an union.
          */
-        isEnum: {
+        isUnion: {
           type: Boolean,
-          computed: '_computeIsEnum(shapeRange)'
+          computed: '_computeIsUnion(range)',
+          reflectToAttribute: true
         },
         /**
-         * A description of the property to render.
+         * Computed list of union type types to render in union type
+         * selector.
+         * Each item has `label` and `isScalar` property.
+         *
+         * @type {Array<Object>}
          */
-        propertyDescription: {
-          type: String,
-          computed: '_computeDescription(shapeRange)'
+        unionTypes: {
+          type: Array,
+          computed: '_computeUnionTypes(isUnion, range)',
+          observer: '_unionTypesChanged'
+        },
+        /**
+         * Computed value, true if current property is an object.
+         */
+         isObject: {
+          type: Boolean,
+          computed: '_computeIsObject(range)',
+          reflectToAttribute: true
+        },
+        /**
+         * Computed value, true if current property is an array.
+         */
+        isArray: {
+          type: Boolean,
+          computed: '_computeIsArray(range)',
+          reflectToAttribute: true
+        },
+        /**
+         * Should be set if described properties has a parent type.
+         * This is used when recursively iterating over properties.
+         */
+        parentTypeName: String,
+        /**
+         * Selected index of union type in `unionTypes` array.
+         */
+        selectedUnion: {
+          type: Number
+        },
+        /**
+         * True when selected union type is a scalar value.
+         */
+        unionIsScalar: {
+          type: Boolean,
+          readOnly: true
+        },
+        /**
+         * True when selected union type is a type value.
+         */
+        unionIsType: {
+          type: Boolean,
+          readOnly: true
+        },
+        /**
+         * True when selected union type is an array value.
+         */
+        unionIsArray: {
+          type: Boolean,
+          readOnly: true
         }
       };
     }
-    /**
-     * Checks if property item has a type.
-     * @param {Object} model Model item.
-     * @param {String} type A type to lookup
-     * @return {Boolean}
-     */
-    _hasType(model, type) {
-      if (!model) {
-        return false;
-      }
-      const types = model['@type'] || [];
-      return types.findIndex((item) => item === type) !== -1;
+
+    static get observers() {
+      return [
+        '_unionSelectionChanged(selectedUnion, unionTypes)'
+      ];
     }
     /**
-     * Gets a signle scalar value from a model.
-     * @param {Object} model Amf model to extract the value from.
-     * @param {String} key Model key to search for the value
-     * @return {any} Value for key
-     */
-    _getValue(model, key) {
-      const data = (model && model[key]);
-      if (!data || !(data instanceof Array)) {
-        return;
-      }
-      return data[0]['@value'];
-    }
-    /**
-     * Computes value for `shapeRange` property.
+     * Computes value for `range` property.
      * @param {Object} shape Current shape object.
      * @return {Object} Range object
      */
@@ -182,45 +252,46 @@
     /**
      * Computes name label for the shape.
      *
-     * @param {Object} shape Current AMF shape
+     * @param {Object} range Range object of current shape.
+     * @param {Object} shape The shape of the property.
      * @return {String} Display name of the property
      */
-    _computeDisplayName(shape) {
-      let name = this._getValue(shape, 'http://www.w3.org/ns/shacl#name');
+    _computeDisplayName(range, shape) {
+      let name = this._getValue(range, 'http://schema.org/name');
+      if (!name) {
+        name = this._getValue(range, 'http://www.w3.org/ns/shacl#name');
+      }
+      if (name === 'type' && this._hasType(range, 'http://www.w3.org/ns/shacl#NodeShape')) {
+        name = '';
+      }
+      if (!name) {
+        // File and Union types does not have "name" on range object.
+        name = this._getValue(shape, 'http://www.w3.org/ns/shacl#name');
+      }
+      if (name && name[name.length - 1] === '?') {
+        name = name.substr(0, name.length - 1);
+      }
       return name;
     }
     /**
-     * Computes value for `propertyDataType`
-     * @param {Object} range AMF property range object
-     * @return {String} Data type of the property.
+     * Computes name of the property. This may be different from the
+     * `displayName` if `displayName` is set in API spec.
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {String} Display name of the property
      */
-    _computeRangeDataType(range) {
-      if (!range) {
-        return;
-      }
-      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#UnionShape')) {
-        return 'Union';
-      }
-      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#ArrayShape')) {
-        return 'Array';
-      }
-      if (this._hasType(range, 'http://www.w3.org/ns/shacl#NodeShape')) {
-        return 'Object';
-      }
-      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
-        switch (range['http://www.w3.org/ns/shacl#datatype'][0]['@id']) {
-          case 'http://raml.org/vocabularies/shapes#number': return 'Number';
-          case 'http://www.w3.org/2001/XMLSchema#integer': return 'Integer';
-          case 'http://www.w3.org/2001/XMLSchema#string': return 'String';
-          case 'http://www.w3.org/2001/XMLSchema#boolean': return 'Boolean';
-          case 'http://www.w3.org/2001/XMLSchema#date': return 'Date';
-          case 'http://www.w3.org/2001/XMLSchema#time': return 'Time';
-          case 'http://www.w3.org/2001/XMLSchema#dateTime': return 'DateTime';
-          case 'http://www.w3.org/2001/XMLSchema#dateTime': return 'Float';
-          default: debugger;
-        }
-      }
-      debugger;
+    _computePropertyName(range) {
+      return this._getValue(range, 'http://www.w3.org/ns/shacl#name');
+    }
+    /**
+     * Computes value for `hasDisplayName` property.
+     * Indicates that `displayName` has been defined in the API specification.
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {Boolean}
+     */
+    _computeHasDisplayName(range) {
+      return !!this._getValue(range, 'http://schema.org/name');
     }
     /**
      * Computes value for `isRequired` property.
@@ -235,23 +306,213 @@
       return data !== 0;
     }
     /**
-     * Computes value `isEnum` property.
-     * @param {Object} range Current `range` object.
-     * @return {Boolean} Curently it always returns `false`
+     * Computes value for `isUnion` property.
+     * Union type is identified as a `http://raml.org/vocabularies/shapes#UnionShape`
+     * type.
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {Boolean}
      */
-    _computeIsEnum(range) {
-      return !!(range && ('http://www.w3.org/ns/shacl#in' in range));
+    _computeIsUnion(range) {
+      return this._hasType(range, 'http://raml.org/vocabularies/shapes#UnionShape');
+    }
+
+    /**
+     * Computes value for `isObject` property.
+     * Object type is identified as a `http://raml.org/vocabularies/shapes#NodeShape`
+     * type.
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {Boolean}
+     */
+    _computeIsObject(range) {
+      return this._hasType(range, 'http://www.w3.org/ns/shacl#NodeShape');
+    }
+
+    /**
+     * Computes value for `isArray` property.
+     * Array type is identified as a `http://raml.org/vocabularies/shapes#ArrayShape`
+     * type.
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {Boolean}
+     */
+    _computeIsArray(range) {
+      return this._hasType(range, 'http://raml.org/vocabularies/shapes#ArrayShape');
     }
     /**
-     * Computes value for `propertyDescription`.
-     * @param {Object} range Range model
-     * @return {String} Description to render.
+     * Computes properties to render Array items documentation.
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {Array<Object>|undefined} List of Array items.
      */
-    _computeDescription(range) {
+    _computeArrayProperties(range) {
       if (!range) {
         return;
       }
-      return this._getValue(range, 'http://schema.org/description');
+      let items = range['http://raml.org/vocabularies/shapes#items'];
+      if (!items) {
+        return;
+      }
+      items = items[0];
+      return items['http://www.w3.org/ns/shacl#property'];
+    }
+    /**
+     * Computes list of union type labels to render.
+     *
+     * @param {Boolean} isUnion
+     * @param {Object} range
+     * @return {Array<Object>}
+     */
+    _computeUnionTypes(isUnion, range) {
+      if (!isUnion || !range) {
+        return;
+      }
+      const list = range['http://raml.org/vocabularies/shapes#anyOf'];
+      if (!list) {
+        return;
+      }
+      return list.map((item) => {
+        let isScalar = this._hasType(item, 'http://raml.org/vocabularies/shapes#ScalarShape');
+        const isNil = this._hasType(item, 'http://raml.org/vocabularies/shapes#NilShape');
+        if (!isScalar && isNil) {
+          isScalar = true;
+        }
+        let isArray = this._hasType(item, 'http://raml.org/vocabularies/shapes#ArrayShape');
+        let isType = !isScalar && !isArray;
+        let label;
+        if (isArray) {
+          label = this._computeArrayUnionLabel(item['http://raml.org/vocabularies/shapes#items']);
+        } else if (isNil) {
+          label = 'Null';
+        } else {
+          label = this._getValue(item, 'http://schema.org/name');
+          if (!label) {
+            label = this._getValue(item, 'http://www.w3.org/ns/shacl#name');
+          }
+          if (!label && this._hasType(item, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
+            label = this._computeRangeDataType(item);
+          }
+        }
+        if (!label) {
+          label = 'Unnamed type';
+        }
+        return {
+          isScalar,
+          isArray,
+          isType,
+          label
+        };
+      });
+    }
+    /**
+     * Computes union type label when the union is in Array.
+     *
+     * @param {Array} items Array items property
+     * @return {String|undefined} Label for the union type.
+     */
+    _computeArrayUnionLabel(items) {
+      if (!items || !(items instanceof Array)) {
+        return;
+      }
+      const item = items[0];
+      if (this._hasType(item, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
+        return this._computeRangeDataType(item);
+      }
+      return this._computeDisplayName(item);
+    }
+    /**
+     * Computes if selectedUnion equals current item index.
+     *
+     * @param {Number} selectedUnion
+     * @param {Number} index
+     * @return {Boolean}
+     */
+    _unionTypeActive(selectedUnion, index) {
+      return selectedUnion === index;
+    }
+    /**
+     * Resets union selection when union types list changes.
+     *
+     * @param {?Array} types List of current union types.
+     */
+    _unionTypesChanged(types) {
+      if (!types) {
+        return;
+      }
+      this.selectedUnion = 0;
+    }
+    /**
+     * Handler for union type button click.
+     * Sets `selectedUnion` property.
+     *
+     * @param {ClickEvent} e
+     */
+    _selectUnion(e) {
+      const index = e.model.get('index');
+      this.selectedUnion = index;
+    }
+    /**
+     * Handler for union type selection change.
+     * Updates helper peoprties valus that determine proper view for a
+     * type.
+     *
+     * @param {Number} selected Currently selected type.
+     * @param {Array<Object>} types Types list
+     */
+    _unionSelectionChanged(selected, types) {
+      if ((!selected && selected !== 0) || !types) {
+        return;
+      }
+      const item = types[selected];
+      this._setUnionIsScalar(item.isScalar);
+      this._setUnionIsArray(item.isArray);
+      this._setUnionIsType(item.isType);
+    }
+    /**
+     * Computes a property value for scalar type union item.
+     *
+     * @param {Object} record Range change record.
+     * @param {Number} selected Selected union item index.
+     * @return {Object|undefined} Range object
+     */
+    _computeUnionProperty(record, selected) {
+      if (!record || !record.base || selected === undefined) {
+        return;
+      }
+      const range = record.base;
+      const data = range['http://raml.org/vocabularies/shapes#anyOf'];
+      return data[selected];
+    }
+    /**
+     * Computes list of properties for union item of a type of
+     * `http://www.w3.org/ns/shacl#NodeShape`
+     *
+     * @param {Object} record Range change record.
+     * @param {Number} selected Selected union item index.
+     * @return {Array|undefined} List of properties
+     */
+    _computeUnionProperties(record, selected) {
+      if (!record || !record.base || selected === undefined) {
+        return;
+      }
+      const range = record.base;
+      const data = range['http://raml.org/vocabularies/shapes#anyOf'];
+      const def = data[selected];
+      if (this._hasType(def, 'http://raml.org/vocabularies/shapes#ArrayShape')) {
+        return def['http://raml.org/vocabularies/shapes#items'];
+      }
+      return def['http://www.w3.org/ns/shacl#property'];
+    }
+    /**
+     * Helper function for the view. Extracts `http://www.w3.org/ns/shacl#property`
+     * from the shape model
+     *
+     * @param {Object} item Range object
+     * @return {Object} Shape object
+     */
+    _computeProperties(item) {
+      return item && item['http://www.w3.org/ns/shacl#property'];
     }
   }
   window.customElements.define(PropertyShapeDocument.is, PropertyShapeDocument);

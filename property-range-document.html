@@ -1,0 +1,475 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../polymer/lib/elements/dom-if.html">
+<link rel="import" href="../polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../markdown-styles/markdown-styles.html">
+<link rel="import" href="../marked-element/marked-element.html">
+<link rel="import" href="api-type-document.html">
+<link rel="import" href="propery-document-mixin.html">
+
+<dom-module id="property-range-document">
+  <template>
+    <style include="markdown-styles"></style>
+    <style>
+    :host {
+      display: block;
+      @apply --property-range-document;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .property-traits {
+      @apply --layout-horizontal;
+      @apply --layout-wrap;
+    }
+
+    .property-traits > span {
+      display: inline-block;
+      margin-right: 8px;
+      padding: 4px 8px;
+      background-color: #EEEEEE;
+      border-radius: 3px;
+    }
+
+    .property-traits > span.data-type {
+      background-color: #2196F3;
+      color: white;
+    }
+
+    .property-description {
+      margin: 20px 0;
+    }
+
+    .property-attribute {
+      @apply --layout-horizontal;
+      @apply --layout-start;
+      margin: 12px 0;
+      color: #616161;
+    }
+
+    .attribute-label {
+      font-weight: 500;
+      margin-right: 12px;
+    }
+
+    .attribute-value {
+      @apply --layout-flex;
+    }
+
+    .attribute-value ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    </style>
+    <div class="property-traits">
+      <span class="data-type">[[propertyDataType]]</span>
+      <template is="dom-if" if="[[isRequired]]">
+        <span class="required-type" title="This property is required by the API">Required</span>
+      </template>
+      <template is="dom-if" if="[[isEnum]]">
+        <span class="enym-type" title="This property represent enumerable value">Enum</span>
+      </template>
+    </div>
+    <template is="dom-if" if="[[propertyDescription]]">
+      <div class="property-description">
+        <marked-element markdown="[[propertyDescription]]">
+          <div slot="markdown-html" class="markdown-body"></div>
+        </marked-element>
+      </div>
+    </template>
+
+    <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#defaultValueStr')]]">
+      <div class="property-attribute">
+        <span class="attribute-label">Default value:</span>
+        <span class="attribute-value" title="This value is used as a default value">[[_getValue(range,'http://www.w3.org/ns/shacl#defaultValueStr')]]</span>
+      </div>
+    </template>
+    <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#pattern')]]">
+      <div class="property-attribute">
+        <span class="attribute-label">Pattern:</span>
+        <span class="attribute-value" title="Regular expression value for this property">[[_getValue(range,'http://www.w3.org/ns/shacl#pattern')]]</span>
+      </div>
+    </template>
+    <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#minInclusive')]]">
+      <div class="property-attribute">
+        <span class="attribute-label">Min value:</span>
+        <span class="attribute-value" title="Minimum numeric value possible to set on this property">[[_getValue(range,'http://www.w3.org/ns/shacl#minInclusive')]]</span>
+      </div>
+    </template>
+    <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#maxInclusive')]]">
+      <div class="property-attribute">
+        <span class="attribute-label">Max value:</span>
+        <span class="attribute-value" title="Maximum numeric value possible to set on this property">[[_getValue(range,'http://www.w3.org/ns/shacl#maxInclusive')]]</span>
+      </div>
+    </template>
+    <template is="dom-if" if="[[_hasProperty(range, 'http://raml.org/vocabularies/shapes#multipleOf')]]">
+      <div class="property-attribute">
+        <span class="attribute-label">Multiple of:</span>
+        <span class="attribute-value" title="The numeric value has to be multiplicable by this value">[[_getValue(range,'http://raml.org/vocabularies/shapes#multipleOf')]]</span>
+      </div>
+    </template>
+    <template is="dom-if" if="[[!isFile]]">
+      <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#minLength')]]">
+        <div class="property-attribute">
+          <span class="attribute-label">Minimum characters:</span>
+          <span class="attribute-value" title="Minimum number of characters in the value">[[_getValue(range,'http://www.w3.org/ns/shacl#minLength')]]</span>
+        </div>
+      </template>
+      <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#maxLength')]]">
+        <div class="property-attribute">
+          <span class="attribute-label">Maximum characters:</span>
+          <span class="attribute-value" title="Maximum number of characters in the value">[[_getValue(range,'http://www.w3.org/ns/shacl#maxLength')]]</span>
+        </div>
+      </template>
+    </template>
+    <template is="dom-if" if="[[isFile]]">
+      <template is="dom-if" if="[[_hasProperty(range, 'http://raml.org/vocabularies/shapes#fileType')]]">
+        <div class="property-attribute">
+          <span class="attribute-label">File types:</span>
+          <span class="attribute-value" title="File mime types accepted by the endpoint">[[_getValues(range,'http://raml.org/vocabularies/shapes#fileType')]]</span>
+        </div>
+      </template>
+      <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#minLength')]]">
+        <div class="property-attribute">
+          <span class="attribute-label">File minimum size:</span>
+          <span class="attribute-value" title="Minimum size of the file accepted by this endpoint">[[_getValue(range,'http://www.w3.org/ns/shacl#minLength')]]</span>
+        </div>
+      </template>
+      <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#maxLength')]]">
+        <div class="property-attribute">
+          <span class="attribute-label">File maximum size:</span>
+          <span class="attribute-value" title="Maximum size of the file accepted by this endpoint">[[_getValue(range,'http://www.w3.org/ns/shacl#maxLength')]]</span>
+        </div>
+      </template>
+    </template>
+    <template is="dom-if" if="[[isEnum]]">
+      <div class="property-attribute">
+        <span class="attribute-label">Enum values:</span>
+        <span class="attribute-value" title="List of possible values to use with this property">
+          <ul>
+            <template is="dom-repeat" items="[[enumValues]]">
+              <li>[[item]]</li>
+            </template>
+          </ul>
+        </span>
+      </div>
+    </template>
+
+    <template is="dom-if" if="[[hasExamples]]">
+      <h5>Examples</h5>
+      <template is="dom-repeat" items="[[examples]]">
+        <template is="dom-if" if="[[item.hasName]]">
+          <h6>[[item.name]]</h6>
+        </template>
+        <marked-element markdown="[[_computeExampleDisplay(item.value)]]">
+          <div slot="markdown-html" class="markdown-body"></div>
+        </marked-element>
+      </template>
+    </template>
+  </template>
+  <script>
+  /**
+   * `property-range-document`
+   *
+   * Renders a documentation for a shape property of AMF model.
+   *
+   * ## Styling
+   *
+   * `<property-range-document>` provides the following custom properties and mixins for styling:
+   *
+   * Custom property | Description | Default
+   * ----------------|-------------|----------
+   * `--property-range-document` | Mixin applied to this elment | `{}`
+   *
+   * @customElement
+   * @polymer
+   * @demo demo/index.html
+   * @memberof ApiElements
+   * @appliesMixin ArcBehaviors.PropertyDocumentMixin
+   */
+  class PropertyRangeDocument extends ArcBehaviors.PropertyDocumentMixin(Polymer.Element) {
+    static get is() { return 'property-range-document'; }
+    static get properties() {
+      return {
+        /**
+         * Computed value, true if there is a list of examples
+         */
+        hasExamples: {
+          type: Boolean,
+          computed: '_computeHasExamples(range)'
+        },
+        /**
+         * Computed list of examples
+         *
+         * @type {Array<Object>}
+         */
+        examples: {
+          type: Array,
+          computed: '_computeExamplesValue(hasExamples, range)'
+        },
+        /**
+         * Computed value of shape data type
+         * @type {Object}
+         */
+        propertyDataType: {
+          type: String,
+          computed: '_computeRangeDataType(range)'
+        },
+        /**
+         * Computed value form the shape. True if the property is required.
+         */
+        isRequired: Boolean,
+        /**
+         * Computed value form the shape. True if the property is ENUM.
+         */
+        isEnum: {
+          type: Boolean,
+          computed: '_computeIsEnum(range)'
+        },
+        /**
+         * A description of the property to render.
+         */
+        propertyDescription: {
+          type: String,
+          computed: '_computeDescription(range)'
+        },
+        /**
+         * Computed value, true if current property is an union.
+         */
+        isUnion: {
+          type: Boolean,
+          computed: '_computeIsUnion(range)',
+          reflectToAttribute: true
+        },
+        /**
+         * Computed value, true if current property is an object.
+         */
+         isObject: {
+          type: Boolean,
+          computed: '_computeIsObject(range)',
+          reflectToAttribute: true
+        },
+        /**
+         * Computed value, true if current property is an array.
+         */
+        isArray: {
+          type: Boolean,
+          computed: '_computeIsArray(range)',
+          reflectToAttribute: true
+        },
+        /**
+         * Computed value, true if current property is a File.
+         */
+        isFile: {
+          type: Boolean,
+          computed: '_computeIsFile(range)',
+          value: false
+        },
+        /**
+         * Should be set if described properties has a parent type.
+         * This is used when recursively iterating over properties.
+         */
+        parentTypeName: String,
+        /**
+         * Computed values for list of enums.
+         * Enums are list of types names.
+         *
+         * @type {Array<String>}
+         */
+        enumValues: {
+          type: Array,
+          computed: '_computeEnumValues(isEnum, range)'
+        }
+      };
+    }
+    /**
+     * Computes value for `hasExamples`.
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {Boolean}
+     */
+    _computeHasExamples(range) {
+      return this._hasProperty(range, 'http://raml.org/vocabularies/document#examples');
+    }
+    /**
+     * Computes list of examples for the property.
+     *
+     * @param {Boolean} hasExamples Current value of `hasExamples`
+     * @param {Object} range Range object of current shape.
+     * @return {Array<Object>|undefined} List of examples.
+     * Each object has `value` property as a string example value. Also, it has
+     * `hasName` property describing if `name` property is set.
+     */
+    _computeExamplesValue(hasExamples, range) {
+      if (!hasExamples || !range) {
+        return;
+      }
+      const list = range['http://raml.org/vocabularies/document#examples'];
+      if (!list) {
+        return;
+      }
+      return list.map((item) => {
+        const value = this._getValue(item, 'http://raml.org/vocabularies/document#value');
+        const name = this._getValue(item, 'http://schema.org/name');
+        return {
+          name,
+          value,
+          hasName: !!name
+        };
+      });
+    }
+    /**
+     * Computes value `isEnum` property.
+     * @param {Object} range Current `range` object.
+     * @return {Boolean} Curently it always returns `false`
+     */
+    _computeIsEnum(range) {
+      return !!(range && ('http://www.w3.org/ns/shacl#in' in range));
+    }
+    /**
+     * Computes value for `propertyDescription`.
+     * @param {Object} range Range model
+     * @return {String} Description to render.
+     */
+    _computeDescription(range) {
+      if (!range) {
+        return;
+      }
+      return this._getValue(range, 'http://schema.org/description');
+    }
+    /**
+     * Computes value for `isUnion` property.
+     * Union type is identified as a `http://raml.org/vocabularies/shapes#UnionShape`
+     * type.
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {Boolean}
+     */
+    _computeIsUnion(range) {
+      return this._hasType(range, 'http://raml.org/vocabularies/shapes#UnionShape');
+    }
+
+    /**
+     * Computes value for `isObject` property.
+     * Object type is identified as a `http://raml.org/vocabularies/shapes#NodeShape`
+     * type.
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {Boolean}
+     */
+    _computeIsObject(range) {
+      return this._hasType(range, 'http://www.w3.org/ns/shacl#NodeShape');
+    }
+
+    /**
+     * Computes value for `isArray` property.
+     * Array type is identified as a `http://raml.org/vocabularies/shapes#ArrayShape`
+     * type.
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {Boolean}
+     */
+    _computeIsArray(range) {
+      return this._hasType(range, 'http://raml.org/vocabularies/shapes#ArrayShape');
+    }
+    /**
+     * Computes value for `isFile` property
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {Boolean}
+     */
+    _computeIsFile(range) {
+      return this._hasType(range, 'http://raml.org/vocabularies/shapes#FileShape');
+    }
+    /**
+     * Computes properties to render Array items documentation.
+     *
+     * @param {Object} range Range object of current shape.
+     * @return {Array<Object>|undefined} List of Array items.
+     */
+    _computeArrayProperties(range) {
+      if (!range) {
+        return;
+      }
+      let items = range['http://raml.org/vocabularies/shapes#items'];
+      if (!items) {
+        return;
+      }
+      items = items[0];
+      return items['http://www.w3.org/ns/shacl#property'];
+    }
+
+    _computeObjectProperties(range) {
+      if (!range) {
+        return;
+      }
+      return range['http://www.w3.org/ns/shacl#property'];
+    }
+    /**
+     * Computes value for `enumValues` property.
+     *
+     * @param {Boolean} isEnum Current value of `isEnum` property
+     * @param {Object} range Range object of current shape.
+     * @return {Array<String>|undefined} List of enum types.
+     */
+    _computeEnumValues(isEnum, range) {
+      if (!isEnum || !range) {
+        return;
+      }
+      const data = range['http://www.w3.org/ns/shacl#in'];
+      if (!data) {
+        return;
+      }
+      const result = [];
+      return this._computeEnumIterator(data, result);
+    }
+    /**
+     * Computesa value for the `enum` property in the view model.
+     * @param {Array} model Current model item for `shacl#in` namespace
+     * @param {Array} result Collected values.
+     * @return {Array} Final result.
+     */
+    _computeEnumIterator(model, result) {
+      if (!model || !model.length) {
+        return result;
+      }
+      model = model[0];
+      const firstItem = this._getValue(model, 'http://www.w3.org/1999/02/22-rdf-syntax-ns#first');
+      if (firstItem) {
+        result.push(firstItem);
+      }
+      const val = model['http://www.w3.org/1999/02/22-rdf-syntax-ns#rest'];
+      if (!val) {
+        return result;
+      }
+      return this._computeEnumIterator(val, result);
+    }
+    /**
+     * Computes value if a property exists in a model
+     *
+     * @param {Object} model An object to test
+     * @param {String} key Property name to look for
+     * @return {Boolean}
+     */
+    _hasProperty(model, key) {
+      return !!(model && key in model);
+    }
+    /**
+     * Computes example value to set on `marked-element`.
+     * It adds "```" to create a code block.
+     *
+     * @param {String} value Value to display
+     * @return {String|undefined}
+     */
+    _computeExampleDisplay(value) {
+      if (!value) {
+        return '';
+      }
+      return '```\n' + value + '\n```';
+    }
+  }
+  window.customElements.define(PropertyRangeDocument.is, PropertyRangeDocument);
+  </script>
+</dom-module>
