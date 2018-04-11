@@ -51,27 +51,27 @@
       padding: 8px 0;
     }
 
-    :host([is-union]) .doc-border {
+    :host([is-union])  > .doc-wrapper > .doc-border {
       background-color: var(--property-shape-document-union-color, #FFEB3B);
     }
 
-    :host([is-union][active]) .doc-wrapper {
+    :host([is-union][active]) > .doc-wrapper {
       background-color: var(--property-shape-document-union-color-active, rgba(255, 235, 59, 0.24));
     }
 
-    :host([is-array]) .doc-border {
+    :host([is-array]) > .doc-wrapper > .doc-border {
       background-color: var(--property-shape-document-array-color, #8BC34A);
     }
 
-    :host([is-array][active]) .doc-wrapper {
+    :host([is-array][active]) > .doc-wrapper {
       background-color: var(--property-shape-document-array-color-active, rgba(139, 195, 74, 0.24));
     }
 
-    :host([is-object]) .doc-border {
+    :host([is-object]) > .doc-wrapper > .doc-border {
       background-color: var(--property-shape-document-object-color, #FF9800);
     }
 
-    :host([is-object][active]) .doc-wrapper {
+    :host([is-object][active]) > .doc-wrapper {
       background-color: var(--property-shape-document-object-color-active, rgba(255, 152, 0, 0.24));
     }
     </style>
