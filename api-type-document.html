@@ -26,28 +26,25 @@
     </template>
     <template is="dom-if" if="[[isObject]]">
       <template is="dom-repeat" items="[[_computeProperties(type)]]">
-        <property-shape-document shape="[[item]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]"></property-shape-document>
+        <property-shape-document class="object-document" shape="[[item]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]"></property-shape-document>
       </template>
     </template>
-
     <template is="dom-if" if="[[isArray]]">
       <template is="dom-repeat" items="[[_computeArrayProperties(type)]]">
-        <property-shape-document shape="[[item]]" amf-model="[[amfModel]]" parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]"></property-shape-document>
+        <property-shape-document class="array-document" shape="[[item]]" amf-model="[[amfModel]]" parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]"></property-shape-document>
       </template>
     </template>
-
     <template is="dom-if" if="[[isScalar]]">
-      <property-shape-document shape="[[type]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]"></property-shape-document>
+      <property-shape-document class="shape-document" shape="[[type]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]"></property-shape-document>
     </template>
-
     <template is="dom-if" if="[[isUnion]]">
       <div class="union-type-selector">
         <span>Any of:</span>
         <template is="dom-repeat" items="[[unionTypes]]">
-          <paper-button toggles active="[[_unionTypeActive(selectedUnion, index)]]" on-click="_selectUnion" title$="Select [[item.label]] type">[[item.label]]</paper-button>
+          <paper-button class="union-toggle" toggles active="[[_unionTypeActive(selectedUnion, index)]]" on-click="_selectUnion" title$="Select [[item.label]] type">[[item.label]]</paper-button>
         </template>
       </div>
-      <api-type-document amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[_computeUnionProperty(type, selectedUnion)]]"></api-type-document>
+      <api-type-document class="union-document" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[_computeUnionProperty(type, selectedUnion)]]"></api-type-document>
     </template>
   </template>
   <script>
