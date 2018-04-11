@@ -505,6 +505,12 @@
      * @return {Boolean}
      */
     _computeIsRequired(shape) {
+      if (!shape) {
+        return false;
+      }
+      if (this._hasType(shape, 'http://raml.org/vocabularies/http#Parameter')) {
+        return this._getValue(shape, 'http://www.w3.org/ns/hydra/core#required');
+      }
       const data = this._getValue(shape, 'http://www.w3.org/ns/shacl#minCount');
       return data !== 0;
     }
