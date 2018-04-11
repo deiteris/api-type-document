@@ -194,9 +194,10 @@
       let isArray = false;
       let isObject = false;
       let isUnion = false;
-      if (this._hasType(type, 'http://raml.org/vocabularies/shapes#ScalarShape') || this._hasType(type, 'http://raml.org/vocabularies/shapes#NilShape')) {
+      if (type instanceof Array) {
+        isObject = true;
+      } else if (this._hasType(type, 'http://raml.org/vocabularies/shapes#ScalarShape') || this._hasType(type, 'http://raml.org/vocabularies/shapes#NilShape')) {
         isScalar = true;
-        this._effectiveProperties = type;
       } else if (this._hasType(type, 'http://raml.org/vocabularies/shapes#UnionShape')) {
         isUnion = true;
         this.unionTypes = this._computeUnionTypes(true, type);

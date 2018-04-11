@@ -99,7 +99,6 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
           case 'http://www.w3.org/2001/XMLSchema#float': return 'Float';
         }
       }
-      debugger;
       return 'Unknown type';
     }
     /**
@@ -114,6 +113,9 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       let data;
       if (this._hasType(shape, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
         data = shape;
+      } else if (this._hasType(shape, 'http://raml.org/vocabularies/http#Parameter')) {
+        data = shape['http://raml.org/vocabularies/http#schema'];
+        data = (data && data.length) ? data[0] : undefined;
       } else {
         data = shape['http://raml.org/vocabularies/shapes#range'];
         data = (data && data.length) ? data[0] : undefined;
@@ -171,6 +173,9 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
      * @return {Object} Shape object
      */
     _computeProperties(item) {
+      if (item instanceof Array) {
+        return item;
+      }
       return item && item['http://www.w3.org/ns/shacl#property'];
     }
     /**

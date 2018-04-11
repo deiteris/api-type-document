@@ -14,6 +14,10 @@
       @apply --property-shape-document;
     }
 
+    [hidden] {
+      display: none !important;
+    }
+
     .property-title {
       @apply --arc-font-subhead;
       margin: 0 0 12px 0;
@@ -73,10 +77,9 @@
     </style>
     <template is="dom-if" if="[[displayName]]">
       <h4 class="property-title">
-        <template is="dom-if" if="[[parentTypeName]]"><span class="parent-label">[[parentTypeName]].</span></template><span>[[displayName]]</span>
-        <template is="dom-if" if="[[hasDisplayName]]">
-          <span class="property-name" title="Parameter name in API communication">([[propertyName]])</span>
-        </template>
+        <template is="dom-if" if="[[parentTypeName]]"><span class="parent-label">[[parentTypeName]].</span></template>
+        <span class="property-name" hidden$="[[!hasDisplayName]]">[[propertyName]]</span>
+        <span>[[displayName]]</span>
       </h4>
     </template>
     <div class="doc-wrapper">
@@ -196,7 +199,13 @@
      * @param {Object} range Range object of current shape.
      * @return {String} Display name of the property
      */
-    _computePropertyName(range) {
+    _computePropertyName(range, shape) {
+      if (!shape || !range) {
+        return;
+      }
+      if (this._hasType(shape, 'http://raml.org/vocabularies/http#Parameter')) {
+        return this._getValue(shape, 'http://schema.org/name');
+      }
       return this._getValue(range, 'http://www.w3.org/ns/shacl#name');
     }
     /**
