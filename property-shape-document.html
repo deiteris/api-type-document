@@ -159,7 +159,7 @@
          */
         hasDisplayName: {
           type: Boolean,
-          computed: '_computeHasDisplayName(range)'
+          computed: '_computeHasDisplayName(range, shape)'
         },
         /**
          * Computed value, true if current property is an union.
@@ -215,7 +215,16 @@
      * @param {Object} range Range object of current shape.
      * @return {Boolean}
      */
-    _computeHasDisplayName(range) {
+    _computeHasDisplayName(range, shape) {
+      if (!shape || !range) {
+        return false;
+      }
+      if (this._hasType(shape, 'http://raml.org/vocabularies/http#Parameter')) {
+        return !!this._getValue(range, 'http://schema.org/name');
+      }
+      if (this._hasType(range, 'http://www.w3.org/ns/shacl#NodeShape')) {
+        return !!this._getValue(shape, 'http://www.w3.org/ns/shacl#name');
+      }
       return !!this._getValue(range, 'http://schema.org/name');
     }
     /**

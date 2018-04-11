@@ -301,12 +301,22 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
      * @return {String} Display name of the property
      */
     _computeDisplayName(range, shape) {
-      let name = this._getValue(range, 'http://schema.org/name');
-      if (!name) {
-        name = this._getValue(range, 'http://www.w3.org/ns/shacl#name');
+      if (!shape || !range) {
+        return;
       }
-      if (name === 'type' && this._hasType(range, 'http://www.w3.org/ns/shacl#NodeShape')) {
-        name = '';
+      let name;
+      if (this._hasType(shape, 'http://raml.org/vocabularies/http#Parameter')) {
+        name =  this._getValue(range, 'http://schema.org/name');
+        if(!name) {
+          name =  this._getValue(shape, 'http://raml.org/vocabularies/http#paramName');
+        }
+      } else if (this._hasType(range, 'http://www.w3.org/ns/shacl#NodeShape')) {
+        name = this._getValue(shape, 'http://www.w3.org/ns/shacl#name');
+      } else {
+        name = this._getValue(range, 'http://schema.org/name');
+        if (!name) {
+          name = this._getValue(range, 'http://www.w3.org/ns/shacl#name');
+        }
       }
       if (!name) {
         // File and Union types does not have "name" on range object.
