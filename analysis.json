@@ -6,7 +6,7 @@
       "description": "",
       "summary": "",
       "sourceRange": {
-        "file": "propery-document-mixin.html",
+        "file": "property-document-mixin.html",
         "start": {
           "line": 21,
           "column": 2
@@ -20,7 +20,7 @@
         {
           "description": "A mixin that contains common function for `property-*-document` elements.",
           "summary": "",
-          "path": "propery-document-mixin.html",
+          "path": "property-document-mixin.html",
           "properties": [
             {
               "name": "amfModel",
@@ -91,7 +91,7 @@
                   "column": 4
                 },
                 "end": {
-                  "line": 103,
+                  "line": 102,
                   "column": 5
                 }
               },
@@ -114,11 +114,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 109,
+                  "line": 108,
                   "column": 4
                 },
                 "end": {
-                  "line": 121,
+                  "line": 123,
                   "column": 5
                 }
               },
@@ -141,11 +141,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 128,
+                  "line": 130,
                   "column": 4
                 },
                 "end": {
-                  "line": 134,
+                  "line": 136,
                   "column": 5
                 }
               },
@@ -172,11 +172,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 141,
+                  "line": 143,
                   "column": 4
                 },
                 "end": {
-                  "line": 151,
+                  "line": 153,
                   "column": 5
                 }
               },
@@ -204,11 +204,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 158,
+                  "line": 160,
                   "column": 4
                 },
                 "end": {
-                  "line": 164,
+                  "line": 166,
                   "column": 5
                 }
               },
@@ -236,11 +236,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 172,
+                  "line": 174,
                   "column": 4
                 },
                 "end": {
-                  "line": 174,
+                  "line": 179,
                   "column": 5
                 }
               },
@@ -263,11 +263,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 181,
+                  "line": 186,
                   "column": 4
                 },
                 "end": {
-                  "line": 191,
+                  "line": 196,
                   "column": 5
                 }
               },
@@ -290,11 +290,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 200,
+                  "line": 205,
                   "column": 4
                 },
                 "end": {
-                  "line": 202,
+                  "line": 207,
                   "column": 5
                 }
               },
@@ -316,11 +316,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 211,
+                  "line": 216,
                   "column": 4
                 },
                 "end": {
-                  "line": 213,
+                  "line": 218,
                   "column": 5
                 }
               },
@@ -342,11 +342,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 222,
+                  "line": 227,
                   "column": 4
                 },
                 "end": {
-                  "line": 224,
+                  "line": 229,
                   "column": 5
                 }
               },
@@ -368,11 +368,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 232,
+                  "line": 237,
                   "column": 4
                 },
                 "end": {
-                  "line": 272,
+                  "line": 277,
                   "column": 5
                 }
               },
@@ -397,11 +397,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 279,
+                  "line": 284,
                   "column": 4
                 },
                 "end": {
-                  "line": 288,
+                  "line": 293,
                   "column": 5
                 }
               },
@@ -424,11 +424,11 @@
               "privacy": "protected",
               "sourceRange": {
                 "start": {
-                  "line": 297,
+                  "line": 302,
                   "column": 4
                 },
                 "end": {
-                  "line": 313,
+                  "line": 328,
                   "column": 5
                 }
               },
@@ -460,7 +460,7 @@
               "column": 0
             },
             "end": {
-              "line": 316,
+              "line": 331,
               "column": 2
             }
           },
@@ -538,7 +538,7 @@
           "description": "Generated AMF json/ld model form the API spec.\nThe element assumes the object of the first array item to be a\ntype of `\"http://raml.org/vocabularies/document#Document`\non AMF vocabulary.\n\nIt is only usefult for the element to resolve references.",
           "privacy": "public",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 48,
               "column": 8
@@ -559,7 +559,7 @@
           "description": "A property shape definition of AMF.",
           "privacy": "public",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 54,
               "column": 8
@@ -580,7 +580,7 @@
           "description": "Computes value of shape's http://raml.org/vocabularies/shapes#range",
           "privacy": "public",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 59,
               "column": 8
@@ -602,11 +602,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 202,
+              "line": 209,
               "column": 8
             },
             "end": {
-              "line": 205,
+              "line": 212,
               "column": 9
             }
           },
@@ -623,11 +623,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 218,
               "column": 8
             },
             "end": {
-              "line": 214,
+              "line": 221,
               "column": 9
             }
           },
@@ -644,11 +644,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 219,
+              "line": 226,
               "column": 8
             },
             "end": {
-              "line": 221,
+              "line": 228,
               "column": 9
             }
           },
@@ -663,16 +663,18 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 232,
               "column": 8
             },
             "end": {
-              "line": 225,
-              "column": 27
+              "line": 235,
+              "column": 9
             }
           },
           "metadata": {
-            "polymer": {}
+            "polymer": {
+              "readOnly": true
+            }
           }
         },
         {
@@ -682,11 +684,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 229,
+              "line": 239,
               "column": 8
             },
             "end": {
-              "line": 232,
+              "line": 242,
               "column": 9
             }
           },
@@ -703,11 +705,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 236,
+              "line": 246,
               "column": 8
             },
             "end": {
-              "line": 239,
+              "line": 249,
               "column": 9
             }
           },
@@ -724,11 +726,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 243,
+              "line": 253,
               "column": 8
             },
             "end": {
-              "line": 247,
+              "line": 257,
               "column": 9
             }
           },
@@ -745,11 +747,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 251,
+              "line": 261,
               "column": 9
             },
             "end": {
-              "line": 255,
+              "line": 265,
               "column": 9
             }
           },
@@ -766,11 +768,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 259,
+              "line": 269,
               "column": 8
             },
             "end": {
-              "line": 263,
+              "line": 273,
               "column": 9
             }
           },
@@ -787,11 +789,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 267,
+              "line": 277,
               "column": 8
             },
             "end": {
-              "line": 271,
+              "line": 281,
               "column": 9
             }
           },
@@ -809,11 +811,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 276,
+              "line": 286,
               "column": 8
             },
             "end": {
-              "line": 276,
+              "line": 286,
               "column": 30
             }
           },
@@ -828,11 +830,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 283,
+              "line": 293,
               "column": 8
             },
             "end": {
-              "line": 286,
+              "line": 296,
               "column": 9
             }
           },
@@ -849,13 +851,13 @@
           "description": "Computes type from a `http://raml.org/vocabularies/shapes#range` object",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 69,
               "column": 4
             },
             "end": {
-              "line": 103,
+              "line": 102,
               "column": 5
             }
           },
@@ -878,13 +880,13 @@
           "description": "Computes value for `range` property.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 109,
+              "line": 108,
               "column": 4
             },
             "end": {
-              "line": 121,
+              "line": 123,
               "column": 5
             }
           },
@@ -907,13 +909,13 @@
           "description": "Checks if property item has a type.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 128,
+              "line": 130,
               "column": 4
             },
             "end": {
-              "line": 134,
+              "line": 136,
               "column": 5
             }
           },
@@ -940,13 +942,13 @@
           "description": "Gets a signle scalar value from a model.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 141,
+              "line": 143,
               "column": 4
             },
             "end": {
-              "line": 151,
+              "line": 153,
               "column": 5
             }
           },
@@ -974,13 +976,13 @@
           "description": "Gets a list of scalar values from a model.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 158,
+              "line": 160,
               "column": 4
             },
             "end": {
-              "line": 164,
+              "line": 166,
               "column": 5
             }
           },
@@ -1008,13 +1010,13 @@
           "description": "Helper function for the view. Extracts `http://www.w3.org/ns/shacl#property`\nfrom the shape model",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 172,
+              "line": 174,
               "column": 4
             },
             "end": {
-              "line": 174,
+              "line": 179,
               "column": 5
             }
           },
@@ -1038,11 +1040,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 408,
+              "line": 418,
               "column": 4
             },
             "end": {
-              "line": 418,
+              "line": 428,
               "column": 5
             }
           },
@@ -1065,11 +1067,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 366,
+              "line": 376,
               "column": 4
             },
             "end": {
-              "line": 368,
+              "line": 378,
               "column": 5
             }
           },
@@ -1091,11 +1093,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 378,
+              "line": 388,
               "column": 4
             },
             "end": {
-              "line": 380,
+              "line": 390,
               "column": 5
             }
           },
@@ -1117,11 +1119,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 390,
+              "line": 400,
               "column": 4
             },
             "end": {
-              "line": 392,
+              "line": 402,
               "column": 5
             }
           },
@@ -1142,13 +1144,13 @@
           "description": "Computes list of union type labels to render.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 232,
+              "line": 237,
               "column": 4
             },
             "end": {
-              "line": 272,
+              "line": 277,
               "column": 5
             }
           },
@@ -1173,13 +1175,13 @@
           "description": "Computes union type label when the union is in Array.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 279,
+              "line": 284,
               "column": 4
             },
             "end": {
-              "line": 288,
+              "line": 293,
               "column": 5
             }
           },
@@ -1202,13 +1204,13 @@
           "description": "Computes name label for the shape.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 297,
+              "line": 302,
               "column": 4
             },
             "end": {
-              "line": 313,
+              "line": 328,
               "column": 5
             }
           },
@@ -1237,11 +1239,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 296,
+              "line": 306,
               "column": 4
             },
             "end": {
-              "line": 302,
+              "line": 312,
               "column": 5
             }
           },
@@ -1261,11 +1263,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 309,
+              "line": 319,
               "column": 4
             },
             "end": {
-              "line": 311,
+              "line": 321,
               "column": 5
             }
           },
@@ -1287,11 +1289,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 321,
+              "line": 331,
               "column": 4
             },
             "end": {
-              "line": 338,
+              "line": 348,
               "column": 5
             }
           },
@@ -1319,11 +1321,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 344,
+              "line": 354,
               "column": 4
             },
             "end": {
-              "line": 346,
+              "line": 356,
               "column": 5
             }
           },
@@ -1346,11 +1348,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 352,
+              "line": 362,
               "column": 4
             },
             "end": {
-              "line": 357,
+              "line": 367,
               "column": 5
             }
           },
@@ -1373,11 +1375,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 399,
+              "line": 409,
               "column": 4
             },
             "end": {
-              "line": 401,
+              "line": 411,
               "column": 5
             }
           },
@@ -1399,11 +1401,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 420,
+              "line": 430,
               "column": 4
             },
             "end": {
-              "line": 425,
+              "line": 435,
               "column": 5
             }
           },
@@ -1420,11 +1422,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 433,
+              "line": 443,
               "column": 4
             },
             "end": {
-              "line": 443,
+              "line": 453,
               "column": 5
             }
           },
@@ -1452,11 +1454,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 450,
+              "line": 460,
               "column": 4
             },
             "end": {
-              "line": 464,
+              "line": 474,
               "column": 5
             }
           },
@@ -1484,11 +1486,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 472,
+              "line": 482,
               "column": 4
             },
             "end": {
-              "line": 474,
+              "line": 484,
               "column": 5
             }
           },
@@ -1515,11 +1517,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 482,
+              "line": 492,
               "column": 4
             },
             "end": {
-              "line": 487,
+              "line": 497,
               "column": 5
             }
           },
@@ -1534,6 +1536,32 @@
           "return": {
             "type": "(String | undefined)"
           }
+        },
+        {
+          "name": "_computeIsRequired",
+          "description": "Computes value for `isRequired` property.\nIn AMF model a property is required when `http://www.w3.org/ns/shacl#minCount`\ndoes not equal `0`.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 506,
+              "column": 4
+            },
+            "end": {
+              "line": 509,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "shape",
+              "type": "Object",
+              "description": "Current shape object"
+            }
+          ],
+          "return": {
+            "type": "Boolean"
+          }
         }
       ],
       "staticMethods": [],
@@ -1546,11 +1574,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 195,
+          "line": 202,
           "column": 2
         },
         "end": {
-          "line": 488,
+          "line": 510,
           "column": 3
         }
       },
@@ -1562,7 +1590,7 @@
           "name": "amf-model",
           "description": "Generated AMF json/ld model form the API spec.\nThe element assumes the object of the first array item to be a\ntype of `\"http://raml.org/vocabularies/document#Document`\non AMF vocabulary.\n\nIt is only usefult for the element to resolve references.",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 48,
               "column": 8
@@ -1580,7 +1608,7 @@
           "name": "shape",
           "description": "A property shape definition of AMF.",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 54,
               "column": 8
@@ -1598,7 +1626,7 @@
           "name": "range",
           "description": "Computes value of shape's http://raml.org/vocabularies/shapes#range",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 59,
               "column": 8
@@ -1617,11 +1645,11 @@
           "description": "Computed value, true if there is a list of examples",
           "sourceRange": {
             "start": {
-              "line": 202,
+              "line": 209,
               "column": 8
             },
             "end": {
-              "line": 205,
+              "line": 212,
               "column": 9
             }
           },
@@ -1633,11 +1661,11 @@
           "description": "Computed list of examples",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 218,
               "column": 8
             },
             "end": {
-              "line": 214,
+              "line": 221,
               "column": 9
             }
           },
@@ -1649,11 +1677,11 @@
           "description": "Computed value of shape data type",
           "sourceRange": {
             "start": {
-              "line": 219,
+              "line": 226,
               "column": 8
             },
             "end": {
-              "line": 221,
+              "line": 228,
               "column": 9
             }
           },
@@ -1665,12 +1693,12 @@
           "description": "Computed value form the shape. True if the property is required.",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 232,
               "column": 8
             },
             "end": {
-              "line": 225,
-              "column": 27
+              "line": 235,
+              "column": 9
             }
           },
           "metadata": {},
@@ -1681,11 +1709,11 @@
           "description": "Computed value form the shape. True if the property is ENUM.",
           "sourceRange": {
             "start": {
-              "line": 229,
+              "line": 239,
               "column": 8
             },
             "end": {
-              "line": 232,
+              "line": 242,
               "column": 9
             }
           },
@@ -1697,11 +1725,11 @@
           "description": "A description of the property to render.",
           "sourceRange": {
             "start": {
-              "line": 236,
+              "line": 246,
               "column": 8
             },
             "end": {
-              "line": 239,
+              "line": 249,
               "column": 9
             }
           },
@@ -1713,11 +1741,11 @@
           "description": "Computed value, true if current property is an union.",
           "sourceRange": {
             "start": {
-              "line": 243,
+              "line": 253,
               "column": 8
             },
             "end": {
-              "line": 247,
+              "line": 257,
               "column": 9
             }
           },
@@ -1729,11 +1757,11 @@
           "description": "Computed value, true if current property is an object.",
           "sourceRange": {
             "start": {
-              "line": 251,
+              "line": 261,
               "column": 9
             },
             "end": {
-              "line": 255,
+              "line": 265,
               "column": 9
             }
           },
@@ -1745,11 +1773,11 @@
           "description": "Computed value, true if current property is an array.",
           "sourceRange": {
             "start": {
-              "line": 259,
+              "line": 269,
               "column": 8
             },
             "end": {
-              "line": 263,
+              "line": 273,
               "column": 9
             }
           },
@@ -1761,11 +1789,11 @@
           "description": "Computed value, true if current property is a File.",
           "sourceRange": {
             "start": {
-              "line": 267,
+              "line": 277,
               "column": 8
             },
             "end": {
-              "line": 271,
+              "line": 281,
               "column": 9
             }
           },
@@ -1777,11 +1805,11 @@
           "description": "Should be set if described properties has a parent type.\nThis is used when recursively iterating over properties.",
           "sourceRange": {
             "start": {
-              "line": 276,
+              "line": 286,
               "column": 8
             },
             "end": {
-              "line": 276,
+              "line": 286,
               "column": 30
             }
           },
@@ -1793,11 +1821,11 @@
           "description": "Computed values for list of enums.\nEnums are list of types names.",
           "sourceRange": {
             "start": {
-              "line": 283,
+              "line": 293,
               "column": 8
             },
             "end": {
-              "line": 286,
+              "line": 296,
               "column": 9
             }
           },
@@ -1827,7 +1855,7 @@
           "description": "Generated AMF json/ld model form the API spec.\nThe element assumes the object of the first array item to be a\ntype of `\"http://raml.org/vocabularies/document#Document`\non AMF vocabulary.\n\nIt is only usefult for the element to resolve references.",
           "privacy": "public",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 48,
               "column": 8
@@ -1848,7 +1876,7 @@
           "description": "A property shape definition of AMF.",
           "privacy": "public",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 54,
               "column": 8
@@ -1870,11 +1898,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 135,
               "column": 8
             },
             "end": {
-              "line": 108,
+              "line": 138,
               "column": 9
             }
           },
@@ -1891,11 +1919,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 112,
+              "line": 142,
               "column": 8
             },
             "end": {
-              "line": 115,
+              "line": 145,
               "column": 9
             }
           },
@@ -1912,11 +1940,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 121,
+              "line": 151,
               "column": 8
             },
             "end": {
-              "line": 124,
+              "line": 154,
               "column": 9
             }
           },
@@ -1933,32 +1961,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 129,
+              "line": 159,
               "column": 8
             },
             "end": {
-              "line": 132,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          }
-        },
-        {
-          "name": "isRequired",
-          "type": "boolean",
-          "description": "Computed value form the shape. True if the property is required.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 136,
-              "column": 8
-            },
-            "end": {
-              "line": 139,
+              "line": 162,
               "column": 9
             }
           },
@@ -1975,11 +1982,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 143,
+              "line": 166,
               "column": 8
             },
             "end": {
-              "line": 147,
+              "line": 170,
               "column": 9
             }
           },
@@ -1996,11 +2003,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 151,
+              "line": 174,
               "column": 9
             },
             "end": {
-              "line": 155,
+              "line": 178,
               "column": 9
             }
           },
@@ -2017,11 +2024,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 159,
+              "line": 182,
               "column": 8
             },
             "end": {
-              "line": 163,
+              "line": 186,
               "column": 9
             }
           },
@@ -2038,11 +2045,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 168,
+              "line": 191,
               "column": 8
             },
             "end": {
-              "line": 168,
+              "line": 191,
               "column": 30
             }
           },
@@ -2057,13 +2064,13 @@
           "description": "Computes type from a `http://raml.org/vocabularies/shapes#range` object",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 69,
               "column": 4
             },
             "end": {
-              "line": 103,
+              "line": 102,
               "column": 5
             }
           },
@@ -2086,13 +2093,13 @@
           "description": "Computes value for `range` property.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 109,
+              "line": 108,
               "column": 4
             },
             "end": {
-              "line": 121,
+              "line": 123,
               "column": 5
             }
           },
@@ -2115,13 +2122,13 @@
           "description": "Checks if property item has a type.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 128,
+              "line": 130,
               "column": 4
             },
             "end": {
-              "line": 134,
+              "line": 136,
               "column": 5
             }
           },
@@ -2148,13 +2155,13 @@
           "description": "Gets a signle scalar value from a model.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 141,
+              "line": 143,
               "column": 4
             },
             "end": {
-              "line": 151,
+              "line": 153,
               "column": 5
             }
           },
@@ -2182,13 +2189,13 @@
           "description": "Gets a list of scalar values from a model.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 158,
+              "line": 160,
               "column": 4
             },
             "end": {
-              "line": 164,
+              "line": 166,
               "column": 5
             }
           },
@@ -2216,13 +2223,13 @@
           "description": "Helper function for the view. Extracts `http://www.w3.org/ns/shacl#property`\nfrom the shape model",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 172,
+              "line": 174,
               "column": 4
             },
             "end": {
-              "line": 174,
+              "line": 179,
               "column": 5
             }
           },
@@ -2245,13 +2252,13 @@
           "description": "Computes properties to render Array items documentation.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 181,
+              "line": 186,
               "column": 4
             },
             "end": {
-              "line": 191,
+              "line": 196,
               "column": 5
             }
           },
@@ -2274,13 +2281,13 @@
           "description": "Computes value for `isUnion` property.\nUnion type is identified as a `http://raml.org/vocabularies/shapes#UnionShape`\ntype.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 200,
+              "line": 205,
               "column": 4
             },
             "end": {
-              "line": 202,
+              "line": 207,
               "column": 5
             }
           },
@@ -2302,13 +2309,13 @@
           "description": "Computes value for `isObject` property.\nObject type is identified as a `http://raml.org/vocabularies/shapes#NodeShape`\ntype.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 211,
+              "line": 216,
               "column": 4
             },
             "end": {
-              "line": 213,
+              "line": 218,
               "column": 5
             }
           },
@@ -2330,13 +2337,13 @@
           "description": "Computes value for `isArray` property.\nArray type is identified as a `http://raml.org/vocabularies/shapes#ArrayShape`\ntype.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 222,
+              "line": 227,
               "column": 4
             },
             "end": {
-              "line": 224,
+              "line": 229,
               "column": 5
             }
           },
@@ -2358,13 +2365,13 @@
           "description": "Computes list of union type labels to render.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 232,
+              "line": 237,
               "column": 4
             },
             "end": {
-              "line": 272,
+              "line": 277,
               "column": 5
             }
           },
@@ -2389,13 +2396,13 @@
           "description": "Computes union type label when the union is in Array.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 279,
+              "line": 284,
               "column": 4
             },
             "end": {
-              "line": 288,
+              "line": 293,
               "column": 5
             }
           },
@@ -2418,13 +2425,13 @@
           "description": "Computes name label for the shape.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 297,
+              "line": 302,
               "column": 4
             },
             "end": {
-              "line": 313,
+              "line": 328,
               "column": 5
             }
           },
@@ -2453,11 +2460,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 178,
+              "line": 201,
               "column": 4
             },
             "end": {
-              "line": 180,
+              "line": 209,
               "column": 5
             }
           },
@@ -2467,6 +2474,9 @@
               "name": "range",
               "type": "Object",
               "description": "Range object of current shape."
+            },
+            {
+              "name": "shape"
             }
           ],
           "return": {
@@ -2480,11 +2490,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 188,
+              "line": 217,
               "column": 4
             },
             "end": {
-              "line": 190,
+              "line": 228,
               "column": 5
             }
           },
@@ -2494,6 +2504,9 @@
               "name": "range",
               "type": "Object",
               "description": "Range object of current shape."
+            },
+            {
+              "name": "shape"
             }
           ],
           "return": {
@@ -2501,30 +2514,38 @@
           }
         },
         {
-          "name": "_computeIsRequired",
-          "description": "Computes value for `isRequired` property.\nIn AMF model a property is required when `http://www.w3.org/ns/shacl#minCount`\ndoes not equal `0`.",
+          "name": "_borderHover",
+          "description": "Sets \"active\" attribute on this element when the border is hovered.",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 199,
+              "line": 232,
               "column": 4
             },
             "end": {
-              "line": 202,
+              "line": 236,
               "column": 5
             }
           },
           "metadata": {},
-          "params": [
-            {
-              "name": "shape",
-              "type": "Object",
-              "description": "Current shape object"
+          "params": []
+        },
+        {
+          "name": "_borderBlur",
+          "description": "Removes \"active\" attribute on this element when the border is not hovered.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 240,
+              "column": 4
+            },
+            "end": {
+              "line": 244,
+              "column": 5
             }
-          ],
-          "return": {
-            "type": "Boolean"
-          }
+          },
+          "metadata": {},
+          "params": []
         }
       ],
       "staticMethods": [],
@@ -2537,11 +2558,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 97,
+          "line": 127,
           "column": 2
         },
         "end": {
-          "line": 203,
+          "line": 245,
           "column": 3
         }
       },
@@ -2553,7 +2574,7 @@
           "name": "amf-model",
           "description": "Generated AMF json/ld model form the API spec.\nThe element assumes the object of the first array item to be a\ntype of `\"http://raml.org/vocabularies/document#Document`\non AMF vocabulary.\n\nIt is only usefult for the element to resolve references.",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 48,
               "column": 8
@@ -2571,7 +2592,7 @@
           "name": "shape",
           "description": "A property shape definition of AMF.",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 54,
               "column": 8
@@ -2590,11 +2611,11 @@
           "description": "Computed value of shape's http://raml.org/vocabularies/shapes#range",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 135,
               "column": 8
             },
             "end": {
-              "line": 108,
+              "line": 138,
               "column": 9
             }
           },
@@ -2606,11 +2627,11 @@
           "description": "Computed value of \"display name\" of the property",
           "sourceRange": {
             "start": {
-              "line": 112,
+              "line": 142,
               "column": 8
             },
             "end": {
-              "line": 115,
+              "line": 145,
               "column": 9
             }
           },
@@ -2622,11 +2643,11 @@
           "description": "A type property name.\nThis may be different from `displayName` property if\n`displayName` was specified in the API spec for this property.",
           "sourceRange": {
             "start": {
-              "line": 121,
+              "line": 151,
               "column": 8
             },
             "end": {
-              "line": 124,
+              "line": 154,
               "column": 9
             }
           },
@@ -2638,27 +2659,11 @@
           "description": "Computed value, true if `displayName` has been defined for this\nproperty.",
           "sourceRange": {
             "start": {
-              "line": 129,
+              "line": 159,
               "column": 8
             },
             "end": {
-              "line": 132,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "type": "boolean"
-        },
-        {
-          "name": "is-required",
-          "description": "Computed value form the shape. True if the property is required.",
-          "sourceRange": {
-            "start": {
-              "line": 136,
-              "column": 8
-            },
-            "end": {
-              "line": 139,
+              "line": 162,
               "column": 9
             }
           },
@@ -2670,11 +2675,11 @@
           "description": "Computed value, true if current property is an union.",
           "sourceRange": {
             "start": {
-              "line": 143,
+              "line": 166,
               "column": 8
             },
             "end": {
-              "line": 147,
+              "line": 170,
               "column": 9
             }
           },
@@ -2686,11 +2691,11 @@
           "description": "Computed value, true if current property is an object.",
           "sourceRange": {
             "start": {
-              "line": 151,
+              "line": 174,
               "column": 9
             },
             "end": {
-              "line": 155,
+              "line": 178,
               "column": 9
             }
           },
@@ -2702,11 +2707,11 @@
           "description": "Computed value, true if current property is an array.",
           "sourceRange": {
             "start": {
-              "line": 159,
+              "line": 182,
               "column": 8
             },
             "end": {
-              "line": 163,
+              "line": 186,
               "column": 9
             }
           },
@@ -2718,11 +2723,11 @@
           "description": "Should be set if described properties has a parent type.\nThis is used when recursively iterating over properties.",
           "sourceRange": {
             "start": {
-              "line": 168,
+              "line": 191,
               "column": 8
             },
             "end": {
-              "line": 168,
+              "line": 191,
               "column": 30
             }
           },
@@ -2753,11 +2758,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 112,
               "column": 8
             },
             "end": {
-              "line": 123,
+              "line": 112,
               "column": 24
             }
           },
@@ -2771,7 +2776,7 @@
           "description": "A property shape definition of AMF.",
           "privacy": "public",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 54,
               "column": 8
@@ -2792,7 +2797,7 @@
           "description": "Computes value of shape's http://raml.org/vocabularies/shapes#range",
           "privacy": "public",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 59,
               "column": 8
@@ -2814,11 +2819,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 112,
+              "line": 101,
               "column": 8
             },
             "end": {
-              "line": 112,
+              "line": 101,
               "column": 21
             }
           },
@@ -2828,16 +2833,16 @@
         },
         {
           "name": "type",
-          "type": "Object",
-          "description": "A type definition to render.\nThis should be a one of the following AMF types:\n\n- `http://www.w3.org/ns/shacl#NodeShape` (Object)\n- `http://raml.org/vocabularies/shapes#UnionShape` (Union)\n- `http://raml.org/vocabularies/shapes#ArrayShape` (Array)\n- `http://raml.org/vocabularies/shapes#ScalarShape` (single property)\n\nThe component computes the list of properties to render.",
+          "type": "(Object | Array)",
+          "description": "A type definition to render.\nThis should be a one of the following AMF types:\n\n- `http://www.w3.org/ns/shacl#NodeShape` (Object)\n- `http://raml.org/vocabularies/shapes#UnionShape` (Union)\n- `http://raml.org/vocabularies/shapes#ArrayShape` (Array)\n- `http://raml.org/vocabularies/shapes#ScalarShape` (single property)\n\nIt also accepts array of properties like list of headers or\nparameters.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 137,
+              "line": 126,
               "column": 8
             },
             "end": {
-              "line": 140,
+              "line": 129,
               "column": 9
             }
           },
@@ -2854,11 +2859,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 134,
               "column": 8
             },
             "end": {
-              "line": 145,
+              "line": 134,
               "column": 30
             }
           },
@@ -2869,15 +2874,15 @@
         {
           "name": "isScalar",
           "type": "boolean",
-          "description": "",
+          "description": "True if given `type` is a scalar property",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 147,
+              "line": 138,
               "column": 8
             },
             "end": {
-              "line": 150,
+              "line": 141,
               "column": 9
             }
           },
@@ -2890,15 +2895,15 @@
         {
           "name": "isArray",
           "type": "boolean",
-          "description": "",
+          "description": "True if given `type` is an array property",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 151,
+              "line": 145,
               "column": 8
             },
             "end": {
-              "line": 154,
+              "line": 148,
               "column": 9
             }
           },
@@ -2911,15 +2916,15 @@
         {
           "name": "isObject",
           "type": "boolean",
-          "description": "",
+          "description": "True if given `type` is an object property",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 152,
               "column": 8
             },
             "end": {
-              "line": 158,
+              "line": 155,
               "column": 9
             }
           },
@@ -2932,7 +2937,7 @@
         {
           "name": "isUnion",
           "type": "boolean",
-          "description": "",
+          "description": "True if given `type` is an union property",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -2997,13 +3002,13 @@
           "description": "Computes type from a `http://raml.org/vocabularies/shapes#range` object",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 69,
               "column": 4
             },
             "end": {
-              "line": 103,
+              "line": 102,
               "column": 5
             }
           },
@@ -3026,13 +3031,13 @@
           "description": "Computes value for `range` property.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 109,
+              "line": 108,
               "column": 4
             },
             "end": {
-              "line": 121,
+              "line": 123,
               "column": 5
             }
           },
@@ -3055,13 +3060,13 @@
           "description": "Checks if property item has a type.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 128,
+              "line": 130,
               "column": 4
             },
             "end": {
-              "line": 134,
+              "line": 136,
               "column": 5
             }
           },
@@ -3088,13 +3093,13 @@
           "description": "Gets a signle scalar value from a model.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 141,
+              "line": 143,
               "column": 4
             },
             "end": {
-              "line": 151,
+              "line": 153,
               "column": 5
             }
           },
@@ -3122,13 +3127,13 @@
           "description": "Gets a list of scalar values from a model.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 158,
+              "line": 160,
               "column": 4
             },
             "end": {
-              "line": 164,
+              "line": 166,
               "column": 5
             }
           },
@@ -3156,13 +3161,13 @@
           "description": "Helper function for the view. Extracts `http://www.w3.org/ns/shacl#property`\nfrom the shape model",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 172,
+              "line": 174,
               "column": 4
             },
             "end": {
-              "line": 174,
+              "line": 179,
               "column": 5
             }
           },
@@ -3185,13 +3190,13 @@
           "description": "Computes properties to render Array items documentation.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 181,
+              "line": 186,
               "column": 4
             },
             "end": {
-              "line": 191,
+              "line": 196,
               "column": 5
             }
           },
@@ -3214,13 +3219,13 @@
           "description": "Computes value for `isUnion` property.\nUnion type is identified as a `http://raml.org/vocabularies/shapes#UnionShape`\ntype.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 200,
+              "line": 205,
               "column": 4
             },
             "end": {
-              "line": 202,
+              "line": 207,
               "column": 5
             }
           },
@@ -3242,13 +3247,13 @@
           "description": "Computes value for `isObject` property.\nObject type is identified as a `http://raml.org/vocabularies/shapes#NodeShape`\ntype.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 211,
+              "line": 216,
               "column": 4
             },
             "end": {
-              "line": 213,
+              "line": 218,
               "column": 5
             }
           },
@@ -3270,13 +3275,13 @@
           "description": "Computes value for `isArray` property.\nArray type is identified as a `http://raml.org/vocabularies/shapes#ArrayShape`\ntype.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 222,
+              "line": 227,
               "column": 4
             },
             "end": {
-              "line": 224,
+              "line": 229,
               "column": 5
             }
           },
@@ -3298,13 +3303,13 @@
           "description": "Computes list of union type labels to render.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 232,
+              "line": 237,
               "column": 4
             },
             "end": {
-              "line": 272,
+              "line": 277,
               "column": 5
             }
           },
@@ -3329,13 +3334,13 @@
           "description": "Computes union type label when the union is in Array.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 279,
+              "line": 284,
               "column": 4
             },
             "end": {
-              "line": 288,
+              "line": 293,
               "column": 5
             }
           },
@@ -3358,13 +3363,13 @@
           "description": "Computes name label for the shape.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
-              "line": 297,
+              "line": 302,
               "column": 4
             },
             "end": {
-              "line": 313,
+              "line": 328,
               "column": 5
             }
           },
@@ -3420,45 +3425,53 @@
         },
         {
           "name": "_typeChanged",
-          "description": "",
+          "description": "Handles type change. Sets basic view control properties.",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 196,
+              "line": 200,
               "column": 4
             },
             "end": {
-              "line": 219,
+              "line": 224,
               "column": 5
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "type"
+              "name": "type",
+              "type": "(Array | Object)",
+              "description": "Passed type/"
             }
           ]
         },
         {
           "name": "_computeArrayParentName",
-          "description": "",
+          "description": "Computes parent name for the array type table.",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 221,
+              "line": 231,
               "column": 4
             },
             "end": {
-              "line": 223,
+              "line": 233,
               "column": 5
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "parent"
+              "name": "parent",
+              "type": "?String",
+              "description": "`parentTypeName` if available"
             }
-          ]
+          ],
+          "return": {
+            "type": "String",
+            "desc": "Parent type name of refault value for array type."
+          }
         },
         {
           "name": "_unionTypesChanged",
@@ -3466,11 +3479,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 230,
+              "line": 239,
               "column": 4
             },
             "end": {
-              "line": 235,
+              "line": 244,
               "column": 5
             }
           },
@@ -3489,11 +3502,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 242,
+              "line": 251,
               "column": 4
             },
             "end": {
-              "line": 245,
+              "line": 254,
               "column": 5
             }
           },
@@ -3511,11 +3524,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 253,
+              "line": 262,
               "column": 4
             },
             "end": {
-              "line": 255,
+              "line": 264,
               "column": 5
             }
           },
@@ -3536,27 +3549,35 @@
         },
         {
           "name": "_computeUnionProperty",
-          "description": "",
+          "description": "Computes properties for union type.",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 257,
+              "line": 272,
               "column": 4
             },
             "end": {
-              "line": 276,
+              "line": 291,
               "column": 5
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "type"
+              "name": "type",
+              "type": "Object",
+              "description": "Current `type` value."
             },
             {
-              "name": "selected"
+              "name": "selected",
+              "type": "Number",
+              "description": "Selected union index from `unionTypes` array"
             }
-          ]
+          ],
+          "return": {
+            "type": "(Array.<Object> | undefined)",
+            "desc": "Properties for union type."
+          }
         }
       ],
       "staticMethods": [],
@@ -3569,11 +3590,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 105,
+          "line": 94,
           "column": 2
         },
         "end": {
-          "line": 277,
+          "line": 292,
           "column": 3
         }
       },
@@ -3586,11 +3607,11 @@
           "description": "Generated AMF json/ld model form the API spec.\nThe element assumes the object of the first array item to be a\ntype of `\"http://raml.org/vocabularies/document#Document`\non AMF vocabulary.\n\nIt is only usefult for the element to resolve references.",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 112,
               "column": 8
             },
             "end": {
-              "line": 123,
+              "line": 112,
               "column": 24
             }
           },
@@ -3601,7 +3622,7 @@
           "name": "shape",
           "description": "A property shape definition of AMF.",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 54,
               "column": 8
@@ -3619,7 +3640,7 @@
           "name": "range",
           "description": "Computes value of shape's http://raml.org/vocabularies/shapes#range",
           "sourceRange": {
-            "file": "propery-document-mixin.html",
+            "file": "property-document-mixin.html",
             "start": {
               "line": 59,
               "column": 8
@@ -3638,11 +3659,11 @@
           "description": "`raml-aware` scope property to use.",
           "sourceRange": {
             "start": {
-              "line": 112,
+              "line": 101,
               "column": 8
             },
             "end": {
-              "line": 112,
+              "line": 101,
               "column": 21
             }
           },
@@ -3651,30 +3672,30 @@
         },
         {
           "name": "type",
-          "description": "A type definition to render.\nThis should be a one of the following AMF types:\n\n- `http://www.w3.org/ns/shacl#NodeShape` (Object)\n- `http://raml.org/vocabularies/shapes#UnionShape` (Union)\n- `http://raml.org/vocabularies/shapes#ArrayShape` (Array)\n- `http://raml.org/vocabularies/shapes#ScalarShape` (single property)\n\nThe component computes the list of properties to render.",
+          "description": "A type definition to render.\nThis should be a one of the following AMF types:\n\n- `http://www.w3.org/ns/shacl#NodeShape` (Object)\n- `http://raml.org/vocabularies/shapes#UnionShape` (Union)\n- `http://raml.org/vocabularies/shapes#ArrayShape` (Array)\n- `http://raml.org/vocabularies/shapes#ScalarShape` (single property)\n\nIt also accepts array of properties like list of headers or\nparameters.",
           "sourceRange": {
             "start": {
-              "line": 137,
+              "line": 126,
               "column": 8
             },
             "end": {
-              "line": 140,
+              "line": 129,
               "column": 9
             }
           },
           "metadata": {},
-          "type": "Object"
+          "type": "(Object | Array)"
         },
         {
           "name": "parent-type-name",
           "description": "Should be set if described properties has a parent type.\nThis is used when recursively iterating over properties.",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 134,
               "column": 8
             },
             "end": {
-              "line": 145,
+              "line": 134,
               "column": 30
             }
           },
@@ -3683,14 +3704,14 @@
         },
         {
           "name": "is-scalar",
-          "description": "",
+          "description": "True if given `type` is a scalar property",
           "sourceRange": {
             "start": {
-              "line": 147,
+              "line": 138,
               "column": 8
             },
             "end": {
-              "line": 150,
+              "line": 141,
               "column": 9
             }
           },
@@ -3699,14 +3720,14 @@
         },
         {
           "name": "is-array",
-          "description": "",
+          "description": "True if given `type` is an array property",
           "sourceRange": {
             "start": {
-              "line": 151,
+              "line": 145,
               "column": 8
             },
             "end": {
-              "line": 154,
+              "line": 148,
               "column": 9
             }
           },
@@ -3715,14 +3736,14 @@
         },
         {
           "name": "is-object",
-          "description": "",
+          "description": "True if given `type` is an object property",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 152,
               "column": 8
             },
             "end": {
-              "line": 158,
+              "line": 155,
               "column": 9
             }
           },
@@ -3731,7 +3752,7 @@
         },
         {
           "name": "is-union",
-          "description": "",
+          "description": "True if given `type` is an union property",
           "sourceRange": {
             "start": {
               "line": 159,
