@@ -86,17 +86,30 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       if (this._hasType(range, 'http://raml.org/vocabularies/shapes#NilShape')) {
         return 'Null';
       }
+      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#AnyShape')) {
+        return 'Any';
+      }
+      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#MatrixShape')) {
+        return 'Matrix';
+      }
+      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#TupleShape')) {
+        return 'Tuple';
+      }
       if (this._hasType(range, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
         switch (range['http://www.w3.org/ns/shacl#datatype'][0]['@id']) {
-          case 'http://raml.org/vocabularies/shapes#number': return 'Number';
-          case 'http://www.w3.org/2001/XMLSchema#integer': return 'Integer';
           case 'http://www.w3.org/2001/XMLSchema#string': return 'String';
+          case 'http://www.w3.org/2001/XMLSchema#integer': return 'Integer';
+          case 'http://www.w3.org/2001/XMLSchema#long': return 'Long';
+          case 'http://www.w3.org/2001/XMLSchema#float': return 'Float';
+          case 'http://www.w3.org/2001/XMLSchema#double': return 'Double';
+          case 'http://raml.org/vocabularies/shapes#number': return 'Number';
           case 'http://www.w3.org/2001/XMLSchema#boolean': return 'Boolean';
-          case 'http://www.w3.org/2001/XMLSchema#date': return 'Date';
-          case 'http://www.w3.org/2001/XMLSchema#time': return 'Time';
           case 'http://www.w3.org/2001/XMLSchema#dateTime': return 'DateTime';
           case 'http://raml.org/vocabularies/shapes#dateTimeOnly': return 'Time';
-          case 'http://www.w3.org/2001/XMLSchema#float': return 'Float';
+          case 'http://www.w3.org/2001/XMLSchema#time': return 'Time';
+          case 'http://www.w3.org/2001/XMLSchema#date': return 'Date';
+          case 'http://www.w3.org/2001/XMLSchema#base64Binary': return 'Base64 binary';
+          case 'http://raml.org/vocabularies/shapes#password': return 'Password';
         }
       }
       return 'Unknown type';
