@@ -5803,6 +5803,120 @@
         ]
       },
       {
+        "@id": "file://demo/api.raml#/declarations/ProcessVariableList",
+        "@type": [
+          "http://www.w3.org/ns/shacl#NodeShape",
+          "http://www.w3.org/ns/shacl#Shape",
+          "http://raml.org/vocabularies/shapes#Shape",
+          "http://raml.org/vocabularies/document#DomainElement"
+        ],
+        "http://www.w3.org/ns/shacl#closed": [
+          {
+            "@value": false
+          }
+        ],
+        "http://www.w3.org/ns/shacl#property": [
+          {
+            "@id": "file://demo/api.raml#/declarations/ProcessVariableList/property//",
+            "@type": [
+              "http://www.w3.org/ns/shacl#PropertyShape",
+              "http://www.w3.org/ns/shacl#Shape",
+              "http://raml.org/vocabularies/shapes#Shape"
+            ],
+            "http://www.w3.org/ns/shacl#path": [
+              {
+                "@id": "http://raml.org/vocabularies/data#//"
+              }
+            ],
+            "http://raml.org/vocabularies/shapes#range": [
+              {
+                "@id": "file://demo/api.raml#/declarations/ProcessVariableList/property//any//",
+                "@type": [
+                  "http://raml.org/vocabularies/shapes#AnyShape",
+                  "http://www.w3.org/ns/shacl#Shape",
+                  "http://raml.org/vocabularies/shapes#Shape"
+                ],
+                "http://www.w3.org/ns/shacl#name": [
+                  {
+                    "@value": "//"
+                  }
+                ]
+              }
+            ],
+            "http://www.w3.org/ns/shacl#minCount": [
+              {
+                "@value": 1
+              }
+            ],
+            "http://www.w3.org/ns/shacl#name": [
+              {
+                "@value": "//"
+              }
+            ]
+          }
+        ],
+        "http://www.w3.org/ns/shacl#name": [
+          {
+            "@value": "ProcessVariableList"
+          }
+        ],
+        "http://raml.org/vocabularies/document#examples": [
+          {
+            "@id": "file://demo/api.raml#/declarations/ProcessVariableList/example/null",
+            "@type": [
+              "http://raml.org/vocabularies/document#Example",
+              "http://raml.org/vocabularies/document#DomainElement"
+            ],
+            "http://raml.org/vocabularies/document#value": [
+              {
+                "@value": "{\n  \"processVar1\": \"value1\",\n  \"processVar2\": \"value2\"\n}"
+              }
+            ],
+            "http://raml.org/vocabularies/document#strict": [
+              {
+                "@value": true
+              }
+            ],
+            "http://raml.org/vocabularies/document#structuredValue": [
+              {
+                "@id": "file://demo/api.raml#/declarations/ProcessVariableList/example/null/object_1",
+                "@type": [
+                  "http://raml.org/vocabularies/data#Object"
+                ],
+                "http://raml.org/vocabularies/data#processVar1": [
+                  {
+                    "@id": "file://demo/api.raml#/declarations/ProcessVariableList/example/null/object_1/scalar_2",
+                    "@type": [
+                      "http://raml.org/vocabularies/data#Scalar"
+                    ],
+                    "http://raml.org/vocabularies/data#value": [
+                      {
+                        "@value": "value1",
+                        "@type": "http://www.w3.org/2001/XMLSchema#string"
+                      }
+                    ]
+                  }
+                ],
+                "http://raml.org/vocabularies/data#processVar2": [
+                  {
+                    "@id": "file://demo/api.raml#/declarations/ProcessVariableList/example/null/object_1/scalar_3",
+                    "@type": [
+                      "http://raml.org/vocabularies/data#Scalar"
+                    ],
+                    "http://raml.org/vocabularies/data#value": [
+                      {
+                        "@value": "value2",
+                        "@type": "http://www.w3.org/2001/XMLSchema#string"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
         "@id": "file://demo/api.raml#/declarations/Unionable/union/null",
         "@type": [
           "http://raml.org/vocabularies/shapes#UnionShape",
