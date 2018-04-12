@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <title>api-type-document test</title>
+  <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+  <link rel="import" href="test-document-mixin.html">
+</head>
+<body>
+  <test-fixture id="Basic">
+    <template>
+      <test-document-mixin></test-document-mixin>
+    </template>
+  </test-fixture>
+
+  <script>
+  suite('property-document-mixin', () => {
+    suite('_hasType()', () => {
+      let element;
+      const shape = {
+        '@type': ['test1','test2','test3']
+      };
+      suiteSetup(() => {
+        element = fixture('Basic');
+      });
+
+      test('Returns true if type exists', () => {
+        let result = element._hasType(shape, 'test1');
+        assert.isTrue(result, 'test1 exixts');
+        result = element._hasType(shape, 'test2');
+        assert.isTrue(result, 'test2 exixts');
+        result = element._hasType(shape, 'test3');
+        assert.isTrue(result, 'test3 exixts');
+      });
+
+      test('Returns false if type does not exists', () => {
+        const result = element._hasType(shape, 'test4');
+        assert.isFalse(result);
+      });
+
+      test('Returns false for undefined', () => {
+        const result = element._hasType(undefined, 'test4');
+        assert.isFalse(result);
+      });
+
+      test('Returns false for null', () => {
+        const result = element._hasType(null, 'test4');
+        assert.isFalse(result);
+      });
+    });
+
+    suite('_computeRangeDataType()', () => {
+      let element;
+      suiteSetup(() => {
+        element = fixture('Basic');
+      });
+
+      test('Computes UnionShape', () => {
+        const type = 'http://raml.org/vocabularies/shapes#UnionShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Union');
+      });
+
+      test('Computes ArrayShape', () => {
+        const type = 'http://raml.org/vocabularies/shapes#ArrayShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Array');
+      });
+
+      test('Computes NodeShape', () => {
+        const type = 'http://www.w3.org/ns/shacl#NodeShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Object');
+      });
+
+      test('Computes FileShape', () => {
+        const type = 'http://raml.org/vocabularies/shapes#FileShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'File');
+      });
+
+      test('Computes NilShape', () => {
+        const type = 'http://raml.org/vocabularies/shapes#NilShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Null');
+      });
+
+      test('Computes AnyShape', () => {
+        const type = 'http://raml.org/vocabularies/shapes#AnyShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Any');
+      });
+
+      test('Computes MatrixShape', () => {
+        const type = 'http://raml.org/vocabularies/shapes#MatrixShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Matrix');
+      });
+
+      test('Computes TupleShape', () => {
+        const type = 'http://raml.org/vocabularies/shapes#TupleShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Tuple');
+      });
+
+      test('Computes Unknown type', () => {
+        const type = 'unknown';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Unknown type');
+      });
+    });
+
+    suite('_computeRangeDataType() - ScalarShape', () => {
+      let element;
+      let shape = {
+        '@type': ['http://raml.org/vocabularies/shapes#ScalarShape'],
+        'http://www.w3.org/ns/shacl#datatype': [{
+          '@id': ''
+        }]
+      };
+      suiteSetup(() => {
+        element = fixture('Basic');
+      });
+
+      function setType(type) {
+        shape['http://www.w3.org/ns/shacl#datatype'][0]['@id'] = type;
+      }
+
+      [
+        ['http://raml.org/vocabularies/shapes#number', 'Number'],
+        ['http://www.w3.org/2001/XMLSchema#integer', 'Integer'],
+        ['http://www.w3.org/2001/XMLSchema#string', 'String'],
+        ['http://www.w3.org/2001/XMLSchema#boolean', 'Boolean'],
+        ['http://www.w3.org/2001/XMLSchema#date', 'Date'],
+        ['http://www.w3.org/2001/XMLSchema#time', 'Time'],
+        ['http://www.w3.org/2001/XMLSchema#dateTime', 'DateTime'],
+        ['http://raml.org/vocabularies/shapes#dateTimeOnly', 'Time'],
+        ['http://www.w3.org/2001/XMLSchema#float', 'Float'],
+        ['http://www.w3.org/2001/XMLSchema#long', 'Long'],
+        ['http://www.w3.org/2001/XMLSchema#double', 'Double'],
+        ['http://www.w3.org/2001/XMLSchema#base64Binary', 'Base64 binary'],
+        ['http://raml.org/vocabularies/shapes#password', 'Password'],
+        ['UNKNOWN', 'Unknown type']
+      ].forEach((item) => {
+        test('Computes ' + item[0], () => {
+          setType(item[0]);
+          const result = element._computeRangeDataType(shape);
+          assert.equal(result, item[1]);
+        });
+      });
+    });
+
+    suite('_computeRange()', () => {
+      let element;
+      const ScalarShape = {
+        '@type': ['http://raml.org/vocabularies/shapes#ScalarShape'],
+        'http://www.w3.org/ns/shacl#datatype': [{
+          '@id': 'http://raml.org/vocabularies/shapes#number'
+        }]
+      };
+      const ParameterShape = {
+        '@type': ['http://raml.org/vocabularies/http#Parameter'],
+        'http://raml.org/vocabularies/http#schema': ['TEST-PARAMETER']
+      };
+      const NodeShape = {
+        '@type': ['http://raml.org/vocabularies/http#NodeShape'],
+        'http://raml.org/vocabularies/shapes#range': ['TEST-RANGE']
+      };
+      suiteSetup(() => {
+        element = fixture('Basic');
+      });
+
+      test('Computes range for scalar shape', () => {
+        const result = element._computeRange(ScalarShape);
+        assert.isTrue(result === ScalarShape);
+      });
+
+      test('Computes range for parameter shape', () => {
+        const result = element._computeRange(ParameterShape);
+        assert.equal(result, 'TEST-PARAMETER');
+      });
+
+      test('Computes range for node shape', () => {
+        const result = element._computeRange(NodeShape);
+        assert.equal(result, 'TEST-RANGE');
+      });
+    });
+
+    suite('_getValue()', () => {
+      const shape = {
+        testKey: [{
+          '@value': 'test-value'
+        }]
+      };
+      const invalidShape = {
+        testKey: {
+          '@value': 'test-value'
+        }
+      };
+      let element;
+      suiteSetup(() => {
+        element = fixture('Basic');
+      });
+
+      test('Computes value for key', () => {
+        const result = element._getValue(shape, 'testKey');
+        assert.equal(result, 'test-value');
+      });
+
+      test('Undefined for not existing key', () => {
+        const result = element._getValue(shape, 'testKey2');
+        assert.isUndefined(result);
+      });
+
+      test('Undefined for invalid data type', () => {
+        const result = element._getValue(invalidShape, 'testKey');
+        assert.isUndefined(result);
+      });
+
+      test('Undefined for undefined', () => {
+        const result = element._getValue(undefined, 'testKey');
+        assert.isUndefined(result);
+      });
+    });
+
+    suite('_getValues()', () => {
+      const shape = {
+        testKey: [{
+          '@value': 'test-value1'
+        }, {
+          '@value': 'test-value2'
+        }]
+      };
+      const invalidShape = {
+        testKey: {
+          '@value': 'test-value'
+        }
+      };
+      let element;
+      suiteSetup(() => {
+        element = fixture('Basic');
+      });
+
+      test('Computes value for key', () => {
+        const result = element._getValues(shape, 'testKey');
+        assert.deepEqual(result, ['test-value1', 'test-value2']);
+      });
+
+      test('Undefined for not existing key', () => {
+        const result = element._getValues(shape, 'testKey2');
+        assert.isUndefined(result);
+      });
+
+      test('Undefined for invalid data type', () => {
+        const result = element._getValues(invalidShape, 'testKey');
+        assert.isUndefined(result);
+      });
+
+      test('Undefined for undefined', () => {
+        const result = element._getValues(undefined, 'testKey');
+        assert.isUndefined(result);
+      });
+    });
+  });
+  </script>
+</body>
+</html>
