@@ -41,7 +41,7 @@
       <div class="union-type-selector">
         <span>Any of:</span>
         <template is="dom-repeat" items="[[unionTypes]]">
-          <paper-button class="union-toggle" toggles active="[[_unionTypeActive(selectedUnion, index)]]" on-click="_selectUnion" title$="Select [[item.label]] type">[[item.label]]</paper-button>
+          <paper-button class="union-toggle" active="[[_unionTypeActive(selectedUnion, index)]]" on-click="_selectUnion" title$="Select [[item.label]] type">[[item.label]]</paper-button>
         </template>
       </div>
       <api-type-document class="union-document" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[_computeUnionProperty(type, selectedUnion)]]"></api-type-document>
@@ -253,7 +253,11 @@
      */
     _selectUnion(e) {
       const index = e.model.get('index');
-      this.selectedUnion = index;
+      if (this.selectedUnion === index) {
+        e.target.active = true;
+      } else {
+        this.selectedUnion = index;
+      }
     }
     /**
      * Computes if selectedUnion equals current item index.
