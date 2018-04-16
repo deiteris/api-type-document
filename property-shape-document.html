@@ -47,8 +47,12 @@
 
     .doc-content {
       @apply --layout-flex;
-      margin-left: 12px;
+      margin-left: var(--api-type-document-docs-margin-left, 12px);
       padding: 8px 0;
+    }
+
+    :host([has-parent]) .doc-content {
+      margin-left: var(--api-type-document-child-docs-margin-left, 24px);
     }
 
     :host([is-union])  > .doc-wrapper > .doc-border {
@@ -118,7 +122,9 @@
    * `--property-shape-document-title` | Mixin applied to the property title | `{}`
    * `--api-type-document-property-parent-color` | Color of the parent property label | `#757575`
    * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
-   *
+   * `--api-type-document-docs-margin-left` | Margin left of the item's properties description relative to the title. | `12px`
+   * `--api-type-document-child-docs-margin-left` | Margin left of the item's properties description relative to the title when the item is a child property of another property | `24px`
+   * 
    * @customElement
    * @polymer
    * @demo demo/index.html
@@ -189,7 +195,16 @@
          * Should be set if described properties has a parent type.
          * This is used when recursively iterating over properties.
          */
-        parentTypeName: String
+        parentTypeName: String,
+        /**
+         * Computed value, true if `parentTypeName` is set.
+         * @type {Object}
+         */
+        hasParent: {
+          type: Boolean,
+          reflectToAttribute: true,
+          computed: '_computeHasParent(parentTypeName)'
+        }
       };
     }
     /**
@@ -242,6 +257,14 @@
       if (this.getAttribute('active')) {
         this.removeAttribute('active');
       }
+    }
+    /**
+     * Computes value for `hasParent` property.
+     * @param {?String} parentTypeName
+     * @return {Boolean}
+     */
+    _computeHasParent(parentTypeName) {
+      return !!parentTypeName;
     }
   }
   window.customElements.define(PropertyShapeDocument.is, PropertyShapeDocument);
