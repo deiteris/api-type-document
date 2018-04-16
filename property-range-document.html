@@ -17,28 +17,6 @@
       @apply --property-range-document;
     }
 
-    .property-traits {
-      @apply --layout-horizontal;
-      @apply --layout-wrap;
-    }
-
-    .property-traits > span {
-      display: inline-block;
-      margin-right: 8px;
-      padding: 4px 8px;
-      background-color: var(--api-type-document-trait-background-color, #EEEEEE);
-      border-radius: 3px;
-    }
-
-    .property-traits > span.data-type {
-      background-color: var(--api-type-document-type-background-color, #2196F3);
-      color: white;
-    }
-
-    .property-description {
-      margin: 20px 0;
-    }
-
     .property-attribute {
       @apply --layout-horizontal;
       @apply --layout-start;
@@ -60,34 +38,26 @@
       padding-left: 18px;
     }
 
+    .examples {
+      margin-top: 12px;
+      border: 1px var(--api-type-document-examples-border-color, transparent) solid;
+      background-color: var(--code-background-color);
+    }
+
     .examples-section-title {
-      @apply --arc-font-body1;
-      font-size: 16px;
+      @apply --arc-font-body2;
+      padding: 12px;
+      margin: 0;
+      color: var(--api-type-document-examples-title-color);
     }
 
     .example-title {
       @apply --arc-font-body1;
       font-size: 15px;
       margin: 0;
+      padding: 0 12px;
     }
     </style>
-    <div class="property-traits">
-      <span class="data-type">[[propertyDataType]]</span>
-      <template is="dom-if" if="[[isRequired]]">
-        <span class="required-type" title="This property is required by the API">Required</span>
-      </template>
-      <template is="dom-if" if="[[isEnum]]">
-        <span class="enym-type" title="This property represent enumerable value">Enum</span>
-      </template>
-    </div>
-    <template is="dom-if" if="[[propertyDescription]]">
-      <div class="property-description">
-        <marked-element markdown="[[propertyDescription]]">
-          <div slot="markdown-html" class="markdown-body"></div>
-        </marked-element>
-      </div>
-    </template>
-
     <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#defaultValueStr')]]">
       <div class="property-attribute">
         <span class="attribute-label">Default value:</span>
@@ -166,15 +136,17 @@
     </template>
     <api-annotation-document shape="[[range]]"></api-annotation-document>
     <template is="dom-if" if="[[hasExamples]]">
-      <h5 class="examples-section-title">Examples</h5>
-      <template is="dom-repeat" items="[[examples]]">
-        <template is="dom-if" if="[[item.hasName]]">
-          <h6 class="example-title">[[item.name]]</h6>
+      <section class="examples">
+        <h5 class="examples-section-title">Examples</h5>
+        <template is="dom-repeat" items="[[examples]]">
+          <template is="dom-if" if="[[item.hasName]]">
+            <h6 class="example-title">[[item.name]]</h6>
+          </template>
+          <marked-element markdown="[[_computeExampleDisplay(item.value)]]">
+            <div slot="markdown-html" class="markdown-body"></div>
+          </marked-element>
         </template>
-        <marked-element markdown="[[_computeExampleDisplay(item.value)]]">
-          <div slot="markdown-html" class="markdown-body"></div>
-        </marked-element>
-      </template>
+      </section>
     </template>
   </template>
   <script>
@@ -221,32 +193,11 @@
           computed: '_computeExamplesValue(hasExamples, range)'
         },
         /**
-         * Computed value of shape data type
-         * @type {Object}
-         */
-        propertyDataType: {
-          type: String
-        },
-        /**
-         * Computed value form the shape. True if the property is required.
-         */
-        isRequired: {
-          type: Boolean,
-          computed: '_computeIsRequired(shape)'
-        },
-        /**
          * Computed value form the shape. True if the property is ENUM.
          */
         isEnum: {
           type: Boolean,
           computed: '_computeIsEnum(range)'
-        },
-        /**
-         * A description of the property to render.
-         */
-        propertyDescription: {
-          type: String,
-          computed: '_computeDescription(range)'
         },
         /**
          * Computed value, true if current property is an union.
@@ -297,20 +248,6 @@
         }
       };
     }
-
-    static get observers() {
-      return [
-        '_computeType(range, shape)'
-      ];
-    }
-
-    _computeType(range, shape) {
-      let type = range && this._computeRangeDataType(range);
-      if (!type) {
-        type = shape  && this._computeRangeDataType(shape);
-      }
-      this.propertyDataType = type;
-    }
     /**
      * Computes value for `hasExamples`.
      *
@@ -356,17 +293,6 @@
       return !!(range && ('http://www.w3.org/ns/shacl#in' in range));
     }
     /**
-     * Computes value for `propertyDescription`.
-     * @param {Object} range Range model
-     * @return {String} Description to render.
-     */
-    _computeDescription(range) {
-      if (!range) {
-        return;
-      }
-      return this._getValue(range, 'http://schema.org/description');
-    }
-    /**
      * Computes value for `isUnion` property.
      * Union type is identified as a `http://raml.org/vocabularies/shapes#UnionShape`
      * type.
@@ -377,7 +303,6 @@
     _computeIsUnion(range) {
       return this._hasType(range, 'http://raml.org/vocabularies/shapes#UnionShape');
     }
-
     /**
      * Computes value for `isObject` property.
      * Object type is identified as a `http://raml.org/vocabularies/shapes#NodeShape`
@@ -495,24 +420,6 @@
         return '';
       }
       return '```\n' + value + '\n```';
-    }
-    /**
-     * Computes value for `isRequired` property.
-     * In AMF model a property is required when `http://www.w3.org/ns/shacl#minCount`
-     * does not equal `0`.
-     *
-     * @param {Object} shape Current shape object
-     * @return {Boolean}
-     */
-    _computeIsRequired(shape) {
-      if (!shape) {
-        return false;
-      }
-      if (this._hasType(shape, 'http://raml.org/vocabularies/http#Parameter')) {
-        return this._getValue(shape, 'http://www.w3.org/ns/hydra/core#required');
-      }
-      const data = this._getValue(shape, 'http://www.w3.org/ns/shacl#minCount');
-      return data !== 0;
     }
   }
   window.customElements.define(PropertyRangeDocument.is, PropertyRangeDocument);
