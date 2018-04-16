@@ -16,7 +16,7 @@
 /// <reference path="../marked-element/marked-element.d.ts" />
 /// <reference path="../api-annotation-document/api-annotation-document.d.ts" />
 /// <reference path="api-type-document.d.ts" />
-/// <reference path="propery-document-mixin.d.ts" />
+/// <reference path="property-document-mixin.d.ts" />
 
 declare namespace ApiElements {
 
@@ -32,9 +32,12 @@ declare namespace ApiElements {
    * Custom property | Description | Default
    * ----------------|-------------|----------
    * `--property-range-document` | Mixin applied to this elment | `{}`
-   * `--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`
-   * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
    * `--api-type-document-type-attribute-color` | Color of each attribute that describes a property | `#616161`
+   * `--api-type-document-examples-title-color` | Color of examples section title | ``
+   * `--api-type-document-examples-border-color` | Example section border color | `transparent`
+   * `--code-background-color` | Background color of the examples section | ``
+   * `--arc-font-body1` | Mixin applied to an example name label | `{}`
+   * `--arc-font-body2` | Mixin applied to the examples section title | `{}`
    */
   class PropertyRangeDocument extends
     ArcBehaviors.PropertyDocumentMixin(
@@ -51,24 +54,9 @@ declare namespace ApiElements {
     readonly examples: Array<object|null>|null;
 
     /**
-     * Computed value of shape data type
-     */
-    propertyDataType: object|null;
-
-    /**
-     * Computed value form the shape. True if the property is required.
-     */
-    isRequired: boolean|null|undefined;
-
-    /**
      * Computed value form the shape. True if the property is ENUM.
      */
     readonly isEnum: boolean|null|undefined;
-
-    /**
-     * A description of the property to render.
-     */
-    readonly propertyDescription: string|null|undefined;
 
     /**
      * Computed value, true if current property is an union.
@@ -136,7 +124,6 @@ declare namespace ApiElements {
      * @param range Range object of current shape.
      */
     _computeIsArray(range: object|null): Boolean|null;
-    _computeType(range: any, shape: any): void;
 
     /**
      * Computes value for `hasExamples`.
@@ -163,14 +150,6 @@ declare namespace ApiElements {
      * @returns Curently it always returns `false`
      */
     _computeIsEnum(range: object|null): Boolean|null;
-
-    /**
-     * Computes value for `propertyDescription`.
-     *
-     * @param range Range model
-     * @returns Description to render.
-     */
-    _computeDescription(range: object|null): String|null;
 
     /**
      * Computes value for `isFile` property

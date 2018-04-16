@@ -5,7 +5,7 @@
  *   https://github.com/Polymer/gen-typescript-declarations
  *
  * To modify these typings, edit the source file(s):
- *   propery-document-mixin.html
+ *   property-document-mixin.html
  */
 
 /// <reference path="../polymer/types/lib/utils/mixin.d.ts" />

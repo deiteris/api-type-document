@@ -12,9 +12,11 @@
 /// <reference path="../polymer/types/lib/elements/dom-if.d.ts" />
 /// <reference path="../polymer/types/lib/elements/dom-repeat.d.ts" />
 /// <reference path="../iron-flex-layout/iron-flex-layout.d.ts" />
+/// <reference path="../markdown-styles/markdown-styles.d.ts" />
+/// <reference path="../marked-element/marked-element.d.ts" />
 /// <reference path="api-type-document.d.ts" />
 /// <reference path="property-range-document.d.ts" />
-/// <reference path="propery-document-mixin.d.ts" />
+/// <reference path="property-document-mixin.d.ts" />
 
 declare namespace ApiElements {
 
@@ -37,6 +39,10 @@ declare namespace ApiElements {
    * `--property-shape-document-title` | Mixin applied to the property title | `{}`
    * `--api-type-document-property-parent-color` | Color of the parent property label | `#757575`
    * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
+   * `--api-type-document-docs-margin-left` | Margin left of the item's properties description relative to the title. | `12px`
+   * `--api-type-document-child-docs-margin-left` | Margin left of the item's properties description relative to the title when the item is a child property of another property | `24px`
+   * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
+   * `--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`
    */
   class PropertyShapeDocument extends
     ArcBehaviors.PropertyDocumentMixin(
@@ -66,11 +72,6 @@ declare namespace ApiElements {
     readonly hasDisplayName: boolean|null|undefined;
 
     /**
-     * Computed value form the shape. True if the property is required.
-     */
-    readonly isRequired: boolean|null|undefined;
-
-    /**
      * Computed value, true if current property is an union.
      */
     readonly isUnion: boolean|null|undefined;
@@ -92,13 +93,34 @@ declare namespace ApiElements {
     parentTypeName: string|null|undefined;
 
     /**
+     * Computed value of shape data type
+     */
+    readonly propertyDataType: object|null;
+
+    /**
+     * Computed value form the shape. True if the property is required.
+     */
+    readonly isRequired: boolean|null|undefined;
+
+    /**
+     * Computed value form the shape. True if the property is ENUM.
+     */
+    readonly isEnum: boolean|null|undefined;
+
+    /**
+     * A description of the property to render.
+     */
+    readonly propertyDescription: string|null|undefined;
+    _computeType(range: any, shape: any): any;
+
+    /**
      * Computes name of the property. This may be different from the
      * `displayName` if `displayName` is set in API spec.
      *
      * @param range Range object of current shape.
      * @returns Display name of the property
      */
-    _computePropertyName(range: object|null): String|null;
+    _computePropertyName(range: object|null, shape: any): String|null;
 
     /**
      * Computes value for `hasDisplayName` property.
@@ -106,7 +128,17 @@ declare namespace ApiElements {
      *
      * @param range Range object of current shape.
      */
-    _computeHasDisplayName(range: object|null): Boolean|null;
+    _computeHasDisplayName(range: object|null, shape: any): Boolean|null;
+
+    /**
+     * Sets "active" attribute on this element when the border is hovered.
+     */
+    _borderHover(): void;
+
+    /**
+     * Removes "active" attribute on this element when the border is not hovered.
+     */
+    _borderBlur(): void;
 
     /**
      * Computes value for `isRequired` property.
@@ -116,6 +148,22 @@ declare namespace ApiElements {
      * @param shape Current shape object
      */
     _computeIsRequired(shape: object|null): Boolean|null;
+
+    /**
+     * Computes value `isEnum` property.
+     *
+     * @param range Current `range` object.
+     * @returns Curently it always returns `false`
+     */
+    _computeIsEnum(range: object|null): Boolean|null;
+
+    /**
+     * Computes value for `propertyDescription`.
+     *
+     * @param range Range model
+     * @returns Description to render.
+     */
+    _computeDescription(range: object|null): String|null;
   }
 }
 

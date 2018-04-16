@@ -14,7 +14,7 @@
 /// <reference path="../raml-aware/raml-aware.d.ts" />
 /// <reference path="../paper-button/paper-button.d.ts" />
 /// <reference path="property-shape-document.d.ts" />
-/// <reference path="propery-document-mixin.d.ts" />
+/// <reference path="property-document-mixin.d.ts" />
 
 declare namespace ApiElements {
 
@@ -46,15 +46,22 @@ declare namespace ApiElements {
    * `--property-shape-document-title` | Mixin applied to the property title | `{}`
    * `--api-type-document-property-parent-color` | Color of the parent property label | `#757575`
    * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
+   * `--api-type-document-docs-margin-left` | Margin left of the item's properties description relative to the title. | `12px`
+   * `--api-type-document-child-docs-margin-left` | Margin left of the item's properties description relative to the title when the item is a child property of another property | `24px`
+   * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
+   * `--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`
    *
    * From `property-range-document`
    *
    * Custom property | Description | Default
    * ----------------|-------------|----------
    * `--property-range-document` | Mixin applied to this elment | `{}`
-   * `--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`
-   * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
    * `--api-type-document-type-attribute-color` | Color of each attribute that describes a property | `#616161`
+   * `--api-type-document-examples-title-color` | Color of examples section title | ``
+   * `--api-type-document-examples-border-color` | Example section border color | `transparent`
+   * `--code-background-color` | Background color of the examples section | ``
+   * `--arc-font-body1` | Mixin applied to an example name label | `{}`
+   * `--arc-font-body2` | Mixin applied to the examples section title | `{}`
    */
   class ApiTypeDocument extends
     ArcBehaviors.PropertyDocumentMixin(
@@ -84,18 +91,35 @@ declare namespace ApiElements {
      * - `http://raml.org/vocabularies/shapes#ArrayShape` (Array)
      * - `http://raml.org/vocabularies/shapes#ScalarShape` (single property)
      *
-     * The component computes the list of properties to render.
+     * It also accepts array of properties like list of headers or
+     * parameters.
      */
-    type: object|null;
+    type: object|any[]|null;
 
     /**
      * Should be set if described properties has a parent type.
      * This is used when recursively iterating over properties.
      */
     parentTypeName: string|null|undefined;
+
+    /**
+     * True if given `type` is a scalar property
+     */
     readonly isScalar: boolean|null|undefined;
+
+    /**
+     * True if given `type` is an array property
+     */
     readonly isArray: boolean|null|undefined;
+
+    /**
+     * True if given `type` is an object property
+     */
     readonly isObject: boolean|null|undefined;
+
+    /**
+     * True if given `type` is an union property
+     */
     readonly isUnion: boolean|null|undefined;
 
     /**
@@ -117,8 +141,21 @@ declare namespace ApiElements {
      * @param type A type to lookup
      */
     _hasTypeChangeRecord(record: object|null, type: String|null): Boolean|null;
-    _typeChanged(type: any): void;
-    _computeArrayParentName(parent: any): any;
+
+    /**
+     * Handles type change. Sets basic view control properties.
+     *
+     * @param type Passed type/
+     */
+    _typeChanged(type: any[]|object|null): void;
+
+    /**
+     * Computes parent name for the array type table.
+     *
+     * @param parent `parentTypeName` if available
+     * @returns Parent type name of refault value for array type.
+     */
+    _computeArrayParentName(parent: String|null): String|null;
 
     /**
      * Resets union selection when union types list changes.
@@ -137,7 +174,15 @@ declare namespace ApiElements {
      * Computes if selectedUnion equals current item index.
      */
     _unionTypeActive(selectedUnion: Number|null, index: Number|null): Boolean|null;
-    _computeUnionProperty(type: any, selected: any): any;
+
+    /**
+     * Computes properties for union type.
+     *
+     * @param type Current `type` value.
+     * @param selected Selected union index from `unionTypes` array
+     * @returns Properties for union type.
+     */
+    _computeUnionProperty(type: object|null, selected: Number|null): Array<object|null>|null|undefined;
   }
 }
 
