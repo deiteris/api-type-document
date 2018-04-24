@@ -278,7 +278,10 @@
         return;
       }
       return list.map((item) => {
-        const value = this._getValue(item, 'http://raml.org/vocabularies/document#value');
+        let value = this._getValue(item, 'http://raml.org/vocabularies/document#value');
+        if (!value) {
+          value = this._getValue(item, 'http://www.w3.org/ns/shacl#raw');
+        }
         const name = this._getValue(item, 'http://schema.org/name');
         return {
           name,
