@@ -1283,34 +1283,20 @@
                                     "http://www.w3.org/ns/shacl#in": [
                                       {
                                         "@id": "file://demo/api.raml#/web-api/end-points/%2Ftest/post/200/application/json/default/property/gender/scalar/gender?/list",
-                                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+                                        "@type": "http://www.w3.org/2000/01/rdf-schema#Seq",
+                                        "http://www.w3.org/2000/01/rdf-schema#_1": [
                                           {
                                             "@value": "male"
                                           }
                                         ],
-                                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+                                        "http://www.w3.org/2000/01/rdf-schema#_2": [
                                           {
-                                            "@id": "file://demo/api.raml#/web-api/end-points/%2Ftest/post/200/application/json/default/property/gender/scalar/gender?/list/list",
-                                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                                              {
-                                                "@value": "female"
-                                              }
-                                            ],
-                                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                                              {
-                                                "@id": "file://demo/api.raml#/web-api/end-points/%2Ftest/post/200/application/json/default/property/gender/scalar/gender?/list/list/list",
-                                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                                                  {
-                                                    "@value": "other"
-                                                  }
-                                                ],
-                                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                                                  {
-                                                    "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
-                                                  }
-                                                ]
-                                              }
-                                            ]
+                                            "@value": "female"
+                                          }
+                                        ],
+                                        "http://www.w3.org/2000/01/rdf-schema#_3": [
+                                          {
+                                            "@value": "other"
                                           }
                                         ]
                                       }
@@ -2595,34 +2581,20 @@
                                     "http://www.w3.org/ns/shacl#in": [
                                       {
                                         "@id": "file://demo/api.raml#/web-api/end-points/%2Ftest/post/200/application/xml/default/property/gender/scalar/gender?/list",
-                                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+                                        "@type": "http://www.w3.org/2000/01/rdf-schema#Seq",
+                                        "http://www.w3.org/2000/01/rdf-schema#_1": [
                                           {
                                             "@value": "male"
                                           }
                                         ],
-                                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+                                        "http://www.w3.org/2000/01/rdf-schema#_2": [
                                           {
-                                            "@id": "file://demo/api.raml#/web-api/end-points/%2Ftest/post/200/application/xml/default/property/gender/scalar/gender?/list/list",
-                                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                                              {
-                                                "@value": "female"
-                                              }
-                                            ],
-                                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                                              {
-                                                "@id": "file://demo/api.raml#/web-api/end-points/%2Ftest/post/200/application/xml/default/property/gender/scalar/gender?/list/list/list",
-                                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                                                  {
-                                                    "@value": "other"
-                                                  }
-                                                ],
-                                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                                                  {
-                                                    "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
-                                                  }
-                                                ]
-                                              }
-                                            ]
+                                            "@value": "female"
+                                          }
+                                        ],
+                                        "http://www.w3.org/2000/01/rdf-schema#_3": [
+                                          {
+                                            "@value": "other"
                                           }
                                         ]
                                       }
@@ -3970,34 +3942,20 @@
                     "http://www.w3.org/ns/shacl#in": [
                       {
                         "@id": "file://demo/api.raml#/declarations/clearanceLevel/schema/property/level/scalar/level/list",
-                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+                        "@type": "http://www.w3.org/2000/01/rdf-schema#Seq",
+                        "http://www.w3.org/2000/01/rdf-schema#_1": [
                           {
                             "@value": "low"
                           }
                         ],
-                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+                        "http://www.w3.org/2000/01/rdf-schema#_2": [
                           {
-                            "@id": "file://demo/api.raml#/declarations/clearanceLevel/schema/property/level/scalar/level/list/list",
-                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                              {
-                                "@value": "medium"
-                              }
-                            ],
-                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                              {
-                                "@id": "file://demo/api.raml#/declarations/clearanceLevel/schema/property/level/scalar/level/list/list/list",
-                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                                  {
-                                    "@value": "high"
-                                  }
-                                ],
-                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                                  {
-                                    "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
-                                  }
-                                ]
-                              }
-                            ]
+                            "@value": "medium"
+                          }
+                        ],
+                        "http://www.w3.org/2000/01/rdf-schema#_3": [
+                          {
+                            "@value": "high"
                           }
                         ]
                       }
@@ -4340,34 +4298,20 @@
                 "http://www.w3.org/ns/shacl#in": [
                   {
                     "@id": "file://demo/resourceTypes/app-person.raml/type/property/gender/scalar/gender?/list",
-                    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+                    "@type": "http://www.w3.org/2000/01/rdf-schema#Seq",
+                    "http://www.w3.org/2000/01/rdf-schema#_1": [
                       {
                         "@value": "male"
                       }
                     ],
-                    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+                    "http://www.w3.org/2000/01/rdf-schema#_2": [
                       {
-                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/gender/scalar/gender?/list/list",
-                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                          {
-                            "@value": "female"
-                          }
-                        ],
-                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                          {
-                            "@id": "file://demo/resourceTypes/app-person.raml/type/property/gender/scalar/gender?/list/list/list",
-                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                              {
-                                "@value": "other"
-                              }
-                            ],
-                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                              {
-                                "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
-                              }
-                            ]
-                          }
-                        ]
+                        "@value": "female"
+                      }
+                    ],
+                    "http://www.w3.org/2000/01/rdf-schema#_3": [
+                      {
+                        "@value": "other"
                       }
                     ]
                   }
@@ -6753,7 +6697,7 @@
                         ],
                         "http://raml.org/vocabularies/shapes#items": [
                           {
-                            "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/images/array/images/image",
+                            "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/images/array/images/Image",
                             "@type": [
                               "http://www.w3.org/ns/shacl#NodeShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -6767,7 +6711,7 @@
                             ],
                             "http://www.w3.org/ns/shacl#property": [
                               {
-                                "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/images/array/images/image/property/url",
+                                "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/images/array/images/Image/property/url",
                                 "@type": [
                                   "http://www.w3.org/ns/shacl#PropertyShape",
                                   "http://www.w3.org/ns/shacl#Shape",
@@ -6780,7 +6724,7 @@
                                 ],
                                 "http://raml.org/vocabularies/shapes#range": [
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/images/array/images/image/property/url/scalar/url",
+                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/images/array/images/Image/property/url/scalar/url",
                                     "@type": [
                                       "http://raml.org/vocabularies/shapes#ScalarShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -6816,7 +6760,7 @@
                                 ]
                               },
                               {
-                                "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/images/array/images/image/property/thumb",
+                                "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/images/array/images/Image/property/thumb",
                                 "@type": [
                                   "http://www.w3.org/ns/shacl#PropertyShape",
                                   "http://www.w3.org/ns/shacl#Shape",
@@ -6829,7 +6773,7 @@
                                 ],
                                 "http://raml.org/vocabularies/shapes#range": [
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/images/array/images/image/property/thumb/scalar/thumb",
+                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/images/array/images/Image/property/thumb/scalar/thumb",
                                     "@type": [
                                       "http://raml.org/vocabularies/shapes#ScalarShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -6872,7 +6816,7 @@
                             ],
                             "http://www.w3.org/ns/shacl#name": [
                               {
-                                "@value": "image"
+                                "@value": "Image"
                               }
                             ],
                             "http://schema.org/description": [
@@ -7048,34 +6992,20 @@
                                         "http://www.w3.org/ns/shacl#in": [
                                           {
                                             "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/gender/scalar/gender?/list",
-                                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+                                            "@type": "http://www.w3.org/2000/01/rdf-schema#Seq",
+                                            "http://www.w3.org/2000/01/rdf-schema#_1": [
                                               {
                                                 "@value": "male"
                                               }
                                             ],
-                                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+                                            "http://www.w3.org/2000/01/rdf-schema#_2": [
                                               {
-                                                "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/gender/scalar/gender?/list/list",
-                                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                                                  {
-                                                    "@value": "female"
-                                                  }
-                                                ],
-                                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                                                  {
-                                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/gender/scalar/gender?/list/list/list",
-                                                    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                                                      {
-                                                        "@value": "other"
-                                                      }
-                                                    ],
-                                                    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                                                      {
-                                                        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
-                                                      }
-                                                    ]
-                                                  }
-                                                ]
+                                                "@value": "female"
+                                              }
+                                            ],
+                                            "http://www.w3.org/2000/01/rdf-schema#_3": [
+                                              {
+                                                "@value": "other"
                                               }
                                             ]
                                           }
@@ -9529,7 +9459,7 @@
                         ],
                         "http://raml.org/vocabularies/shapes#items": [
                           {
-                            "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/images/array/images/image",
+                            "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/images/array/images/Image",
                             "@type": [
                               "http://www.w3.org/ns/shacl#NodeShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -9543,7 +9473,7 @@
                             ],
                             "http://www.w3.org/ns/shacl#property": [
                               {
-                                "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/images/array/images/image/property/url",
+                                "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/images/array/images/Image/property/url",
                                 "@type": [
                                   "http://www.w3.org/ns/shacl#PropertyShape",
                                   "http://www.w3.org/ns/shacl#Shape",
@@ -9556,7 +9486,7 @@
                                 ],
                                 "http://raml.org/vocabularies/shapes#range": [
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/images/array/images/image/property/url/scalar/url",
+                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/images/array/images/Image/property/url/scalar/url",
                                     "@type": [
                                       "http://raml.org/vocabularies/shapes#ScalarShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -9592,7 +9522,7 @@
                                 ]
                               },
                               {
-                                "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/images/array/images/image/property/thumb",
+                                "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/images/array/images/Image/property/thumb",
                                 "@type": [
                                   "http://www.w3.org/ns/shacl#PropertyShape",
                                   "http://www.w3.org/ns/shacl#Shape",
@@ -9605,7 +9535,7 @@
                                 ],
                                 "http://raml.org/vocabularies/shapes#range": [
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/images/array/images/image/property/thumb/scalar/thumb",
+                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/images/array/images/Image/property/thumb/scalar/thumb",
                                     "@type": [
                                       "http://raml.org/vocabularies/shapes#ScalarShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -9648,7 +9578,7 @@
                             ],
                             "http://www.w3.org/ns/shacl#name": [
                               {
-                                "@value": "image"
+                                "@value": "Image"
                               }
                             ],
                             "http://schema.org/description": [
@@ -10109,7 +10039,7 @@
             ],
             "http://www.w3.org/ns/shacl#name": [
               {
-                "@value": "image"
+                "@value": "Image"
               }
             ],
             "http://schema.org/description": [
@@ -11942,34 +11872,20 @@
                     "http://www.w3.org/ns/shacl#in": [
                       {
                         "@id": "file://demo/api.raml#/declarations/scalar/Feature/list",
-                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+                        "@type": "http://www.w3.org/2000/01/rdf-schema#Seq",
+                        "http://www.w3.org/2000/01/rdf-schema#_1": [
                           {
                             "@value": "1"
                           }
                         ],
-                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+                        "http://www.w3.org/2000/01/rdf-schema#_2": [
                           {
-                            "@id": "file://demo/api.raml#/declarations/scalar/Feature/list/list",
-                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                              {
-                                "@value": "2"
-                              }
-                            ],
-                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                              {
-                                "@id": "file://demo/api.raml#/declarations/scalar/Feature/list/list/list",
-                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                                  {
-                                    "@value": "3"
-                                  }
-                                ],
-                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                                  {
-                                    "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
-                                  }
-                                ]
-                              }
-                            ]
+                            "@value": "2"
+                          }
+                        ],
+                        "http://www.w3.org/2000/01/rdf-schema#_3": [
+                          {
+                            "@value": "3"
                           }
                         ]
                       }
@@ -13673,7 +13589,7 @@
         ],
         "http://www.w3.org/ns/shacl#name": [
           {
-            "@value": "image"
+            "@value": "Image"
           }
         ],
         "http://schema.org/description": [
@@ -13763,34 +13679,20 @@
         "http://www.w3.org/ns/shacl#in": [
           {
             "@id": "file://demo/api.raml#/declarations/scalar/Feature/list",
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+            "@type": "http://www.w3.org/2000/01/rdf-schema#Seq",
+            "http://www.w3.org/2000/01/rdf-schema#_1": [
               {
                 "@value": "1"
               }
             ],
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+            "http://www.w3.org/2000/01/rdf-schema#_2": [
               {
-                "@id": "file://demo/api.raml#/declarations/scalar/Feature/list/list",
-                "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                  {
-                    "@value": "2"
-                  }
-                ],
-                "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                  {
-                    "@id": "file://demo/api.raml#/declarations/scalar/Feature/list/list/list",
-                    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                      {
-                        "@value": "3"
-                      }
-                    ],
-                    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                      {
-                        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
-                      }
-                    ]
-                  }
-                ]
+                "@value": "2"
+              }
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#_3": [
+              {
+                "@value": "3"
               }
             ]
           }
@@ -13873,44 +13775,25 @@
                 "http://www.w3.org/ns/shacl#in": [
                   {
                     "@id": "file://demo/api.raml#/declarations/EnurableType/property/e1/scalar/e1/list",
-                    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+                    "@type": "http://www.w3.org/2000/01/rdf-schema#Seq",
+                    "http://www.w3.org/2000/01/rdf-schema#_1": [
                       {
                         "@value": "v1"
                       }
                     ],
-                    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+                    "http://www.w3.org/2000/01/rdf-schema#_2": [
                       {
-                        "@id": "file://demo/api.raml#/declarations/EnurableType/property/e1/scalar/e1/list/list",
-                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                          {
-                            "@value": "v2"
-                          }
-                        ],
-                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                          {
-                            "@id": "file://demo/api.raml#/declarations/EnurableType/property/e1/scalar/e1/list/list/list",
-                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                              {
-                                "@value": "v3"
-                              }
-                            ],
-                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                              {
-                                "@id": "file://demo/api.raml#/declarations/EnurableType/property/e1/scalar/e1/list/list/list/list",
-                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                                  {
-                                    "@value": "v4"
-                                  }
-                                ],
-                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                                  {
-                                    "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
-                                  }
-                                ]
-                              }
-                            ]
-                          }
-                        ]
+                        "@value": "v2"
+                      }
+                    ],
+                    "http://www.w3.org/2000/01/rdf-schema#_3": [
+                      {
+                        "@value": "v3"
+                      }
+                    ],
+                    "http://www.w3.org/2000/01/rdf-schema#_4": [
+                      {
+                        "@value": "v4"
                       }
                     ]
                   }
@@ -14051,44 +13934,25 @@
                 "http://www.w3.org/ns/shacl#in": [
                   {
                     "@id": "file://demo/api.raml#/declarations/EnurableType/property/e2/scalar/e2/list",
-                    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+                    "@type": "http://www.w3.org/2000/01/rdf-schema#Seq",
+                    "http://www.w3.org/2000/01/rdf-schema#_1": [
                       {
                         "@value": "e1"
                       }
                     ],
-                    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+                    "http://www.w3.org/2000/01/rdf-schema#_2": [
                       {
-                        "@id": "file://demo/api.raml#/declarations/EnurableType/property/e2/scalar/e2/list/list",
-                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                          {
-                            "@value": "e2"
-                          }
-                        ],
-                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                          {
-                            "@id": "file://demo/api.raml#/declarations/EnurableType/property/e2/scalar/e2/list/list/list",
-                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                              {
-                                "@value": "e3"
-                              }
-                            ],
-                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                              {
-                                "@id": "file://demo/api.raml#/declarations/EnurableType/property/e2/scalar/e2/list/list/list/list",
-                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                                  {
-                                    "@value": "e4"
-                                  }
-                                ],
-                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                                  {
-                                    "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
-                                  }
-                                ]
-                              }
-                            ]
-                          }
-                        ]
+                        "@value": "e2"
+                      }
+                    ],
+                    "http://www.w3.org/2000/01/rdf-schema#_3": [
+                      {
+                        "@value": "e3"
+                      }
+                    ],
+                    "http://www.w3.org/2000/01/rdf-schema#_4": [
+                      {
+                        "@value": "e4"
                       }
                     ]
                   }
@@ -14828,7 +14692,7 @@
             ],
             "http://www.w3.org/ns/shacl#name": [
               {
-                "@value": "image"
+                "@value": "Image"
               }
             ],
             "http://schema.org/description": [
@@ -14955,34 +14819,20 @@
                     "http://www.w3.org/ns/shacl#in": [
                       {
                         "@id": "file://demo/resourceTypes/app-person.raml/type/property/gender/scalar/gender?/list",
-                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+                        "@type": "http://www.w3.org/2000/01/rdf-schema#Seq",
+                        "http://www.w3.org/2000/01/rdf-schema#_1": [
                           {
                             "@value": "male"
                           }
                         ],
-                        "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+                        "http://www.w3.org/2000/01/rdf-schema#_2": [
                           {
-                            "@id": "file://demo/resourceTypes/app-person.raml/type/property/gender/scalar/gender?/list/list",
-                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                              {
-                                "@value": "female"
-                              }
-                            ],
-                            "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                              {
-                                "@id": "file://demo/resourceTypes/app-person.raml/type/property/gender/scalar/gender?/list/list/list",
-                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-                                  {
-                                    "@value": "other"
-                                  }
-                                ],
-                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-                                  {
-                                    "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
-                                  }
-                                ]
-                              }
-                            ]
+                            "@value": "female"
+                          }
+                        ],
+                        "http://www.w3.org/2000/01/rdf-schema#_3": [
+                          {
+                            "@value": "other"
                           }
                         ]
                       }
