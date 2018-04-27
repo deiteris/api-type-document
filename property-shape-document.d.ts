@@ -14,6 +14,7 @@
 /// <reference path="../iron-flex-layout/iron-flex-layout.d.ts" />
 /// <reference path="../markdown-styles/markdown-styles.d.ts" />
 /// <reference path="../marked-element/marked-element.d.ts" />
+/// <reference path="../amf-helper-mixin/amf-helper-mixin.d.ts" />
 /// <reference path="api-type-document.d.ts" />
 /// <reference path="property-range-document.d.ts" />
 /// <reference path="property-document-mixin.d.ts" />
@@ -41,12 +42,15 @@ declare namespace ApiElements {
    * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
    * `--api-type-document-docs-margin-left` | Margin left of the item's properties description relative to the title. | `12px`
    * `--api-type-document-child-docs-margin-left` | Margin left of the item's properties description relative to the title when the item is a child property of another property | `24px`
+   * `--api-type-document-type-color` | Color of the "type" trait | `white`
    * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
-   * `--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`
+   * `--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`,
+   * `--api-type-document-trait-border-radius` | Border radious of a main property traits like type, required, enum | `3px`
    */
   class PropertyShapeDocument extends
     ArcBehaviors.PropertyDocumentMixin(
-    Polymer.Element) {
+    ApiElements.AmfHelperMixin(
+    Polymer.Element)) {
 
     /**
      * Computed value of shape's http://raml.org/vocabularies/shapes#range
@@ -111,6 +115,14 @@ declare namespace ApiElements {
      * A description of the property to render.
      */
     readonly propertyDescription: string|null|undefined;
+
+    /**
+     * Computes value for `propertyDescription`.
+     *
+     * @param range Range model
+     * @returns Description to render.
+     */
+    _computeDescription(range: object|null): String|null;
     _computeType(range: any, shape: any): any;
 
     /**
@@ -156,14 +168,6 @@ declare namespace ApiElements {
      * @returns Curently it always returns `false`
      */
     _computeIsEnum(range: object|null): Boolean|null;
-
-    /**
-     * Computes value for `propertyDescription`.
-     *
-     * @param range Range model
-     * @returns Description to render.
-     */
-    _computeDescription(range: object|null): String|null;
   }
 }
 

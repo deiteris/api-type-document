@@ -61,32 +61,6 @@ declare namespace ArcBehaviors {
     _computeRange(shape: object|null): object|null;
 
     /**
-     * Checks if property item has a type.
-     *
-     * @param model Model item.
-     * @param type A type to lookup
-     */
-    _hasType(model: object|null, type: String|null): Boolean|null;
-
-    /**
-     * Gets a signle scalar value from a model.
-     *
-     * @param model Amf model to extract the value from.
-     * @param key Model key to search for the value
-     * @returns Value for key
-     */
-    _getValue(model: object|null, key: String|null): any|null;
-
-    /**
-     * Gets a list of scalar values from a model.
-     *
-     * @param model Amf model to extract the value from.
-     * @param key Model key to search for the value
-     * @returns Value for key
-     */
-    _getValues(model: object|null, key: String|null): Array<any|null>|null;
-
-    /**
      * Helper function for the view. Extracts `http://www.w3.org/ns/shacl#property`
      * from the shape model
      *

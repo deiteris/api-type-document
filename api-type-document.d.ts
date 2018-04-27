@@ -13,6 +13,7 @@
 /// <reference path="../polymer/types/lib/elements/dom-repeat.d.ts" />
 /// <reference path="../raml-aware/raml-aware.d.ts" />
 /// <reference path="../paper-button/paper-button.d.ts" />
+/// <reference path="../amf-helper-mixin/amf-helper-mixin.d.ts" />
 /// <reference path="property-shape-document.d.ts" />
 /// <reference path="property-document-mixin.d.ts" />
 
@@ -48,8 +49,10 @@ declare namespace ApiElements {
    * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
    * `--api-type-document-docs-margin-left` | Margin left of the item's properties description relative to the title. | `12px`
    * `--api-type-document-child-docs-margin-left` | Margin left of the item's properties description relative to the title when the item is a child property of another property | `24px`
+   * `--api-type-document-type-color` | Color of the "type" trait | `white`
    * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
-   * `--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`
+   * `--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`,
+   * `--api-type-document-trait-border-radius` | Border radious of a main property traits like type, required, enum | `3px`
    *
    * From `property-range-document`
    *
@@ -65,7 +68,8 @@ declare namespace ApiElements {
    */
   class ApiTypeDocument extends
     ArcBehaviors.PropertyDocumentMixin(
-    Polymer.Element) {
+    ApiElements.AmfHelperMixin(
+    Polymer.Element)) {
 
     /**
      * Generated AMF json/ld model form the API spec.
@@ -133,14 +137,6 @@ declare namespace ApiElements {
      * Selected index of union type in `unionTypes` array.
      */
     selectedUnion: number|null|undefined;
-
-    /**
-     * Checks if property item has a type.
-     *
-     * @param record Model item change record.
-     * @param type A type to lookup
-     */
-    _hasTypeChangeRecord(record: object|null, type: String|null): Boolean|null;
 
     /**
      * Handles type change. Sets basic view control properties.

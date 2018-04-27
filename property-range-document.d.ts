@@ -15,6 +15,7 @@
 /// <reference path="../markdown-styles/markdown-styles.d.ts" />
 /// <reference path="../marked-element/marked-element.d.ts" />
 /// <reference path="../api-annotation-document/api-annotation-document.d.ts" />
+/// <reference path="../amf-helper-mixin/amf-helper-mixin.d.ts" />
 /// <reference path="api-type-document.d.ts" />
 /// <reference path="property-document-mixin.d.ts" />
 
@@ -41,7 +42,8 @@ declare namespace ApiElements {
    */
   class PropertyRangeDocument extends
     ArcBehaviors.PropertyDocumentMixin(
-    Polymer.Element) {
+    ApiElements.AmfHelperMixin(
+    Polymer.Element)) {
 
     /**
      * Computed value, true if there is a list of examples
@@ -126,6 +128,14 @@ declare namespace ApiElements {
     _computeIsArray(range: object|null): Boolean|null;
 
     /**
+     * Computes value if a property exists in a model
+     *
+     * @param model An object to test
+     * @param key Property name to look for
+     */
+    _hasProperty(model: object|null, key: String|null): Boolean|null;
+
+    /**
      * Computes value for `hasExamples`.
      *
      * @param range Range object of current shape.
@@ -167,23 +177,6 @@ declare namespace ApiElements {
      * @returns List of enum types.
      */
     _computeEnumValues(isEnum: Boolean|null, range: object|null): Array<String|null>|null|undefined;
-
-    /**
-     * Computesa value for the `enum` property in the view model.
-     *
-     * @param model Current model item for `shacl#in` namespace
-     * @param result Collected values.
-     * @returns Final result.
-     */
-    _computeEnumIterator(model: any[]|null, result: any[]|null): any[]|null;
-
-    /**
-     * Computes value if a property exists in a model
-     *
-     * @param model An object to test
-     * @param key Property name to look for
-     */
-    _hasProperty(model: object|null, key: String|null): Boolean|null;
 
     /**
      * Computes example value to set on `marked-element`.
