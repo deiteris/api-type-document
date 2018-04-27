@@ -4,6 +4,7 @@
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../markdown-styles/markdown-styles.html">
 <link rel="import" href="../marked-element/marked-element.html">
+<link rel="import" href="../amf-helper-mixin/amf-helper-mixin.html">
 <link rel="import" href="api-type-document.html">
 <link rel="import" href="property-range-document.html">
 <link rel="import" href="property-document-mixin.html">
@@ -187,8 +188,9 @@
    * @demo demo/index.html
    * @memberof ApiElements
    * @appliesMixin ArcBehaviors.PropertyDocumentMixin
+   * @appliesMixin ApiElements.AmfHelperMixin
    */
-  class PropertyShapeDocument extends ArcBehaviors.PropertyDocumentMixin(Polymer.Element) {
+  class PropertyShapeDocument extends ApiElements.AmfHelperMixin(ArcBehaviors.PropertyDocumentMixin(Polymer.Element)) {
     static get is() { return 'property-shape-document'; }
     static get properties() {
       return {

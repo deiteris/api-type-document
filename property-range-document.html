@@ -5,6 +5,7 @@
 <link rel="import" href="../markdown-styles/markdown-styles.html">
 <link rel="import" href="../marked-element/marked-element.html">
 <link rel="import" href="../api-annotation-document/api-annotation-document.html">
+<link rel="import" href="../amf-helper-mixin/amf-helper-mixin.html">
 <link rel="import" href="api-type-document.html">
 <link rel="import" href="property-document-mixin.html">
 
@@ -106,7 +107,7 @@
       <template is="dom-if" if="[[_hasProperty(range, 'http://raml.org/vocabularies/shapes#fileType')]]">
         <div class="property-attribute">
           <span class="attribute-label">File types:</span>
-          <span class="attribute-value" title="File mime types accepted by the endpoint">[[_getValues(range,'http://raml.org/vocabularies/shapes#fileType')]]</span>
+          <span class="attribute-value" title="File mime types accepted by the endpoint">[[_getValueArray(range,'http://raml.org/vocabularies/shapes#fileType')]]</span>
         </div>
       </template>
       <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#minLength')]]">
@@ -174,8 +175,9 @@
    * @demo demo/index.html
    * @memberof ApiElements
    * @appliesMixin ArcBehaviors.PropertyDocumentMixin
+   * @appliesMixin ApiElements.AmfHelperMixin
    */
-  class PropertyRangeDocument extends ArcBehaviors.PropertyDocumentMixin(Polymer.Element) {
+  class PropertyRangeDocument extends ApiElements.AmfHelperMixin(ArcBehaviors.PropertyDocumentMixin(Polymer.Element)) {
     static get is() { return 'property-range-document'; }
     static get properties() {
       return {
@@ -278,10 +280,7 @@
         return;
       }
       return list.map((item) => {
-        let value = this._getValue(item, 'http://raml.org/vocabularies/document#value');
-        if (!value) {
-          value = this._getValue(item, 'http://www.w3.org/ns/shacl#raw');
-        }
+        let value = this._getExampleValue(item);
         const name = this._getValue(item, 'http://schema.org/name');
         return {
           name,
@@ -376,33 +375,22 @@
       if (!isEnum || !range) {
         return;
       }
-      const data = range['http://www.w3.org/ns/shacl#in'];
-      if (!data) {
+      let model = range['http://www.w3.org/ns/shacl#in'];
+      if (!model) {
         return;
       }
-      const result = [];
-      return this._computeEnumIterator(data, result);
-    }
-    /**
-     * Computesa value for the `enum` property in the view model.
-     * @param {Array} model Current model item for `shacl#in` namespace
-     * @param {Array} result Collected values.
-     * @return {Array} Final result.
-     */
-    _computeEnumIterator(model, result) {
-      if (!model || !model.length) {
-        return result;
-      }
       model = model[0];
-      const firstItem = this._getValue(model, 'http://www.w3.org/1999/02/22-rdf-syntax-ns#first');
-      if (firstItem) {
-        result.push(firstItem);
-      }
-      const val = model['http://www.w3.org/1999/02/22-rdf-syntax-ns#rest'];
-      if (!val) {
-        return result;
-      }
-      return this._computeEnumIterator(val, result);
+      const result = [];
+      Object.keys(model).forEach((key) => {
+        if (key.indexOf('http://www.w3.org/2000/01/rdf-schema#') === -1) {
+          return;
+        }
+        const value = this._getValue(model, key);
+        if (value) {
+          result.push(value);
+        }
+      });
+      return result;
     }
     /**
      * Computes value if a property exists in a model

@@ -18,40 +18,6 @@
 
   <script>
   suite('property-document-mixin', () => {
-    suite('_hasType()', () => {
-      let element;
-      const shape = {
-        '@type': ['test1','test2','test3']
-      };
-      suiteSetup(() => {
-        element = fixture('Basic');
-      });
-
-      test('Returns true if type exists', () => {
-        let result = element._hasType(shape, 'test1');
-        assert.isTrue(result, 'test1 exixts');
-        result = element._hasType(shape, 'test2');
-        assert.isTrue(result, 'test2 exixts');
-        result = element._hasType(shape, 'test3');
-        assert.isTrue(result, 'test3 exixts');
-      });
-
-      test('Returns false if type does not exists', () => {
-        const result = element._hasType(shape, 'test4');
-        assert.isFalse(result);
-      });
-
-      test('Returns false for undefined', () => {
-        const result = element._hasType(undefined, 'test4');
-        assert.isFalse(result);
-      });
-
-      test('Returns false for null', () => {
-        const result = element._hasType(null, 'test4');
-        assert.isFalse(result);
-      });
-    });
-
     suite('_computeRangeDataType()', () => {
       let element;
       suiteSetup(() => {
@@ -240,45 +206,6 @@
 
       test('Undefined for undefined', () => {
         const result = element._getValue(undefined, 'testKey');
-        assert.isUndefined(result);
-      });
-    });
-
-    suite('_getValues()', () => {
-      const shape = {
-        testKey: [{
-          '@value': 'test-value1'
-        }, {
-          '@value': 'test-value2'
-        }]
-      };
-      const invalidShape = {
-        testKey: {
-          '@value': 'test-value'
-        }
-      };
-      let element;
-      suiteSetup(() => {
-        element = fixture('Basic');
-      });
-
-      test('Computes value for key', () => {
-        const result = element._getValues(shape, 'testKey');
-        assert.deepEqual(result, ['test-value1', 'test-value2']);
-      });
-
-      test('Undefined for not existing key', () => {
-        const result = element._getValues(shape, 'testKey2');
-        assert.isUndefined(result);
-      });
-
-      test('Undefined for invalid data type', () => {
-        const result = element._getValues(invalidShape, 'testKey');
-        assert.isUndefined(result);
-      });
-
-      test('Undefined for undefined', () => {
-        const result = element._getValues(undefined, 'testKey');
         assert.isUndefined(result);
       });
     });

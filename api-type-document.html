@@ -3,6 +3,7 @@
 <link rel="import" href="../polymer/lib/elements/dom-repeat.html">
 <link rel="import" href="../raml-aware/raml-aware.html">
 <link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../amf-helper-mixin/amf-helper-mixin.html">
 <link rel="import" href="property-shape-document.html">
 <link rel="import" href="property-document-mixin.html">
 <dom-module id="api-type-document">
@@ -100,8 +101,9 @@
    * @demo demo/index.html
    * @memberof ApiElements
    * @appliesMixin ArcBehaviors.PropertyDocumentMixin
+   * @appliesMixin ApiElements.AmfHelperMixin
    */
-  class ApiTypeDocument extends ArcBehaviors.PropertyDocumentMixin(Polymer.Element) {
+  class ApiTypeDocument extends ApiElements.AmfHelperMixin(ArcBehaviors.PropertyDocumentMixin(Polymer.Element)) {
     static get is() { return 'api-type-document'; }
     static get properties() {
       return {
@@ -188,19 +190,6 @@
           type: Number
         }
       };
-    }
-    /**
-     * Checks if property item has a type.
-     * @param {Object} record Model item change record.
-     * @param {String} type A type to lookup
-     * @return {Boolean}
-     */
-    _hasTypeChangeRecord(record, type) {
-      if (!record || !record.base || !record.base) {
-        return false;
-      }
-      const types = record.base['@type'] || [];
-      return types.findIndex((item) => item === type) !== -1;
     }
     /**
      * Handles type change. Sets basic view control properties.
