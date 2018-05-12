@@ -16,6 +16,9 @@ annotationTypes:
         pattern: "\\d{3}-\\w{12}"
         required: true
 
+uses:
+  myLib: library.raml
+
 types:
   Image: !include resourceTypes/image.raml
   Resource: !include resourceTypes/resource.raml
