@@ -14,8 +14,14 @@
       @apply --api-type-document;
     }
 
-    paper-button[active] {
-      background-color: var(--api-type-document-union-button-background-color, #CDDC39);
+    .union-toggle {
+      background-color: var(--api-type-document-union-button-background-color, #fff);
+      color: var(--api-type-document-union-button-color, #000);
+    }
+
+    .union-toggle[active] {
+      background-color: var(--api-type-document-union-button-active-background-color, #CDDC39);
+      color: var(--api-type-document-union-button-active-color, #000);
     }
 
     .union-type-selector {
@@ -64,6 +70,10 @@
    * Custom property | Description | Default
    * ----------------|-------------|----------
    * `--api-type-document` | Mixin applied to this elment | `{}`
+   * `--api-type-document-union-button-background-color` | Background color of union selector button | `#fff`
+   * `--api-type-document-union-button-color` | Color of union selector button | `#000`
+   * `--api-type-document-union-button-active-background-color` | Background color of active union selector button | `#CDDC39`
+   * `--api-type-document-union-button-active-color` | Color of active union selector button | `#000`
    *
    * From `property-shape-document`
    *

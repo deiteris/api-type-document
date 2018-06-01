@@ -97,6 +97,11 @@ declare namespace ApiElements {
     parentTypeName: string|null|undefined;
 
     /**
+     * Computed value, true if `parentTypeName` has a value.
+     */
+    readonly hasParentTypeName: boolean|null|undefined;
+
+    /**
      * Computed value of shape data type
      */
     readonly propertyDataType: object|null;
@@ -137,10 +142,13 @@ declare namespace ApiElements {
     /**
      * Computes value for `hasDisplayName` property.
      * Indicates that `displayName` has been defined in the API specification.
-     *
-     * @param range Range object of current shape.
      */
-    _computeHasDisplayName(range: object|null, shape: any): Boolean|null;
+    _computeHasDisplayName(displayName: String|null): Boolean|null;
+
+    /**
+     * Computes value for `hasParentTypeName`.
+     */
+    _computeHasParentTypeName(parentTypeName: String|null): Boolean|null;
 
     /**
      * Sets "active" attribute on this element when the border is hovered.
