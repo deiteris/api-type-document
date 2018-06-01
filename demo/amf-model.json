@@ -128,6 +128,11 @@
                                         "@value": "name"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Name"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "Product name"
@@ -215,6 +220,11 @@
                                         "@value": "id"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Etag"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "Product id. It is a UUID of the database record.\n__This property will be ignored when creating an object.__\nIt will be available when the product is stored in the datastore.\n"
@@ -267,6 +277,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "upc"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "UPC"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -351,6 +366,11 @@
                                         "@value": "unit"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Unit"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "The unit of measuremet for the quantity property."
@@ -431,6 +451,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "available"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Available"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -515,6 +540,11 @@
                                         "@value": "quantity"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Quantity"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "The quantity of the product in the one unit of measurement.\nSee `unit` property for more information.\n"
@@ -595,6 +625,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "etag"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Etag"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -691,6 +726,11 @@
                                         "@value": "name"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Name"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "Product name"
@@ -778,6 +818,11 @@
                                         "@value": "id"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Etag"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "Product id. It is a UUID of the database record.\n__This property will be ignored when creating an object.__\nIt will be available when the product is stored in the datastore.\n"
@@ -830,6 +875,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "upc"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "UPC"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -914,6 +964,11 @@
                                         "@value": "unit"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Unit"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "The unit of measuremet for the quantity property."
@@ -994,6 +1049,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "available"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Available"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -1078,6 +1138,11 @@
                                         "@value": "quantity"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Quantity"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "The quantity of the product in the one unit of measurement.\nSee `unit` property for more information.\n"
@@ -1158,6 +1223,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "etag"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Etag"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -1273,6 +1343,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "gender?"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Gender"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -1460,6 +1535,11 @@
                                         "@value": "name"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Person name"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "Person full name. The input will be rejected if this property is not set while creating new object."
@@ -1634,6 +1714,11 @@
                                         "@value": "id"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "ID"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "A unique identifier of a person.\n\nIt is a 32 bit string containing alphanumeric characters.\n"
@@ -1681,6 +1766,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "language"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Language"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -1808,6 +1898,11 @@
                                         "@value": "birthday"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Person birthday"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "The person's date of birth, represented as YYYY-MM-DD."
@@ -1855,6 +1950,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "favouriteTime"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Some example"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -1931,6 +2031,11 @@
                                             "http://www.w3.org/ns/shacl#name": [
                                               {
                                                 "@value": "url"
+                                              }
+                                            ],
+                                            "http://schema.org/name": [
+                                              {
+                                                "@value": "Url"
                                               }
                                             ],
                                             "http://schema.org/description": [
@@ -2115,6 +2220,11 @@
                                         "@value": "url"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Profile URL"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "The URL of this person's profile."
@@ -2162,6 +2272,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "newsletter"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Newsletter consent"
                                       }
                                     ],
                                     "http://www.w3.org/ns/shacl#defaultValue": [
@@ -2284,6 +2399,11 @@
                                         "@value": "age"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Age"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "Very unpractical property to have in a data store.\n"
@@ -2331,6 +2451,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "tagline"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Tagline"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -2479,6 +2604,11 @@
                                         "@value": "etag"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Etag"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "ETag of this resource for caching purposes.\n__This property will be ignored when creating an object.__\n"
@@ -2571,6 +2701,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "gender?"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Gender"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -2758,6 +2893,11 @@
                                         "@value": "name"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Person name"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "Person full name. The input will be rejected if this property is not set while creating new object."
@@ -2932,6 +3072,11 @@
                                         "@value": "id"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "ID"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "A unique identifier of a person.\n\nIt is a 32 bit string containing alphanumeric characters.\n"
@@ -2979,6 +3124,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "language"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Language"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -3106,6 +3256,11 @@
                                         "@value": "birthday"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Person birthday"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "The person's date of birth, represented as YYYY-MM-DD."
@@ -3153,6 +3308,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "favouriteTime"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Some example"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -3229,6 +3389,11 @@
                                             "http://www.w3.org/ns/shacl#name": [
                                               {
                                                 "@value": "url"
+                                              }
+                                            ],
+                                            "http://schema.org/name": [
+                                              {
+                                                "@value": "Url"
                                               }
                                             ],
                                             "http://schema.org/description": [
@@ -3413,6 +3578,11 @@
                                         "@value": "url"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Profile URL"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "The URL of this person's profile."
@@ -3460,6 +3630,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "newsletter"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Newsletter consent"
                                       }
                                     ],
                                     "http://www.w3.org/ns/shacl#defaultValue": [
@@ -3582,6 +3757,11 @@
                                         "@value": "age"
                                       }
                                     ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Age"
+                                      }
+                                    ],
                                     "http://schema.org/description": [
                                       {
                                         "@value": "Very unpractical property to have in a data store.\n"
@@ -3629,6 +3809,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "tagline"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Tagline"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -3775,6 +3960,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "etag"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Etag"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -4290,6 +4480,11 @@
                     "@value": "gender?"
                   }
                 ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Gender"
+                  }
+                ],
                 "http://schema.org/description": [
                   {
                     "@value": "The person's gender. Possible values includes, but are not limited to, the following values:\n* \"male\" - Male gender.\n* \"female\" - Female gender.\n* \"other\" - Other.\n"
@@ -4475,6 +4670,11 @@
                     "@value": "name"
                   }
                 ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Person name"
+                  }
+                ],
                 "http://schema.org/description": [
                   {
                     "@value": "Person full name. The input will be rejected if this property is not set while creating new object."
@@ -4649,6 +4849,11 @@
                     "@value": "id"
                   }
                 ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "ID"
+                  }
+                ],
                 "http://schema.org/description": [
                   {
                     "@value": "A unique identifier of a person.\n\nIt is a 32 bit string containing alphanumeric characters.\n"
@@ -4696,6 +4901,11 @@
                 "http://www.w3.org/ns/shacl#name": [
                   {
                     "@value": "language"
+                  }
+                ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Language"
                   }
                 ],
                 "http://schema.org/description": [
@@ -4823,6 +5033,11 @@
                     "@value": "birthday"
                   }
                 ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Person birthday"
+                  }
+                ],
                 "http://schema.org/description": [
                   {
                     "@value": "The person's date of birth, represented as YYYY-MM-DD."
@@ -4872,6 +5087,11 @@
                     "@value": "favouriteTime"
                   }
                 ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Some example"
+                  }
+                ],
                 "http://schema.org/description": [
                   {
                     "@value": "The person's favourite time of day"
@@ -4904,7 +5124,7 @@
             ],
             "http://raml.org/vocabularies/shapes#range": [
               {
-                "@id": "file://demo/resourceTypes/app-person.raml/type/property/image/image",
+                "@id": "file://demo/resourceTypes/image.raml/type",
                 "@type": [
                   "http://www.w3.org/ns/shacl#NodeShape",
                   "http://www.w3.org/ns/shacl#Shape",
@@ -4918,7 +5138,7 @@
                 ],
                 "http://www.w3.org/ns/shacl#property": [
                   {
-                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/image/image/property/url",
+                    "@id": "file://demo/resourceTypes/image.raml/type/property/url",
                     "@type": [
                       "http://www.w3.org/ns/shacl#PropertyShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -4931,7 +5151,7 @@
                     ],
                     "http://raml.org/vocabularies/shapes#range": [
                       {
-                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/image/image/property/url/scalar/url",
+                        "@id": "file://demo/resourceTypes/image.raml/type/property/url/scalar/url",
                         "@type": [
                           "http://raml.org/vocabularies/shapes#ScalarShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -4946,6 +5166,11 @@
                         "http://www.w3.org/ns/shacl#name": [
                           {
                             "@value": "url"
+                          }
+                        ],
+                        "http://schema.org/name": [
+                          {
+                            "@value": "Url"
                           }
                         ],
                         "http://schema.org/description": [
@@ -4967,7 +5192,7 @@
                     ]
                   },
                   {
-                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/image/image/property/thumb",
+                    "@id": "file://demo/resourceTypes/image.raml/type/property/thumb",
                     "@type": [
                       "http://www.w3.org/ns/shacl#PropertyShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -4980,7 +5205,7 @@
                     ],
                     "http://raml.org/vocabularies/shapes#range": [
                       {
-                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/image/image/property/thumb/scalar/thumb",
+                        "@id": "file://demo/resourceTypes/image.raml/type/property/thumb/scalar/thumb",
                         "@type": [
                           "http://raml.org/vocabularies/shapes#ScalarShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -5130,6 +5355,11 @@
                     "@value": "url"
                   }
                 ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Profile URL"
+                  }
+                ],
                 "http://schema.org/description": [
                   {
                     "@value": "The URL of this person's profile."
@@ -5177,6 +5407,11 @@
                 "http://www.w3.org/ns/shacl#name": [
                   {
                     "@value": "newsletter"
+                  }
+                ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Newsletter consent"
                   }
                 ],
                 "http://www.w3.org/ns/shacl#defaultValue": [
@@ -5299,6 +5534,11 @@
                     "@value": "age"
                   }
                 ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Age"
+                  }
+                ],
                 "http://schema.org/description": [
                   {
                     "@value": "Very unpractical property to have in a data store.\n"
@@ -5346,6 +5586,11 @@
                 "http://www.w3.org/ns/shacl#name": [
                   {
                     "@value": "tagline"
+                  }
+                ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Tagline"
                   }
                 ],
                 "http://schema.org/description": [
@@ -5464,7 +5709,7 @@
             ]
           },
           {
-            "@id": "file://demo/resourceTypes/app-person.raml/type/property/etag",
+            "@id": "file://demo/resourceTypes/resource.raml/type/property/etag",
             "@type": [
               "http://www.w3.org/ns/shacl#PropertyShape",
               "http://www.w3.org/ns/shacl#Shape",
@@ -5477,7 +5722,7 @@
             ],
             "http://raml.org/vocabularies/shapes#range": [
               {
-                "@id": "file://demo/resourceTypes/app-person.raml/type/property/etag/scalar/etag",
+                "@id": "file://demo/resourceTypes/resource.raml/type/property/etag/scalar/etag",
                 "@type": [
                   "http://raml.org/vocabularies/shapes#ScalarShape",
                   "http://www.w3.org/ns/shacl#Shape",
@@ -5492,6 +5737,11 @@
                 "http://www.w3.org/ns/shacl#name": [
                   {
                     "@value": "etag"
+                  }
+                ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Etag"
                   }
                 ],
                 "http://schema.org/description": [
@@ -5883,7 +6133,7 @@
             ],
             "http://www.w3.org/ns/shacl#property": [
               {
-                "@id": "file://demo/api.raml#/declarations/Unionable_0/property/message",
+                "@id": "file://demo/api.raml#/declarations/ErrorResource/property/message",
                 "@type": [
                   "http://www.w3.org/ns/shacl#PropertyShape",
                   "http://www.w3.org/ns/shacl#Shape",
@@ -5896,7 +6146,7 @@
                 ],
                 "http://raml.org/vocabularies/shapes#range": [
                   {
-                    "@id": "file://demo/api.raml#/declarations/Unionable_0/property/message/scalar/message",
+                    "@id": "file://demo/api.raml#/declarations/ErrorResource/property/message/scalar/message",
                     "@type": [
                       "http://raml.org/vocabularies/shapes#ScalarShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -5965,7 +6215,7 @@
                 ]
               },
               {
-                "@id": "file://demo/api.raml#/declarations/Unionable_0/property/error",
+                "@id": "file://demo/api.raml#/declarations/ErrorResource/property/error",
                 "@type": [
                   "http://www.w3.org/ns/shacl#PropertyShape",
                   "http://www.w3.org/ns/shacl#Shape",
@@ -5978,7 +6228,7 @@
                 ],
                 "http://raml.org/vocabularies/shapes#range": [
                   {
-                    "@id": "file://demo/api.raml#/declarations/Unionable_0/property/error/scalar/error",
+                    "@id": "file://demo/api.raml#/declarations/ErrorResource/property/error/scalar/error",
                     "@type": [
                       "http://raml.org/vocabularies/shapes#ScalarShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -6092,7 +6342,7 @@
             ],
             "http://www.w3.org/ns/shacl#property": [
               {
-                "@id": "file://demo/api.raml#/declarations/Unionable_1/property/name",
+                "@id": "file://demo/resourceTypes/product.raml/type/property/name",
                 "@type": [
                   "http://www.w3.org/ns/shacl#PropertyShape",
                   "http://www.w3.org/ns/shacl#Shape",
@@ -6105,7 +6355,7 @@
                 ],
                 "http://raml.org/vocabularies/shapes#range": [
                   {
-                    "@id": "file://demo/api.raml#/declarations/Unionable_1/property/name/scalar/name",
+                    "@id": "file://demo/resourceTypes/product.raml/type/property/name/scalar/name",
                     "@type": [
                       "http://raml.org/vocabularies/shapes#ScalarShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -6120,6 +6370,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "name"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Name"
                       }
                     ],
                     "http://schema.org/description": [
@@ -6174,7 +6429,7 @@
                 ]
               },
               {
-                "@id": "file://demo/api.raml#/declarations/Unionable_1/property/id",
+                "@id": "file://demo/resourceTypes/product.raml/type/property/id",
                 "@type": [
                   "http://www.w3.org/ns/shacl#PropertyShape",
                   "http://www.w3.org/ns/shacl#Shape",
@@ -6187,7 +6442,7 @@
                 ],
                 "http://raml.org/vocabularies/shapes#range": [
                   {
-                    "@id": "file://demo/api.raml#/declarations/Unionable_1/property/id/scalar/id",
+                    "@id": "file://demo/resourceTypes/product.raml/type/property/id/scalar/id",
                     "@type": [
                       "http://raml.org/vocabularies/shapes#ScalarShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -6209,6 +6464,11 @@
                         "@value": "id"
                       }
                     ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Etag"
+                      }
+                    ],
                     "http://schema.org/description": [
                       {
                         "@value": "Product id. It is a UUID of the database record.\n__This property will be ignored when creating an object.__\nIt will be available when the product is stored in the datastore.\n"
@@ -6228,7 +6488,7 @@
                 ]
               },
               {
-                "@id": "file://demo/api.raml#/declarations/Unionable_1/property/upc",
+                "@id": "file://demo/resourceTypes/product.raml/type/property/upc",
                 "@type": [
                   "http://www.w3.org/ns/shacl#PropertyShape",
                   "http://www.w3.org/ns/shacl#Shape",
@@ -6241,7 +6501,7 @@
                 ],
                 "http://raml.org/vocabularies/shapes#range": [
                   {
-                    "@id": "file://demo/api.raml#/declarations/Unionable_1/property/upc/scalar/upc",
+                    "@id": "file://demo/resourceTypes/product.raml/type/property/upc/scalar/upc",
                     "@type": [
                       "http://raml.org/vocabularies/shapes#ScalarShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -6261,6 +6521,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "upc"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "UPC"
                       }
                     ],
                     "http://schema.org/description": [
@@ -6315,7 +6580,7 @@
                 ]
               },
               {
-                "@id": "file://demo/api.raml#/declarations/Unionable_1/property/unit",
+                "@id": "file://demo/resourceTypes/product.raml/type/property/unit",
                 "@type": [
                   "http://www.w3.org/ns/shacl#PropertyShape",
                   "http://www.w3.org/ns/shacl#Shape",
@@ -6328,7 +6593,7 @@
                 ],
                 "http://raml.org/vocabularies/shapes#range": [
                   {
-                    "@id": "file://demo/api.raml#/declarations/Unionable_1/property/unit/scalar/unit",
+                    "@id": "file://demo/resourceTypes/product.raml/type/property/unit/scalar/unit",
                     "@type": [
                       "http://raml.org/vocabularies/shapes#ScalarShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -6343,6 +6608,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "unit"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Unit"
                       }
                     ],
                     "http://schema.org/description": [
@@ -6397,7 +6667,7 @@
                 ]
               },
               {
-                "@id": "file://demo/api.raml#/declarations/Unionable_1/property/available",
+                "@id": "file://demo/resourceTypes/product.raml/type/property/available",
                 "@type": [
                   "http://www.w3.org/ns/shacl#PropertyShape",
                   "http://www.w3.org/ns/shacl#Shape",
@@ -6410,7 +6680,7 @@
                 ],
                 "http://raml.org/vocabularies/shapes#range": [
                   {
-                    "@id": "file://demo/api.raml#/declarations/Unionable_1/property/available/scalar/available",
+                    "@id": "file://demo/resourceTypes/product.raml/type/property/available/scalar/available",
                     "@type": [
                       "http://raml.org/vocabularies/shapes#ScalarShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -6425,6 +6695,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "available"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Available"
                       }
                     ],
                     "http://schema.org/description": [
@@ -6479,7 +6754,7 @@
                 ]
               },
               {
-                "@id": "file://demo/api.raml#/declarations/Unionable_1/property/quantity",
+                "@id": "file://demo/resourceTypes/product.raml/type/property/quantity",
                 "@type": [
                   "http://www.w3.org/ns/shacl#PropertyShape",
                   "http://www.w3.org/ns/shacl#Shape",
@@ -6492,7 +6767,7 @@
                 ],
                 "http://raml.org/vocabularies/shapes#range": [
                   {
-                    "@id": "file://demo/api.raml#/declarations/Unionable_1/property/quantity/scalar/quantity",
+                    "@id": "file://demo/resourceTypes/product.raml/type/property/quantity/scalar/quantity",
                     "@type": [
                       "http://raml.org/vocabularies/shapes#ScalarShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -6507,6 +6782,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "quantity"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Quantity"
                       }
                     ],
                     "http://schema.org/description": [
@@ -6561,7 +6841,7 @@
                 ]
               },
               {
-                "@id": "file://demo/api.raml#/declarations/Unionable_1/property/etag",
+                "@id": "file://demo/resourceTypes/resource.raml/type/property/etag",
                 "@type": [
                   "http://www.w3.org/ns/shacl#PropertyShape",
                   "http://www.w3.org/ns/shacl#Shape",
@@ -6574,7 +6854,7 @@
                 ],
                 "http://raml.org/vocabularies/shapes#range": [
                   {
-                    "@id": "file://demo/api.raml#/declarations/Unionable_1/property/etag/scalar/etag",
+                    "@id": "file://demo/resourceTypes/resource.raml/type/property/etag/scalar/etag",
                     "@type": [
                       "http://raml.org/vocabularies/shapes#ScalarShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -6589,6 +6869,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "etag"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Etag"
                       }
                     ],
                     "http://schema.org/description": [
@@ -6697,7 +6982,7 @@
                         ],
                         "http://raml.org/vocabularies/shapes#items": [
                           {
-                            "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/images/array/images/Image",
+                            "@id": "file://demo/resourceTypes/image.raml/type",
                             "@type": [
                               "http://www.w3.org/ns/shacl#NodeShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -6711,7 +6996,7 @@
                             ],
                             "http://www.w3.org/ns/shacl#property": [
                               {
-                                "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/images/array/images/Image/property/url",
+                                "@id": "file://demo/resourceTypes/image.raml/type/property/url",
                                 "@type": [
                                   "http://www.w3.org/ns/shacl#PropertyShape",
                                   "http://www.w3.org/ns/shacl#Shape",
@@ -6724,7 +7009,7 @@
                                 ],
                                 "http://raml.org/vocabularies/shapes#range": [
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/images/array/images/Image/property/url/scalar/url",
+                                    "@id": "file://demo/resourceTypes/image.raml/type/property/url/scalar/url",
                                     "@type": [
                                       "http://raml.org/vocabularies/shapes#ScalarShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -6739,6 +7024,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "url"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Url"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -6760,7 +7050,7 @@
                                 ]
                               },
                               {
-                                "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/images/array/images/Image/property/thumb",
+                                "@id": "file://demo/resourceTypes/image.raml/type/property/thumb",
                                 "@type": [
                                   "http://www.w3.org/ns/shacl#PropertyShape",
                                   "http://www.w3.org/ns/shacl#Shape",
@@ -6773,7 +7063,7 @@
                                 ],
                                 "http://raml.org/vocabularies/shapes#range": [
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/images/array/images/Image/property/thumb/scalar/thumb",
+                                    "@id": "file://demo/resourceTypes/image.raml/type/property/thumb/scalar/thumb",
                                     "@type": [
                                       "http://raml.org/vocabularies/shapes#ScalarShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -6954,7 +7244,7 @@
                                 ],
                                 "http://www.w3.org/ns/shacl#property": [
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/gender",
+                                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/gender",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -6967,7 +7257,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/gender/scalar/gender%3F",
+                                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/gender/scalar/gender%3F",
                                         "@type": [
                                           "http://raml.org/vocabularies/shapes#ScalarShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -6984,6 +7274,11 @@
                                             "@value": "gender?"
                                           }
                                         ],
+                                        "http://schema.org/name": [
+                                          {
+                                            "@value": "Gender"
+                                          }
+                                        ],
                                         "http://schema.org/description": [
                                           {
                                             "@value": "The person's gender. Possible values includes, but are not limited to, the following values:\n* \"male\" - Male gender.\n* \"female\" - Female gender.\n* \"other\" - Other.\n"
@@ -6991,7 +7286,7 @@
                                         ],
                                         "http://www.w3.org/ns/shacl#in": [
                                           {
-                                            "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/gender/scalar/gender%3F/list",
+                                            "@id": "file://demo/resourceTypes/app-person.raml/type/property/gender/scalar/gender%3F/list",
                                             "@type": "http://www.w3.org/2000/01/rdf-schema#Seq",
                                             "http://www.w3.org/2000/01/rdf-schema#_1": [
                                               {
@@ -7134,7 +7429,7 @@
                                     ]
                                   },
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/name",
+                                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/name",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -7147,7 +7442,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/name/scalar/name",
+                                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/name/scalar/name",
                                         "@type": [
                                           "http://raml.org/vocabularies/shapes#ScalarShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -7167,6 +7462,11 @@
                                         "http://www.w3.org/ns/shacl#name": [
                                           {
                                             "@value": "name"
+                                          }
+                                        ],
+                                        "http://schema.org/name": [
+                                          {
+                                            "@value": "Person name"
                                           }
                                         ],
                                         "http://schema.org/description": [
@@ -7221,7 +7521,7 @@
                                     ]
                                   },
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/created",
+                                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/created",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -7234,7 +7534,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/created/scalar/created",
+                                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/created/scalar/created",
                                         "@type": [
                                           "http://raml.org/vocabularies/shapes#ScalarShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -7298,7 +7598,7 @@
                                     ]
                                   },
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/id",
+                                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/id",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -7311,7 +7611,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/id/scalar/id",
+                                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/id/scalar/id",
                                         "@type": [
                                           "http://raml.org/vocabularies/shapes#ScalarShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -7343,6 +7643,11 @@
                                             "@value": "id"
                                           }
                                         ],
+                                        "http://schema.org/name": [
+                                          {
+                                            "@value": "ID"
+                                          }
+                                        ],
                                         "http://schema.org/description": [
                                           {
                                             "@value": "A unique identifier of a person.\n\nIt is a 32 bit string containing alphanumeric characters.\n"
@@ -7362,7 +7667,7 @@
                                     ]
                                   },
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/language",
+                                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/language",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -7375,7 +7680,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/language/scalar/language",
+                                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/language/scalar/language",
                                         "@type": [
                                           "http://raml.org/vocabularies/shapes#ScalarShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -7390,6 +7695,11 @@
                                         "http://www.w3.org/ns/shacl#name": [
                                           {
                                             "@value": "language"
+                                          }
+                                        ],
+                                        "http://schema.org/name": [
+                                          {
+                                            "@value": "Language"
                                           }
                                         ],
                                         "http://schema.org/description": [
@@ -7411,7 +7721,7 @@
                                     ]
                                   },
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/nillable",
+                                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/nillable",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -7424,7 +7734,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/nillable/union/default-union",
+                                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/nillable/union/default-union",
                                         "@type": [
                                           "http://raml.org/vocabularies/shapes#UnionShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -7487,7 +7797,7 @@
                                     ]
                                   },
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/birthday",
+                                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/birthday",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -7500,7 +7810,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/birthday/scalar/birthday",
+                                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/birthday/scalar/birthday",
                                         "@type": [
                                           "http://raml.org/vocabularies/shapes#ScalarShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -7515,6 +7825,11 @@
                                         "http://www.w3.org/ns/shacl#name": [
                                           {
                                             "@value": "birthday"
+                                          }
+                                        ],
+                                        "http://schema.org/name": [
+                                          {
+                                            "@value": "Person birthday"
                                           }
                                         ],
                                         "http://schema.org/description": [
@@ -7536,7 +7851,7 @@
                                     ]
                                   },
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/favouriteTime",
+                                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/favouriteTime",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -7549,7 +7864,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/favouriteTime/scalar/favouriteTime",
+                                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/favouriteTime/scalar/favouriteTime",
                                         "@type": [
                                           "http://raml.org/vocabularies/shapes#ScalarShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -7564,6 +7879,11 @@
                                         "http://www.w3.org/ns/shacl#name": [
                                           {
                                             "@value": "favouriteTime"
+                                          }
+                                        ],
+                                        "http://schema.org/name": [
+                                          {
+                                            "@value": "Some example"
                                           }
                                         ],
                                         "http://schema.org/description": [
@@ -7585,7 +7905,7 @@
                                     ]
                                   },
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/image",
+                                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/image",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -7598,7 +7918,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/image/image",
+                                        "@id": "file://demo/resourceTypes/image.raml/type",
                                         "@type": [
                                           "http://www.w3.org/ns/shacl#NodeShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -7612,7 +7932,7 @@
                                         ],
                                         "http://www.w3.org/ns/shacl#property": [
                                           {
-                                            "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/image/image/property/url",
+                                            "@id": "file://demo/resourceTypes/image.raml/type/property/url",
                                             "@type": [
                                               "http://www.w3.org/ns/shacl#PropertyShape",
                                               "http://www.w3.org/ns/shacl#Shape",
@@ -7625,7 +7945,7 @@
                                             ],
                                             "http://raml.org/vocabularies/shapes#range": [
                                               {
-                                                "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/image/image/property/url/scalar/url",
+                                                "@id": "file://demo/resourceTypes/image.raml/type/property/url/scalar/url",
                                                 "@type": [
                                                   "http://raml.org/vocabularies/shapes#ScalarShape",
                                                   "http://www.w3.org/ns/shacl#Shape",
@@ -7640,6 +7960,11 @@
                                                 "http://www.w3.org/ns/shacl#name": [
                                                   {
                                                     "@value": "url"
+                                                  }
+                                                ],
+                                                "http://schema.org/name": [
+                                                  {
+                                                    "@value": "Url"
                                                   }
                                                 ],
                                                 "http://schema.org/description": [
@@ -7661,7 +7986,7 @@
                                             ]
                                           },
                                           {
-                                            "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/image/image/property/thumb",
+                                            "@id": "file://demo/resourceTypes/image.raml/type/property/thumb",
                                             "@type": [
                                               "http://www.w3.org/ns/shacl#PropertyShape",
                                               "http://www.w3.org/ns/shacl#Shape",
@@ -7674,7 +7999,7 @@
                                             ],
                                             "http://raml.org/vocabularies/shapes#range": [
                                               {
-                                                "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/image/image/property/thumb/scalar/thumb",
+                                                "@id": "file://demo/resourceTypes/image.raml/type/property/thumb/scalar/thumb",
                                                 "@type": [
                                                   "http://raml.org/vocabularies/shapes#ScalarShape",
                                                   "http://www.w3.org/ns/shacl#Shape",
@@ -7794,7 +8119,7 @@
                                     ]
                                   },
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/url",
+                                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/url",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -7807,7 +8132,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/url/scalar/url",
+                                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/url/scalar/url",
                                         "@type": [
                                           "http://raml.org/vocabularies/shapes#ScalarShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -7822,6 +8147,11 @@
                                         "http://www.w3.org/ns/shacl#name": [
                                           {
                                             "@value": "url"
+                                          }
+                                        ],
+                                        "http://schema.org/name": [
+                                          {
+                                            "@value": "Profile URL"
                                           }
                                         ],
                                         "http://schema.org/description": [
@@ -7843,7 +8173,7 @@
                                     ]
                                   },
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/newsletter",
+                                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/newsletter",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -7856,7 +8186,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/newsletter/scalar/newsletter",
+                                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/newsletter/scalar/newsletter",
                                         "@type": [
                                           "http://raml.org/vocabularies/shapes#ScalarShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -7871,6 +8201,11 @@
                                         "http://www.w3.org/ns/shacl#name": [
                                           {
                                             "@value": "newsletter"
+                                          }
+                                        ],
+                                        "http://schema.org/name": [
+                                          {
+                                            "@value": "Newsletter consent"
                                           }
                                         ],
                                         "http://www.w3.org/ns/shacl#defaultValue": [
@@ -7906,7 +8241,7 @@
                                     ]
                                   },
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/fietype",
+                                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/fietype",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -7919,7 +8254,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/fietype/default-file",
+                                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/fietype/default-file",
                                         "@type": [
                                           "http://raml.org/vocabularies/shapes#FileShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -7963,7 +8298,7 @@
                                     ]
                                   },
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/age",
+                                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/age",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -7976,7 +8311,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/age/scalar/age",
+                                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/age/scalar/age",
                                         "@type": [
                                           "http://raml.org/vocabularies/shapes#ScalarShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -7991,6 +8326,11 @@
                                         "http://www.w3.org/ns/shacl#name": [
                                           {
                                             "@value": "age"
+                                          }
+                                        ],
+                                        "http://schema.org/name": [
+                                          {
+                                            "@value": "Age"
                                           }
                                         ],
                                         "http://schema.org/description": [
@@ -8012,7 +8352,7 @@
                                     ]
                                   },
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/tagline",
+                                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/tagline",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -8025,7 +8365,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/tagline/scalar/tagline",
+                                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/tagline/scalar/tagline",
                                         "@type": [
                                           "http://raml.org/vocabularies/shapes#ScalarShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -8040,6 +8380,11 @@
                                         "http://www.w3.org/ns/shacl#name": [
                                           {
                                             "@value": "tagline"
+                                          }
+                                        ],
+                                        "http://schema.org/name": [
+                                          {
+                                            "@value": "Tagline"
                                           }
                                         ],
                                         "http://schema.org/description": [
@@ -8061,7 +8406,7 @@
                                     ]
                                   },
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/favouriteNumber",
+                                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/favouriteNumber",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -8074,7 +8419,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/favouriteNumber/scalar/favouriteNumber",
+                                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/favouriteNumber/scalar/favouriteNumber",
                                         "@type": [
                                           "http://raml.org/vocabularies/shapes#ScalarShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -8158,7 +8503,7 @@
                                     ]
                                   },
                                   {
-                                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/etag",
+                                    "@id": "file://demo/resourceTypes/resource.raml/type/property/etag",
                                     "@type": [
                                       "http://www.w3.org/ns/shacl#PropertyShape",
                                       "http://www.w3.org/ns/shacl#Shape",
@@ -8171,7 +8516,7 @@
                                     ],
                                     "http://raml.org/vocabularies/shapes#range": [
                                       {
-                                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/user/user/property/etag/scalar/etag",
+                                        "@id": "file://demo/resourceTypes/resource.raml/type/property/etag/scalar/etag",
                                         "@type": [
                                           "http://raml.org/vocabularies/shapes#ScalarShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -8186,6 +8531,11 @@
                                         "http://www.w3.org/ns/shacl#name": [
                                           {
                                             "@value": "etag"
+                                          }
+                                        ],
+                                        "http://schema.org/name": [
+                                          {
+                                            "@value": "Etag"
                                           }
                                         ],
                                         "http://schema.org/description": [
@@ -8315,6 +8665,11 @@
                                                 "@value": "name"
                                               }
                                             ],
+                                            "http://schema.org/name": [
+                                              {
+                                                "@value": "Name"
+                                              }
+                                            ],
                                             "http://schema.org/description": [
                                               {
                                                 "@value": "Product name"
@@ -8402,6 +8757,11 @@
                                                 "@value": "id"
                                               }
                                             ],
+                                            "http://schema.org/name": [
+                                              {
+                                                "@value": "Etag"
+                                              }
+                                            ],
                                             "http://schema.org/description": [
                                               {
                                                 "@value": "Product id. It is a UUID of the database record.\n__This property will be ignored when creating an object.__\nIt will be available when the product is stored in the datastore.\n"
@@ -8454,6 +8814,11 @@
                                             "http://www.w3.org/ns/shacl#name": [
                                               {
                                                 "@value": "upc"
+                                              }
+                                            ],
+                                            "http://schema.org/name": [
+                                              {
+                                                "@value": "UPC"
                                               }
                                             ],
                                             "http://schema.org/description": [
@@ -8538,6 +8903,11 @@
                                                 "@value": "unit"
                                               }
                                             ],
+                                            "http://schema.org/name": [
+                                              {
+                                                "@value": "Unit"
+                                              }
+                                            ],
                                             "http://schema.org/description": [
                                               {
                                                 "@value": "The unit of measuremet for the quantity property."
@@ -8618,6 +8988,11 @@
                                             "http://www.w3.org/ns/shacl#name": [
                                               {
                                                 "@value": "available"
+                                              }
+                                            ],
+                                            "http://schema.org/name": [
+                                              {
+                                                "@value": "Available"
                                               }
                                             ],
                                             "http://schema.org/description": [
@@ -8702,6 +9077,11 @@
                                                 "@value": "quantity"
                                               }
                                             ],
+                                            "http://schema.org/name": [
+                                              {
+                                                "@value": "Quantity"
+                                              }
+                                            ],
                                             "http://schema.org/description": [
                                               {
                                                 "@value": "The quantity of the product in the one unit of measurement.\nSee `unit` property for more information.\n"
@@ -8754,7 +9134,7 @@
                                         ]
                                       },
                                       {
-                                        "@id": "file://demo/resourceTypes/product.raml/type/property/etag",
+                                        "@id": "file://demo/resourceTypes/resource.raml/type/property/etag",
                                         "@type": [
                                           "http://www.w3.org/ns/shacl#PropertyShape",
                                           "http://www.w3.org/ns/shacl#Shape",
@@ -8767,7 +9147,7 @@
                                         ],
                                         "http://raml.org/vocabularies/shapes#range": [
                                           {
-                                            "@id": "file://demo/resourceTypes/product.raml/type/property/etag/scalar/etag",
+                                            "@id": "file://demo/resourceTypes/resource.raml/type/property/etag/scalar/etag",
                                             "@type": [
                                               "http://raml.org/vocabularies/shapes#ScalarShape",
                                               "http://www.w3.org/ns/shacl#Shape",
@@ -8782,6 +9162,11 @@
                                             "http://www.w3.org/ns/shacl#name": [
                                               {
                                                 "@value": "etag"
+                                              }
+                                            ],
+                                            "http://schema.org/name": [
+                                              {
+                                                "@value": "Etag"
                                               }
                                             ],
                                             "http://schema.org/description": [
@@ -8858,7 +9243,7 @@
                                                 ],
                                                 "http://raml.org/vocabularies/data#value": [
                                                   {
-                                                    "@value": "W\\d3deef3rgrgf4r",
+                                                    "@value": "W\\sd3deef3rgrgf4r",
                                                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                                                   }
                                                 ]
@@ -8938,7 +9323,7 @@
                                         ],
                                         "http://www.w3.org/ns/shacl#raw": [
                                           {
-                                            "@value": "  id: we2322-4f4f4f-f4f4ff-f4f4ff4\n  name: Acme Product\n  quantity: 200\n  unit: ml\n  upc: \"123456789101\"\n  available: true\n  etag: \"W\\sd3deef3rgrgf4r\"\n"
+                                            "@value": "  id: we2322-4f4f4f-f4f4ff-f4f4ff4\n  name: Acme Product\n  quantity: 200\n  unit: ml\n  upc: \"123456789101\"\n  available: true\n  etag: \"W\\\\sd3deef3rgrgf4r\"\n"
                                           }
                                         ]
                                       }
@@ -8959,7 +9344,7 @@
                             ]
                           },
                           {
-                            "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/url",
+                            "@id": "file://demo/resourceTypes/image.raml/type/property/url",
                             "@type": [
                               "http://www.w3.org/ns/shacl#PropertyShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -8972,7 +9357,7 @@
                             ],
                             "http://raml.org/vocabularies/shapes#range": [
                               {
-                                "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/url/scalar/url",
+                                "@id": "file://demo/resourceTypes/image.raml/type/property/url/scalar/url",
                                 "@type": [
                                   "http://raml.org/vocabularies/shapes#ScalarShape",
                                   "http://www.w3.org/ns/shacl#Shape",
@@ -8987,6 +9372,11 @@
                                 "http://www.w3.org/ns/shacl#name": [
                                   {
                                     "@value": "url"
+                                  }
+                                ],
+                                "http://schema.org/name": [
+                                  {
+                                    "@value": "Url"
                                   }
                                 ],
                                 "http://schema.org/description": [
@@ -9008,7 +9398,7 @@
                             ]
                           },
                           {
-                            "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/thumb",
+                            "@id": "file://demo/resourceTypes/image.raml/type/property/thumb",
                             "@type": [
                               "http://www.w3.org/ns/shacl#PropertyShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -9021,7 +9411,7 @@
                             ],
                             "http://raml.org/vocabularies/shapes#range": [
                               {
-                                "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/iteration1/iteration1/property/userImage/userImage/property/thumb/scalar/thumb",
+                                "@id": "file://demo/resourceTypes/image.raml/type/property/thumb/scalar/thumb",
                                 "@type": [
                                   "http://raml.org/vocabularies/shapes#ScalarShape",
                                   "http://www.w3.org/ns/shacl#Shape",
@@ -9132,7 +9522,7 @@
                 ],
                 "http://www.w3.org/ns/shacl#property": [
                   {
-                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/name",
+                    "@id": "file://demo/resourceTypes/product.raml/type/property/name",
                     "@type": [
                       "http://www.w3.org/ns/shacl#PropertyShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -9145,7 +9535,7 @@
                     ],
                     "http://raml.org/vocabularies/shapes#range": [
                       {
-                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/name/scalar/name",
+                        "@id": "file://demo/resourceTypes/product.raml/type/property/name/scalar/name",
                         "@type": [
                           "http://raml.org/vocabularies/shapes#ScalarShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -9160,6 +9550,11 @@
                         "http://www.w3.org/ns/shacl#name": [
                           {
                             "@value": "name"
+                          }
+                        ],
+                        "http://schema.org/name": [
+                          {
+                            "@value": "Name"
                           }
                         ],
                         "http://schema.org/description": [
@@ -9214,7 +9609,7 @@
                     ]
                   },
                   {
-                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/id",
+                    "@id": "file://demo/resourceTypes/product.raml/type/property/id",
                     "@type": [
                       "http://www.w3.org/ns/shacl#PropertyShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -9227,7 +9622,7 @@
                     ],
                     "http://raml.org/vocabularies/shapes#range": [
                       {
-                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/id/scalar/id",
+                        "@id": "file://demo/resourceTypes/product.raml/type/property/id/scalar/id",
                         "@type": [
                           "http://raml.org/vocabularies/shapes#ScalarShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -9249,6 +9644,11 @@
                             "@value": "id"
                           }
                         ],
+                        "http://schema.org/name": [
+                          {
+                            "@value": "Etag"
+                          }
+                        ],
                         "http://schema.org/description": [
                           {
                             "@value": "Product id. It is a UUID of the database record.\n__This property will be ignored when creating an object.__\nIt will be available when the product is stored in the datastore.\n"
@@ -9268,7 +9668,7 @@
                     ]
                   },
                   {
-                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/upc",
+                    "@id": "file://demo/resourceTypes/product.raml/type/property/upc",
                     "@type": [
                       "http://www.w3.org/ns/shacl#PropertyShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -9281,7 +9681,7 @@
                     ],
                     "http://raml.org/vocabularies/shapes#range": [
                       {
-                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/upc/scalar/upc",
+                        "@id": "file://demo/resourceTypes/product.raml/type/property/upc/scalar/upc",
                         "@type": [
                           "http://raml.org/vocabularies/shapes#ScalarShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -9301,6 +9701,11 @@
                         "http://www.w3.org/ns/shacl#name": [
                           {
                             "@value": "upc"
+                          }
+                        ],
+                        "http://schema.org/name": [
+                          {
+                            "@value": "UPC"
                           }
                         ],
                         "http://schema.org/description": [
@@ -9355,7 +9760,7 @@
                     ]
                   },
                   {
-                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/unit",
+                    "@id": "file://demo/resourceTypes/product.raml/type/property/unit",
                     "@type": [
                       "http://www.w3.org/ns/shacl#PropertyShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -9368,7 +9773,7 @@
                     ],
                     "http://raml.org/vocabularies/shapes#range": [
                       {
-                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/unit/scalar/unit",
+                        "@id": "file://demo/resourceTypes/product.raml/type/property/unit/scalar/unit",
                         "@type": [
                           "http://raml.org/vocabularies/shapes#ScalarShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -9383,6 +9788,11 @@
                         "http://www.w3.org/ns/shacl#name": [
                           {
                             "@value": "unit"
+                          }
+                        ],
+                        "http://schema.org/name": [
+                          {
+                            "@value": "Unit"
                           }
                         ],
                         "http://schema.org/description": [
@@ -9501,6 +9911,11 @@
                                     "http://www.w3.org/ns/shacl#name": [
                                       {
                                         "@value": "url"
+                                      }
+                                    ],
+                                    "http://schema.org/name": [
+                                      {
+                                        "@value": "Url"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -9662,7 +10077,7 @@
                     ]
                   },
                   {
-                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/available",
+                    "@id": "file://demo/resourceTypes/product.raml/type/property/available",
                     "@type": [
                       "http://www.w3.org/ns/shacl#PropertyShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -9675,7 +10090,7 @@
                     ],
                     "http://raml.org/vocabularies/shapes#range": [
                       {
-                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/available/scalar/available",
+                        "@id": "file://demo/resourceTypes/product.raml/type/property/available/scalar/available",
                         "@type": [
                           "http://raml.org/vocabularies/shapes#ScalarShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -9690,6 +10105,11 @@
                         "http://www.w3.org/ns/shacl#name": [
                           {
                             "@value": "available"
+                          }
+                        ],
+                        "http://schema.org/name": [
+                          {
+                            "@value": "Available"
                           }
                         ],
                         "http://schema.org/description": [
@@ -9744,7 +10164,7 @@
                     ]
                   },
                   {
-                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/quantity",
+                    "@id": "file://demo/resourceTypes/product.raml/type/property/quantity",
                     "@type": [
                       "http://www.w3.org/ns/shacl#PropertyShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -9757,7 +10177,7 @@
                     ],
                     "http://raml.org/vocabularies/shapes#range": [
                       {
-                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/quantity/scalar/quantity",
+                        "@id": "file://demo/resourceTypes/product.raml/type/property/quantity/scalar/quantity",
                         "@type": [
                           "http://raml.org/vocabularies/shapes#ScalarShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -9772,6 +10192,11 @@
                         "http://www.w3.org/ns/shacl#name": [
                           {
                             "@value": "quantity"
+                          }
+                        ],
+                        "http://schema.org/name": [
+                          {
+                            "@value": "Quantity"
                           }
                         ],
                         "http://schema.org/description": [
@@ -9826,7 +10251,7 @@
                     ]
                   },
                   {
-                    "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/etag",
+                    "@id": "file://demo/resourceTypes/resource.raml/type/property/etag",
                     "@type": [
                       "http://www.w3.org/ns/shacl#PropertyShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -9839,7 +10264,7 @@
                     ],
                     "http://raml.org/vocabularies/shapes#range": [
                       {
-                        "@id": "file://demo/api.raml#/declarations/ComplexRecursive/property/ieration2/ieration2/property/etag/scalar/etag",
+                        "@id": "file://demo/resourceTypes/resource.raml/type/property/etag/scalar/etag",
                         "@type": [
                           "http://raml.org/vocabularies/shapes#ScalarShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -9854,6 +10279,11 @@
                         "http://www.w3.org/ns/shacl#name": [
                           {
                             "@value": "etag"
+                          }
+                        ],
+                        "http://schema.org/name": [
+                          {
+                            "@value": "Etag"
                           }
                         ],
                         "http://schema.org/description": [
@@ -9962,6 +10392,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "url"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Url"
                       }
                     ],
                     "http://schema.org/description": [
@@ -10160,6 +10595,11 @@
                     "@value": "etag"
                   }
                 ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Etag"
+                  }
+                ],
                 "http://schema.org/description": [
                   {
                     "@value": "ETag of this resource for caching purposes.\n__This property will be ignored when creating an object.__\n"
@@ -10315,7 +10755,7 @@
                 ],
                 "http://raml.org/vocabularies/shapes#items": [
                   {
-                    "@id": "file://demo/api.raml#/declarations/PropertyArray/property/data/array/data/Product",
+                    "@id": "file://demo/resourceTypes/product.raml/type",
                     "@type": [
                       "http://www.w3.org/ns/shacl#NodeShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -10329,7 +10769,7 @@
                     ],
                     "http://www.w3.org/ns/shacl#property": [
                       {
-                        "@id": "file://demo/api.raml#/declarations/PropertyArray/property/data/array/data/Product/property/name",
+                        "@id": "file://demo/resourceTypes/product.raml/type/property/name",
                         "@type": [
                           "http://www.w3.org/ns/shacl#PropertyShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -10342,7 +10782,7 @@
                         ],
                         "http://raml.org/vocabularies/shapes#range": [
                           {
-                            "@id": "file://demo/api.raml#/declarations/PropertyArray/property/data/array/data/Product/property/name/scalar/name",
+                            "@id": "file://demo/resourceTypes/product.raml/type/property/name/scalar/name",
                             "@type": [
                               "http://raml.org/vocabularies/shapes#ScalarShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -10357,6 +10797,11 @@
                             "http://www.w3.org/ns/shacl#name": [
                               {
                                 "@value": "name"
+                              }
+                            ],
+                            "http://schema.org/name": [
+                              {
+                                "@value": "Name"
                               }
                             ],
                             "http://schema.org/description": [
@@ -10411,7 +10856,7 @@
                         ]
                       },
                       {
-                        "@id": "file://demo/api.raml#/declarations/PropertyArray/property/data/array/data/Product/property/id",
+                        "@id": "file://demo/resourceTypes/product.raml/type/property/id",
                         "@type": [
                           "http://www.w3.org/ns/shacl#PropertyShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -10424,7 +10869,7 @@
                         ],
                         "http://raml.org/vocabularies/shapes#range": [
                           {
-                            "@id": "file://demo/api.raml#/declarations/PropertyArray/property/data/array/data/Product/property/id/scalar/id",
+                            "@id": "file://demo/resourceTypes/product.raml/type/property/id/scalar/id",
                             "@type": [
                               "http://raml.org/vocabularies/shapes#ScalarShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -10446,6 +10891,11 @@
                                 "@value": "id"
                               }
                             ],
+                            "http://schema.org/name": [
+                              {
+                                "@value": "Etag"
+                              }
+                            ],
                             "http://schema.org/description": [
                               {
                                 "@value": "Product id. It is a UUID of the database record.\n__This property will be ignored when creating an object.__\nIt will be available when the product is stored in the datastore.\n"
@@ -10465,7 +10915,7 @@
                         ]
                       },
                       {
-                        "@id": "file://demo/api.raml#/declarations/PropertyArray/property/data/array/data/Product/property/upc",
+                        "@id": "file://demo/resourceTypes/product.raml/type/property/upc",
                         "@type": [
                           "http://www.w3.org/ns/shacl#PropertyShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -10478,7 +10928,7 @@
                         ],
                         "http://raml.org/vocabularies/shapes#range": [
                           {
-                            "@id": "file://demo/api.raml#/declarations/PropertyArray/property/data/array/data/Product/property/upc/scalar/upc",
+                            "@id": "file://demo/resourceTypes/product.raml/type/property/upc/scalar/upc",
                             "@type": [
                               "http://raml.org/vocabularies/shapes#ScalarShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -10498,6 +10948,11 @@
                             "http://www.w3.org/ns/shacl#name": [
                               {
                                 "@value": "upc"
+                              }
+                            ],
+                            "http://schema.org/name": [
+                              {
+                                "@value": "UPC"
                               }
                             ],
                             "http://schema.org/description": [
@@ -10552,7 +11007,7 @@
                         ]
                       },
                       {
-                        "@id": "file://demo/api.raml#/declarations/PropertyArray/property/data/array/data/Product/property/unit",
+                        "@id": "file://demo/resourceTypes/product.raml/type/property/unit",
                         "@type": [
                           "http://www.w3.org/ns/shacl#PropertyShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -10565,7 +11020,7 @@
                         ],
                         "http://raml.org/vocabularies/shapes#range": [
                           {
-                            "@id": "file://demo/api.raml#/declarations/PropertyArray/property/data/array/data/Product/property/unit/scalar/unit",
+                            "@id": "file://demo/resourceTypes/product.raml/type/property/unit/scalar/unit",
                             "@type": [
                               "http://raml.org/vocabularies/shapes#ScalarShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -10580,6 +11035,11 @@
                             "http://www.w3.org/ns/shacl#name": [
                               {
                                 "@value": "unit"
+                              }
+                            ],
+                            "http://schema.org/name": [
+                              {
+                                "@value": "Unit"
                               }
                             ],
                             "http://schema.org/description": [
@@ -10634,7 +11094,7 @@
                         ]
                       },
                       {
-                        "@id": "file://demo/api.raml#/declarations/PropertyArray/property/data/array/data/Product/property/available",
+                        "@id": "file://demo/resourceTypes/product.raml/type/property/available",
                         "@type": [
                           "http://www.w3.org/ns/shacl#PropertyShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -10647,7 +11107,7 @@
                         ],
                         "http://raml.org/vocabularies/shapes#range": [
                           {
-                            "@id": "file://demo/api.raml#/declarations/PropertyArray/property/data/array/data/Product/property/available/scalar/available",
+                            "@id": "file://demo/resourceTypes/product.raml/type/property/available/scalar/available",
                             "@type": [
                               "http://raml.org/vocabularies/shapes#ScalarShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -10662,6 +11122,11 @@
                             "http://www.w3.org/ns/shacl#name": [
                               {
                                 "@value": "available"
+                              }
+                            ],
+                            "http://schema.org/name": [
+                              {
+                                "@value": "Available"
                               }
                             ],
                             "http://schema.org/description": [
@@ -10716,7 +11181,7 @@
                         ]
                       },
                       {
-                        "@id": "file://demo/api.raml#/declarations/PropertyArray/property/data/array/data/Product/property/quantity",
+                        "@id": "file://demo/resourceTypes/product.raml/type/property/quantity",
                         "@type": [
                           "http://www.w3.org/ns/shacl#PropertyShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -10729,7 +11194,7 @@
                         ],
                         "http://raml.org/vocabularies/shapes#range": [
                           {
-                            "@id": "file://demo/api.raml#/declarations/PropertyArray/property/data/array/data/Product/property/quantity/scalar/quantity",
+                            "@id": "file://demo/resourceTypes/product.raml/type/property/quantity/scalar/quantity",
                             "@type": [
                               "http://raml.org/vocabularies/shapes#ScalarShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -10744,6 +11209,11 @@
                             "http://www.w3.org/ns/shacl#name": [
                               {
                                 "@value": "quantity"
+                              }
+                            ],
+                            "http://schema.org/name": [
+                              {
+                                "@value": "Quantity"
                               }
                             ],
                             "http://schema.org/description": [
@@ -10798,7 +11268,7 @@
                         ]
                       },
                       {
-                        "@id": "file://demo/api.raml#/declarations/PropertyArray/property/data/array/data/Product/property/etag",
+                        "@id": "file://demo/resourceTypes/resource.raml/type/property/etag",
                         "@type": [
                           "http://www.w3.org/ns/shacl#PropertyShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -10811,7 +11281,7 @@
                         ],
                         "http://raml.org/vocabularies/shapes#range": [
                           {
-                            "@id": "file://demo/api.raml#/declarations/PropertyArray/property/data/array/data/Product/property/etag/scalar/etag",
+                            "@id": "file://demo/resourceTypes/resource.raml/type/property/etag/scalar/etag",
                             "@type": [
                               "http://raml.org/vocabularies/shapes#ScalarShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -10826,6 +11296,11 @@
                             "http://www.w3.org/ns/shacl#name": [
                               {
                                 "@value": "etag"
+                              }
+                            ],
+                            "http://schema.org/name": [
+                              {
+                                "@value": "Etag"
                               }
                             ],
                             "http://schema.org/description": [
@@ -10902,7 +11377,7 @@
                                 ],
                                 "http://raml.org/vocabularies/data#value": [
                                   {
-                                    "@value": "W\\d3deef3rgrgf4r",
+                                    "@value": "W\\sd3deef3rgrgf4r",
                                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                                   }
                                 ]
@@ -10982,7 +11457,7 @@
                         ],
                         "http://www.w3.org/ns/shacl#raw": [
                           {
-                            "@value": "  id: we2322-4f4f4f-f4f4ff-f4f4ff4\n  name: Acme Product\n  quantity: 200\n  unit: ml\n  upc: \"123456789101\"\n  available: true\n  etag: \"W\\sd3deef3rgrgf4r\"\n"
+                            "@value": "  id: we2322-4f4f4f-f4f4ff-f4f4ff4\n  name: Acme Product\n  quantity: 200\n  unit: ml\n  upc: \"123456789101\"\n  available: true\n  etag: \"W\\\\sd3deef3rgrgf4r\"\n"
                           }
                         ]
                       }
@@ -11110,6 +11585,11 @@
                                     "@value": "name"
                                   }
                                 ],
+                                "http://schema.org/name": [
+                                  {
+                                    "@value": "Name"
+                                  }
+                                ],
                                 "http://schema.org/description": [
                                   {
                                     "@value": "Product name"
@@ -11197,6 +11677,11 @@
                                     "@value": "id"
                                   }
                                 ],
+                                "http://schema.org/name": [
+                                  {
+                                    "@value": "Etag"
+                                  }
+                                ],
                                 "http://schema.org/description": [
                                   {
                                     "@value": "Product id. It is a UUID of the database record.\n__This property will be ignored when creating an object.__\nIt will be available when the product is stored in the datastore.\n"
@@ -11249,6 +11734,11 @@
                                 "http://www.w3.org/ns/shacl#name": [
                                   {
                                     "@value": "upc"
+                                  }
+                                ],
+                                "http://schema.org/name": [
+                                  {
+                                    "@value": "UPC"
                                   }
                                 ],
                                 "http://schema.org/description": [
@@ -11333,6 +11823,11 @@
                                     "@value": "unit"
                                   }
                                 ],
+                                "http://schema.org/name": [
+                                  {
+                                    "@value": "Unit"
+                                  }
+                                ],
                                 "http://schema.org/description": [
                                   {
                                     "@value": "The unit of measuremet for the quantity property."
@@ -11413,6 +11908,11 @@
                                 "http://www.w3.org/ns/shacl#name": [
                                   {
                                     "@value": "available"
+                                  }
+                                ],
+                                "http://schema.org/name": [
+                                  {
+                                    "@value": "Available"
                                   }
                                 ],
                                 "http://schema.org/description": [
@@ -11497,6 +11997,11 @@
                                     "@value": "quantity"
                                   }
                                 ],
+                                "http://schema.org/name": [
+                                  {
+                                    "@value": "Quantity"
+                                  }
+                                ],
                                 "http://schema.org/description": [
                                   {
                                     "@value": "The quantity of the product in the one unit of measurement.\nSee `unit` property for more information.\n"
@@ -11549,7 +12054,7 @@
                             ]
                           },
                           {
-                            "@id": "file://demo/resourceTypes/product.raml/type/property/etag",
+                            "@id": "file://demo/resourceTypes/resource.raml/type/property/etag",
                             "@type": [
                               "http://www.w3.org/ns/shacl#PropertyShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -11562,7 +12067,7 @@
                             ],
                             "http://raml.org/vocabularies/shapes#range": [
                               {
-                                "@id": "file://demo/resourceTypes/product.raml/type/property/etag/scalar/etag",
+                                "@id": "file://demo/resourceTypes/resource.raml/type/property/etag/scalar/etag",
                                 "@type": [
                                   "http://raml.org/vocabularies/shapes#ScalarShape",
                                   "http://www.w3.org/ns/shacl#Shape",
@@ -11577,6 +12082,11 @@
                                 "http://www.w3.org/ns/shacl#name": [
                                   {
                                     "@value": "etag"
+                                  }
+                                ],
+                                "http://schema.org/name": [
+                                  {
+                                    "@value": "Etag"
                                   }
                                 ],
                                 "http://schema.org/description": [
@@ -11653,7 +12163,7 @@
                                     ],
                                     "http://raml.org/vocabularies/data#value": [
                                       {
-                                        "@value": "W\\d3deef3rgrgf4r",
+                                        "@value": "W\\sd3deef3rgrgf4r",
                                         "@type": "http://www.w3.org/2001/XMLSchema#string"
                                       }
                                     ]
@@ -11733,7 +12243,7 @@
                             ],
                             "http://www.w3.org/ns/shacl#raw": [
                               {
-                                "@value": "  id: we2322-4f4f4f-f4f4ff-f4f4ff4\n  name: Acme Product\n  quantity: 200\n  unit: ml\n  upc: \"123456789101\"\n  available: true\n  etag: \"W\\sd3deef3rgrgf4r\"\n"
+                                "@value": "  id: we2322-4f4f4f-f4f4ff-f4f4ff4\n  name: Acme Product\n  quantity: 200\n  unit: ml\n  upc: \"123456789101\"\n  available: true\n  etag: \"W\\\\sd3deef3rgrgf4r\"\n"
                               }
                             ]
                           }
@@ -12145,6 +12655,11 @@
                                 "@value": "name"
                               }
                             ],
+                            "http://schema.org/name": [
+                              {
+                                "@value": "Name"
+                              }
+                            ],
                             "http://schema.org/description": [
                               {
                                 "@value": "Product name"
@@ -12232,6 +12747,11 @@
                                 "@value": "id"
                               }
                             ],
+                            "http://schema.org/name": [
+                              {
+                                "@value": "Etag"
+                              }
+                            ],
                             "http://schema.org/description": [
                               {
                                 "@value": "Product id. It is a UUID of the database record.\n__This property will be ignored when creating an object.__\nIt will be available when the product is stored in the datastore.\n"
@@ -12284,6 +12804,11 @@
                             "http://www.w3.org/ns/shacl#name": [
                               {
                                 "@value": "upc"
+                              }
+                            ],
+                            "http://schema.org/name": [
+                              {
+                                "@value": "UPC"
                               }
                             ],
                             "http://schema.org/description": [
@@ -12368,6 +12893,11 @@
                                 "@value": "unit"
                               }
                             ],
+                            "http://schema.org/name": [
+                              {
+                                "@value": "Unit"
+                              }
+                            ],
                             "http://schema.org/description": [
                               {
                                 "@value": "The unit of measuremet for the quantity property."
@@ -12448,6 +12978,11 @@
                             "http://www.w3.org/ns/shacl#name": [
                               {
                                 "@value": "available"
+                              }
+                            ],
+                            "http://schema.org/name": [
+                              {
+                                "@value": "Available"
                               }
                             ],
                             "http://schema.org/description": [
@@ -12532,6 +13067,11 @@
                                 "@value": "quantity"
                               }
                             ],
+                            "http://schema.org/name": [
+                              {
+                                "@value": "Quantity"
+                              }
+                            ],
                             "http://schema.org/description": [
                               {
                                 "@value": "The quantity of the product in the one unit of measurement.\nSee `unit` property for more information.\n"
@@ -12584,7 +13124,7 @@
                         ]
                       },
                       {
-                        "@id": "file://demo/resourceTypes/product.raml/type/property/etag",
+                        "@id": "file://demo/resourceTypes/resource.raml/type/property/etag",
                         "@type": [
                           "http://www.w3.org/ns/shacl#PropertyShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -12597,7 +13137,7 @@
                         ],
                         "http://raml.org/vocabularies/shapes#range": [
                           {
-                            "@id": "file://demo/resourceTypes/product.raml/type/property/etag/scalar/etag",
+                            "@id": "file://demo/resourceTypes/resource.raml/type/property/etag/scalar/etag",
                             "@type": [
                               "http://raml.org/vocabularies/shapes#ScalarShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -12612,6 +13152,11 @@
                             "http://www.w3.org/ns/shacl#name": [
                               {
                                 "@value": "etag"
+                              }
+                            ],
+                            "http://schema.org/name": [
+                              {
+                                "@value": "Etag"
                               }
                             ],
                             "http://schema.org/description": [
@@ -12688,7 +13233,7 @@
                                 ],
                                 "http://raml.org/vocabularies/data#value": [
                                   {
-                                    "@value": "W\\d3deef3rgrgf4r",
+                                    "@value": "W\\sd3deef3rgrgf4r",
                                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                                   }
                                 ]
@@ -12768,7 +13313,7 @@
                         ],
                         "http://www.w3.org/ns/shacl#raw": [
                           {
-                            "@value": "  id: we2322-4f4f4f-f4f4ff-f4f4ff4\n  name: Acme Product\n  quantity: 200\n  unit: ml\n  upc: \"123456789101\"\n  available: true\n  etag: \"W\\sd3deef3rgrgf4r\"\n"
+                            "@value": "  id: we2322-4f4f4f-f4f4ff-f4f4ff4\n  name: Acme Product\n  quantity: 200\n  unit: ml\n  upc: \"123456789101\"\n  available: true\n  etag: \"W\\\\sd3deef3rgrgf4r\"\n"
                           }
                         ]
                       }
@@ -12838,6 +13383,11 @@
                 "http://www.w3.org/ns/shacl#name": [
                   {
                     "@value": "name"
+                  }
+                ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Name"
                   }
                 ],
                 "http://schema.org/description": [
@@ -12927,6 +13477,11 @@
                     "@value": "id"
                   }
                 ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Etag"
+                  }
+                ],
                 "http://schema.org/description": [
                   {
                     "@value": "Product id. It is a UUID of the database record.\n__This property will be ignored when creating an object.__\nIt will be available when the product is stored in the datastore.\n"
@@ -12979,6 +13534,11 @@
                 "http://www.w3.org/ns/shacl#name": [
                   {
                     "@value": "upc"
+                  }
+                ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "UPC"
                   }
                 ],
                 "http://schema.org/description": [
@@ -13063,6 +13623,11 @@
                     "@value": "unit"
                   }
                 ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Unit"
+                  }
+                ],
                 "http://schema.org/description": [
                   {
                     "@value": "The unit of measuremet for the quantity property."
@@ -13143,6 +13708,11 @@
                 "http://www.w3.org/ns/shacl#name": [
                   {
                     "@value": "available"
+                  }
+                ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Available"
                   }
                 ],
                 "http://schema.org/description": [
@@ -13227,6 +13797,11 @@
                     "@value": "quantity"
                   }
                 ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Quantity"
+                  }
+                ],
                 "http://schema.org/description": [
                   {
                     "@value": "The quantity of the product in the one unit of measurement.\nSee `unit` property for more information.\n"
@@ -13279,7 +13854,7 @@
             ]
           },
           {
-            "@id": "file://demo/resourceTypes/product.raml/type/property/etag",
+            "@id": "file://demo/resourceTypes/resource.raml/type/property/etag",
             "@type": [
               "http://www.w3.org/ns/shacl#PropertyShape",
               "http://www.w3.org/ns/shacl#Shape",
@@ -13292,7 +13867,7 @@
             ],
             "http://raml.org/vocabularies/shapes#range": [
               {
-                "@id": "file://demo/resourceTypes/product.raml/type/property/etag/scalar/etag",
+                "@id": "file://demo/resourceTypes/resource.raml/type/property/etag/scalar/etag",
                 "@type": [
                   "http://raml.org/vocabularies/shapes#ScalarShape",
                   "http://www.w3.org/ns/shacl#Shape",
@@ -13307,6 +13882,11 @@
                 "http://www.w3.org/ns/shacl#name": [
                   {
                     "@value": "etag"
+                  }
+                ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Etag"
                   }
                 ],
                 "http://schema.org/description": [
@@ -13383,7 +13963,7 @@
                     ],
                     "http://raml.org/vocabularies/data#value": [
                       {
-                        "@value": "W\\d3deef3rgrgf4r",
+                        "@value": "W\\sd3deef3rgrgf4r",
                         "@type": "http://www.w3.org/2001/XMLSchema#string"
                       }
                     ]
@@ -13463,7 +14043,7 @@
             ],
             "http://www.w3.org/ns/shacl#raw": [
               {
-                "@value": "  id: we2322-4f4f4f-f4f4ff-f4f4ff4\n  name: Acme Product\n  quantity: 200\n  unit: ml\n  upc: \"123456789101\"\n  available: true\n  etag: \"W\\sd3deef3rgrgf4r\"\n"
+                "@value": "  id: we2322-4f4f4f-f4f4ff-f4f4ff4\n  name: Acme Product\n  quantity: 200\n  unit: ml\n  upc: \"123456789101\"\n  available: true\n  etag: \"W\\\\sd3deef3rgrgf4r\"\n"
               }
             ]
           }
@@ -13512,6 +14092,11 @@
                 "http://www.w3.org/ns/shacl#name": [
                   {
                     "@value": "url"
+                  }
+                ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "Url"
                   }
                 ],
                 "http://schema.org/description": [
@@ -14674,6 +15259,11 @@
                         "@value": "name"
                       }
                     ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Name"
+                      }
+                    ],
                     "http://schema.org/description": [
                       {
                         "@value": "Product name"
@@ -14761,6 +15351,11 @@
                         "@value": "id"
                       }
                     ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Etag"
+                      }
+                    ],
                     "http://schema.org/description": [
                       {
                         "@value": "Product id. It is a UUID of the database record.\n__This property will be ignored when creating an object.__\nIt will be available when the product is stored in the datastore.\n"
@@ -14813,6 +15408,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "upc"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "UPC"
                       }
                     ],
                     "http://schema.org/description": [
@@ -14897,6 +15497,11 @@
                         "@value": "unit"
                       }
                     ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Unit"
+                      }
+                    ],
                     "http://schema.org/description": [
                       {
                         "@value": "The unit of measuremet for the quantity property."
@@ -14977,6 +15582,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "available"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Available"
                       }
                     ],
                     "http://schema.org/description": [
@@ -15061,6 +15671,11 @@
                         "@value": "quantity"
                       }
                     ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Quantity"
+                      }
+                    ],
                     "http://schema.org/description": [
                       {
                         "@value": "The quantity of the product in the one unit of measurement.\nSee `unit` property for more information.\n"
@@ -15113,7 +15728,7 @@
                 ]
               },
               {
-                "@id": "file://demo/resourceTypes/product.raml/type/property/etag",
+                "@id": "file://demo/resourceTypes/resource.raml/type/property/etag",
                 "@type": [
                   "http://www.w3.org/ns/shacl#PropertyShape",
                   "http://www.w3.org/ns/shacl#Shape",
@@ -15126,7 +15741,7 @@
                 ],
                 "http://raml.org/vocabularies/shapes#range": [
                   {
-                    "@id": "file://demo/resourceTypes/product.raml/type/property/etag/scalar/etag",
+                    "@id": "file://demo/resourceTypes/resource.raml/type/property/etag/scalar/etag",
                     "@type": [
                       "http://raml.org/vocabularies/shapes#ScalarShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -15141,6 +15756,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "etag"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Etag"
                       }
                     ],
                     "http://schema.org/description": [
@@ -15217,7 +15837,7 @@
                         ],
                         "http://raml.org/vocabularies/data#value": [
                           {
-                            "@value": "W\\d3deef3rgrgf4r",
+                            "@value": "W\\sd3deef3rgrgf4r",
                             "@type": "http://www.w3.org/2001/XMLSchema#string"
                           }
                         ]
@@ -15297,7 +15917,7 @@
                 ],
                 "http://www.w3.org/ns/shacl#raw": [
                   {
-                    "@value": "  id: we2322-4f4f4f-f4f4ff-f4f4ff4\n  name: Acme Product\n  quantity: 200\n  unit: ml\n  upc: \"123456789101\"\n  available: true\n  etag: \"W\\sd3deef3rgrgf4r\"\n"
+                    "@value": "  id: we2322-4f4f4f-f4f4ff-f4f4ff4\n  name: Acme Product\n  quantity: 200\n  unit: ml\n  upc: \"123456789101\"\n  available: true\n  etag: \"W\\\\sd3deef3rgrgf4r\"\n"
                   }
                 ]
               }
@@ -15356,6 +15976,11 @@
                         "http://www.w3.org/ns/shacl#name": [
                           {
                             "@value": "etag"
+                          }
+                        ],
+                        "http://schema.org/name": [
+                          {
+                            "@value": "Etag"
                           }
                         ],
                         "http://schema.org/description": [
@@ -15465,6 +16090,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "gender?"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Gender"
                       }
                     ],
                     "http://schema.org/description": [
@@ -15652,6 +16282,11 @@
                         "@value": "name"
                       }
                     ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Person name"
+                      }
+                    ],
                     "http://schema.org/description": [
                       {
                         "@value": "Person full name. The input will be rejected if this property is not set while creating new object."
@@ -15826,6 +16461,11 @@
                         "@value": "id"
                       }
                     ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "ID"
+                      }
+                    ],
                     "http://schema.org/description": [
                       {
                         "@value": "A unique identifier of a person.\n\nIt is a 32 bit string containing alphanumeric characters.\n"
@@ -15873,6 +16513,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "language"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Language"
                       }
                     ],
                     "http://schema.org/description": [
@@ -16000,6 +16645,11 @@
                         "@value": "birthday"
                       }
                     ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Person birthday"
+                      }
+                    ],
                     "http://schema.org/description": [
                       {
                         "@value": "The person's date of birth, represented as YYYY-MM-DD."
@@ -16049,6 +16699,11 @@
                         "@value": "favouriteTime"
                       }
                     ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Some example"
+                      }
+                    ],
                     "http://schema.org/description": [
                       {
                         "@value": "The person's favourite time of day"
@@ -16081,7 +16736,7 @@
                 ],
                 "http://raml.org/vocabularies/shapes#range": [
                   {
-                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/image/image",
+                    "@id": "file://demo/resourceTypes/image.raml/type",
                     "@type": [
                       "http://www.w3.org/ns/shacl#NodeShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -16095,7 +16750,7 @@
                     ],
                     "http://www.w3.org/ns/shacl#property": [
                       {
-                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/image/image/property/url",
+                        "@id": "file://demo/resourceTypes/image.raml/type/property/url",
                         "@type": [
                           "http://www.w3.org/ns/shacl#PropertyShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -16108,7 +16763,7 @@
                         ],
                         "http://raml.org/vocabularies/shapes#range": [
                           {
-                            "@id": "file://demo/resourceTypes/app-person.raml/type/property/image/image/property/url/scalar/url",
+                            "@id": "file://demo/resourceTypes/image.raml/type/property/url/scalar/url",
                             "@type": [
                               "http://raml.org/vocabularies/shapes#ScalarShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -16123,6 +16778,11 @@
                             "http://www.w3.org/ns/shacl#name": [
                               {
                                 "@value": "url"
+                              }
+                            ],
+                            "http://schema.org/name": [
+                              {
+                                "@value": "Url"
                               }
                             ],
                             "http://schema.org/description": [
@@ -16144,7 +16804,7 @@
                         ]
                       },
                       {
-                        "@id": "file://demo/resourceTypes/app-person.raml/type/property/image/image/property/thumb",
+                        "@id": "file://demo/resourceTypes/image.raml/type/property/thumb",
                         "@type": [
                           "http://www.w3.org/ns/shacl#PropertyShape",
                           "http://www.w3.org/ns/shacl#Shape",
@@ -16157,7 +16817,7 @@
                         ],
                         "http://raml.org/vocabularies/shapes#range": [
                           {
-                            "@id": "file://demo/resourceTypes/app-person.raml/type/property/image/image/property/thumb/scalar/thumb",
+                            "@id": "file://demo/resourceTypes/image.raml/type/property/thumb/scalar/thumb",
                             "@type": [
                               "http://raml.org/vocabularies/shapes#ScalarShape",
                               "http://www.w3.org/ns/shacl#Shape",
@@ -16307,6 +16967,11 @@
                         "@value": "url"
                       }
                     ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Profile URL"
+                      }
+                    ],
                     "http://schema.org/description": [
                       {
                         "@value": "The URL of this person's profile."
@@ -16354,6 +17019,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "newsletter"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Newsletter consent"
                       }
                     ],
                     "http://www.w3.org/ns/shacl#defaultValue": [
@@ -16476,6 +17146,11 @@
                         "@value": "age"
                       }
                     ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Age"
+                      }
+                    ],
                     "http://schema.org/description": [
                       {
                         "@value": "Very unpractical property to have in a data store.\n"
@@ -16523,6 +17198,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "tagline"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Tagline"
                       }
                     ],
                     "http://schema.org/description": [
@@ -16641,7 +17321,7 @@
                 ]
               },
               {
-                "@id": "file://demo/resourceTypes/app-person.raml/type/property/etag",
+                "@id": "file://demo/resourceTypes/resource.raml/type/property/etag",
                 "@type": [
                   "http://www.w3.org/ns/shacl#PropertyShape",
                   "http://www.w3.org/ns/shacl#Shape",
@@ -16654,7 +17334,7 @@
                 ],
                 "http://raml.org/vocabularies/shapes#range": [
                   {
-                    "@id": "file://demo/resourceTypes/app-person.raml/type/property/etag/scalar/etag",
+                    "@id": "file://demo/resourceTypes/resource.raml/type/property/etag/scalar/etag",
                     "@type": [
                       "http://raml.org/vocabularies/shapes#ScalarShape",
                       "http://www.w3.org/ns/shacl#Shape",
@@ -16669,6 +17349,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "etag"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Etag"
                       }
                     ],
                     "http://schema.org/description": [
@@ -16978,6 +17663,11 @@
                             "@value": "url"
                           }
                         ],
+                        "http://schema.org/name": [
+                          {
+                            "@value": "Url"
+                          }
+                        ],
                         "http://schema.org/description": [
                           {
                             "@value": "The URL of the image.\nTo resize the image and crop it to a square, append the query string **?sz=x**, where x is the dimension in pixels of each side.\n"
@@ -17172,6 +17862,11 @@
                             "@value": "etag"
                           }
                         ],
+                        "http://schema.org/name": [
+                          {
+                            "@value": "Etag"
+                          }
+                        ],
                         "http://schema.org/description": [
                           {
                             "@value": "ETag of this resource for caching purposes.\n__This property will be ignored when creating an object.__\n"
@@ -17257,6 +17952,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "etag"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Etag"
                       }
                     ],
                     "http://schema.org/description": [
@@ -17364,6 +18064,11 @@
                     "http://www.w3.org/ns/shacl#name": [
                       {
                         "@value": "url"
+                      }
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "Url"
                       }
                     ],
                     "http://schema.org/description": [

@@ -5,6 +5,7 @@ description: A single product representing an item in the store.
 type: !include resource.raml
 properties:
   id:
+    displayName: Etag
     description: |
       Product id. It is a UUID of the database record.
       __This property will be ignored when creating an object.__
@@ -15,6 +16,7 @@ properties:
     description: Product name
     example: Acme product - mentol flavor, 500 ml.
     required: true
+    displayName: Name
   quantity:
     type: number
     description: |
@@ -22,11 +24,13 @@ properties:
       See `unit` property for more information.
     example: 500
     required: true
+    displayName: Quantity
   unit:
     type: string
     description: The unit of measuremet for the quantity property.
     example: ml
     required: true
+    displayName: Unit
   upc:
     type: string
     pattern: "[0-9]{12,12}"
@@ -35,6 +39,7 @@ properties:
       integer precision limitation in JavaScript it is represented as a string.
     example: "042100005264"
     required: true
+    displayName: UPC
   available:
     type: boolean
     description: |
@@ -42,6 +47,7 @@ properties:
       Product may be not available but the users still can order it with later delivery date.
     required: true
     example: true
+    displayName: Available
 example:
   id: we2322-4f4f4f-f4f4ff-f4f4ff4
   name: Acme Product
@@ -49,4 +55,4 @@ example:
   unit: ml
   upc: "123456789101"
   available: true
-  etag: "W\sd3deef3rgrgf4r"
+  etag: "W\\sd3deef3rgrgf4r"
