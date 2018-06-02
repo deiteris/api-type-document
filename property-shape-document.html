@@ -38,7 +38,7 @@
       color: var(--api-type-document-property-parent-color, #757575);
     }
 
-    .property-name {
+    .property-subtitle {
       font-weight: 400;
       color: var(--api-type-document-property-color, #757575);
     }
@@ -117,11 +117,18 @@
       margin: 20px 0;
     }
     </style>
-    <template is="dom-if" if="[[displayName]]">
+    <template is="dom-if" if="[[hasDisplayName]]">
+      <h4 class="property-title">[[displayName]]</h4>
+      <p class="property-subtitle">
+        Property:
+        <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
+        <span class="property-name">[[propertyName]]</span>
+      </p>
+    </template>
+    <template is="dom-if" if="[[!hasDisplayName]]">
       <h4 class="property-title">
-        <template is="dom-if" if="[[parentTypeName]]"><span class="parent-label">[[parentTypeName]].</span></template>
-        <span class="property-name" hidden$="[[!hasDisplayName]]">[[propertyName]]</span>
-        <span>[[displayName]]</span>
+        <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
+        <span>[[propertyName]]</span>
       </h4>
     </template>
     <div class="property-traits">
@@ -224,7 +231,8 @@
          */
         hasDisplayName: {
           type: Boolean,
-          computed: '_computeHasDisplayName(range, shape)'
+          computed: '_computeHasDisplayName(displayName)',
+          value: false
         },
         /**
          * Computed value, true if current property is an union.
@@ -255,6 +263,14 @@
          * This is used when recursively iterating over properties.
          */
         parentTypeName: String,
+        /**
+         * Computed value, true if `parentTypeName` has a value.
+         */
+        hasParentTypeName: {
+          value: false,
+          computed: '_computeHasParentTypeName(parentTypeName)',
+          type: Boolean
+        },
         /**
          * Computed value of shape data type
          * @type {Object}
@@ -307,26 +323,28 @@
       if (this._hasType(shape, 'http://raml.org/vocabularies/http#Parameter')) {
         return this._getValue(shape, 'http://schema.org/name');
       }
+      if (this._hasType(shape, 'http://www.w3.org/ns/shacl#PropertyShape')) {
+        return this._getValue(shape, 'http://www.w3.org/ns/shacl#name');
+      }
       return this._getValue(range, 'http://www.w3.org/ns/shacl#name');
     }
     /**
      * Computes value for `hasDisplayName` property.
      * Indicates that `displayName` has been defined in the API specification.
      *
-     * @param {Object} range Range object of current shape.
+     * @param {String} displayName
      * @return {Boolean}
      */
-    _computeHasDisplayName(range, shape) {
-      if (!shape || !range) {
-        return false;
-      }
-      if (this._hasType(shape, 'http://raml.org/vocabularies/http#Parameter')) {
-        return !!this._getValue(range, 'http://schema.org/name');
-      }
-      if (this._hasType(range, 'http://www.w3.org/ns/shacl#NodeShape')) {
-        return !!this._getValue(shape, 'http://www.w3.org/ns/shacl#name');
-      }
-      return !!this._getValue(range, 'http://schema.org/name');
+    _computeHasDisplayName(displayName) {
+      return !!(displayName);
+    }
+    /**
+     * Computes value for `hasParentTypeName`.
+     * @param {String?} parentTypeName
+     * @return {Boolean}
+     */
+    _computeHasParentTypeName(parentTypeName) {
+      return!!parentTypeName;
     }
     /**
      * Sets "active" attribute on this element when the border is hovered.

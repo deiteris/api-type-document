@@ -2755,11 +2755,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 200,
+              "line": 207,
               "column": 8
             },
             "end": {
-              "line": 203,
+              "line": 210,
               "column": 9
             }
           },
@@ -2777,11 +2777,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 207,
+              "line": 214,
               "column": 8
             },
             "end": {
-              "line": 210,
+              "line": 217,
               "column": 9
             }
           },
@@ -2799,11 +2799,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 216,
+              "line": 223,
               "column": 8
             },
             "end": {
-              "line": 219,
+              "line": 226,
               "column": 9
             }
           },
@@ -2821,11 +2821,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 224,
+              "line": 231,
               "column": 8
             },
             "end": {
-              "line": 227,
+              "line": 235,
               "column": 9
             }
           },
@@ -2834,7 +2834,8 @@
               "readOnly": true,
               "attributeType": "Boolean"
             }
-          }
+          },
+          "defaultValue": "false"
         },
         {
           "name": "isUnion",
@@ -2843,11 +2844,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 231,
+              "line": 239,
               "column": 8
             },
             "end": {
-              "line": 235,
+              "line": 243,
               "column": 9
             }
           },
@@ -2865,11 +2866,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 239,
+              "line": 247,
               "column": 9
             },
             "end": {
-              "line": 243,
+              "line": 251,
               "column": 9
             }
           },
@@ -2887,11 +2888,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 247,
+              "line": 255,
               "column": 8
             },
             "end": {
-              "line": 251,
+              "line": 259,
               "column": 9
             }
           },
@@ -2909,11 +2910,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 264,
               "column": 8
             },
             "end": {
-              "line": 256,
+              "line": 264,
               "column": 30
             }
           },
@@ -2924,17 +2925,40 @@
           }
         },
         {
+          "name": "hasParentTypeName",
+          "type": "boolean | null | undefined",
+          "description": "Computed value, true if `parentTypeName` has a value.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 268,
+              "column": 8
+            },
+            "end": {
+              "line": 272,
+              "column": 9
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true,
+              "attributeType": "Boolean"
+            }
+          },
+          "defaultValue": "false"
+        },
+        {
           "name": "propertyDataType",
           "type": "Object",
           "description": "Computed value of shape data type",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 261,
+              "line": 277,
               "column": 8
             },
             "end": {
-              "line": 264,
+              "line": 280,
               "column": 9
             }
           },
@@ -2952,11 +2976,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 268,
+              "line": 284,
               "column": 8
             },
             "end": {
-              "line": 271,
+              "line": 287,
               "column": 9
             }
           },
@@ -2974,11 +2998,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 275,
+              "line": 291,
               "column": 8
             },
             "end": {
-              "line": 278,
+              "line": 294,
               "column": 9
             }
           },
@@ -2996,11 +3020,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 282,
+              "line": 298,
               "column": 8
             },
             "end": {
-              "line": 285,
+              "line": 301,
               "column": 9
             }
           },
@@ -3597,11 +3621,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 377,
+              "line": 395,
               "column": 4
             },
             "end": {
-              "line": 382,
+              "line": 400,
               "column": 5
             }
           },
@@ -4333,11 +4357,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 288,
+              "line": 304,
               "column": 4
             },
             "end": {
-              "line": 294,
+              "line": 310,
               "column": 5
             }
           },
@@ -4571,11 +4595,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 302,
+              "line": 318,
               "column": 4
             },
             "end": {
-              "line": 310,
+              "line": 329,
               "column": 5
             }
           },
@@ -4601,23 +4625,44 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 318,
+              "line": 337,
               "column": 4
             },
             "end": {
-              "line": 329,
+              "line": 339,
               "column": 5
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "range",
-              "type": "Object",
-              "description": "Range object of current shape."
+              "name": "displayName",
+              "type": "String"
+            }
+          ],
+          "return": {
+            "type": "Boolean"
+          }
+        },
+        {
+          "name": "_computeHasParentTypeName",
+          "description": "Computes value for `hasParentTypeName`.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 345,
+              "column": 4
             },
+            "end": {
+              "line": 347,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
             {
-              "name": "shape"
+              "name": "parentTypeName",
+              "type": "String?"
             }
           ],
           "return": {
@@ -4630,11 +4675,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 333,
+              "line": 351,
               "column": 4
             },
             "end": {
-              "line": 337,
+              "line": 355,
               "column": 5
             }
           },
@@ -4650,11 +4695,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 341,
+              "line": 359,
               "column": 4
             },
             "end": {
-              "line": 345,
+              "line": 363,
               "column": 5
             }
           },
@@ -4670,11 +4715,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 354,
+              "line": 372,
               "column": 4
             },
             "end": {
-              "line": 363,
+              "line": 381,
               "column": 5
             }
           },
@@ -4696,11 +4741,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 369,
+              "line": 387,
               "column": 4
             },
             "end": {
-              "line": 371,
+              "line": 389,
               "column": 5
             }
           },
@@ -4728,11 +4773,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 192,
+          "line": 199,
           "column": 2
         },
         "end": {
-          "line": 383,
+          "line": 401,
           "column": 3
         }
       },
@@ -4781,11 +4826,11 @@
           "description": "Computed value of shape's http://raml.org/vocabularies/shapes#range",
           "sourceRange": {
             "start": {
-              "line": 200,
+              "line": 207,
               "column": 8
             },
             "end": {
-              "line": 203,
+              "line": 210,
               "column": 9
             }
           },
@@ -4797,11 +4842,11 @@
           "description": "Computed value of \"display name\" of the property",
           "sourceRange": {
             "start": {
-              "line": 207,
+              "line": 214,
               "column": 8
             },
             "end": {
-              "line": 210,
+              "line": 217,
               "column": 9
             }
           },
@@ -4813,11 +4858,11 @@
           "description": "A type property name.\nThis may be different from `displayName` property if\n`displayName` was specified in the API spec for this property.",
           "sourceRange": {
             "start": {
-              "line": 216,
+              "line": 223,
               "column": 8
             },
             "end": {
-              "line": 219,
+              "line": 226,
               "column": 9
             }
           },
@@ -4827,22 +4872,6 @@
         {
           "name": "has-display-name",
           "description": "Computed value, true if `displayName` has been defined for this\nproperty.",
-          "sourceRange": {
-            "start": {
-              "line": 224,
-              "column": 8
-            },
-            "end": {
-              "line": 227,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "is-union",
-          "description": "Computed value, true if current property is an union.",
           "sourceRange": {
             "start": {
               "line": 231,
@@ -4857,15 +4886,31 @@
           "type": "boolean | null | undefined"
         },
         {
+          "name": "is-union",
+          "description": "Computed value, true if current property is an union.",
+          "sourceRange": {
+            "start": {
+              "line": 239,
+              "column": 8
+            },
+            "end": {
+              "line": 243,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
           "name": "is-object",
           "description": "Computed value, true if current property is an object.",
           "sourceRange": {
             "start": {
-              "line": 239,
+              "line": 247,
               "column": 9
             },
             "end": {
-              "line": 243,
+              "line": 251,
               "column": 9
             }
           },
@@ -4877,11 +4922,11 @@
           "description": "Computed value, true if current property is an array.",
           "sourceRange": {
             "start": {
-              "line": 247,
+              "line": 255,
               "column": 8
             },
             "end": {
-              "line": 251,
+              "line": 259,
               "column": 9
             }
           },
@@ -4893,11 +4938,11 @@
           "description": "Should be set if described properties has a parent type.\nThis is used when recursively iterating over properties.",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 264,
               "column": 8
             },
             "end": {
-              "line": 256,
+              "line": 264,
               "column": 30
             }
           },
@@ -4905,15 +4950,31 @@
           "type": "string | null | undefined"
         },
         {
+          "name": "has-parent-type-name",
+          "description": "Computed value, true if `parentTypeName` has a value.",
+          "sourceRange": {
+            "start": {
+              "line": 268,
+              "column": 8
+            },
+            "end": {
+              "line": 272,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
           "name": "property-data-type",
           "description": "Computed value of shape data type",
           "sourceRange": {
             "start": {
-              "line": 261,
+              "line": 277,
               "column": 8
             },
             "end": {
-              "line": 264,
+              "line": 280,
               "column": 9
             }
           },
@@ -4925,11 +4986,11 @@
           "description": "Computed value form the shape. True if the property is required.",
           "sourceRange": {
             "start": {
-              "line": 268,
+              "line": 284,
               "column": 8
             },
             "end": {
-              "line": 271,
+              "line": 287,
               "column": 9
             }
           },
@@ -4941,11 +5002,11 @@
           "description": "Computed value form the shape. True if the property is ENUM.",
           "sourceRange": {
             "start": {
-              "line": 275,
+              "line": 291,
               "column": 8
             },
             "end": {
-              "line": 278,
+              "line": 294,
               "column": 9
             }
           },
@@ -4957,11 +5018,11 @@
           "description": "A description of the property to render.",
           "sourceRange": {
             "start": {
-              "line": 282,
+              "line": 298,
               "column": 8
             },
             "end": {
-              "line": 285,
+              "line": 301,
               "column": 9
             }
           },
@@ -4982,7 +5043,7 @@
       ]
     },
     {
-      "description": "`api-type-document`\n\nAn element that recuresively renders a documentation for a data type\nusing from model.\n\nPass AMF's shape type `property` array to render the documentation.\n\n## Styling\n\n`<api-type-document>` provides the following custom properties and mixins for styling:\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--api-type-document` | Mixin applied to this elment | `{}`\n\nFrom `property-shape-document`\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--property-shape-document` | Mixin applied each proeprty element | `{}`\n`--property-shape-document-array-color` | Property border color when type is an array | `#8BC34A`\n`--property-shape-document-object-color` | Property border color when type is an object | `#FF9800`\n`--property-shape-document-union-color` | Property border color when type is an union | `#FFEB3B`\n`--arc-font-subhead` | Theme mixin, applied to the property title | `{}`\n`--property-shape-document-title` | Mixin applied to the property title | `{}`\n`--api-type-document-property-parent-color` | Color of the parent property label | `#757575`\n`--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`\n`--api-type-document-docs-margin-left` | Margin left of the item's properties description relative to the title. | `12px`\n`--api-type-document-child-docs-margin-left` | Margin left of the item's properties description relative to the title when the item is a child property of another property | `24px`\n`--api-type-document-type-color` | Color of the \"type\" trait | `white`\n`--api-type-document-type-background-color` | Background color of the \"type\" trait | `#2196F3`\n`--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`,\n`--api-type-document-trait-border-radius` | Border radious of a main property traits like type, required, enum | `3px`\n\nFrom `property-range-document`\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--property-range-document` | Mixin applied to this elment | `{}`\n`--api-type-document-type-attribute-color` | Color of each attribute that describes a property | `#616161`\n`--api-type-document-examples-title-color` | Color of examples section title | ``\n`--api-type-document-examples-border-color` | Example section border color | `transparent`\n`--code-background-color` | Background color of the examples section | ``\n`--arc-font-body1` | Mixin applied to an example name label | `{}`\n`--arc-font-body2` | Mixin applied to the examples section title | `{}`",
+      "description": "`api-type-document`\n\nAn element that recuresively renders a documentation for a data type\nusing from model.\n\nPass AMF's shape type `property` array to render the documentation.\n\n## Styling\n\n`<api-type-document>` provides the following custom properties and mixins for styling:\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--api-type-document` | Mixin applied to this elment | `{}`\n`--api-type-document-union-button-background-color` | Background color of union selector button | `#fff`\n`--api-type-document-union-button-color` | Color of union selector button | `#000`\n`--api-type-document-union-button-active-background-color` | Background color of active union selector button | `#CDDC39`\n`--api-type-document-union-button-active-color` | Color of active union selector button | `#000`\n\nFrom `property-shape-document`\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--property-shape-document` | Mixin applied each proeprty element | `{}`\n`--property-shape-document-array-color` | Property border color when type is an array | `#8BC34A`\n`--property-shape-document-object-color` | Property border color when type is an object | `#FF9800`\n`--property-shape-document-union-color` | Property border color when type is an union | `#FFEB3B`\n`--arc-font-subhead` | Theme mixin, applied to the property title | `{}`\n`--property-shape-document-title` | Mixin applied to the property title | `{}`\n`--api-type-document-property-parent-color` | Color of the parent property label | `#757575`\n`--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`\n`--api-type-document-docs-margin-left` | Margin left of the item's properties description relative to the title. | `12px`\n`--api-type-document-child-docs-margin-left` | Margin left of the item's properties description relative to the title when the item is a child property of another property | `24px`\n`--api-type-document-type-color` | Color of the \"type\" trait | `white`\n`--api-type-document-type-background-color` | Background color of the \"type\" trait | `#2196F3`\n`--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`,\n`--api-type-document-trait-border-radius` | Border radious of a main property traits like type, required, enum | `3px`\n\nFrom `property-range-document`\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--property-range-document` | Mixin applied to this elment | `{}`\n`--api-type-document-type-attribute-color` | Color of each attribute that describes a property | `#616161`\n`--api-type-document-examples-title-color` | Color of examples section title | ``\n`--api-type-document-examples-border-color` | Example section border color | `transparent`\n`--code-background-color` | Background color of the examples section | ``\n`--arc-font-body1` | Mixin applied to an example name label | `{}`\n`--arc-font-body2` | Mixin applied to the examples section title | `{}`",
       "summary": "",
       "path": "api-type-document.html",
       "properties": [
@@ -4993,11 +5054,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 133,
               "column": 8
             },
             "end": {
-              "line": 123,
+              "line": 133,
               "column": 24
             }
           },
@@ -5060,11 +5121,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 112,
+              "line": 122,
               "column": 8
             },
             "end": {
-              "line": 112,
+              "line": 122,
               "column": 21
             }
           },
@@ -5081,11 +5142,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 137,
+              "line": 147,
               "column": 8
             },
             "end": {
-              "line": 140,
+              "line": 150,
               "column": 9
             }
           },
@@ -5103,11 +5164,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 155,
               "column": 8
             },
             "end": {
-              "line": 145,
+              "line": 155,
               "column": 30
             }
           },
@@ -5124,11 +5185,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 149,
+              "line": 159,
               "column": 8
             },
             "end": {
-              "line": 152,
+              "line": 162,
               "column": 9
             }
           },
@@ -5146,11 +5207,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 156,
+              "line": 166,
               "column": 8
             },
             "end": {
-              "line": 159,
+              "line": 169,
               "column": 9
             }
           },
@@ -5168,11 +5229,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 163,
+              "line": 173,
               "column": 8
             },
             "end": {
-              "line": 166,
+              "line": 176,
               "column": 9
             }
           },
@@ -5190,11 +5251,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 170,
+              "line": 180,
               "column": 8
             },
             "end": {
-              "line": 173,
+              "line": 183,
               "column": 9
             }
           },
@@ -5212,11 +5273,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 181,
+              "line": 191,
               "column": 8
             },
             "end": {
-              "line": 184,
+              "line": 194,
               "column": 9
             }
           },
@@ -5234,11 +5295,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 188,
+              "line": 198,
               "column": 8
             },
             "end": {
-              "line": 190,
+              "line": 200,
               "column": 9
             }
           },
@@ -6825,11 +6886,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 208,
               "column": 4
             },
             "end": {
-              "line": 222,
+              "line": 232,
               "column": 5
             }
           },
@@ -6851,11 +6912,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 229,
+              "line": 239,
               "column": 4
             },
             "end": {
-              "line": 231,
+              "line": 241,
               "column": 5
             }
           },
@@ -6878,11 +6939,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 237,
+              "line": 247,
               "column": 4
             },
             "end": {
-              "line": 242,
+              "line": 252,
               "column": 5
             }
           },
@@ -6904,11 +6965,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 249,
+              "line": 259,
               "column": 4
             },
             "end": {
-              "line": 256,
+              "line": 266,
               "column": 5
             }
           },
@@ -6929,11 +6990,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 264,
+              "line": 274,
               "column": 4
             },
             "end": {
-              "line": 266,
+              "line": 276,
               "column": 5
             }
           },
@@ -6958,11 +7019,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 274,
+              "line": 284,
               "column": 4
             },
             "end": {
-              "line": 293,
+              "line": 303,
               "column": 5
             }
           },
@@ -6995,11 +7056,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 105,
+          "line": 115,
           "column": 2
         },
         "end": {
-          "line": 294,
+          "line": 304,
           "column": 3
         }
       },
@@ -7012,11 +7073,11 @@
           "description": "Generated AMF json/ld model form the API spec.\nThe element assumes the object of the first array item to be a\ntype of `\"http://raml.org/vocabularies/document#Document`\non AMF vocabulary.\n\nIt is only usefult for the element to resolve references.",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 133,
               "column": 8
             },
             "end": {
-              "line": 123,
+              "line": 133,
               "column": 24
             }
           },
@@ -7064,11 +7125,11 @@
           "description": "`raml-aware` scope property to use.",
           "sourceRange": {
             "start": {
-              "line": 112,
+              "line": 122,
               "column": 8
             },
             "end": {
-              "line": 112,
+              "line": 122,
               "column": 21
             }
           },
@@ -7080,11 +7141,11 @@
           "description": "A type definition to render.\nThis should be a one of the following AMF types:\n\n- `http://www.w3.org/ns/shacl#NodeShape` (Object)\n- `http://raml.org/vocabularies/shapes#UnionShape` (Union)\n- `http://raml.org/vocabularies/shapes#ArrayShape` (Array)\n- `http://raml.org/vocabularies/shapes#ScalarShape` (single property)\n\nIt also accepts array of properties like list of headers or\nparameters.",
           "sourceRange": {
             "start": {
-              "line": 137,
+              "line": 147,
               "column": 8
             },
             "end": {
-              "line": 140,
+              "line": 150,
               "column": 9
             }
           },
@@ -7096,11 +7157,11 @@
           "description": "Should be set if described properties has a parent type.\nThis is used when recursively iterating over properties.",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 155,
               "column": 8
             },
             "end": {
-              "line": 145,
+              "line": 155,
               "column": 30
             }
           },
@@ -7112,11 +7173,11 @@
           "description": "True if given `type` is a scalar property",
           "sourceRange": {
             "start": {
-              "line": 149,
+              "line": 159,
               "column": 8
             },
             "end": {
-              "line": 152,
+              "line": 162,
               "column": 9
             }
           },
@@ -7128,11 +7189,11 @@
           "description": "True if given `type` is an array property",
           "sourceRange": {
             "start": {
-              "line": 156,
+              "line": 166,
               "column": 8
             },
             "end": {
-              "line": 159,
+              "line": 169,
               "column": 9
             }
           },
@@ -7144,11 +7205,11 @@
           "description": "True if given `type` is an object property",
           "sourceRange": {
             "start": {
-              "line": 163,
+              "line": 173,
               "column": 8
             },
             "end": {
-              "line": 166,
+              "line": 176,
               "column": 9
             }
           },
@@ -7160,11 +7221,11 @@
           "description": "True if given `type` is an union property",
           "sourceRange": {
             "start": {
-              "line": 170,
+              "line": 180,
               "column": 8
             },
             "end": {
-              "line": 173,
+              "line": 183,
               "column": 9
             }
           },
@@ -7176,11 +7237,11 @@
           "description": "Computed list of union type types to render in union type\nselector.\nEach item has `label` and `isScalar` property.",
           "sourceRange": {
             "start": {
-              "line": 181,
+              "line": 191,
               "column": 8
             },
             "end": {
-              "line": 184,
+              "line": 194,
               "column": 9
             }
           },
@@ -7192,11 +7253,11 @@
           "description": "Selected index of union type in `unionTypes` array.",
           "sourceRange": {
             "start": {
-              "line": 188,
+              "line": 198,
               "column": 8
             },
             "end": {
-              "line": 190,
+              "line": 200,
               "column": 9
             }
           },

@@ -34,6 +34,10 @@ declare namespace ApiElements {
    * Custom property | Description | Default
    * ----------------|-------------|----------
    * `--api-type-document` | Mixin applied to this elment | `{}`
+   * `--api-type-document-union-button-background-color` | Background color of union selector button | `#fff`
+   * `--api-type-document-union-button-color` | Color of union selector button | `#000`
+   * `--api-type-document-union-button-active-background-color` | Background color of active union selector button | `#CDDC39`
+   * `--api-type-document-union-button-active-color` | Color of active union selector button | `#000`
    *
    * From `property-shape-document`
    *

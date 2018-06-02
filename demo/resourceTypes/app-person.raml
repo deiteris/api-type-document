@@ -31,18 +31,22 @@ properties:
     minLength: 32
     maxLength: 32
     pattern: "[A-Za-z0-9]*"
+    displayName: ID
   name:
     required: true
     example: John Smith
     description: Person full name. The input will be rejected if this property is not set while creating new object.
     type: string
     pattern: "[0-9a-zA-Z ]+"
+    displayName: Person name
   birthday:
     type: date-only
     description: The person's date of birth, represented as YYYY-MM-DD.
+    displayName: Person birthday
   favouriteTime:
     type: time-only
     description: The person's favourite time of day
+    displayName: Some example
   gender?:
     type: string
     description: |
@@ -55,6 +59,7 @@ properties:
       Women: female
       Man: male
       Elmo: other
+    displayName: Gender
   favouriteNumber:
     type: number
     minimum: 0
@@ -66,20 +71,25 @@ properties:
   url:
     type: string
     description: The URL of this person's profile.
+    displayName: Profile URL
   image: !include image.raml
   tagline:
     type: string
     description: The brief description (tagline) of this person.
+    displayName: Tagline
   language:
     type: string
     description: The user's preferred language for rendering.
+    displayName: Language
   newsletter:
     type: boolean
     required: false
     default: false
+    displayName: Newsletter consent
   age:
     type: integer
     required: false
+    displayName: Age
     description: |
       Very unpractical property to have in a data store.
   created:
