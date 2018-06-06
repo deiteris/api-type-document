@@ -126,10 +126,12 @@
       </p>
     </template>
     <template is="dom-if" if="[[!hasDisplayName]]">
-      <h4 class="property-title">
-        <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
-        <span>[[propertyName]]</span>
-      </h4>
+      <template is="dom-if" if="[[propertyName]]">
+        <h4 class="property-title">
+          <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
+          <span>[[propertyName]]</span>
+        </h4>
+      </template>
     </template>
     <div class="property-traits">
       <span class="data-type">[[propertyDataType]]</span>
@@ -326,7 +328,11 @@
       if (this._hasType(shape, 'http://www.w3.org/ns/shacl#PropertyShape')) {
         return this._getValue(shape, 'http://www.w3.org/ns/shacl#name');
       }
-      return this._getValue(range, 'http://www.w3.org/ns/shacl#name');
+      const name = this._getValue(range, 'http://www.w3.org/ns/shacl#name');
+      if (name === 'items' && this._hasType(shape, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
+        return;
+      }
+      return name;
     }
     /**
      * Computes value for `hasDisplayName` property.
@@ -378,7 +384,7 @@
         return this._getValue(shape, 'http://www.w3.org/ns/hydra/core#required');
       }
       const data = this._getValue(shape, 'http://www.w3.org/ns/shacl#minCount');
-      return data !== 0;
+      return data !== undefined && data !== 0;
     }
     /**
      * Computes value `isEnum` property.
