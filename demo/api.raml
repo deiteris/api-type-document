@@ -132,6 +132,17 @@ types:
         "processVar1": "value1",
         "processVar2": "value2"
       }
+  Notification:
+   properties:
+    scalarArray:
+      required: true
+      type: array
+      items: integer
+      description: Integer array item type
+      displayName: Scalar array (integer)
+    otherScalar:
+      required: false
+      type: string[]
 resourceTypes:
   ErrorredResource:
     get:
@@ -184,3 +195,7 @@ resourceTypes:
       200:
         body:
           type: AppPerson
+/scalarArrays:
+  post:
+    body:
+      type: Notification

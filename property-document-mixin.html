@@ -162,8 +162,11 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       if (!items) {
         return;
       }
-      items = items[0];
-      return items['http://www.w3.org/ns/shacl#property'];
+      const item = items[0];
+      if (this._hasType(item, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
+        return items;
+      }
+      return item['http://www.w3.org/ns/shacl#property'];
     }
     /**
      * Computes value for `isUnion` property.
