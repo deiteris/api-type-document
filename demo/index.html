@@ -84,8 +84,25 @@
         }
       };
       app.setTypeData = function(id) {
-        const d = app.amfModel[0]['http://raml.org/vocabularies/document#declares'];
-        const type = d.find((item) => item['@id'] === id);
+        const dKey = 'http://a.ml/vocabularies/document#declares';
+        const d = app.amfModel[0][dKey];
+        let type = d.find((item) => item['@id'] === id);
+        if (!type) {
+          const r = app.amfModel[0]['http://a.ml/vocabularies/document#references'];
+          if (r) {
+            for (let i = 0; i < r.length; i++) {
+              const ref = r[i];
+              const rd = ref[dKey];
+              if (!rd) {
+                continue;
+              }
+              type = rd.find((item) => item['@id'] === id);
+              if (type) {
+                break;
+              }
+            }
+          }
+        }
         if (!type) {
           console.error('Type not found');
           return;

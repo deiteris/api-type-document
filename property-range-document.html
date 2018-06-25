@@ -59,67 +59,67 @@
       padding: 0 12px;
     }
     </style>
-    <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#defaultValueStr')]]">
+    <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.defaultValueStr)]]">
       <div class="property-attribute">
         <span class="attribute-label">Default value:</span>
-        <span class="attribute-value" title="This value is used as a default value">[[_getValue(range,'http://www.w3.org/ns/shacl#defaultValueStr')]]</span>
+        <span class="attribute-value" title="This value is used as a default value">[[_getValue(range, ns.w3.shacl.defaultValueStr)]]</span>
       </div>
     </template>
-    <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#pattern')]]">
+    <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.pattern)]]">
       <div class="property-attribute">
         <span class="attribute-label">Pattern:</span>
-        <span class="attribute-value" title="Regular expression value for this property">[[_getValue(range,'http://www.w3.org/ns/shacl#pattern')]]</span>
+        <span class="attribute-value" title="Regular expression value for this property">[[_getValue(range, ns.w3.shacl.pattern)]]</span>
       </div>
     </template>
-    <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#minInclusive')]]">
+    <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.minInclusive)]]">
       <div class="property-attribute">
         <span class="attribute-label">Min value:</span>
-        <span class="attribute-value" title="Minimum numeric value possible to set on this property">[[_getValue(range,'http://www.w3.org/ns/shacl#minInclusive')]]</span>
+        <span class="attribute-value" title="Minimum numeric value possible to set on this property">[[_getValue(range, ns.w3.shacl.minInclusive)]]</span>
       </div>
     </template>
-    <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#maxInclusive')]]">
+    <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.maxInclusive)]]">
       <div class="property-attribute">
         <span class="attribute-label">Max value:</span>
-        <span class="attribute-value" title="Maximum numeric value possible to set on this property">[[_getValue(range,'http://www.w3.org/ns/shacl#maxInclusive')]]</span>
+        <span class="attribute-value" title="Maximum numeric value possible to set on this property">[[_getValue(range, ns.w3.shacl.maxInclusive)]]</span>
       </div>
     </template>
-    <template is="dom-if" if="[[_hasProperty(range, 'http://raml.org/vocabularies/shapes#multipleOf')]]">
+    <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.multipleOf)]]">
       <div class="property-attribute">
         <span class="attribute-label">Multiple of:</span>
-        <span class="attribute-value" title="The numeric value has to be multiplicable by this value">[[_getValue(range,'http://raml.org/vocabularies/shapes#multipleOf')]]</span>
+        <span class="attribute-value" title="The numeric value has to be multiplicable by this value">[[_getValue(range, ns.w3.shacl.multipleOf)]]</span>
       </div>
     </template>
     <template is="dom-if" if="[[!isFile]]">
-      <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#minLength')]]">
+      <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.minLength)]]">
         <div class="property-attribute">
           <span class="attribute-label">Minimum characters:</span>
-          <span class="attribute-value" title="Minimum number of characters in the value">[[_getValue(range,'http://www.w3.org/ns/shacl#minLength')]]</span>
+          <span class="attribute-value" title="Minimum number of characters in the value">[[_getValue(range, ns.w3.shacl.minLength)]]</span>
         </div>
       </template>
-      <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#maxLength')]]">
+      <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.maxLength)]]">
         <div class="property-attribute">
           <span class="attribute-label">Maximum characters:</span>
-          <span class="attribute-value" title="Maximum number of characters in the value">[[_getValue(range,'http://www.w3.org/ns/shacl#maxLength')]]</span>
+          <span class="attribute-value" title="Maximum number of characters in the value">[[_getValue(range, ns.w3.shacl.maxLength)]]</span>
         </div>
       </template>
     </template>
     <template is="dom-if" if="[[isFile]]">
-      <template is="dom-if" if="[[_hasProperty(range, 'http://raml.org/vocabularies/shapes#fileType')]]">
+      <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.fileType)]]">
         <div class="property-attribute">
           <span class="attribute-label">File types:</span>
-          <span class="attribute-value" title="File mime types accepted by the endpoint">[[_getValueArray(range,'http://raml.org/vocabularies/shapes#fileType')]]</span>
+          <span class="attribute-value" title="File mime types accepted by the endpoint">[[_getValueArray(range, ns.w3.shacl.fileType)]]</span>
         </div>
       </template>
-      <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#minLength')]]">
+      <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.minLength)]]">
         <div class="property-attribute">
           <span class="attribute-label">File minimum size:</span>
-          <span class="attribute-value" title="Minimum size of the file accepted by this endpoint">[[_getValue(range,'http://www.w3.org/ns/shacl#minLength')]]</span>
+          <span class="attribute-value" title="Minimum size of the file accepted by this endpoint">[[_getValue(range, ns.w3.shacl.minLength)]]</span>
         </div>
       </template>
-      <template is="dom-if" if="[[_hasProperty(range, 'http://www.w3.org/ns/shacl#maxLength')]]">
+      <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.maxLength)]]">
         <div class="property-attribute">
           <span class="attribute-label">File maximum size:</span>
-          <span class="attribute-value" title="Maximum size of the file accepted by this endpoint">[[_getValue(range,'http://www.w3.org/ns/shacl#maxLength')]]</span>
+          <span class="attribute-value" title="Maximum size of the file accepted by this endpoint">[[_getValue(range, ns.w3.shacl.maxLength)]]</span>
         </div>
       </template>
     </template>
@@ -260,7 +260,7 @@
      * @return {Boolean}
      */
     _computeHasExamples(range) {
-      return this._hasProperty(range, 'http://raml.org/vocabularies/document#examples');
+      return this._hasProperty(range, this.ns.raml.vocabularies.document + '#examples');
     }
     /**
      * Computes list of examples for the property.
@@ -275,13 +275,13 @@
       if (!hasExamples || !range) {
         return;
       }
-      const list = range['http://raml.org/vocabularies/document#examples'];
+      const list = range[this.ns.raml.vocabularies.document + '#examples'];
       if (!list) {
         return;
       }
       return list.map((item) => {
         let value = this._getExampleValue(item);
-        const name = this._getValue(item, 'http://schema.org/name');
+        const name = this._getValue(item, this.ns.schema.schemaName);
         return {
           name,
           value,

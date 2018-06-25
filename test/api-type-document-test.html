@@ -246,7 +246,7 @@
       test('Selection change computes properties for the table', () => {
         element.selectedUnion = 1;
         const doc = element.shadowRoot.querySelector('api-type-document.union-document');
-        const type = typeData['http://raml.org/vocabularies/shapes#anyOf'][1];
+        const type = typeData['http://a.ml/vocabularies/shapes#anyOf'][1];
         assert.deepEqual(doc.type, type);
       });
     });

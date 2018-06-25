@@ -322,14 +322,14 @@
       if (!shape || !range) {
         return;
       }
-      if (this._hasType(shape, 'http://raml.org/vocabularies/http#Parameter')) {
-        return this._getValue(shape, 'http://schema.org/name');
+      if (this._hasType(shape, this.ns.raml.vocabularies.http + 'Parameter')) {
+        return this._getValue(shape, this.ns.schema.schemaName);
       }
-      if (this._hasType(shape, 'http://www.w3.org/ns/shacl#PropertyShape')) {
-        return this._getValue(shape, 'http://www.w3.org/ns/shacl#name');
+      if (this._hasType(shape, this.ns.w3.shacl.name + 'PropertyShape')) {
+        return this._getValue(shape, this.ns.w3.shacl.name + 'name');
       }
-      const name = this._getValue(range, 'http://www.w3.org/ns/shacl#name');
-      if (name === 'items' && this._hasType(shape, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
+      const name = this._getValue(range, this.ns.w3.shacl.name + 'name');
+      if (name === 'items' && this._hasType(shape, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
         return;
       }
       return name;
@@ -380,10 +380,10 @@
       if (!shape) {
         return false;
       }
-      if (this._hasType(shape, 'http://raml.org/vocabularies/http#Parameter')) {
-        return this._getValue(shape, 'http://www.w3.org/ns/hydra/core#required');
+      if (this._hasType(shape, this.ns.raml.vocabularies.http + 'Parameter')) {
+        return this._getValue(shape, this.ns.w3.hydra.core + 'required');
       }
-      const data = this._getValue(shape, 'http://www.w3.org/ns/shacl#minCount');
+      const data = this._getValue(shape, this.ns.w3.shacl.name + 'minCount');
       return data !== undefined && data !== 0;
     }
     /**
@@ -392,7 +392,7 @@
      * @return {Boolean} Curently it always returns `false`
      */
     _computeIsEnum(range) {
-      return !!(range && ('http://www.w3.org/ns/shacl#in' in range));
+      return !!(range && (this.ns.w3.shacl.name + 'in' in range));
     }
     /**
      * Computes value for `propertyDescription`.
@@ -403,7 +403,7 @@
       if (!range) {
         return;
       }
-      return this._getValue(range, 'http://schema.org/description');
+      return this._getValue(range, this.ns.schema.desc);
     }
   }
   window.customElements.define(PropertyShapeDocument.is, PropertyShapeDocument);
