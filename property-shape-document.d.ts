@@ -46,6 +46,7 @@ declare namespace ApiElements {
    * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
    * `--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`,
    * `--api-type-document-trait-border-radius` | Border radious of a main property traits like type, required, enum | `3px`
+   * `--api-type-document-property-name-width` | Width of the left hand side column with property name | `240px`
    */
   class PropertyShapeDocument extends
     ArcBehaviors.PropertyDocumentMixin(

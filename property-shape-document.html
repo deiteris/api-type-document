@@ -30,6 +30,7 @@
       @apply --arc-font-subhead;
       margin: 4px 0 24px 0;
       font-size: 18px;
+      word-break: break-word;
       @apply --property-shape-document-title;
     }
 
@@ -53,7 +54,7 @@
     }
 
     .doc-border {
-      width: 2px;
+      width: 0px;
       background-color: transparent;
       cursor: pointer;
     }
@@ -76,6 +77,7 @@
     }
 
     :host([is-union])  > .doc-wrapper > .doc-border {
+      width: 2px;
       background-color: var(--property-shape-document-union-color, #FFEB3B);
     }
 
@@ -84,6 +86,7 @@
     }
 
     :host([is-array]) > .doc-wrapper > .doc-border {
+      width: 2px;
       background-color: var(--property-shape-document-array-color, #8BC34A);
     }
 
@@ -92,6 +95,7 @@
     }
 
     :host([is-object]) > .doc-wrapper > .doc-border {
+      width: 2px;
       background-color: var(--property-shape-document-object-color, #FF9800);
     }
 
@@ -132,7 +136,7 @@
     }
 
     .shape-properties {
-      min-width: 240px;
+      width: var(--api-type-document-property-name-width, 240px);
     }
 
     .shape-docs {
@@ -210,7 +214,6 @@
         </div>
       </div>
     </div>
-    
     <template is="dom-if" if="[[isComplex]]">
       <div class="doc-wrapper complex">
         <div class="doc-border" on-mouseover="_borderHover" on-mouseout="_borderBlur"></div>
@@ -255,6 +258,7 @@
    * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
    * `--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`,
    * `--api-type-document-trait-border-radius` | Border radious of a main property traits like type, required, enum | `3px`
+   * `--api-type-document-property-name-width` | Width of the left hand side column with property name | `240px`
    *
    * @customElement
    * @polymer
@@ -385,7 +389,7 @@
         },
         /**
          * A property to set when the component is rendered in the narrow
-         * view. To be used with mobile rendering or when the 
+         * view. To be used with mobile rendering or when the
          * components occupies only small part of the screen.
          */
         narrow: {

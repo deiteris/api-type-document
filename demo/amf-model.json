@@ -368,7 +368,7 @@
                                     ],
                                     "http://schema.org/name": [
                                       {
-                                        "@value": "Etag"
+                                        "@value": "Product ID"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -1091,7 +1091,7 @@
                                     ],
                                     "http://schema.org/name": [
                                       {
-                                        "@value": "Etag"
+                                        "@value": "Product ID"
                                       }
                                     ],
                                     "http://schema.org/description": [
@@ -7789,7 +7789,7 @@
                     ],
                     "http://schema.org/name": [
                       {
-                        "@value": "Etag"
+                        "@value": "Product ID"
                       }
                     ],
                     "http://schema.org/description": [
@@ -10407,7 +10407,7 @@
                                             ],
                                             "http://schema.org/name": [
                                               {
-                                                "@value": "Etag"
+                                                "@value": "Product ID"
                                               }
                                             ],
                                             "http://schema.org/description": [
@@ -11186,7 +11186,7 @@
                         ],
                         "http://schema.org/name": [
                           {
-                            "@value": "Etag"
+                            "@value": "Product ID"
                           }
                         ],
                         "http://schema.org/description": [
@@ -12428,7 +12428,7 @@
                             ],
                             "http://schema.org/name": [
                               {
-                                "@value": "Etag"
+                                "@value": "Product ID"
                               }
                             ],
                             "http://schema.org/description": [
@@ -13214,7 +13214,7 @@
                                 ],
                                 "http://schema.org/name": [
                                   {
-                                    "@value": "Etag"
+                                    "@value": "Product ID"
                                   }
                                 ],
                                 "http://schema.org/description": [
@@ -14284,7 +14284,7 @@
                             ],
                             "http://schema.org/name": [
                               {
-                                "@value": "Etag"
+                                "@value": "Product ID"
                               }
                             ],
                             "http://schema.org/description": [
@@ -15014,7 +15014,7 @@
                 ],
                 "http://schema.org/name": [
                   {
-                    "@value": "Etag"
+                    "@value": "Product ID"
                   }
                 ],
                 "http://schema.org/description": [
@@ -16875,7 +16875,7 @@
                     ],
                     "http://schema.org/name": [
                       {
-                        "@value": "Etag"
+                        "@value": "Product ID"
                       }
                     ],
                     "http://schema.org/description": [
