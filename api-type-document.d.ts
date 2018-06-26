@@ -143,6 +143,13 @@ declare namespace ApiElements {
     selectedUnion: number|null|undefined;
 
     /**
+     * A property to set when the component is rendered in the narrow
+     * view. To be used with mobile rendering or when the
+     * components occupies only small part of the screen.
+     */
+    narrow: boolean|null|undefined;
+
+    /**
      * Handles type change. Sets basic view control properties.
      *
      * @param type Passed type/

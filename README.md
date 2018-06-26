@@ -6,17 +6,6 @@
 
 A documentation table for type (resource) properties. Works with AMF data model
 
-<!---
-```
-<custom-element-demo>
-  <template>
-    <link rel="import" href="api-type-document.html">
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
-
 ```html
 <api-type-document></api-type-document>
 ```
