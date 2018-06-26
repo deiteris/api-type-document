@@ -27,22 +27,30 @@
     .union-type-selector {
       margin: 20px 0;
     }
+
+    property-shape-document {
+      padding: 20px 0;
+    }
+
+    property-shape-document:last-of-type {
+      border-bottom: none;
+    }
     </style>
     <template is="dom-if" if="[[aware]]">
       <raml-aware raml="{{amfModel}}" scope="[[aware]]"></raml-aware>
     </template>
-    <template is="dom-if" if="[[isObject]]">
+    <template is="dom-if" if="[[isObject]]" restamp>
       <template is="dom-repeat" items="[[_computeProperties(type)]]">
-        <property-shape-document class="object-document" shape="[[item]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]"></property-shape-document>
+        <property-shape-document class="object-document" shape="[[item]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" narrow="[[narrow]]"></property-shape-document>
       </template>
     </template>
-    <template is="dom-if" if="[[isArray]]">
+    <template is="dom-if" if="[[isArray]]" restamp>
       <template is="dom-repeat" items="[[_computeArrayProperties(type)]]">
-        <property-shape-document class="array-document" shape="[[item]]" amf-model="[[amfModel]]" parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]"></property-shape-document>
+        <property-shape-document class="array-document" shape="[[item]]" amf-model="[[amfModel]]" parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]" narrow="[[narrow]]"></property-shape-document>
       </template>
     </template>
-    <template is="dom-if" if="[[isScalar]]">
-      <property-shape-document class="shape-document" shape="[[type]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]"></property-shape-document>
+    <template is="dom-if" if="[[isScalar]]" restamp>
+      <property-shape-document class="shape-document" shape="[[type]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" narrow="[[narrow]]"></property-shape-document>
     </template>
     <template is="dom-if" if="[[isUnion]]">
       <div class="union-type-selector">
@@ -198,7 +206,13 @@
          */
         selectedUnion: {
           type: Number
-        }
+        },
+        /**
+         * A property to set when the component is rendered in the narrow
+         * view. To be used with mobile rendering or when the 
+         * components occupies only small part of the screen.
+         */
+        narrow: Boolean
       };
     }
     /**

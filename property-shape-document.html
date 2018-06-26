@@ -14,8 +14,7 @@
     <style>
     :host {
       display: block;
-      padding: 20px 0;
-      border-bottom: 1px var(--property-shape-document-border-bottom-color, #CFD8DC) dashed;
+      border-bottom: 1px var(--property-shape-document-border-bottom-color, #CFD8DC) var(--property-shape-document-border-bottom-style, dashed);
       @apply --property-shape-document;
     }
 
@@ -46,6 +45,11 @@
     .doc-wrapper {
       @apply --layout-horizontal;
       transition: background-color 0.4s linear;
+    }
+
+    .doc-wrapper.complex {
+      margin-top: 24px !important;
+      @apply --api-type-document-property-complex-wrapper;
     }
 
     .doc-border {
@@ -103,67 +107,127 @@
     .property-traits > span {
       display: inline-block;
       margin-right: 8px;
-      padding: 4px 8px;
+      padding: var(--api-type-document-trait-padding, 4px 8px);
       background-color: var(--api-type-document-trait-background-color, #EEEEEE);
+      color: var(--api-type-document-trait-color, #000);
       border-radius: var(--api-type-document-trait-border-radius, 3px);
     }
 
     .property-traits > span.data-type {
       background-color: var(--api-type-document-type-background-color, #2196F3);
       color: var(--api-type-document-type-color, white);
+      padding: var(--api-type-document-trait-data-type-padding, 4px 8px);
     }
 
     .property-description {
+      margin-top: 4px;
+    }
+
+    :host([narrow]) .property-description {
       margin: 20px 0;
     }
+
+    .content-wrapper {
+      @apply --layout-horizontal;
+    }
+
+    .shape-properties {
+      min-width: 240px;
+    }
+
+    .shape-docs {
+      @apply --layout-flex;
+    }
+
+    :host([narrow]) .content-wrapper {
+      display: block;
+      -ms-flex-direction: initial;
+      -webkit-flex-direction: initial;
+      flex-direction: initial;
+    }
+
+    :host([narrow]) .shape-docs {
+      -ms-flex: initial;
+      -webkit-flex: initial;
+      flex: initial;
+      -webkit-flex-basis: initial;
+      flex-basis: initial;
+    }
+
+    :host([narrow]) .shape-properties {
+      min-width: initial;
+    }
+
+    .no-info {
+      margin-top: 4px;
+      @apply --no-info-message;
+    }
     </style>
-    <template is="dom-if" if="[[hasDisplayName]]">
-      <h4 class="property-title">[[displayName]]</h4>
-      <p class="property-subtitle">
-        Property:
-        <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
-        <span class="property-name">[[propertyName]]</span>
-      </p>
-    </template>
-    <template is="dom-if" if="[[!hasDisplayName]]">
-      <template is="dom-if" if="[[propertyName]]">
-        <h4 class="property-title">
-          <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
-          <span>[[propertyName]]</span>
-        </h4>
-      </template>
-    </template>
-    <div class="property-traits">
-      <span class="data-type">[[propertyDataType]]</span>
-      <template is="dom-if" if="[[isRequired]]">
-        <span class="required-type" title="This property is required by the API">Required</span>
-      </template>
-      <template is="dom-if" if="[[isEnum]]">
-        <span class="enym-type" title="This property represent enumerable value">Enum</span>
-      </template>
+    <div class="content-wrapper">
+      <div class="shape-properties">
+        <template is="dom-if" if="[[hasDisplayName]]">
+          <h4 class="property-title">[[displayName]]</h4>
+          <p class="property-subtitle">
+            Property:
+            <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
+            <span class="property-name">[[propertyName]]</span>
+          </p>
+        </template>
+        <template is="dom-if" if="[[!hasDisplayName]]">
+          <template is="dom-if" if="[[propertyName]]">
+            <h4 class="property-title">
+              <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
+              <span>[[propertyName]]</span>
+            </h4>
+          </template>
+        </template>
+        <div class="property-traits">
+          <span class="data-type">[[propertyDataType]]</span>
+          <template is="dom-if" if="[[isRequired]]">
+            <span class="required-type" title="This property is required by the API">Required</span>
+          </template>
+          <template is="dom-if" if="[[isEnum]]">
+            <span class="enym-type" title="This property represent enumerable value">Enum</span>
+          </template>
+        </div>
+      </div>
+      <div class="shape-docs">
+        <template is="dom-if" if="[[hasPropertyDescription]]">
+          <div class="property-description">
+            <marked-element markdown="[[propertyDescription]]">
+              <div slot="markdown-html" class="markdown-body"></div>
+            </marked-element>
+          </div>
+        </template>
+        <template is="dom-if" if="[[!hasPropertyDescription]]">
+          <p class="no-info">No description provided</p>
+        </template>
+        <div class="doc-wrapper">
+          <div class="doc-border" on-mouseover="_borderHover" on-mouseout="_borderBlur"></div>
+          <div class="doc-content">
+            <property-range-document amf-model="[[amfModel]]" shape="[[shape]]" range="[[range]]"></property-range-document>
+          </div>
+        </div>
+      </div>
     </div>
-    <template is="dom-if" if="[[propertyDescription]]">
-      <div class="property-description">
-        <marked-element markdown="[[propertyDescription]]">
-          <div slot="markdown-html" class="markdown-body"></div>
-        </marked-element>
+    
+    <template is="dom-if" if="[[isComplex]]">
+      <div class="doc-wrapper complex">
+        <div class="doc-border" on-mouseover="_borderHover" on-mouseout="_borderBlur"></div>
+        <div class="doc-content">
+          <template is="dom-if" if="[[isArray]]">
+            <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="item" narrow="[[narrow]]"></api-type-document>
+          </template>
+          <template is="dom-if" if="[[isObject]]">
+            <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="[[displayName]]" narrow="[[narrow]]"></api-type-document>
+          </template>
+          <template is="dom-if" if="[[isUnion]]">
+            <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="[[displayName]]" narrow="[[narrow]]"></api-type-document>
+          </template>
+        </div>
       </div>
     </template>
-    <div class="doc-wrapper">
-      <div class="doc-border" on-mouseover="_borderHover" on-mouseout="_borderBlur"></div>
-      <div class="doc-content">
-        <property-range-document amf-model="[[amfModel]]" shape="[[shape]]" range="[[range]]"></property-range-document>
-        <template is="dom-if" if="[[isArray]]">
-          <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="item"></api-type-document>
-        </template>
-        <template is="dom-if" if="[[isObject]]">
-          <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="[[displayName]]"></api-type-document>
-        </template>
-        <template is="dom-if" if="[[isUnion]]">
-          <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="[[displayName]]"></api-type-document>
-        </template>
-      </div>
-    </div>
+  </div>
   </template>
   <script>
   /**
@@ -247,7 +311,7 @@
         /**
          * Computed value, true if current property is an object.
          */
-         isObject: {
+        isObject: {
           type: Boolean,
           computed: '_computeIsObject(range)',
           reflectToAttribute: true
@@ -259,6 +323,15 @@
           type: Boolean,
           computed: '_computeIsArray(range)',
           reflectToAttribute: true
+        },
+        /**
+         * Computed value, true if this propery contains a complex
+         * structure. It is computed when the property is and array,
+         * object, or union.
+         */
+        isComplex: {
+          type: Boolean,
+          computed: '_computeIsComplex(isUnion, isObject, isArray)',
         },
         /**
          * Should be set if described properties has a parent type.
@@ -301,6 +374,23 @@
         propertyDescription: {
           type: String,
           computed: '_computeDescription(range)'
+        },
+        /**
+         * Computed value, true if desceription is set.
+         */
+        hasPropertyDescription: {
+          type: Boolean,
+          value: false,
+          computed: '_computeHasStringValue(propertyDescription)'
+        },
+        /**
+         * A property to set when the component is rendered in the narrow
+         * view. To be used with mobile rendering or when the 
+         * components occupies only small part of the screen.
+         */
+        narrow: {
+          type: Boolean,
+          reflectToAttribute: true
         }
       };
     }
@@ -404,6 +494,12 @@
         return;
       }
       return this._getValue(range, this.ns.schema.desc);
+    }
+    /**
+     * Computes value for `isComplex` property.
+     */
+    _computeIsComplex(isUnion, isObject, isArray) {
+      return isUnion || isObject || isArray;
     }
   }
   window.customElements.define(PropertyShapeDocument.is, PropertyShapeDocument);
