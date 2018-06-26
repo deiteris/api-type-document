@@ -1,7 +1,7 @@
 {
   "name": "api-type-document",
   "description": "A documentation table for type (resource) properties. Works with AMF data model",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "license": "Apache-2.0",
   "main": "api-type-document.html",
   "keywords": [
@@ -17,9 +17,9 @@
     "marked-element": "PolymerElements/marked-element#^2.4.0",
     "markdown-styles": "advanced-rest-client/markdown-styles#^2.0.2",
     "paper-button": "PolymerElements/paper-button#^2.1.0",
-    "api-annotation-document": "advanced-rest-client/api-annotation-document#^2.0.0",
+    "api-annotation-document": "advanced-rest-client/api-annotation-document#^2.0.1",
     "raml-aware": "advanced-rest-client/raml-aware#^2.0.0",
-    "amf-helper-mixin": "advanced-rest-client/amf-helper-mixin#^2.0.0"
+    "amf-helper-mixin": "advanced-rest-client/amf-helper-mixin#^2.0.1"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
@@ -28,7 +28,8 @@
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
     "api-navigation": "advanced-rest-client/api-navigation#2.0.0-preview",
-    "arc-polyfills": "advanced-rest-client/arc-polyfills#^0.1.11"
+    "arc-polyfills": "advanced-rest-client/arc-polyfills#^0.1.11",
+    "paper-checkbox": "PolymerElements/paper-checkbox#^2.0.0"
   },
   "repository": {
     "type": "git",

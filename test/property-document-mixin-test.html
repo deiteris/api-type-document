@@ -25,7 +25,7 @@
       });
 
       test('Computes UnionShape', () => {
-        const type = 'http://raml.org/vocabularies/shapes#UnionShape';
+        const type = 'http://a.ml/vocabularies/shapes#UnionShape';
         const result = element._computeRangeDataType({
           '@type': [type]
         });
@@ -33,7 +33,7 @@
       });
 
       test('Computes ArrayShape', () => {
-        const type = 'http://raml.org/vocabularies/shapes#ArrayShape';
+        const type = 'http://a.ml/vocabularies/shapes#ArrayShape';
         const result = element._computeRangeDataType({
           '@type': [type]
         });
@@ -49,7 +49,7 @@
       });
 
       test('Computes FileShape', () => {
-        const type = 'http://raml.org/vocabularies/shapes#FileShape';
+        const type = 'http://a.ml/vocabularies/shapes#FileShape';
         const result = element._computeRangeDataType({
           '@type': [type]
         });
@@ -57,7 +57,7 @@
       });
 
       test('Computes NilShape', () => {
-        const type = 'http://raml.org/vocabularies/shapes#NilShape';
+        const type = 'http://a.ml/vocabularies/shapes#NilShape';
         const result = element._computeRangeDataType({
           '@type': [type]
         });
@@ -65,7 +65,7 @@
       });
 
       test('Computes AnyShape', () => {
-        const type = 'http://raml.org/vocabularies/shapes#AnyShape';
+        const type = 'http://a.ml/vocabularies/shapes#AnyShape';
         const result = element._computeRangeDataType({
           '@type': [type]
         });
@@ -73,7 +73,7 @@
       });
 
       test('Computes MatrixShape', () => {
-        const type = 'http://raml.org/vocabularies/shapes#MatrixShape';
+        const type = 'http://a.ml/vocabularies/shapes#MatrixShape';
         const result = element._computeRangeDataType({
           '@type': [type]
         });
@@ -81,7 +81,7 @@
       });
 
       test('Computes TupleShape', () => {
-        const type = 'http://raml.org/vocabularies/shapes#TupleShape';
+        const type = 'http://a.ml/vocabularies/shapes#TupleShape';
         const result = element._computeRangeDataType({
           '@type': [type]
         });
@@ -100,7 +100,7 @@
     suite('_computeRangeDataType() - ScalarShape', () => {
       let element;
       let shape = {
-        '@type': ['http://raml.org/vocabularies/shapes#ScalarShape'],
+        '@type': ['http://a.ml/vocabularies/shapes#ScalarShape'],
         'http://www.w3.org/ns/shacl#datatype': [{
           '@id': ''
         }]
@@ -114,19 +114,19 @@
       }
 
       [
-        ['http://raml.org/vocabularies/shapes#number', 'Number'],
+        ['http://a.ml/vocabularies/shapes#number', 'Number'],
         ['http://www.w3.org/2001/XMLSchema#integer', 'Integer'],
         ['http://www.w3.org/2001/XMLSchema#string', 'String'],
         ['http://www.w3.org/2001/XMLSchema#boolean', 'Boolean'],
         ['http://www.w3.org/2001/XMLSchema#date', 'Date'],
         ['http://www.w3.org/2001/XMLSchema#time', 'Time'],
         ['http://www.w3.org/2001/XMLSchema#dateTime', 'DateTime'],
-        ['http://raml.org/vocabularies/shapes#dateTimeOnly', 'Time'],
+        ['http://a.ml/vocabularies/shapes#dateTimeOnly', 'Time'],
         ['http://www.w3.org/2001/XMLSchema#float', 'Float'],
         ['http://www.w3.org/2001/XMLSchema#long', 'Long'],
         ['http://www.w3.org/2001/XMLSchema#double', 'Double'],
         ['http://www.w3.org/2001/XMLSchema#base64Binary', 'Base64 binary'],
-        ['http://raml.org/vocabularies/shapes#password', 'Password'],
+        ['http://a.ml/vocabularies/shapes#password', 'Password'],
         ['UNKNOWN', 'Unknown type']
       ].forEach((item) => {
         test('Computes ' + item[0], () => {
@@ -140,18 +140,18 @@
     suite('_computeRange()', () => {
       let element;
       const ScalarShape = {
-        '@type': ['http://raml.org/vocabularies/shapes#ScalarShape'],
+        '@type': ['http://a.ml/vocabularies/shapes#ScalarShape'],
         'http://www.w3.org/ns/shacl#datatype': [{
-          '@id': 'http://raml.org/vocabularies/shapes#number'
+          '@id': 'http://a.ml/vocabularies/shapes#number'
         }]
       };
       const ParameterShape = {
-        '@type': ['http://raml.org/vocabularies/http#Parameter'],
-        'http://raml.org/vocabularies/http#schema': ['TEST-PARAMETER']
+        '@type': ['http://a.ml/vocabularies/http#Parameter'],
+        'http://a.ml/vocabularies/http#schema': ['TEST-PARAMETER']
       };
       const NodeShape = {
-        '@type': ['http://raml.org/vocabularies/http#NodeShape'],
-        'http://raml.org/vocabularies/shapes#range': ['TEST-RANGE']
+        '@type': ['http://a.ml/vocabularies/http#NodeShape'],
+        'http://a.ml/vocabularies/shapes#range': ['TEST-RANGE']
       };
       suiteSetup(() => {
         element = fixture('Basic');

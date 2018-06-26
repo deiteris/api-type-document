@@ -71,45 +71,47 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       if (!range) {
         return;
       }
-      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#UnionShape')) {
+      const rs = this.ns.raml.vocabularies.shapes;
+      if (this._hasType(range, rs + 'UnionShape')) {
         return 'Union';
       }
-      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#ArrayShape')) {
+      if (this._hasType(range, rs + 'ArrayShape')) {
         return 'Array';
       }
-      if (this._hasType(range, 'http://www.w3.org/ns/shacl#NodeShape')) {
+      if (this._hasType(range, this.ns.w3.shacl.name + 'NodeShape')) {
         return 'Object';
       }
-      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#FileShape')) {
+      if (this._hasType(range, rs + 'FileShape')) {
         return 'File';
       }
-      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#NilShape')) {
+      if (this._hasType(range, rs + 'NilShape')) {
         return 'Null';
       }
-      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#AnyShape')) {
+      if (this._hasType(range, rs + 'AnyShape')) {
         return 'Any';
       }
-      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#MatrixShape')) {
+      if (this._hasType(range, rs + 'MatrixShape')) {
         return 'Matrix';
       }
-      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#TupleShape')) {
+      if (this._hasType(range, rs + 'TupleShape')) {
         return 'Tuple';
       }
-      if (this._hasType(range, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
-        switch (range['http://www.w3.org/ns/shacl#datatype'][0]['@id']) {
-          case 'http://www.w3.org/2001/XMLSchema#string': return 'String';
-          case 'http://www.w3.org/2001/XMLSchema#integer': return 'Integer';
-          case 'http://www.w3.org/2001/XMLSchema#long': return 'Long';
-          case 'http://www.w3.org/2001/XMLSchema#float': return 'Float';
-          case 'http://www.w3.org/2001/XMLSchema#double': return 'Double';
-          case 'http://raml.org/vocabularies/shapes#number': return 'Number';
-          case 'http://www.w3.org/2001/XMLSchema#boolean': return 'Boolean';
-          case 'http://www.w3.org/2001/XMLSchema#dateTime': return 'DateTime';
-          case 'http://raml.org/vocabularies/shapes#dateTimeOnly': return 'Time';
-          case 'http://www.w3.org/2001/XMLSchema#time': return 'Time';
-          case 'http://www.w3.org/2001/XMLSchema#date': return 'Date';
-          case 'http://www.w3.org/2001/XMLSchema#base64Binary': return 'Base64 binary';
-          case 'http://raml.org/vocabularies/shapes#password': return 'Password';
+      if (this._hasType(range, rs + 'ScalarShape')) {
+        const sc = this.ns.w3.xmlSchema;
+        switch (range[this.ns.w3.shacl.name + 'datatype'][0]['@id']) {
+          case sc + 'string': return 'String';
+          case sc + 'integer': return 'Integer';
+          case sc + 'long': return 'Long';
+          case sc + 'float': return 'Float';
+          case sc + 'double': return 'Double';
+          case rs + 'number': return 'Number';
+          case sc + 'boolean': return 'Boolean';
+          case sc + 'dateTime': return 'DateTime';
+          case rs + 'dateTimeOnly': return 'Time';
+          case sc + 'time': return 'Time';
+          case sc + 'date': return 'Date';
+          case sc + 'base64Binary': return 'Base64 binary';
+          case rs + 'password': return 'Password';
         }
       }
       return 'Unknown type';
@@ -124,13 +126,13 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
         return;
       }
       let data;
-      if (this._hasType(shape, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
+      if (this._hasType(shape, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
         data = shape;
-      } else if (this._hasType(shape, 'http://raml.org/vocabularies/http#Parameter')) {
-        data = shape['http://raml.org/vocabularies/http#schema'];
+      } else if (this._hasType(shape, this.ns.raml.vocabularies.http + 'Parameter')) {
+        data = shape[this.ns.raml.vocabularies.http + 'schema'];
         data = (data && data.length) ? data[0] : undefined;
       } else {
-        data = shape['http://raml.org/vocabularies/shapes#range'];
+        data = shape[this.ns.raml.vocabularies.shapes + 'range'];
         data = (data && data.length) ? data[0] : undefined;
       }
       return data;
@@ -146,7 +148,7 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       if (item instanceof Array) {
         return item;
       }
-      return item && item['http://www.w3.org/ns/shacl#property'];
+      return item && item[this.ns.w3.shacl.name + 'property'];
     }
     /**
      * Computes properties to render Array items documentation.
@@ -158,15 +160,15 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       if (!range) {
         return;
       }
-      let items = range['http://raml.org/vocabularies/shapes#items'];
+      let items = range[this.ns.raml.vocabularies.shapes + 'items'];
       if (!items) {
         return;
       }
       const item = items[0];
-      if (this._hasType(item, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
+      if (this._hasType(item, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
         return items;
       }
-      return item['http://www.w3.org/ns/shacl#property'];
+      return item[this.ns.w3.shacl.name + 'property'];
     }
     /**
      * Computes value for `isUnion` property.
@@ -177,7 +179,7 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
      * @return {Boolean}
      */
     _computeIsUnion(range) {
-      return this._hasType(range, 'http://raml.org/vocabularies/shapes#UnionShape');
+      return this._hasType(range, this.ns.raml.vocabularies.shapes + 'UnionShape');
     }
     /**
      * Computes value for `isObject` property.
@@ -188,7 +190,7 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
      * @return {Boolean}
      */
     _computeIsObject(range) {
-      return this._hasType(range, 'http://www.w3.org/ns/shacl#NodeShape');
+      return this._hasType(range, this.ns.w3.shacl.name + 'NodeShape');
     }
     /**
      * Computes value for `isArray` property.
@@ -199,7 +201,7 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
      * @return {Boolean}
      */
     _computeIsArray(range) {
-      return this._hasType(range, 'http://raml.org/vocabularies/shapes#ArrayShape');
+      return this._hasType(range, this.ns.raml.vocabularies.shapes + 'ArrayShape');
     }
     /**
      * Computes list of union type labels to render.
@@ -212,29 +214,29 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       if (!isUnion || !range) {
         return;
       }
-      const list = range['http://raml.org/vocabularies/shapes#anyOf'];
+      const list = range[this.ns.raml.vocabularies.shapes + 'anyOf'];
       if (!list) {
         return;
       }
       return list.map((item) => {
-        let isScalar = this._hasType(item, 'http://raml.org/vocabularies/shapes#ScalarShape');
-        const isNil = this._hasType(item, 'http://raml.org/vocabularies/shapes#NilShape');
+        let isScalar = this._hasType(item, this.ns.raml.vocabularies.shapes + 'ScalarShape');
+        const isNil = this._hasType(item, this.ns.raml.vocabularies.shapes + 'NilShape');
         if (!isScalar && isNil) {
           isScalar = true;
         }
-        let isArray = this._hasType(item, 'http://raml.org/vocabularies/shapes#ArrayShape');
+        let isArray = this._hasType(item, this.ns.raml.vocabularies.shapes + 'ArrayShape');
         let isType = !isScalar && !isArray;
         let label;
         if (isArray) {
-          label = this._computeArrayUnionLabel(item['http://raml.org/vocabularies/shapes#items']);
+          label = this._computeArrayUnionLabel(item[this.ns.raml.vocabularies.shapes + 'items']);
         } else if (isNil) {
           label = 'Null';
         } else {
-          label = this._getValue(item, 'http://schema.org/name');
+          label = this._getValue(item, this.ns.schema.schemaName);
           if (!label) {
-            label = this._getValue(item, 'http://www.w3.org/ns/shacl#name');
+            label = this._getValue(item, this.ns.w3.shacl.name + 'name');
           }
-          if (!label && this._hasType(item, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
+          if (!label && this._hasType(item, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
             label = this._computeRangeDataType(item);
           }
         }
@@ -260,7 +262,7 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
         return;
       }
       const item = items[0];
-      if (this._hasType(item, 'http://raml.org/vocabularies/shapes#ScalarShape')) {
+      if (this._hasType(item, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
         return this._computeRangeDataType(item);
       }
       return this._computeDisplayName(item);
@@ -278,22 +280,22 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
         return;
       }
       let name;
-      if (this._hasType(shape, 'http://raml.org/vocabularies/http#Parameter')) {
-        return  this._getValue(range, 'http://schema.org/name');
+      if (this._hasType(shape, this.ns.raml.vocabularies.http + 'Parameter')) {
+        return  this._getValue(range, this.ns.schema.schemaName);
         // if(!name) {
-        //   name =  this._getValue(shape, 'http://raml.org/vocabularies/http#paramName');
+        //   name =  this._getValue(shape, this.ns.raml.vocabularies.http + 'paramName');
         // }
-      } else if (this._hasType(range, 'http://www.w3.org/ns/shacl#NodeShape')) {
-        return this._getValue(shape, 'http://www.w3.org/ns/shacl#name');
+      } else if (this._hasType(range, this.ns.w3.shacl.name + 'NodeShape')) {
+        return this._getValue(shape, this.ns.w3.shacl.name + 'name');
       } else {
         return this._getValue(range, 'http://schema.org/name');
         // if (!name) {
-        //   name = this._getValue(range, 'http://www.w3.org/ns/shacl#name');
+        //   name = this._getValue(range, this.ns.w3.shacl.name + 'name');
         // }
       }
       if (!name) {
         // File and Union types does not have "name" on range object.
-        name = this._getValue(shape, 'http://www.w3.org/ns/shacl#name');
+        name = this._getValue(shape, this.ns.w3.shacl.name + 'name');
       }
       if (name && name[name.length - 1] === '?') {
         name = name.substr(0, name.length - 1);

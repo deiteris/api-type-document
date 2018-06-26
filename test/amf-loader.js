@@ -14,7 +14,7 @@ AmfLoader.load = function(typeIndex) {
         reject(e);
         return;
       }
-      const def = data[0]['http://raml.org/vocabularies/document#declares'][typeIndex];
+      const def = data[0]['http://a.ml/vocabularies/document#declares'][typeIndex];
       resolve([data, def]);
     });
     xhr.addEventListener('error',

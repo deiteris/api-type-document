@@ -91,6 +91,13 @@ declare namespace ApiElements {
     readonly isArray: boolean|null|undefined;
 
     /**
+     * Computed value, true if this propery contains a complex
+     * structure. It is computed when the property is and array,
+     * object, or union.
+     */
+    readonly isComplex: boolean|null|undefined;
+
+    /**
      * Should be set if described properties has a parent type.
      * This is used when recursively iterating over properties.
      */
@@ -120,6 +127,18 @@ declare namespace ApiElements {
      * A description of the property to render.
      */
     readonly propertyDescription: string|null|undefined;
+
+    /**
+     * Computed value, true if desceription is set.
+     */
+    readonly hasPropertyDescription: boolean|null|undefined;
+
+    /**
+     * A property to set when the component is rendered in the narrow
+     * view. To be used with mobile rendering or when the
+     * components occupies only small part of the screen.
+     */
+    narrow: boolean|null|undefined;
 
     /**
      * Computes value for `propertyDescription`.
@@ -176,6 +195,11 @@ declare namespace ApiElements {
      * @returns Curently it always returns `false`
      */
     _computeIsEnum(range: object|null): Boolean|null;
+
+    /**
+     * Computes value for `isComplex` property.
+     */
+    _computeIsComplex(isUnion: any, isObject: any, isArray: any): any;
   }
 }
 

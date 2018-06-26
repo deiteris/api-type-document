@@ -27,22 +27,30 @@
     .union-type-selector {
       margin: 20px 0;
     }
+
+    property-shape-document {
+      padding: 20px 0;
+    }
+
+    property-shape-document:last-of-type {
+      border-bottom: none;
+    }
     </style>
     <template is="dom-if" if="[[aware]]">
       <raml-aware raml="{{amfModel}}" scope="[[aware]]"></raml-aware>
     </template>
-    <template is="dom-if" if="[[isObject]]">
+    <template is="dom-if" if="[[isObject]]" restamp>
       <template is="dom-repeat" items="[[_computeProperties(type)]]">
-        <property-shape-document class="object-document" shape="[[item]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]"></property-shape-document>
+        <property-shape-document class="object-document" shape="[[item]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" narrow="[[narrow]]"></property-shape-document>
       </template>
     </template>
-    <template is="dom-if" if="[[isArray]]">
+    <template is="dom-if" if="[[isArray]]" restamp>
       <template is="dom-repeat" items="[[_computeArrayProperties(type)]]">
-        <property-shape-document class="array-document" shape="[[item]]" amf-model="[[amfModel]]" parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]"></property-shape-document>
+        <property-shape-document class="array-document" shape="[[item]]" amf-model="[[amfModel]]" parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]" narrow="[[narrow]]"></property-shape-document>
       </template>
     </template>
-    <template is="dom-if" if="[[isScalar]]">
-      <property-shape-document class="shape-document" shape="[[type]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]"></property-shape-document>
+    <template is="dom-if" if="[[isScalar]]" restamp>
+      <property-shape-document class="shape-document" shape="[[type]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" narrow="[[narrow]]"></property-shape-document>
     </template>
     <template is="dom-if" if="[[isUnion]]">
       <div class="union-type-selector">
@@ -198,7 +206,13 @@
          */
         selectedUnion: {
           type: Number
-        }
+        },
+        /**
+         * A property to set when the component is rendered in the narrow
+         * view. To be used with mobile rendering or when the 
+         * components occupies only small part of the screen.
+         */
+        narrow: Boolean
       };
     }
     /**
@@ -216,14 +230,14 @@
       let isUnion = false;
       if (type instanceof Array) {
         isObject = true;
-      } else if (this._hasType(type, 'http://raml.org/vocabularies/shapes#ScalarShape') || this._hasType(type, 'http://raml.org/vocabularies/shapes#NilShape')) {
+      } else if (this._hasType(type, this.ns.raml.vocabularies.shapes + 'ScalarShape') || this._hasType(type, this.ns.raml.vocabularies.shapes + 'NilShape')) {
         isScalar = true;
-      } else if (this._hasType(type, 'http://raml.org/vocabularies/shapes#UnionShape')) {
+      } else if (this._hasType(type, this.ns.raml.vocabularies.shapes + 'UnionShape')) {
         isUnion = true;
         this.unionTypes = this._computeUnionTypes(true, type);
-      } else if (this._hasType(type, 'http://raml.org/vocabularies/shapes#ArrayShape')) {
+      } else if (this._hasType(type, this.ns.raml.vocabularies.shapes + 'ArrayShape')) {
         isArray = true;
-      } else if (this._hasType(type, 'http://www.w3.org/ns/shacl#NodeShape')) {
+      } else if (this._hasType(type, this.ns.w3.shacl.name + 'NodeShape')) {
         isObject = true;
       }
       this._setIsScalar(isScalar);
@@ -286,7 +300,7 @@
       if (!type) {
         return;
       }
-      const data = type['http://raml.org/vocabularies/shapes#anyOf'];
+      const data = type[this.ns.raml.vocabularies.shapes + 'anyOf'];
       if (!data) {
         return;
       }
@@ -294,8 +308,8 @@
       if (!item) {
         return;
       }
-      if (this._hasType(item, 'http://raml.org/vocabularies/shapes#ArrayShape')) {
-        const items = item['http://raml.org/vocabularies/shapes#items'];
+      if (this._hasType(item, this.ns.raml.vocabularies.shapes + 'ArrayShape')) {
+        const items = item[this.ns.raml.vocabularies.shapes + 'items'];
         if (items && items.length === 1) {
           return items[0];
         }
