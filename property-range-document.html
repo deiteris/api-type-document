@@ -260,7 +260,7 @@
      * @return {Boolean}
      */
     _computeHasExamples(range) {
-      return this._hasProperty(range, this.ns.raml.vocabularies.document + '#examples');
+      return this._hasProperty(range, this.ns.raml.vocabularies.document + 'examples');
     }
     /**
      * Computes list of examples for the property.
@@ -275,7 +275,7 @@
       if (!hasExamples || !range) {
         return;
       }
-      const list = range[this.ns.raml.vocabularies.document + '#examples'];
+      const list = range[this.ns.raml.vocabularies.document + 'examples'];
       if (!list) {
         return;
       }
@@ -295,7 +295,7 @@
      * @return {Boolean} Curently it always returns `false`
      */
     _computeIsEnum(range) {
-      return !!(range && ('http://www.w3.org/ns/shacl#in' in range));
+      return !!(range && (this.ns.w3.shacl.name + 'in' in range));
     }
     /**
      * Computes value for `isUnion` property.
@@ -306,7 +306,7 @@
      * @return {Boolean}
      */
     _computeIsUnion(range) {
-      return this._hasType(range, 'http://raml.org/vocabularies/shapes#UnionShape');
+      return this._hasType(range, this.ns.raml.vocabularies.shapes+ 'UnionShape');
     }
     /**
      * Computes value for `isObject` property.
@@ -317,7 +317,7 @@
      * @return {Boolean}
      */
     _computeIsObject(range) {
-      return this._hasType(range, 'http://www.w3.org/ns/shacl#NodeShape');
+      return this._hasType(range, this.ns.w3.shacl.name + 'NodeShape');
     }
 
     /**
@@ -329,7 +329,7 @@
      * @return {Boolean}
      */
     _computeIsArray(range) {
-      return this._hasType(range, 'http://raml.org/vocabularies/shapes#ArrayShape');
+      return this._hasType(range, this.ns.raml.vocabularies.shapes+ 'ArrayShape');
     }
     /**
      * Computes value for `isFile` property
@@ -338,7 +338,7 @@
      * @return {Boolean}
      */
     _computeIsFile(range) {
-      return this._hasType(range, 'http://raml.org/vocabularies/shapes#FileShape');
+      return this._hasType(range, this.ns.raml.vocabularies.shapes+ 'FileShape');
     }
     /**
      * Computes properties to render Array items documentation.
@@ -350,19 +350,19 @@
       if (!range) {
         return;
       }
-      let items = range['http://raml.org/vocabularies/shapes#items'];
+      let items = range[this.ns.raml.vocabularies.shapes+ 'items'];
       if (!items) {
         return;
       }
       items = items[0];
-      return items['http://www.w3.org/ns/shacl#property'];
+      return items[this.ns.w3.shacl.name + 'property'];
     }
 
     _computeObjectProperties(range) {
       if (!range) {
         return;
       }
-      return range['http://www.w3.org/ns/shacl#property'];
+      return range[this.ns.w3.shacl.name + 'property'];
     }
     /**
      * Computes value for `enumValues` property.
@@ -375,14 +375,14 @@
       if (!isEnum || !range) {
         return;
       }
-      let model = range['http://www.w3.org/ns/shacl#in'];
+      let model = range[this.ns.w3.shacl.name + 'in'];
       if (!model) {
         return;
       }
       model = model[0];
       const result = [];
       Object.keys(model).forEach((key) => {
-        if (key.indexOf('http://www.w3.org/2000/01/rdf-schema#') === -1) {
+        if (key.indexOf(this.ns.w3.name + '2000/01/rdf-schema#') === -1) {
           return;
         }
         const value = this._getValue(model, key);
