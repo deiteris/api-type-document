@@ -28,7 +28,7 @@
 
     .property-title {
       @apply --arc-font-subhead;
-      margin: 4px 0 24px 0;
+      margin: 4px 0 4px 0;
       font-size: 18px;
       word-break: break-word;
       @apply --property-shape-document-title;
@@ -41,6 +41,7 @@
     .property-subtitle {
       font-weight: 400;
       color: var(--api-type-document-property-color, #757575);
+      margin: 4px 0 4px 0;
     }
 
     .doc-wrapper {
@@ -48,59 +49,33 @@
       transition: background-color 0.4s linear;
     }
 
-    .doc-wrapper.complex {
-      margin-top: 24px !important;
+    :host([is-object]) .doc-wrapper.complex,
+    :host([is-union]) .doc-wrapper.complex,
+    :host([is-array]) .doc-wrapper.complex {
+      padding-left: 24px;
       @apply --api-type-document-property-complex-wrapper;
-    }
-
-    .doc-border {
-      width: 0px;
-      background-color: transparent;
-      cursor: pointer;
     }
 
     .doc-content {
       @apply --layout-flex;
-      margin-left: var(--api-type-document-docs-margin-left, 0px);
     }
 
-    :host([is-union]) > .doc-wrapper > .doc-content,
-    :host([is-array]) > .doc-wrapper > .doc-content,
-    :host([is-object]) > .doc-wrapper > .doc-content {
-      margin-left: var(--api-type-document-child-docs-margin-left, 24px);
+    :host([is-object]) .content-wrapper,
+    :host([is-object]) .doc-wrapper {
+      border-left: 2px var(--property-shape-document-object-color, #FF9800) solid;
+      padding-left: 12px;
     }
 
-    :host([is-union]) > .doc-wrapper,
-    :host([is-array]) > .doc-wrapper,
-    :host([is-object]) > .doc-wrapper {
-      margin-top: 12px;
+    :host([is-array]) .content-wrapper,
+    :host([is-array]) .doc-wrapper {
+      border-left: 2px var(--property-shape-document-array-color, #8BC34A) solid;
+      padding-left: 12px;
     }
 
-    :host([is-union])  > .doc-wrapper > .doc-border {
-      width: 2px;
-      background-color: var(--property-shape-document-union-color, #FFEB3B);
-    }
-
-    :host([is-union][active]) > .doc-wrapper {
-      background-color: var(--property-shape-document-union-color-active, rgba(255, 235, 59, 0.24));
-    }
-
-    :host([is-array]) > .doc-wrapper > .doc-border {
-      width: 2px;
-      background-color: var(--property-shape-document-array-color, #8BC34A);
-    }
-
-    :host([is-array][active]) > .doc-wrapper {
-      background-color: var(--property-shape-document-array-color-active, rgba(139, 195, 74, 0.24));
-    }
-
-    :host([is-object]) > .doc-wrapper > .doc-border {
-      width: 2px;
-      background-color: var(--property-shape-document-object-color, #FF9800);
-    }
-
-    :host([is-object][active]) > .doc-wrapper {
-      background-color: var(--property-shape-document-object-color-active, rgba(255, 152, 0, 0.24));
+    :host([is-union]) .content-wrapper,
+    :host([is-union]) .doc-wrapper {
+      border-left: 2px var(--property-shape-document-union-color, #FFEB3B) solid;
+      padding-left: 12px;
     }
 
     .property-traits {
@@ -111,16 +86,16 @@
     .property-traits > span {
       display: inline-block;
       margin-right: 8px;
-      padding: var(--api-type-document-trait-padding, 4px 8px);
+      padding: var(--api-type-document-trait-padding, 2px 4px);
       background-color: var(--api-type-document-trait-background-color, #EEEEEE);
-      color: var(--api-type-document-trait-color, #000);
+      color: var(--api-type-document-trait-color, #616161);
       border-radius: var(--api-type-document-trait-border-radius, 3px);
     }
 
     .property-traits > span.data-type {
       background-color: var(--api-type-document-type-background-color, #2196F3);
       color: var(--api-type-document-type-color, white);
-      padding: var(--api-type-document-trait-data-type-padding, 4px 8px);
+      padding: var(--api-type-document-trait-data-type-padding, 2px 4px);
     }
 
     .property-description {
@@ -142,6 +117,11 @@
     .shape-docs {
       @apply --layout-flex;
       word-break: break-word;
+    }
+
+    .shape-docs .doc-wrapper {
+      border-left: none;
+      padding-left: 0;
     }
 
     :host([narrow]) .content-wrapper {
@@ -166,6 +146,10 @@
     .no-info {
       margin-top: 4px;
       @apply --no-info-message;
+    }
+
+    property-range-document {
+      margin-top: 12px;
     }
     </style>
     <div class="content-wrapper">
@@ -208,7 +192,6 @@
           <p class="no-info">No description provided</p>
         </template>
         <div class="doc-wrapper">
-          <div class="doc-border" on-mouseover="_borderHover" on-mouseout="_borderBlur"></div>
           <div class="doc-content">
             <property-range-document amf-model="[[amfModel]]" shape="[[shape]]" range="[[range]]"></property-range-document>
           </div>
@@ -217,7 +200,6 @@
     </div>
     <template is="dom-if" if="[[isComplex]]">
       <div class="doc-wrapper complex">
-        <div class="doc-border" on-mouseover="_borderHover" on-mouseout="_borderBlur"></div>
         <div class="doc-content">
           <template is="dom-if" if="[[isArray]]">
             <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="item" narrow="[[narrow]]"></api-type-document>
@@ -446,22 +428,6 @@
      */
     _computeHasParentTypeName(parentTypeName) {
       return!!parentTypeName;
-    }
-    /**
-     * Sets "active" attribute on this element when the border is hovered.
-     */
-    _borderHover() {
-      if (!this.getAttribute('active')) {
-        this.setAttribute('active', true);
-      }
-    }
-    /**
-     * Removes "active" attribute on this element when the border is not hovered.
-     */
-    _borderBlur() {
-      if (this.getAttribute('active')) {
-        this.removeAttribute('active');
-      }
     }
     /**
      * Computes value for `isRequired` property.
