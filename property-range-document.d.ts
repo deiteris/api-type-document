@@ -185,6 +185,14 @@ declare namespace ApiElements {
      * @param value Value to display
      */
     _computeExampleDisplay(value: String|null): String|null|undefined;
+
+    /**
+     * Computes label for examples section title.
+     *
+     * @param examples List of examples
+     * @returns Correct form for examples
+     */
+    _computeExamplesLabel(examples: any[]|null): String|null;
   }
 }
 
