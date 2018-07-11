@@ -28,7 +28,7 @@
 
     .property-title {
       @apply --arc-font-subhead;
-      margin: 4px 0 24px 0;
+      margin: 4px 0 4px 0;
       font-size: 18px;
       word-break: break-word;
       @apply --property-shape-document-title;
@@ -38,9 +38,10 @@
       color: var(--api-type-document-property-parent-color, #757575);
     }
 
-    .property-subtitle {
+    .property-display-name {
       font-weight: 400;
       color: var(--api-type-document-property-color, #757575);
+      margin: 4px 0 4px 0;
     }
 
     .doc-wrapper {
@@ -48,59 +49,33 @@
       transition: background-color 0.4s linear;
     }
 
-    .doc-wrapper.complex {
-      margin-top: 24px !important;
+    :host([is-object]) .doc-wrapper.complex,
+    :host([is-union]) .doc-wrapper.complex,
+    :host([is-array]) .doc-wrapper.complex {
+      padding-left: var(--api-type-document-child-docs-margin-left, 24px);
       @apply --api-type-document-property-complex-wrapper;
-    }
-
-    .doc-border {
-      width: 0px;
-      background-color: transparent;
-      cursor: pointer;
     }
 
     .doc-content {
       @apply --layout-flex;
-      margin-left: var(--api-type-document-docs-margin-left, 0px);
     }
 
-    :host([is-union]) > .doc-wrapper > .doc-content,
-    :host([is-array]) > .doc-wrapper > .doc-content,
-    :host([is-object]) > .doc-wrapper > .doc-content {
-      margin-left: var(--api-type-document-child-docs-margin-left, 24px);
+    :host([is-object]) .content-wrapper,
+    :host([is-object]) .doc-wrapper {
+      border-left: 2px var(--property-shape-document-object-color, #FF9800) solid;
+      padding-left: 12px;
     }
 
-    :host([is-union]) > .doc-wrapper,
-    :host([is-array]) > .doc-wrapper,
-    :host([is-object]) > .doc-wrapper {
-      margin-top: 12px;
+    :host([is-array]) .content-wrapper,
+    :host([is-array]) .doc-wrapper {
+      border-left: 2px var(--property-shape-document-array-color, #8BC34A) solid;
+      padding-left: 12px;
     }
 
-    :host([is-union])  > .doc-wrapper > .doc-border {
-      width: 2px;
-      background-color: var(--property-shape-document-union-color, #FFEB3B);
-    }
-
-    :host([is-union][active]) > .doc-wrapper {
-      background-color: var(--property-shape-document-union-color-active, rgba(255, 235, 59, 0.24));
-    }
-
-    :host([is-array]) > .doc-wrapper > .doc-border {
-      width: 2px;
-      background-color: var(--property-shape-document-array-color, #8BC34A);
-    }
-
-    :host([is-array][active]) > .doc-wrapper {
-      background-color: var(--property-shape-document-array-color-active, rgba(139, 195, 74, 0.24));
-    }
-
-    :host([is-object]) > .doc-wrapper > .doc-border {
-      width: 2px;
-      background-color: var(--property-shape-document-object-color, #FF9800);
-    }
-
-    :host([is-object][active]) > .doc-wrapper {
-      background-color: var(--property-shape-document-object-color-active, rgba(255, 152, 0, 0.24));
+    :host([is-union]) .content-wrapper,
+    :host([is-union]) .doc-wrapper {
+      border-left: 2px var(--property-shape-document-union-color, #FFEB3B) solid;
+      padding-left: 12px;
     }
 
     .property-traits {
@@ -111,20 +86,20 @@
     .property-traits > span {
       display: inline-block;
       margin-right: 8px;
-      padding: var(--api-type-document-trait-padding, 4px 8px);
+      padding: var(--api-type-document-trait-padding, 2px 4px);
       background-color: var(--api-type-document-trait-background-color, #EEEEEE);
-      color: var(--api-type-document-trait-color, #000);
+      color: var(--api-type-document-trait-color, #616161);
       border-radius: var(--api-type-document-trait-border-radius, 3px);
     }
 
     .property-traits > span.data-type {
       background-color: var(--api-type-document-type-background-color, #2196F3);
       color: var(--api-type-document-type-color, white);
-      padding: var(--api-type-document-trait-data-type-padding, 4px 8px);
+      padding: var(--api-type-document-trait-data-type-padding, 2px 4px);
     }
 
     .property-description {
-      margin-top: 4px;
+      margin-top: 8px;
     }
 
     :host([narrow]) .property-description {
@@ -142,6 +117,11 @@
     .shape-docs {
       @apply --layout-flex;
       word-break: break-word;
+    }
+
+    .shape-docs .doc-wrapper {
+      border-left: none;
+      padding-left: 0;
     }
 
     :host([narrow]) .content-wrapper {
@@ -164,28 +144,24 @@
     }
 
     .no-info {
-      margin-top: 4px;
+      margin-top: 8px;
       @apply --no-info-message;
+    }
+
+    property-range-document {
+      margin-top: 12px;
     }
     </style>
     <div class="content-wrapper">
       <div class="shape-properties">
+        <h4 class="property-title">
+          <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
+          <span class="property-name">[[propertyName]]</span>
+        </h4>
         <template is="dom-if" if="[[hasDisplayName]]">
-          <h4 class="property-title">[[displayName]]</h4>
-          <p class="property-subtitle">
-            Property:
-            <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
-            <span class="property-name">[[propertyName]]</span>
-          </p>
+          <div class="property-display-name">[[displayName]]</div>
         </template>
-        <template is="dom-if" if="[[!hasDisplayName]]">
-          <template is="dom-if" if="[[propertyName]]">
-            <h4 class="property-title">
-              <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
-              <span>[[propertyName]]</span>
-            </h4>
-          </template>
-        </template>
+
         <div class="property-traits">
           <span class="data-type">[[propertyDataType]]</span>
           <template is="dom-if" if="[[isRequired]]">
@@ -208,7 +184,6 @@
           <p class="no-info">No description provided</p>
         </template>
         <div class="doc-wrapper">
-          <div class="doc-border" on-mouseover="_borderHover" on-mouseout="_borderBlur"></div>
           <div class="doc-content">
             <property-range-document amf-model="[[amfModel]]" shape="[[shape]]" range="[[range]]"></property-range-document>
           </div>
@@ -217,7 +192,6 @@
     </div>
     <template is="dom-if" if="[[isComplex]]">
       <div class="doc-wrapper complex">
-        <div class="doc-border" on-mouseover="_borderHover" on-mouseout="_borderBlur"></div>
         <div class="doc-content">
           <template is="dom-if" if="[[isArray]]">
             <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="item" narrow="[[narrow]]"></api-type-document>
@@ -253,7 +227,6 @@
    * `--property-shape-document-title` | Mixin applied to the property title | `{}`
    * `--api-type-document-property-parent-color` | Color of the parent property label | `#757575`
    * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
-   * `--api-type-document-docs-margin-left` | Margin left of the item's properties description relative to the title. | `12px`
    * `--api-type-document-child-docs-margin-left` | Margin left of the item's properties description relative to the title when the item is a child property of another property | `24px`
    * `--api-type-document-type-color` | Color of the "type" trait | `white`
    * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
@@ -302,7 +275,7 @@
          */
         hasDisplayName: {
           type: Boolean,
-          computed: '_computeHasDisplayName(displayName)',
+          computed: '_computeHasDisplayName(displayName, propertyName)',
           value: false
         },
         /**
@@ -436,8 +409,8 @@
      * @param {String} displayName
      * @return {Boolean}
      */
-    _computeHasDisplayName(displayName) {
-      return !!(displayName);
+    _computeHasDisplayName(displayName, propertyName) {
+      return !!(displayName) && displayName !== propertyName;
     }
     /**
      * Computes value for `hasParentTypeName`.
@@ -446,22 +419,6 @@
      */
     _computeHasParentTypeName(parentTypeName) {
       return!!parentTypeName;
-    }
-    /**
-     * Sets "active" attribute on this element when the border is hovered.
-     */
-    _borderHover() {
-      if (!this.getAttribute('active')) {
-        this.setAttribute('active', true);
-      }
-    }
-    /**
-     * Removes "active" attribute on this element when the border is not hovered.
-     */
-    _borderBlur() {
-      if (this.getAttribute('active')) {
-        this.removeAttribute('active');
-      }
     }
     /**
      * Computes value for `isRequired` property.

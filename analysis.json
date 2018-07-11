@@ -543,11 +543,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 186,
+              "line": 187,
               "column": 8
             },
             "end": {
-              "line": 189,
+              "line": 190,
               "column": 9
             }
           },
@@ -565,11 +565,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 195,
+              "line": 196,
               "column": 8
             },
             "end": {
-              "line": 198,
+              "line": 199,
               "column": 9
             }
           },
@@ -587,11 +587,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 202,
+              "line": 203,
               "column": 8
             },
             "end": {
-              "line": 205,
+              "line": 206,
               "column": 9
             }
           },
@@ -609,11 +609,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 209,
+              "line": 210,
               "column": 8
             },
             "end": {
-              "line": 213,
+              "line": 214,
               "column": 9
             }
           },
@@ -631,11 +631,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 218,
               "column": 9
             },
             "end": {
-              "line": 221,
+              "line": 222,
               "column": 9
             }
           },
@@ -653,11 +653,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 226,
               "column": 8
             },
             "end": {
-              "line": 229,
+              "line": 230,
               "column": 9
             }
           },
@@ -675,11 +675,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 234,
               "column": 8
             },
             "end": {
-              "line": 237,
+              "line": 238,
               "column": 9
             }
           },
@@ -698,11 +698,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 242,
+              "line": 243,
               "column": 8
             },
             "end": {
-              "line": 242,
+              "line": 243,
               "column": 30
             }
           },
@@ -719,11 +719,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 249,
+              "line": 250,
               "column": 8
             },
             "end": {
-              "line": 252,
+              "line": 253,
               "column": 9
             }
           },
@@ -829,11 +829,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 348,
+              "line": 349,
               "column": 4
             },
             "end": {
-              "line": 358,
+              "line": 359,
               "column": 5
             }
           },
@@ -856,11 +856,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 307,
+              "line": 308,
               "column": 4
             },
             "end": {
-              "line": 309,
+              "line": 310,
               "column": 5
             }
           },
@@ -882,11 +882,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 318,
+              "line": 319,
               "column": 4
             },
             "end": {
-              "line": 320,
+              "line": 321,
               "column": 5
             }
           },
@@ -908,11 +908,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 330,
+              "line": 331,
               "column": 4
             },
             "end": {
-              "line": 332,
+              "line": 333,
               "column": 5
             }
           },
@@ -1159,11 +1159,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 401,
+              "line": 402,
               "column": 4
             },
             "end": {
-              "line": 403,
+              "line": 404,
               "column": 5
             }
           },
@@ -2303,11 +2303,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 261,
+              "line": 262,
               "column": 4
             },
             "end": {
-              "line": 263,
+              "line": 264,
               "column": 5
             }
           },
@@ -2329,11 +2329,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 273,
+              "line": 274,
               "column": 4
             },
             "end": {
-              "line": 290,
+              "line": 291,
               "column": 5
             }
           },
@@ -2361,11 +2361,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 296,
+              "line": 297,
               "column": 4
             },
             "end": {
-              "line": 298,
+              "line": 299,
               "column": 5
             }
           },
@@ -2388,11 +2388,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 339,
+              "line": 340,
               "column": 4
             },
             "end": {
-              "line": 341,
+              "line": 342,
               "column": 5
             }
           },
@@ -2414,11 +2414,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 360,
+              "line": 361,
               "column": 4
             },
             "end": {
-              "line": 365,
+              "line": 366,
               "column": 5
             }
           },
@@ -2435,11 +2435,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 373,
+              "line": 374,
               "column": 4
             },
             "end": {
-              "line": 393,
+              "line": 394,
               "column": 5
             }
           },
@@ -2467,11 +2467,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 411,
+              "line": 412,
               "column": 4
             },
             "end": {
-              "line": 416,
+              "line": 417,
               "column": 5
             }
           },
@@ -2486,6 +2486,33 @@
           "return": {
             "type": "(String | undefined)"
           }
+        },
+        {
+          "name": "_computeExamplesLabel",
+          "description": "Computes label for examples section title.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 423,
+              "column": 4
+            },
+            "end": {
+              "line": 425,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "examples",
+              "type": "Array",
+              "description": "List of examples"
+            }
+          ],
+          "return": {
+            "type": "String",
+            "desc": "Correct form for examples"
+          }
         }
       ],
       "staticMethods": [],
@@ -2498,11 +2525,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 179,
+          "line": 180,
           "column": 2
         },
         "end": {
-          "line": 417,
+          "line": 426,
           "column": 3
         }
       },
@@ -2587,11 +2614,11 @@
           "description": "Computed value, true if there is a list of examples",
           "sourceRange": {
             "start": {
-              "line": 186,
+              "line": 187,
               "column": 8
             },
             "end": {
-              "line": 189,
+              "line": 190,
               "column": 9
             }
           },
@@ -2603,11 +2630,11 @@
           "description": "Computed list of examples",
           "sourceRange": {
             "start": {
-              "line": 195,
+              "line": 196,
               "column": 8
             },
             "end": {
-              "line": 198,
+              "line": 199,
               "column": 9
             }
           },
@@ -2619,11 +2646,11 @@
           "description": "Computed value form the shape. True if the property is ENUM.",
           "sourceRange": {
             "start": {
-              "line": 202,
+              "line": 203,
               "column": 8
             },
             "end": {
-              "line": 205,
+              "line": 206,
               "column": 9
             }
           },
@@ -2635,11 +2662,11 @@
           "description": "Computed value, true if current property is an union.",
           "sourceRange": {
             "start": {
-              "line": 209,
+              "line": 210,
               "column": 8
             },
             "end": {
-              "line": 213,
+              "line": 214,
               "column": 9
             }
           },
@@ -2651,11 +2678,11 @@
           "description": "Computed value, true if current property is an object.",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 218,
               "column": 9
             },
             "end": {
-              "line": 221,
+              "line": 222,
               "column": 9
             }
           },
@@ -2667,11 +2694,11 @@
           "description": "Computed value, true if current property is an array.",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 226,
               "column": 8
             },
             "end": {
-              "line": 229,
+              "line": 230,
               "column": 9
             }
           },
@@ -2683,11 +2710,11 @@
           "description": "Computed value, true if current property is a File.",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 234,
               "column": 8
             },
             "end": {
-              "line": 237,
+              "line": 238,
               "column": 9
             }
           },
@@ -2699,11 +2726,11 @@
           "description": "Should be set if described properties has a parent type.\nThis is used when recursively iterating over properties.",
           "sourceRange": {
             "start": {
-              "line": 242,
+              "line": 243,
               "column": 8
             },
             "end": {
-              "line": 242,
+              "line": 243,
               "column": 30
             }
           },
@@ -2715,11 +2742,11 @@
           "description": "Computed values for list of enums.\nEnums are list of types names.",
           "sourceRange": {
             "start": {
-              "line": 249,
+              "line": 250,
               "column": 8
             },
             "end": {
-              "line": 252,
+              "line": 253,
               "column": 9
             }
           },
@@ -2740,7 +2767,7 @@
       ]
     },
     {
-      "description": "`property-shape-document`\n\nRenders a documentation for a shape property of AMF model.\n\n## Styling\n\n`<property-shape-document>` provides the following custom properties and mixins for styling:\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--property-shape-document` | Mixin applied to this elment | `{}`\n`--property-shape-document-array-color` | Property border color when type is an array | `#8BC34A`\n`--property-shape-document-object-color` | Property border color when type is an object | `#FF9800`\n`--property-shape-document-union-color` | Property border color when type is an union | `#FFEB3B`\n`--arc-font-subhead` | Theme mixin, applied to the property title | `{}`\n`--property-shape-document-title` | Mixin applied to the property title | `{}`\n`--api-type-document-property-parent-color` | Color of the parent property label | `#757575`\n`--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`\n`--api-type-document-docs-margin-left` | Margin left of the item's properties description relative to the title. | `12px`\n`--api-type-document-child-docs-margin-left` | Margin left of the item's properties description relative to the title when the item is a child property of another property | `24px`\n`--api-type-document-type-color` | Color of the \"type\" trait | `white`\n`--api-type-document-type-background-color` | Background color of the \"type\" trait | `#2196F3`\n`--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`,\n`--api-type-document-trait-border-radius` | Border radious of a main property traits like type, required, enum | `3px`\n`--api-type-document-property-name-width` | Width of the left hand side column with property name | `240px`",
+      "description": "`property-shape-document`\n\nRenders a documentation for a shape property of AMF model.\n\n## Styling\n\n`<property-shape-document>` provides the following custom properties and mixins for styling:\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--property-shape-document` | Mixin applied to this elment | `{}`\n`--property-shape-document-array-color` | Property border color when type is an array | `#8BC34A`\n`--property-shape-document-object-color` | Property border color when type is an object | `#FF9800`\n`--property-shape-document-union-color` | Property border color when type is an union | `#FFEB3B`\n`--arc-font-subhead` | Theme mixin, applied to the property title | `{}`\n`--property-shape-document-title` | Mixin applied to the property title | `{}`\n`--api-type-document-property-parent-color` | Color of the parent property label | `#757575`\n`--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`\n`--api-type-document-child-docs-margin-left` | Margin left of the item's properties description relative to the title when the item is a child property of another property | `24px`\n`--api-type-document-type-color` | Color of the \"type\" trait | `white`\n`--api-type-document-type-background-color` | Background color of the \"type\" trait | `#2196F3`\n`--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`,\n`--api-type-document-trait-border-radius` | Border radious of a main property traits like type, required, enum | `3px`\n`--api-type-document-property-name-width` | Width of the left hand side column with property name | `240px`",
       "summary": "",
       "path": "property-shape-document.html",
       "properties": [
@@ -2797,11 +2824,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 277,
+              "line": 251,
               "column": 8
             },
             "end": {
-              "line": 280,
+              "line": 254,
               "column": 9
             }
           },
@@ -2843,11 +2870,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 284,
+              "line": 258,
               "column": 8
             },
             "end": {
-              "line": 287,
+              "line": 261,
               "column": 9
             }
           },
@@ -2865,11 +2892,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 293,
+              "line": 267,
               "column": 8
             },
             "end": {
-              "line": 296,
+              "line": 270,
               "column": 9
             }
           },
@@ -2887,11 +2914,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 301,
+              "line": 275,
               "column": 8
             },
             "end": {
-              "line": 305,
+              "line": 279,
               "column": 9
             }
           },
@@ -2910,11 +2937,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 309,
+              "line": 283,
               "column": 8
             },
             "end": {
-              "line": 313,
+              "line": 287,
               "column": 9
             }
           },
@@ -2932,11 +2959,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 317,
+              "line": 291,
               "column": 8
             },
             "end": {
-              "line": 321,
+              "line": 295,
               "column": 9
             }
           },
@@ -2954,11 +2981,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 325,
+              "line": 299,
               "column": 8
             },
             "end": {
-              "line": 329,
+              "line": 303,
               "column": 9
             }
           },
@@ -2976,11 +3003,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 335,
+              "line": 309,
               "column": 8
             },
             "end": {
-              "line": 338,
+              "line": 312,
               "column": 9
             }
           },
@@ -2998,11 +3025,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 343,
+              "line": 317,
               "column": 8
             },
             "end": {
-              "line": 343,
+              "line": 317,
               "column": 30
             }
           },
@@ -3019,11 +3046,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 347,
+              "line": 321,
               "column": 8
             },
             "end": {
-              "line": 351,
+              "line": 325,
               "column": 9
             }
           },
@@ -3042,11 +3069,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 356,
+              "line": 330,
               "column": 8
             },
             "end": {
-              "line": 359,
+              "line": 333,
               "column": 9
             }
           },
@@ -3064,11 +3091,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 363,
+              "line": 337,
               "column": 8
             },
             "end": {
-              "line": 366,
+              "line": 340,
               "column": 9
             }
           },
@@ -3086,11 +3113,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 370,
+              "line": 344,
               "column": 8
             },
             "end": {
-              "line": 373,
+              "line": 347,
               "column": 9
             }
           },
@@ -3108,11 +3135,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 377,
+              "line": 351,
               "column": 8
             },
             "end": {
-              "line": 380,
+              "line": 354,
               "column": 9
             }
           },
@@ -3130,11 +3157,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 384,
+              "line": 358,
               "column": 8
             },
             "end": {
-              "line": 388,
+              "line": 362,
               "column": 9
             }
           },
@@ -3153,11 +3180,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 394,
+              "line": 368,
               "column": 8
             },
             "end": {
-              "line": 397,
+              "line": 371,
               "column": 9
             }
           },
@@ -3753,11 +3780,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 495,
+              "line": 453,
               "column": 4
             },
             "end": {
-              "line": 500,
+              "line": 458,
               "column": 5
             }
           },
@@ -4489,11 +4516,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 400,
+              "line": 374,
               "column": 4
             },
             "end": {
-              "line": 406,
+              "line": 380,
               "column": 5
             }
           },
@@ -4727,11 +4754,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 414,
+              "line": 388,
               "column": 4
             },
             "end": {
-              "line": 429,
+              "line": 403,
               "column": 5
             }
           },
@@ -4757,11 +4784,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 437,
+              "line": 411,
               "column": 4
             },
             "end": {
-              "line": 439,
+              "line": 413,
               "column": 5
             }
           },
@@ -4770,6 +4797,9 @@
             {
               "name": "displayName",
               "type": "String"
+            },
+            {
+              "name": "propertyName"
             }
           ],
           "return": {
@@ -4782,11 +4812,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 445,
+              "line": 419,
               "column": 4
             },
             "end": {
-              "line": 447,
+              "line": 421,
               "column": 5
             }
           },
@@ -4802,56 +4832,16 @@
           }
         },
         {
-          "name": "_borderHover",
-          "description": "Sets \"active\" attribute on this element when the border is hovered.",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 451,
-              "column": 4
-            },
-            "end": {
-              "line": 455,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_borderBlur",
-          "description": "Removes \"active\" attribute on this element when the border is not hovered.",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 459,
-              "column": 4
-            },
-            "end": {
-              "line": 463,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
           "name": "_computeIsRequired",
           "description": "Computes value for `isRequired` property.\nIn AMF model a property is required when `http://www.w3.org/ns/shacl#minCount`\ndoes not equal `0`.",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 472,
+              "line": 430,
               "column": 4
             },
             "end": {
-              "line": 481,
+              "line": 439,
               "column": 5
             }
           },
@@ -4873,11 +4863,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 487,
+              "line": 445,
               "column": 4
             },
             "end": {
-              "line": 489,
+              "line": 447,
               "column": 5
             }
           },
@@ -4900,11 +4890,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 504,
+              "line": 462,
               "column": 4
             },
             "end": {
-              "line": 506,
+              "line": 464,
               "column": 5
             }
           },
@@ -4932,11 +4922,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 269,
+          "line": 243,
           "column": 2
         },
         "end": {
-          "line": 507,
+          "line": 465,
           "column": 3
         }
       },
@@ -4985,11 +4975,11 @@
           "description": "Computed value of shape's http://raml.org/vocabularies/shapes#range",
           "sourceRange": {
             "start": {
-              "line": 277,
+              "line": 251,
               "column": 8
             },
             "end": {
-              "line": 280,
+              "line": 254,
               "column": 9
             }
           },
@@ -5019,11 +5009,11 @@
           "description": "Computed value of \"display name\" of the property",
           "sourceRange": {
             "start": {
-              "line": 284,
+              "line": 258,
               "column": 8
             },
             "end": {
-              "line": 287,
+              "line": 261,
               "column": 9
             }
           },
@@ -5035,11 +5025,11 @@
           "description": "A type property name.\nThis may be different from `displayName` property if\n`displayName` was specified in the API spec for this property.",
           "sourceRange": {
             "start": {
-              "line": 293,
+              "line": 267,
               "column": 8
             },
             "end": {
-              "line": 296,
+              "line": 270,
               "column": 9
             }
           },
@@ -5051,11 +5041,11 @@
           "description": "Computed value, true if `displayName` has been defined for this\nproperty.",
           "sourceRange": {
             "start": {
-              "line": 301,
+              "line": 275,
               "column": 8
             },
             "end": {
-              "line": 305,
+              "line": 279,
               "column": 9
             }
           },
@@ -5067,11 +5057,11 @@
           "description": "Computed value, true if current property is an union.",
           "sourceRange": {
             "start": {
-              "line": 309,
+              "line": 283,
               "column": 8
             },
             "end": {
-              "line": 313,
+              "line": 287,
               "column": 9
             }
           },
@@ -5083,11 +5073,11 @@
           "description": "Computed value, true if current property is an object.",
           "sourceRange": {
             "start": {
-              "line": 317,
+              "line": 291,
               "column": 8
             },
             "end": {
-              "line": 321,
+              "line": 295,
               "column": 9
             }
           },
@@ -5099,11 +5089,11 @@
           "description": "Computed value, true if current property is an array.",
           "sourceRange": {
             "start": {
-              "line": 325,
+              "line": 299,
               "column": 8
             },
             "end": {
-              "line": 329,
+              "line": 303,
               "column": 9
             }
           },
@@ -5115,11 +5105,11 @@
           "description": "Computed value, true if this propery contains a complex\nstructure. It is computed when the property is and array,\nobject, or union.",
           "sourceRange": {
             "start": {
-              "line": 335,
+              "line": 309,
               "column": 8
             },
             "end": {
-              "line": 338,
+              "line": 312,
               "column": 9
             }
           },
@@ -5131,11 +5121,11 @@
           "description": "Should be set if described properties has a parent type.\nThis is used when recursively iterating over properties.",
           "sourceRange": {
             "start": {
-              "line": 343,
+              "line": 317,
               "column": 8
             },
             "end": {
-              "line": 343,
+              "line": 317,
               "column": 30
             }
           },
@@ -5147,11 +5137,11 @@
           "description": "Computed value, true if `parentTypeName` has a value.",
           "sourceRange": {
             "start": {
-              "line": 347,
+              "line": 321,
               "column": 8
             },
             "end": {
-              "line": 351,
+              "line": 325,
               "column": 9
             }
           },
@@ -5163,11 +5153,11 @@
           "description": "Computed value of shape data type",
           "sourceRange": {
             "start": {
-              "line": 356,
+              "line": 330,
               "column": 8
             },
             "end": {
-              "line": 359,
+              "line": 333,
               "column": 9
             }
           },
@@ -5179,11 +5169,11 @@
           "description": "Computed value form the shape. True if the property is required.",
           "sourceRange": {
             "start": {
-              "line": 363,
+              "line": 337,
               "column": 8
             },
             "end": {
-              "line": 366,
+              "line": 340,
               "column": 9
             }
           },
@@ -5195,11 +5185,11 @@
           "description": "Computed value form the shape. True if the property is ENUM.",
           "sourceRange": {
             "start": {
-              "line": 370,
+              "line": 344,
               "column": 8
             },
             "end": {
-              "line": 373,
+              "line": 347,
               "column": 9
             }
           },
@@ -5211,11 +5201,11 @@
           "description": "A description of the property to render.",
           "sourceRange": {
             "start": {
-              "line": 377,
+              "line": 351,
               "column": 8
             },
             "end": {
-              "line": 380,
+              "line": 354,
               "column": 9
             }
           },
@@ -5227,11 +5217,11 @@
           "description": "Computed value, true if desceription is set.",
           "sourceRange": {
             "start": {
-              "line": 384,
+              "line": 358,
               "column": 8
             },
             "end": {
-              "line": 388,
+              "line": 362,
               "column": 9
             }
           },
@@ -5243,11 +5233,11 @@
           "description": "A property to set when the component is rendered in the narrow\nview. To be used with mobile rendering or when the\ncomponents occupies only small part of the screen.",
           "sourceRange": {
             "start": {
-              "line": 394,
+              "line": 368,
               "column": 8
             },
             "end": {
-              "line": 397,
+              "line": 371,
               "column": 9
             }
           },
@@ -5268,7 +5258,7 @@
       ]
     },
     {
-      "description": "`api-type-document`\n\nAn element that recuresively renders a documentation for a data type\nusing from model.\n\nPass AMF's shape type `property` array to render the documentation.\n\n## Styling\n\n`<api-type-document>` provides the following custom properties and mixins for styling:\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--api-type-document` | Mixin applied to this elment | `{}`\n`--api-type-document-union-button-background-color` | Background color of union selector button | `#fff`\n`--api-type-document-union-button-color` | Color of union selector button | `#000`\n`--api-type-document-union-button-active-background-color` | Background color of active union selector button | `#CDDC39`\n`--api-type-document-union-button-active-color` | Color of active union selector button | `#000`\n\nFrom `property-shape-document`\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--property-shape-document` | Mixin applied each proeprty element | `{}`\n`--property-shape-document-array-color` | Property border color when type is an array | `#8BC34A`\n`--property-shape-document-object-color` | Property border color when type is an object | `#FF9800`\n`--property-shape-document-union-color` | Property border color when type is an union | `#FFEB3B`\n`--arc-font-subhead` | Theme mixin, applied to the property title | `{}`\n`--property-shape-document-title` | Mixin applied to the property title | `{}`\n`--api-type-document-property-parent-color` | Color of the parent property label | `#757575`\n`--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`\n`--api-type-document-docs-margin-left` | Margin left of the item's properties description relative to the title. | `12px`\n`--api-type-document-child-docs-margin-left` | Margin left of the item's properties description relative to the title when the item is a child property of another property | `24px`\n`--api-type-document-type-color` | Color of the \"type\" trait | `white`\n`--api-type-document-type-background-color` | Background color of the \"type\" trait | `#2196F3`\n`--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`,\n`--api-type-document-trait-border-radius` | Border radious of a main property traits like type, required, enum | `3px`\n\nFrom `property-range-document`\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--property-range-document` | Mixin applied to this elment | `{}`\n`--api-type-document-type-attribute-color` | Color of each attribute that describes a property | `#616161`\n`--api-type-document-examples-title-color` | Color of examples section title | ``\n`--api-type-document-examples-border-color` | Example section border color | `transparent`\n`--code-background-color` | Background color of the examples section | ``\n`--arc-font-body1` | Mixin applied to an example name label | `{}`\n`--arc-font-body2` | Mixin applied to the examples section title | `{}`",
+      "description": "`api-type-document`\n\nAn element that recuresively renders a documentation for a data type\nusing from model.\n\nPass AMF's shape type `property` array to render the documentation.\n\n## Styling\n\n`<api-type-document>` provides the following custom properties and mixins for styling:\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--api-type-document` | Mixin applied to this elment | `{}`\n`--api-type-document-union-button-background-color` | Background color of union selector button | `#fff`\n`--api-type-document-union-button-color` | Color of union selector button | `#000`\n`--api-type-document-union-button-active-background-color` | Background color of active union selector button | `#CDDC39`\n`--api-type-document-union-button-active-color` | Color of active union selector button | `#000`\n\nFrom `property-shape-document`\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--property-shape-document` | Mixin applied each proeprty element | `{}`\n`--property-shape-document-array-color` | Property border color when type is an array | `#8BC34A`\n`--property-shape-document-object-color` | Property border color when type is an object | `#FF9800`\n`--property-shape-document-union-color` | Property border color when type is an union | `#FFEB3B`\n`--arc-font-subhead` | Theme mixin, applied to the property title | `{}`\n`--property-shape-document-title` | Mixin applied to the property title | `{}`\n`--api-type-document-property-parent-color` | Color of the parent property label | `#757575`\n`--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`\n`--api-type-document-child-docs-margin-left` | Margin left of the item's properties description relative to the title when the item is a child property of another property | `24px`\n`--api-type-document-type-color` | Color of the \"type\" trait | `white`\n`--api-type-document-type-background-color` | Background color of the \"type\" trait | `#2196F3`\n`--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`,\n`--api-type-document-trait-border-radius` | Border radious of a main property traits like type, required, enum | `3px`\n\nFrom `property-range-document`\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--property-range-document` | Mixin applied to this elment | `{}`\n`--api-type-document-type-attribute-color` | Color of each attribute that describes a property | `#616161`\n`--api-type-document-examples-title-color` | Color of examples section title | ``\n`--api-type-document-examples-border-color` | Example section border color | `transparent`\n`--code-background-color` | Background color of the examples section | ``\n`--arc-font-body1` | Mixin applied to an example name label | `{}`\n`--arc-font-body2` | Mixin applied to the examples section title | `{}`",
       "summary": "",
       "path": "api-type-document.html",
       "properties": [
@@ -5279,11 +5269,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 141,
+              "line": 140,
               "column": 8
             },
             "end": {
-              "line": 141,
+              "line": 140,
               "column": 24
             }
           },
@@ -5370,11 +5360,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 130,
+              "line": 129,
               "column": 8
             },
             "end": {
-              "line": 130,
+              "line": 129,
               "column": 21
             }
           },
@@ -5391,11 +5381,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 154,
               "column": 8
             },
             "end": {
-              "line": 158,
+              "line": 157,
               "column": 9
             }
           },
@@ -5413,11 +5403,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 163,
+              "line": 162,
               "column": 8
             },
             "end": {
-              "line": 163,
+              "line": 162,
               "column": 30
             }
           },
@@ -5434,11 +5424,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 167,
+              "line": 166,
               "column": 8
             },
             "end": {
-              "line": 170,
+              "line": 169,
               "column": 9
             }
           },
@@ -5456,11 +5446,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 174,
+              "line": 173,
               "column": 8
             },
             "end": {
-              "line": 177,
+              "line": 176,
               "column": 9
             }
           },
@@ -5478,11 +5468,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 181,
+              "line": 180,
               "column": 8
             },
             "end": {
-              "line": 184,
+              "line": 183,
               "column": 9
             }
           },
@@ -5500,11 +5490,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 188,
+              "line": 187,
               "column": 8
             },
             "end": {
-              "line": 191,
+              "line": 190,
               "column": 9
             }
           },
@@ -5522,11 +5512,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 199,
+              "line": 198,
               "column": 8
             },
             "end": {
-              "line": 202,
+              "line": 201,
               "column": 9
             }
           },
@@ -5544,11 +5534,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 205,
               "column": 8
             },
             "end": {
-              "line": 208,
+              "line": 207,
               "column": 9
             }
           },
@@ -5565,11 +5555,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 214,
+              "line": 213,
               "column": 8
             },
             "end": {
-              "line": 214,
+              "line": 213,
               "column": 23
             }
           },
@@ -7156,11 +7146,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 222,
+              "line": 221,
               "column": 4
             },
             "end": {
-              "line": 246,
+              "line": 245,
               "column": 5
             }
           },
@@ -7182,11 +7172,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 253,
+              "line": 252,
               "column": 4
             },
             "end": {
-              "line": 255,
+              "line": 254,
               "column": 5
             }
           },
@@ -7209,11 +7199,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 261,
+              "line": 260,
               "column": 4
             },
             "end": {
-              "line": 266,
+              "line": 265,
               "column": 5
             }
           },
@@ -7235,11 +7225,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 273,
+              "line": 272,
               "column": 4
             },
             "end": {
-              "line": 280,
+              "line": 279,
               "column": 5
             }
           },
@@ -7260,11 +7250,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 288,
+              "line": 287,
               "column": 4
             },
             "end": {
-              "line": 290,
+              "line": 289,
               "column": 5
             }
           },
@@ -7289,11 +7279,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 298,
+              "line": 297,
               "column": 4
             },
             "end": {
-              "line": 317,
+              "line": 316,
               "column": 5
             }
           },
@@ -7326,11 +7316,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 123,
+          "line": 122,
           "column": 2
         },
         "end": {
-          "line": 318,
+          "line": 317,
           "column": 3
         }
       },
@@ -7343,11 +7333,11 @@
           "description": "Generated AMF json/ld model form the API spec.\nThe element assumes the object of the first array item to be a\ntype of `\"http://raml.org/vocabularies/document#Document`\non AMF vocabulary.\n\nIt is only usefult for the element to resolve references.",
           "sourceRange": {
             "start": {
-              "line": 141,
+              "line": 140,
               "column": 8
             },
             "end": {
-              "line": 141,
+              "line": 140,
               "column": 24
             }
           },
@@ -7413,11 +7403,11 @@
           "description": "`raml-aware` scope property to use.",
           "sourceRange": {
             "start": {
-              "line": 130,
+              "line": 129,
               "column": 8
             },
             "end": {
-              "line": 130,
+              "line": 129,
               "column": 21
             }
           },
@@ -7429,11 +7419,11 @@
           "description": "A type definition to render.\nThis should be a one of the following AMF types:\n\n- `http://www.w3.org/ns/shacl#NodeShape` (Object)\n- `http://raml.org/vocabularies/shapes#UnionShape` (Union)\n- `http://raml.org/vocabularies/shapes#ArrayShape` (Array)\n- `http://raml.org/vocabularies/shapes#ScalarShape` (single property)\n\nIt also accepts array of properties like list of headers or\nparameters.",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 154,
               "column": 8
             },
             "end": {
-              "line": 158,
+              "line": 157,
               "column": 9
             }
           },
@@ -7445,11 +7435,11 @@
           "description": "Should be set if described properties has a parent type.\nThis is used when recursively iterating over properties.",
           "sourceRange": {
             "start": {
-              "line": 163,
+              "line": 162,
               "column": 8
             },
             "end": {
-              "line": 163,
+              "line": 162,
               "column": 30
             }
           },
@@ -7461,11 +7451,11 @@
           "description": "True if given `type` is a scalar property",
           "sourceRange": {
             "start": {
-              "line": 167,
+              "line": 166,
               "column": 8
             },
             "end": {
-              "line": 170,
+              "line": 169,
               "column": 9
             }
           },
@@ -7477,11 +7467,11 @@
           "description": "True if given `type` is an array property",
           "sourceRange": {
             "start": {
-              "line": 174,
+              "line": 173,
               "column": 8
             },
             "end": {
-              "line": 177,
+              "line": 176,
               "column": 9
             }
           },
@@ -7493,11 +7483,11 @@
           "description": "True if given `type` is an object property",
           "sourceRange": {
             "start": {
-              "line": 181,
+              "line": 180,
               "column": 8
             },
             "end": {
-              "line": 184,
+              "line": 183,
               "column": 9
             }
           },
@@ -7509,11 +7499,11 @@
           "description": "True if given `type` is an union property",
           "sourceRange": {
             "start": {
-              "line": 188,
+              "line": 187,
               "column": 8
             },
             "end": {
-              "line": 191,
+              "line": 190,
               "column": 9
             }
           },
@@ -7525,11 +7515,11 @@
           "description": "Computed list of union type types to render in union type\nselector.\nEach item has `label` and `isScalar` property.",
           "sourceRange": {
             "start": {
-              "line": 199,
+              "line": 198,
               "column": 8
             },
             "end": {
-              "line": 202,
+              "line": 201,
               "column": 9
             }
           },
@@ -7541,11 +7531,11 @@
           "description": "Selected index of union type in `unionTypes` array.",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 205,
               "column": 8
             },
             "end": {
-              "line": 208,
+              "line": 207,
               "column": 9
             }
           },
@@ -7557,11 +7547,11 @@
           "description": "A property to set when the component is rendered in the narrow\nview. To be used with mobile rendering or when the\ncomponents occupies only small part of the screen.",
           "sourceRange": {
             "start": {
-              "line": 214,
+              "line": 213,
               "column": 8
             },
             "end": {
-              "line": 214,
+              "line": 213,
               "column": 23
             }
           },

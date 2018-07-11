@@ -40,7 +40,6 @@ declare namespace ApiElements {
    * `--property-shape-document-title` | Mixin applied to the property title | `{}`
    * `--api-type-document-property-parent-color` | Color of the parent property label | `#757575`
    * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
-   * `--api-type-document-docs-margin-left` | Margin left of the item's properties description relative to the title. | `12px`
    * `--api-type-document-child-docs-margin-left` | Margin left of the item's properties description relative to the title when the item is a child property of another property | `24px`
    * `--api-type-document-type-color` | Color of the "type" trait | `white`
    * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
@@ -163,22 +162,12 @@ declare namespace ApiElements {
      * Computes value for `hasDisplayName` property.
      * Indicates that `displayName` has been defined in the API specification.
      */
-    _computeHasDisplayName(displayName: String|null): Boolean|null;
+    _computeHasDisplayName(displayName: String|null, propertyName: any): Boolean|null;
 
     /**
      * Computes value for `hasParentTypeName`.
      */
     _computeHasParentTypeName(parentTypeName: String|null): Boolean|null;
-
-    /**
-     * Sets "active" attribute on this element when the border is hovered.
-     */
-    _borderHover(): void;
-
-    /**
-     * Removes "active" attribute on this element when the border is not hovered.
-     */
-    _borderBlur(): void;
 
     /**
      * Computes value for `isRequired` property.
