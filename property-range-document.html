@@ -48,7 +48,7 @@
 
     .examples-section-title {
       @apply --arc-font-body2;
-      padding: 12px;
+      padding: 8px 0;
       margin: 0;
       color: var(--api-type-document-examples-title-color);
     }
@@ -139,7 +139,7 @@
     <api-annotation-document shape="[[range]]"></api-annotation-document>
     <template is="dom-if" if="[[hasExamples]]">
       <section class="examples">
-        <h5 class="examples-section-title">Examples</h5>
+        <h5 class="examples-section-title">[[_computeExamplesLabel(examples)]]</h5>
         <template is="dom-repeat" items="[[examples]]">
           <template is="dom-if" if="[[item.hasName]]">
             <h6 class="example-title">[[item.name]]</h6>
@@ -415,6 +415,14 @@
         return '';
       }
       return '```\n' + value + '\n```';
+    }
+    /**
+     * Computes label for examples section title.
+     * @param {Array} examples List of examples
+     * @return {String} Correct form for examples
+     */
+    _computeExamplesLabel(examples) {
+      return examples && examples.length === 1 ? 'Example' : 'Examples';
     }
   }
   window.customElements.define(PropertyRangeDocument.is, PropertyRangeDocument);
