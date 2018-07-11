@@ -38,7 +38,7 @@
       color: var(--api-type-document-property-parent-color, #757575);
     }
 
-    .property-subtitle {
+    .property-display-name {
       font-weight: 400;
       color: var(--api-type-document-property-color, #757575);
       margin: 4px 0 4px 0;
@@ -99,7 +99,7 @@
     }
 
     .property-description {
-      margin-top: 4px;
+      margin-top: 8px;
     }
 
     :host([narrow]) .property-description {
@@ -144,7 +144,7 @@
     }
 
     .no-info {
-      margin-top: 4px;
+      margin-top: 8px;
       @apply --no-info-message;
     }
 
@@ -154,22 +154,14 @@
     </style>
     <div class="content-wrapper">
       <div class="shape-properties">
+        <h4 class="property-title">
+          <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
+          <span class="property-name">[[propertyName]]</span>
+        </h4>
         <template is="dom-if" if="[[hasDisplayName]]">
-          <h4 class="property-title">[[displayName]]</h4>
-          <p class="property-subtitle">
-            Property:
-            <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
-            <span class="property-name">[[propertyName]]</span>
-          </p>
+          <div class="property-display-name">[[displayName]]</div>
         </template>
-        <template is="dom-if" if="[[!hasDisplayName]]">
-          <template is="dom-if" if="[[propertyName]]">
-            <h4 class="property-title">
-              <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
-              <span>[[propertyName]]</span>
-            </h4>
-          </template>
-        </template>
+
         <div class="property-traits">
           <span class="data-type">[[propertyDataType]]</span>
           <template is="dom-if" if="[[isRequired]]">
@@ -284,7 +276,7 @@
          */
         hasDisplayName: {
           type: Boolean,
-          computed: '_computeHasDisplayName(displayName)',
+          computed: '_computeHasDisplayName(displayName, propertyName)',
           value: false
         },
         /**
@@ -418,8 +410,8 @@
      * @param {String} displayName
      * @return {Boolean}
      */
-    _computeHasDisplayName(displayName) {
-      return !!(displayName);
+    _computeHasDisplayName(displayName, propertyName) {
+      return !!(displayName) && displayName !== propertyName;
     }
     /**
      * Computes value for `hasParentTypeName`.
