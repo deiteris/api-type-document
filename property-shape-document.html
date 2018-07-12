@@ -120,8 +120,8 @@
     }
 
     .shape-docs .doc-wrapper {
-      border-left: none;
-      padding-left: 0;
+      border-left: none !important;
+      padding-left: 0 !important;
     }
 
     :host([narrow]) .content-wrapper {
@@ -154,10 +154,12 @@
     </style>
     <div class="content-wrapper">
       <div class="shape-properties">
-        <h4 class="property-title">
-          <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
-          <span class="property-name">[[propertyName]]</span>
-        </h4>
+        <template is="dom-if" if="[[propertyName]]">
+          <h4 class="property-title">
+            <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
+            <span class="property-name">[[propertyName]]</span>
+          </h4>
+        </template>
         <template is="dom-if" if="[[hasDisplayName]]">
           <div class="property-display-name">[[displayName]]</div>
         </template>
