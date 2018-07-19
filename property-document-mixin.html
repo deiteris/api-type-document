@@ -164,7 +164,7 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       if (!items) {
         return;
       }
-      const item = items[0];
+      const item = this._resolve(items[0]);
       if (this._hasType(item, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
         return items;
       }

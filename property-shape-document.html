@@ -196,13 +196,13 @@
       <div class="doc-wrapper complex">
         <div class="doc-content">
           <template is="dom-if" if="[[isArray]]">
-            <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="item" narrow="[[narrow]]"></api-type-document>
+            <api-type-document class="children" amf-model="[[amfModel]]" type="[[_resolve(range)]]" parent-type-name="item" narrow="[[narrow]]"></api-type-document>
           </template>
           <template is="dom-if" if="[[isObject]]">
-            <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="[[displayName]]" narrow="[[narrow]]"></api-type-document>
+            <api-type-document class="children" amf-model="[[amfModel]]" type="[[_resolve(range)]]" parent-type-name="[[displayName]]" narrow="[[narrow]]"></api-type-document>
           </template>
           <template is="dom-if" if="[[isUnion]]">
-            <api-type-document class="children" amf-model="[[amfModel]]" type="[[range]]" parent-type-name="[[displayName]]" narrow="[[narrow]]"></api-type-document>
+            <api-type-document class="children" amf-model="[[amfModel]]" type="[[_resolve(range)]]" parent-type-name="[[displayName]]" narrow="[[narrow]]"></api-type-document>
           </template>
         </div>
       </div>

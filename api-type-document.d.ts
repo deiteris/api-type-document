@@ -104,6 +104,11 @@ declare namespace ApiElements {
     type: object|any[]|null;
 
     /**
+     * The type after it has been resolved.
+     */
+    readonly _resolvedType: object|null|undefined;
+
+    /**
      * Should be set if described properties has a parent type.
      * This is used when recursively iterating over properties.
      */
