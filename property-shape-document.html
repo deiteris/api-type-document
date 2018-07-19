@@ -375,9 +375,9 @@
       };
     }
     _computeType(range, shape) {
-      let type = range && this._computeRangeDataType(range);
+      let type = range && this._computeRangeDataType(this._resolve(range));
       if (!type) {
-        type = shape  && this._computeRangeDataType(shape);
+        type = shape  && this._computeRangeDataType(this._resolve(shape));
       }
       return type;
     }
@@ -392,6 +392,8 @@
       if (!shape || !range) {
         return;
       }
+      range = this._resolve(range);
+      shape = this._resolve(shape);
       if (this._hasType(shape, this.ns.raml.vocabularies.http + 'Parameter')) {
         return this._getValue(shape, this.ns.schema.schemaName);
       }
@@ -434,6 +436,7 @@
       if (!shape) {
         return false;
       }
+      shape = this._resolve(shape);
       if (this._hasType(shape, this.ns.raml.vocabularies.http + 'Parameter')) {
         return this._getValue(shape, this.ns.w3.hydra.core + 'required');
       }
