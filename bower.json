@@ -1,7 +1,7 @@
 {
   "name": "api-type-document",
   "description": "A documentation table for type (resource) properties. Works with AMF data model",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "license": "Apache-2.0",
   "main": "api-type-document.html",
   "keywords": [
@@ -27,7 +27,7 @@
     "iron-test-helpers": "PolymerElements/iron-test-helpers#^2.0.0",
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
-    "api-navigation": "advanced-rest-client/api-navigation#2.0.0-preview",
+    "api-navigation": "advanced-rest-client/api-navigation#^2.0.0",
     "arc-polyfills": "advanced-rest-client/arc-polyfills#^0.1.11",
     "paper-checkbox": "PolymerElements/paper-checkbox#^2.0.0"
   },
