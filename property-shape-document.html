@@ -29,7 +29,8 @@
     .property-title {
       @apply --arc-font-subhead;
       margin: 4px 0 4px 0;
-      font-size: 18px;
+      font-size: 15px;
+      font-weight: 500;
       word-break: break-word;
       @apply --property-shape-document-title;
     }
@@ -140,7 +141,12 @@
     }
 
     :host([narrow]) .shape-properties {
-      min-width: initial;
+      min-width: 100%;
+    }
+
+    :host([narrow]) .shape-properties > * {
+      display: inline-block;
+      vertical-align: middle;
     }
 
     .no-info {
