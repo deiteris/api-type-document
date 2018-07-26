@@ -281,7 +281,7 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       }
       let name;
       if (this._hasType(shape, this.ns.raml.vocabularies.http + 'Parameter')) {
-        return  this._getValue(range, this.ns.schema.schemaName);
+        return this._getValue(range, this.ns.schema.schemaName);
         // if(!name) {
         //   name =  this._getValue(shape, this.ns.raml.vocabularies.http + 'paramName');
         // }

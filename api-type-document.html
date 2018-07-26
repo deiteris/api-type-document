@@ -122,7 +122,8 @@
    * @appliesMixin ArcBehaviors.PropertyDocumentMixin
    * @appliesMixin ApiElements.AmfHelperMixin
    */
-  class ApiTypeDocument extends ApiElements.AmfHelperMixin(ArcBehaviors.PropertyDocumentMixin(Polymer.Element)) {
+  class ApiTypeDocument extends
+    ApiElements.AmfHelperMixin(ArcBehaviors.PropertyDocumentMixin(Polymer.Element)) {
     static get is() { return 'api-type-document'; }
     static get properties() {
       return {
@@ -234,7 +235,8 @@
       let isUnion = false;
       if (type instanceof Array) {
         isObject = true;
-      } else if (this._hasType(type, this.ns.raml.vocabularies.shapes + 'ScalarShape') || this._hasType(type, this.ns.raml.vocabularies.shapes + 'NilShape')) {
+      } else if (this._hasType(type, this.ns.raml.vocabularies.shapes + 'ScalarShape') ||
+        this._hasType(type, this.ns.raml.vocabularies.shapes + 'NilShape')) {
         isScalar = true;
       } else if (this._hasType(type, this.ns.raml.vocabularies.shapes + 'UnionShape')) {
         isUnion = true;
@@ -256,7 +258,7 @@
      * @return {String} Parent type name of refault value for array type.
      */
     _computeArrayParentName(parent) {
-      return parent || 'Array';
+      return parent || '';
     }
     /**
      * Resets union selection when union types list changes.

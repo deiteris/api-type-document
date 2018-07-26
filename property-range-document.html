@@ -178,7 +178,8 @@
    * @appliesMixin ArcBehaviors.PropertyDocumentMixin
    * @appliesMixin ApiElements.AmfHelperMixin
    */
-  class PropertyRangeDocument extends ApiElements.AmfHelperMixin(ArcBehaviors.PropertyDocumentMixin(Polymer.Element)) {
+  class PropertyRangeDocument extends
+    ApiElements.AmfHelperMixin(ArcBehaviors.PropertyDocumentMixin(Polymer.Element)) {
     static get is() { return 'property-range-document'; }
     static get properties() {
       return {
@@ -216,7 +217,7 @@
         /**
          * Computed value, true if current property is an object.
          */
-         isObject: {
+        isObject: {
           type: Boolean,
           computed: '_computeIsObject(range)',
           reflectToAttribute: true
@@ -307,7 +308,7 @@
      * @return {Boolean}
      */
     _computeIsUnion(range) {
-      return this._hasType(range, this.ns.raml.vocabularies.shapes+ 'UnionShape');
+      return this._hasType(range, this.ns.raml.vocabularies.shapes + 'UnionShape');
     }
     /**
      * Computes value for `isObject` property.
@@ -330,7 +331,7 @@
      * @return {Boolean}
      */
     _computeIsArray(range) {
-      return this._hasType(range, this.ns.raml.vocabularies.shapes+ 'ArrayShape');
+      return this._hasType(range, this.ns.raml.vocabularies.shapes + 'ArrayShape');
     }
     /**
      * Computes value for `isFile` property
@@ -339,7 +340,7 @@
      * @return {Boolean}
      */
     _computeIsFile(range) {
-      return this._hasType(range, this.ns.raml.vocabularies.shapes+ 'FileShape');
+      return this._hasType(range, this.ns.raml.vocabularies.shapes + 'FileShape');
     }
     /**
      * Computes properties to render Array items documentation.
@@ -351,7 +352,7 @@
       if (!range) {
         return;
       }
-      let items = range[this.ns.raml.vocabularies.shapes+ 'items'];
+      let items = range[this.ns.raml.vocabularies.shapes + 'items'];
       if (!items) {
         return;
       }
