@@ -46,7 +46,6 @@
     }
 
     .doc-wrapper {
-      @apply --layout-horizontal;
       transition: background-color 0.4s linear;
     }
 
@@ -57,10 +56,6 @@
       margin-left: var(--api-type-document-child-docs-margin-left, 4px);
       margin-top: 12px;
       @apply --api-type-document-property-complex-wrapper;
-    }
-
-    .doc-content {
-      @apply --layout-flex;
     }
 
     :host([is-object]) .doc-wrapper {
@@ -112,12 +107,13 @@
     }
 
     .shape-properties {
-      width: var(--api-type-document-property-name-width, 240px);
+      min-width: var(--api-type-document-property-name-width, 200px);
     }
 
     .shape-docs {
       @apply --layout-flex;
       word-break: break-word;
+      overflow: hidden;
     }
 
     .shape-docs .doc-wrapper {
