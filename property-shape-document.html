@@ -46,7 +46,6 @@
     }
 
     .doc-wrapper {
-      @apply --layout-horizontal;
       transition: background-color 0.4s linear;
     }
 
@@ -57,10 +56,6 @@
       margin-left: var(--api-type-document-child-docs-margin-left, 4px);
       margin-top: 12px;
       @apply --api-type-document-property-complex-wrapper;
-    }
-
-    .doc-content {
-      @apply --layout-flex;
     }
 
     :host([is-object]) .doc-wrapper {
@@ -112,12 +107,13 @@
     }
 
     .shape-properties {
-      width: var(--api-type-document-property-name-width, 240px);
+      min-width: var(--api-type-document-property-name-width, 200px);
     }
 
     .shape-docs {
       @apply --layout-flex;
       word-break: break-word;
+      overflow: hidden;
     }
 
     .shape-docs .doc-wrapper {
@@ -244,7 +240,7 @@
    */
   class PropertyShapeDocument extends
     ApiElements.AmfHelperMixin(ArcBehaviors.PropertyDocumentMixin(Polymer.Element)) {
-    static get is() { return 'property-shape-document'; }
+    static get is() {return 'property-shape-document';}
     static get properties() {
       return {
         /**
@@ -253,7 +249,7 @@
          */
         range: {
           type: Object,
-          computed: '_computeRange(shape)'
+          computed: '_computeRange(shape, amfModel.*)'
         },
         /**
          * Computed value of "display name" of the property
@@ -450,7 +446,8 @@
      * @return {Boolean} Curently it always returns `false`
      */
     _computeIsEnum(range) {
-      return !!(range && (this.ns.w3.shacl.name + 'in' in range));
+      const ikey = this._getAmfKey(this.ns.w3.shacl.name + 'in');
+      return !!(range && (ikey in range));
     }
     /**
      * Computes value for `propertyDescription`.

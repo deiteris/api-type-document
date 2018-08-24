@@ -12,29 +12,17 @@
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../../paper-styles/typography.html">
-    <link rel="import" href="../../paper-checkbox/paper-checkbox.html">
-    <link rel="import" href="../api-type-document.html">
     <link rel="import" href="../../raml-aware/raml-aware.html">
     <link rel="import" href="../../api-navigation/api-navigation.html">
+    <link rel="import" href="../../paper-dropdown-menu/paper-dropdown-menu.html">
+    <link rel="import" href="../../paper-item/paper-item.html">
+    <link rel="import" href="../../paper-listbox/paper-listbox.html">
+    <link rel="import" href="../../neon-animation/web-animations.html">
+    <link rel="import" href="../../api-console-default-theme/api-console-default-theme.html">
+    <link rel="import" href="../../paper-toggle-button/paper-toggle-button.html">
+    <link rel="import" href="../api-type-document.html">
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
-      :root {
-        --code-background-color: #f5f2f0;
-        --arc-font-subhead: {
-          @apply --paper-font-subhead;
-        };
-        --arc-font-body1: {
-          @apply --paper-font-body1;
-        };
-        --arc-font-body2: {
-          @apply --paper-font-body2;
-        };
-        --no-info-message: {
-          @apply --arc-font-body1;
-          font-style: italic;
-        };
-      }
-
       [role="main"] {
         max-width: 1100px;
         @apply --layout-horizontal;
@@ -66,6 +54,21 @@
         --paper-input-container-label: {
           color: #3E2723;
         };
+        @apply --layout-horizontal;
+        @apply --layout-center;
+      }
+
+      .spacer {
+        @apply --layout-flex;
+      }
+
+      .options {
+        @apply --layout-horizontal;
+        @apply --layout-center;
+      }
+
+      .options > * {
+        margin-left: 8px;
       }
       </style>
     </custom-style>
@@ -74,8 +77,18 @@
     <dom-bind id="demo">
       <template is="dom-bind">
         <header>
-          <paper-checkbox checked="{{narrow}}">Render narrow layout</paper-checkbox>
+          <paper-dropdown-menu label="Select demo endpoint">
+            <paper-listbox slot="dropdown-content" id="enpointsList" on-selected-changed="_apiChanged">
+              <paper-item data-src="demo-api.json">Demo api</paper-item>
+              <paper-item data-src="demo-api-compact.json">Demo api - compact version</paper-item>
+            </paper-listbox>
+          </paper-dropdown-menu>
+          <div class="spacer"></div>
+          <div class="options">
+            <paper-toggle-button checked="{{narrow}}">Render narrow view</paper-toggle-button>
+          </div>
         </header>
+
         <div class="vertical-section-container" role="main">
           <raml-aware raml="{{amfModel}}" scope="model"></raml-aware>
           <api-navigation aware="model" types-opened></api-navigation>
@@ -86,18 +99,35 @@
             <p>Select type in the navigation to see the demo.</p>
           </template>
         </div>
+
+        <demo-element id="helper" amf-model="{{amfModel}}"></demo-element>
       </template>
     </dom-bind>
     <script>
     (function(app) {
+      class DemoElement extends ApiElements.AmfHelperMixin(Polymer.Element) {}
+      window.customElements.define('demo-element', DemoElement);
+      // const helper = new DemoElement();
+
       app.hasType = false;
+
       app._load = function() {
-        fetch('./amf-model.json')
+        document.getElementById('enpointsList').selected = 0;
+      };
+
+      app._loadFile = function(file) {
+        fetch('./' + file)
         .then((response) => response.json())
         .then((data) => {
           app.amfModel = data;
         });
       };
+
+      app._apiChanged = function(e) {
+        const file = e.target.selectedItem.dataset.src;
+        app._loadFile(file);
+      };
+
       app._navChanged = function(e) {
         const type = e.detail.type;
         if (type === 'type') {
@@ -108,19 +138,22 @@
         }
       };
       app.setTypeData = function(id) {
-        const dKey = 'http://a.ml/vocabularies/document#declares';
-        const d = app.amfModel[0][dKey];
-        let type = d.find((item) => item['@id'] === id);
+        const declares = app.$.helper._computeDeclares(app.amfModel);
+        let type = declares.find((item) => item['@id'] === id);
         if (!type) {
-          const r = app.amfModel[0]['http://a.ml/vocabularies/document#references'];
-          if (r) {
-            for (let i = 0; i < r.length; i++) {
-              const ref = r[i];
-              const rd = ref[dKey];
+          const refs = app.$.helper._computeReferences(app.amfModel);
+          if (refs) {
+            for (let i = 0; i < refs.length; i++) {
+              const rd = app.$.helper._computeDeclares(refs[i]);
               if (!rd) {
                 continue;
               }
-              type = rd.find((item) => item['@id'] === id);
+              for (let j = 0; j < rd.length; j++) {
+                if (rd[j]['@id'] === id) {
+                  type = rd[j];
+                  break;
+                }
+              }
               if (type) {
                 break;
               }

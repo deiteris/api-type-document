@@ -179,11 +179,6 @@
           '@value': 'test-value'
         }]
       };
-      const invalidShape = {
-        testKey: {
-          '@value': 'test-value'
-        }
-      };
       let element;
       suiteSetup(() => {
         element = fixture('Basic');
@@ -196,11 +191,6 @@
 
       test('Undefined for not existing key', () => {
         const result = element._getValue(shape, 'testKey2');
-        assert.isUndefined(result);
-      });
-
-      test('Undefined for invalid data type', () => {
-        const result = element._getValue(invalidShape, 'testKey');
         assert.isUndefined(result);
       });
 

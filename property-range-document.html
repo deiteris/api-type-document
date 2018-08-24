@@ -277,7 +277,8 @@
       if (!hasExamples || !range) {
         return;
       }
-      const list = range[this.ns.raml.vocabularies.document + 'examples'];
+      const key = this._getAmfKey(this.ns.raml.vocabularies.document + 'examples');
+      const list = range[key];
       if (!list) {
         return;
       }
@@ -297,7 +298,8 @@
      * @return {Boolean} Curently it always returns `false`
      */
     _computeIsEnum(range) {
-      return !!(range && (this.ns.w3.shacl.name + 'in' in range));
+      const key = this._getAmfKey(this.ns.w3.shacl.name + 'in');
+      return !!(range && (key in range));
     }
     /**
      * Computes value for `isUnion` property.
@@ -352,19 +354,22 @@
       if (!range) {
         return;
       }
-      let items = range[this.ns.raml.vocabularies.shapes + 'items'];
+      const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'items');
+      const items = range[key];
       if (!items) {
         return;
       }
-      items = items[0];
-      return items[this.ns.w3.shacl.name + 'property'];
+      const item = items[0];
+      const pkey = this._getAmfKey(this.ns.w3.shacl.name + 'property');
+      return this._ensureArray(item[pkey]);
     }
 
     _computeObjectProperties(range) {
       if (!range) {
         return;
       }
-      return range[this.ns.w3.shacl.name + 'property'];
+      const pkey = this._getAmfKey(this.ns.w3.shacl.name + 'property');
+      return range[pkey];
     }
     /**
      * Computes value for `enumValues` property.
@@ -377,22 +382,37 @@
       if (!isEnum || !range) {
         return;
       }
-      let model = range[this.ns.w3.shacl.name + 'in'];
+      const ikey = this._getAmfKey(this.ns.w3.shacl.name + 'in');
+      let model = range[ikey];
       if (!model) {
         return;
       }
-      model = model[0];
-      const result = [];
+      model = this._ensureArray(model);
+      if (!model) {
+        return;
+      }
+      if (model instanceof Array) {
+        model = model[0];
+      }
+      const results = [];
       Object.keys(model).forEach((key) => {
-        if (key.indexOf(this.ns.w3.name + '2000/01/rdf-schema#') === -1) {
+        const amfKey = this._getAmfKey('http://www.w3.org/2000/01/rdf-schema#');
+        if (key.indexOf(amfKey) !== 0) {
           return;
         }
-        const value = this._getValue(model, key);
-        if (value) {
-          result.push(value);
+        let value = model[key];
+        if (value instanceof Array) {
+          value = value[0];
+        }
+        let result = this._getValue(value, this.ns.raml.vocabularies.data + 'value');
+        if (result) {
+          if (result['@value']) {
+            result = result['@value'];
+          }
+          results.push(result);
         }
       });
-      return result;
+      return results;
     }
     /**
      * Computes value if a property exists in a model

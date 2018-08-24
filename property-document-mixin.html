@@ -98,20 +98,23 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       }
       if (this._hasType(range, rs + 'ScalarShape')) {
         const sc = this.ns.w3.xmlSchema;
-        switch (range[this.ns.w3.shacl.name + 'datatype'][0]['@id']) {
-          case sc + 'string': return 'String';
-          case sc + 'integer': return 'Integer';
-          case sc + 'long': return 'Long';
-          case sc + 'float': return 'Float';
-          case sc + 'double': return 'Double';
-          case rs + 'number': return 'Number';
-          case sc + 'boolean': return 'Boolean';
-          case sc + 'dateTime': return 'DateTime';
-          case rs + 'dateTimeOnly': return 'Time';
-          case sc + 'time': return 'Time';
-          case sc + 'date': return 'Date';
-          case sc + 'base64Binary': return 'Base64 binary';
-          case rs + 'password': return 'Password';
+        const key = this._getAmfKey(this.ns.w3.shacl.name + 'datatype');
+        const data = this._ensureArray(range[key]);
+        const id = (data && data[0]) ? data[0]['@id'] : '';
+        switch (id) {
+          case this._getAmfKey(sc + 'string'): return 'String';
+          case this._getAmfKey(sc + 'integer'): return 'Integer';
+          case this._getAmfKey(sc + 'long'): return 'Long';
+          case this._getAmfKey(sc + 'float'): return 'Float';
+          case this._getAmfKey(sc + 'double'): return 'Double';
+          case this._getAmfKey(rs + 'number'): return 'Number';
+          case this._getAmfKey(sc + 'boolean'): return 'Boolean';
+          case this._getAmfKey(sc + 'dateTime'): return 'DateTime';
+          case this._getAmfKey(rs + 'dateTimeOnly'): return 'Time';
+          case this._getAmfKey(sc + 'time'): return 'Time';
+          case this._getAmfKey(sc + 'date'): return 'Date';
+          case this._getAmfKey(sc + 'base64Binary'): return 'Base64 binary';
+          case this._getAmfKey(rs + 'password'): return 'Password';
         }
       }
       return 'Unknown type';
@@ -129,26 +132,15 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       if (this._hasType(shape, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
         data = shape;
       } else if (this._hasType(shape, this.ns.raml.vocabularies.http + 'Parameter')) {
-        data = shape[this.ns.raml.vocabularies.http + 'schema'];
+        const key = this._getAmfKey(this.ns.raml.vocabularies.http + 'schema');
+        data = this._ensureArray(shape[key]);
         data = (data && data.length) ? data[0] : undefined;
       } else {
-        data = shape[this.ns.raml.vocabularies.shapes + 'range'];
+        const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'range');
+        data = this._ensureArray(shape[key]);
         data = (data && data.length) ? data[0] : undefined;
       }
       return data;
-    }
-    /**
-     * Helper function for the view. Extracts `http://www.w3.org/ns/shacl#property`
-     * from the shape model
-     *
-     * @param {Object} item Range object
-     * @return {Object} Shape object
-     */
-    _computeProperties(item) {
-      if (item instanceof Array) {
-        return item;
-      }
-      return item && item[this.ns.w3.shacl.name + 'property'];
     }
     /**
      * Computes properties to render Array items documentation.
@@ -160,15 +152,32 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       if (!range) {
         return;
       }
-      let items = range[this.ns.raml.vocabularies.shapes + 'items'];
-      if (!items) {
+      const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'items');
+      let item = range[key];
+      if (!item) {
         return;
       }
-      const item = this._resolve(items[0]);
-      if (this._hasType(item, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
-        return items;
+      if (item instanceof Array) {
+        item = item[0];
       }
-      return item[this.ns.w3.shacl.name + 'property'];
+      item = this._resolve(item);
+      if (!item) {
+        return;
+      }
+      switch (true) {
+        case this._hasType(item, this.ns.raml.vocabularies.shapes + 'ScalarShape'):
+          item.isShape = true;
+          return this._ensureArray(item);
+        case this._hasType(item, this.ns.raml.vocabularies.shapes + 'UnionShape'):
+        case this._hasType(item, this.ns.raml.vocabularies.shapes + 'ArrayShape'):
+          item.isType = true;
+          return [item];
+        default:
+          const pkey = this._getAmfKey(this.ns.w3.shacl.name + 'property');
+          const items = this._ensureArray(item[pkey]);
+          items.forEach((item) => item.isShape = true);
+          return items;
+      }
     }
     /**
      * Computes value for `isUnion` property.
@@ -214,7 +223,8 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       if (!isUnion || !range) {
         return;
       }
-      const list = range[this.ns.raml.vocabularies.shapes + 'anyOf'];
+      const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'anyOf');
+      const list = range[key];
       if (!list) {
         return;
       }
@@ -228,7 +238,8 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
         let isType = !isScalar && !isArray;
         let label;
         if (isArray) {
-          label = this._computeArrayUnionLabel(item[this.ns.raml.vocabularies.shapes + 'items']);
+          const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'items');
+          label = this._computeArrayUnionLabel(item[key]);
         } else if (isNil) {
           label = 'Null';
         } else {
@@ -261,7 +272,10 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       if (!items || !(items instanceof Array)) {
         return;
       }
-      const item = items[0];
+      const item = this._ensureArray(items[0]);
+      if (!item) {
+        return;
+      }
       if (this._hasType(item, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
         return this._computeRangeDataType(item);
       }
@@ -288,7 +302,7 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       } else if (this._hasType(range, this.ns.w3.shacl.name + 'NodeShape')) {
         return this._getValue(shape, this.ns.w3.shacl.name + 'name');
       } else {
-        return this._getValue(range, 'http://schema.org/name');
+        return this._getValue(range, this.ns.schema.schemaName);
         // if (!name) {
         //   name = this._getValue(range, this.ns.w3.shacl.name + 'name');
         // }
