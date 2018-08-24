@@ -42,26 +42,31 @@
       <raml-aware raml="{{amfModel}}" scope="[[aware]]"></raml-aware>
     </template>
     <template is="dom-if" if="[[isObject]]" restamp>
-      <template is="dom-repeat" items="[[_computeProperties(_resolvedType)]]">
+      <template is="dom-repeat" data-object-repeater items="[[_computeProperties(_resolvedType)]]">
         <property-shape-document class="object-document" shape="[[_resolve(item)]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" narrow="[[narrow]]"></property-shape-document>
       </template>
     </template>
     <template is="dom-if" if="[[isArray]]" restamp>
-      <template is="dom-repeat" items="[[_computeArrayProperties(_resolvedType)]]">
-        <property-shape-document class="array-document" shape="[[_resolve(item)]]" amf-model="[[amfModel]]" parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]" narrow="[[narrow]]"></property-shape-document>
+      <template is="dom-repeat" data-array-repeater items="[[_computeArrayProperties(_resolvedType)]]">
+        <template is="dom-if" if="[[item.isShape]]" restamp="true">
+          <property-shape-document class="array-document" amf-model="[[amfModel]]" shape="[[_resolve(item)]]" parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]" narrow="[[narrow]]"></property-shape-document>
+        </template>
+        <template is="dom-if" if="[[item.isType]]" restamp="true">
+          <api-type-document class="union-document" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[item]]" narrow="[[narrow]]"></api-type-document>
+        </template>
       </template>
     </template>
     <template is="dom-if" if="[[isScalar]]" restamp>
-      <property-shape-document class="shape-document" shape="[[_resolvedType]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" narrow="[[narrow]]"></property-shape-document>
+      <property-shape-document class="shape-document" amf-model="[[amfModel]]" shape="[[_resolvedType]]" parent-type-name="[[parentTypeName]]" narrow="[[narrow]]"></property-shape-document>
     </template>
     <template is="dom-if" if="[[isUnion]]">
       <div class="union-type-selector">
         <span>Any of:</span>
-        <template is="dom-repeat" items="[[unionTypes]]">
+        <template is="dom-repeat" data-union-repeater items="[[unionTypes]]">
           <paper-button class="union-toggle" active="[[_unionTypeActive(selectedUnion, index)]]" on-click="_selectUnion" title$="Select [[item.label]] type">[[item.label]]</paper-button>
         </template>
       </div>
-      <api-type-document class="union-document" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[_computeUnionProperty(_resolvedType, selectedUnion)]]"></api-type-document>
+      <api-type-document class="union-document" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[_computeUnionProperty(_resolvedType, selectedUnion)]]" narrow="[[narrow]]"></api-type-document>
     </template>
   </template>
   <script>
@@ -124,7 +129,7 @@
    */
   class ApiTypeDocument extends
     ApiElements.AmfHelperMixin(ArcBehaviors.PropertyDocumentMixin(Polymer.Element)) {
-    static get is() { return 'api-type-document'; }
+    static get is() {return 'api-type-document';}
     static get properties() {
       return {
         /**
@@ -306,7 +311,8 @@
       if (!type) {
         return;
       }
-      const data = type[this.ns.raml.vocabularies.shapes + 'anyOf'];
+      const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'anyOf');
+      const data = type[key];
       if (!data) {
         return;
       }
@@ -315,12 +321,30 @@
         return;
       }
       if (this._hasType(item, this.ns.raml.vocabularies.shapes + 'ArrayShape')) {
-        const items = item[this.ns.raml.vocabularies.shapes + 'items'];
+        const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'items');
+        const items = this._ensureArray(item[key]);
         if (items && items.length === 1) {
           return this._resolve(items[0]);
         }
       }
       return this._resolve(item);
+    }
+    /**
+     * Helper function for the view. Extracts `http://www.w3.org/ns/shacl#property`
+     * from the shape model
+     *
+     * @param {Object} item Range object
+     * @return {Array<Object>} Shape object
+     */
+    _computeProperties(item) {
+      if (item instanceof Array) {
+        return item;
+      }
+      if (!item) {
+        return;
+      }
+      const key = this._getAmfKey(this.ns.w3.shacl.name + 'property');
+      return this._ensureArray(item[key]);
     }
   }
   window.customElements.define(ApiTypeDocument.is, ApiTypeDocument);

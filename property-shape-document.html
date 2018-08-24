@@ -240,7 +240,7 @@
    */
   class PropertyShapeDocument extends
     ApiElements.AmfHelperMixin(ArcBehaviors.PropertyDocumentMixin(Polymer.Element)) {
-    static get is() { return 'property-shape-document'; }
+    static get is() {return 'property-shape-document';}
     static get properties() {
       return {
         /**
@@ -249,7 +249,7 @@
          */
         range: {
           type: Object,
-          computed: '_computeRange(shape)'
+          computed: '_computeRange(shape, amfModel.*)'
         },
         /**
          * Computed value of "display name" of the property
@@ -446,7 +446,8 @@
      * @return {Boolean} Curently it always returns `false`
      */
     _computeIsEnum(range) {
-      return !!(range && (this.ns.w3.shacl.name + 'in' in range));
+      const ikey = this._getAmfKey(this.ns.w3.shacl.name + 'in');
+      return !!(range && (ikey in range));
     }
     /**
      * Computes value for `propertyDescription`.
