@@ -278,7 +278,7 @@
         return;
       }
       const key = this._getAmfKey(this.ns.raml.vocabularies.document + 'examples');
-      const list = range[key];
+      const list = this._ensureArray(range[key]);
       if (!list) {
         return;
       }
