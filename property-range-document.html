@@ -415,16 +415,6 @@
       return results;
     }
     /**
-     * Computes value if a property exists in a model
-     *
-     * @param {Object} model An object to test
-     * @param {String} key Property name to look for
-     * @return {Boolean}
-     */
-    _hasProperty(model, key) {
-      return !!(model && key in model);
-    }
-    /**
      * Computes example value to set on `marked-element`.
      * It adds "```" to create a code block.
      *
