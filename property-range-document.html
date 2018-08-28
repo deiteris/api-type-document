@@ -136,7 +136,7 @@
         </span>
       </div>
     </template>
-    <api-annotation-document shape="[[range]]"></api-annotation-document>
+    <api-annotation-document amf-model="[[amfModel]]" shape="[[range]]"></api-annotation-document>
     <template is="dom-if" if="[[hasExamples]]">
       <section class="examples">
         <h5 class="examples-section-title">[[_computeExamplesLabel(examples)]]</h5>
@@ -278,7 +278,7 @@
         return;
       }
       const key = this._getAmfKey(this.ns.raml.vocabularies.document + 'examples');
-      const list = range[key];
+      const list = this._ensureArray(range[key]);
       if (!list) {
         return;
       }
@@ -413,16 +413,6 @@
         }
       });
       return results;
-    }
-    /**
-     * Computes value if a property exists in a model
-     *
-     * @param {Object} model An object to test
-     * @param {String} key Property name to look for
-     * @return {Boolean}
-     */
-    _hasProperty(model, key) {
-      return !!(model && key in model);
     }
     /**
      * Computes example value to set on `marked-element`.
