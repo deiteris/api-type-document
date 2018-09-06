@@ -344,25 +344,6 @@
     _computeIsFile(range) {
       return this._hasType(range, this.ns.raml.vocabularies.shapes + 'FileShape');
     }
-    /**
-     * Computes properties to render Array items documentation.
-     *
-     * @param {Object} range Range object of current shape.
-     * @return {Array<Object>|undefined} List of Array items.
-     */
-    _computeArrayProperties(range) {
-      if (!range) {
-        return;
-      }
-      const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'items');
-      const items = range[key];
-      if (!items) {
-        return;
-      }
-      const item = items[0];
-      const pkey = this._getAmfKey(this.ns.w3.shacl.name + 'property');
-      return this._ensureArray(item[pkey]);
-    }
 
     _computeObjectProperties(range) {
       if (!range) {
