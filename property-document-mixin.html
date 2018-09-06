@@ -175,7 +175,9 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
         default:
           const pkey = this._getAmfKey(this.ns.w3.shacl.name + 'property');
           const items = this._ensureArray(item[pkey]);
-          items.forEach((item) => item.isShape = true);
+          if (items) {
+            items.forEach((item) => item.isShape = true);
+          }
           return items;
       }
     }
