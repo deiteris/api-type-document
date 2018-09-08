@@ -96,6 +96,12 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       if (this._hasType(range, rs + 'TupleShape')) {
         return 'Tuple';
       }
+      if (this._hasType(range, rs + 'UnionShape')) {
+        return 'Union';
+      }
+      if (this._hasType(range, rs + 'RecursiveShape')) {
+        return 'Recursive';
+      }
       if (this._hasType(range, rs + 'ScalarShape')) {
         const sc = this.ns.w3.xmlSchema;
         const key = this._getAmfKey(this.ns.w3.shacl.name + 'datatype');
