@@ -72,6 +72,53 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
         return;
       }
       const rs = this.ns.raml.vocabularies.shapes;
+      if (this._hasType(range, rs + 'ScalarShape')) {
+        const sc = this.ns.w3.xmlSchema;
+        const key = this._getAmfKey(this.ns.w3.shacl.name + 'datatype');
+        const data = this._ensureArray(range[key]);
+        const id = (data && data[0]) ? data[0]['@id'] : '';
+        switch (id) {
+          case this._getAmfKey(sc + 'string'):
+          case sc + 'string':
+            return 'String';
+          case this._getAmfKey(sc + 'integer'):
+          case sc + 'integer':
+            return 'Integer';
+          case this._getAmfKey(sc + 'long'):
+          case sc + 'long':
+            return 'Long';
+          case this._getAmfKey(sc + 'float'):
+          case sc + 'float':
+            return 'Float';
+          case this._getAmfKey(sc + 'double'):
+          case sc + 'double':
+            return 'Double';
+          case this._getAmfKey(rs + 'number'):
+          case rs + 'number':
+            return 'Number';
+          case this._getAmfKey(sc + 'boolean'):
+          case sc + 'boolean':
+            return 'Boolean';
+          case this._getAmfKey(sc + 'dateTime'):
+          case sc + 'dateTime':
+            return 'DateTime';
+          case this._getAmfKey(rs + 'dateTimeOnly'):
+          case rs + 'dateTimeOnly':
+            return 'Time';
+          case this._getAmfKey(sc + 'time'):
+          case sc + 'time':
+            return 'Time';
+          case this._getAmfKey(sc + 'date'):
+          case sc + 'date':
+            return 'Date';
+          case this._getAmfKey(sc + 'base64Binary'):
+          case sc + 'base64Binary':
+            return 'Base64 binary';
+          case this._getAmfKey(rs + 'password'):
+          case rs + 'password':
+            return 'Password';
+        }
+      }
       if (this._hasType(range, rs + 'UnionShape')) {
         return 'Union';
       }
@@ -101,27 +148,6 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       }
       if (this._hasType(range, rs + 'RecursiveShape')) {
         return 'Recursive';
-      }
-      if (this._hasType(range, rs + 'ScalarShape')) {
-        const sc = this.ns.w3.xmlSchema;
-        const key = this._getAmfKey(this.ns.w3.shacl.name + 'datatype');
-        const data = this._ensureArray(range[key]);
-        const id = (data && data[0]) ? data[0]['@id'] : '';
-        switch (id) {
-          case this._getAmfKey(sc + 'string'): return 'String';
-          case this._getAmfKey(sc + 'integer'): return 'Integer';
-          case this._getAmfKey(sc + 'long'): return 'Long';
-          case this._getAmfKey(sc + 'float'): return 'Float';
-          case this._getAmfKey(sc + 'double'): return 'Double';
-          case this._getAmfKey(rs + 'number'): return 'Number';
-          case this._getAmfKey(sc + 'boolean'): return 'Boolean';
-          case this._getAmfKey(sc + 'dateTime'): return 'DateTime';
-          case this._getAmfKey(rs + 'dateTimeOnly'): return 'Time';
-          case this._getAmfKey(sc + 'time'): return 'Time';
-          case this._getAmfKey(sc + 'date'): return 'Date';
-          case this._getAmfKey(sc + 'base64Binary'): return 'Base64 binary';
-          case this._getAmfKey(rs + 'password'): return 'Password';
-        }
       }
       return 'Unknown type';
     }
