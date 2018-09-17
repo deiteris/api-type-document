@@ -37,6 +37,17 @@
     :last-of-type {
       border-bottom: none;
     }
+
+    .array-children {
+      box-sizing: border-box;
+      padding-left: 12px;
+      border-left: 2px var(--property-shape-document-array-color, #8BC34A) solid;
+    }
+
+    :host([has-parent-type]) .array-children {
+      padding-left: 0px;
+      border-left: none;
+    }
     </style>
     <template is="dom-if" if="[[aware]]">
       <raml-aware raml="{{amfModel}}" scope="[[aware]]"></raml-aware>
@@ -47,14 +58,19 @@
       </template>
     </template>
     <template is="dom-if" if="[[isArray]]" restamp>
-      <template is="dom-repeat" data-array-repeater items="[[_computeArrayProperties(_resolvedType)]]">
-        <template is="dom-if" if="[[item.isShape]]" restamp="true">
-          <property-shape-document class="array-document" amf-model="[[amfModel]]" shape="[[_resolve(item)]]" parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]" narrow="[[narrow]]"></property-shape-document>
-        </template>
-        <template is="dom-if" if="[[item.isType]]" restamp="true">
-          <api-type-document class="union-document" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[item]]" narrow="[[narrow]]"></api-type-document>
-        </template>
+      <template is="dom-if" if="[[!hasParentType]]">
+        <property-shape-document class="array-document" amf-model="[[amfModel]]" shape="[[_resolve(_resolvedType)]]" parent-type-name="Array test" narrow="[[narrow]]"></property-shape-document>
       </template>
+      <div class="array-children">
+        <template is="dom-repeat" data-array-repeater items="[[_computeArrayProperties(_resolvedType)]]">
+          <template is="dom-if" if="[[item.isShape]]" restamp="true">
+            <property-shape-document class="array-document" amf-model="[[amfModel]]" shape="[[_resolve(item)]]" parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]" narrow="[[narrow]]"></property-shape-document>
+          </template>
+          <template is="dom-if" if="[[item.isType]]" restamp="true">
+            <api-type-document class="union-document" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[item]]" narrow="[[narrow]]"></api-type-document>
+          </template>
+        </template>
+      </div>
     </template>
     <template is="dom-if" if="[[isScalar]]" restamp>
       <property-shape-document class="shape-document" amf-model="[[amfModel]]" shape="[[_resolvedType]]" parent-type-name="[[parentTypeName]]" narrow="[[narrow]]"></property-shape-document>
@@ -172,6 +188,15 @@
          * This is used when recursively iterating over properties.
          */
         parentTypeName: String,
+        /**
+         * Computed value, true if the shape has parent type.
+         */
+        hasParentType: {
+          type: Boolean,
+          value: false,
+          computed: '_computeHasStringValue(parentTypeName)',
+          reflectToAttribute: true
+        },
         /**
          * True if given `type` is a scalar property
          */
