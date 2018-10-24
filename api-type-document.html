@@ -341,7 +341,7 @@
       if (!data) {
         return;
       }
-      const item = data[selected];
+      let item = data[selected];
       if (!item) {
         return;
       }
@@ -349,8 +349,16 @@
         const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'items');
         const items = this._ensureArray(item[key]);
         if (items && items.length === 1) {
-          return this._resolve(items[0]);
+          let result = items[0];
+          if (result instanceof Array) {
+            result = result[0];
+          }
+          result = this._resolve(result);
+          return result;
         }
+      }
+      if (item instanceof Array) {
+        item = item[0];
       }
       return this._resolve(item);
     }

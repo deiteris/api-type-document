@@ -258,11 +258,16 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
         return;
       }
       const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'anyOf');
-      const list = range[key];
+      const list = this._ensureArray(range[key]);
       if (!list) {
         return;
       }
       return list.map((item) => {
+        if (item instanceof Array) {
+          // Why??
+          item = item[0];
+        }
+        item = this._resolve(item);
         let isScalar = this._hasType(item, this.ns.raml.vocabularies.shapes + 'ScalarShape');
         const isNil = this._hasType(item, this.ns.raml.vocabularies.shapes + 'NilShape');
         if (!isScalar && isNil) {
@@ -299,21 +304,21 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
     /**
      * Computes union type label when the union is in Array.
      *
-     * @param {Array} items Array items property
+     * @param {Array|Object} items Array's items property or a single property
      * @return {String|undefined} Label for the union type.
      */
     _computeArrayUnionLabel(items) {
-      if (!items || !(items instanceof Array)) {
+      if (!items) {
         return;
       }
-      const item = this._ensureArray(items[0]);
-      if (!item) {
-        return;
+      if (items instanceof Array) {
+        items = items[0];
       }
-      if (this._hasType(item, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
-        return this._computeRangeDataType(item);
+      items = this._resolve(items);
+      if (this._hasType(items, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
+        return this._computeRangeDataType(items);
       }
-      return this._computeDisplayName(item);
+      return this._computeDisplayName(items, items);
     }
 
     /**
