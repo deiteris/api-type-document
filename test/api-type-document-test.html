@@ -172,6 +172,25 @@
             assert.isTrue(element.isObject);
           });
         });
+
+        test('Computes isAnd for AnyShape with "and" property', () => {
+          return AmfLoader.loadType('Pet', item[1], 'Petstore')
+          .then((data) => {
+            element.amfModel = data[0];
+            element._typeChanged(element._resolve(data[1]));
+            assert.isTrue(element.isAnd);
+          });
+        });
+
+        test('Sets andTypes for AnyShape with "and" property', () => {
+          return AmfLoader.loadType('Pet', item[1], 'Petstore')
+          .then((data) => {
+            element.amfModel = data[0];
+            element._typeChanged(element._resolve(data[1]));
+            assert.typeOf(element.andTypes, 'array');
+            assert.lengthOf(element.andTypes, 3);
+          });
+        });
       });
 
       suite('_selectUnion()', () => {
@@ -190,7 +209,9 @@
           element = fixture('Basic');
           element.amfModel = amf;
           element.type = type;
-          flush(() => done());
+          Polymer.RenderStatus.afterNextRender(element, () => {
+            flush(() => done());
+          });
         });
 
         test('selectedUnion is 0', () => {
@@ -284,6 +305,47 @@
         });
       });
 
+      suite('_computeAndTypes()', () => {
+        let element;
+        let amf;
+        let type;
+        let list;
+        suiteSetup(() => {
+          return AmfLoader.loadType('Pet', item[1], 'Petstore')
+          .then((data) => {
+            amf = data[0];
+            type = data[1];
+          });
+        });
+
+        setup(() => {
+          element = fixture('Basic');
+          element.amfModel = amf;
+          const key = element._getAmfKey(element.ns.w3.shacl.name + 'and');
+          list = type[key];
+        });
+
+        test('Returns an array', () => {
+          const result = element._computeAndTypes(list);
+          assert.typeOf(result, 'array');
+        });
+
+        test('Label is computed', () => {
+          const result = element._computeAndTypes(list);
+          assert.equal(result[0].label, 'NewPet');
+        });
+
+        test('Type is computed', () => {
+          const result = element._computeAndTypes(list);
+          assert.typeOf(result[0].type, 'object');
+        });
+
+        test('Inline label is undefined', () => {
+          const result = element._computeAndTypes(list);
+          assert.isUndefined(result[2].label);
+        });
+      });
+
       suite('Object type', () => {
         let element;
         setup((done) => {
@@ -292,7 +354,9 @@
             element = fixture('Basic');
             element.amfModel = data[0];
             element.type = data[1];
-            flush(() => done());
+            Polymer.RenderStatus.afterNextRender(element, () => {
+              flush(() => done());
+            });
           });
         });
 
@@ -334,7 +398,9 @@
             element = fixture('Basic');
             element.amfModel = data[0];
             element.type = data[1];
-            flush(() => done());
+            Polymer.RenderStatus.afterNextRender(element, () => {
+              flush(() => done());
+            });
           });
         });
 
@@ -376,7 +442,9 @@
             element = fixture('Basic');
             element.amfModel = data[0];
             element.type = data[1];
-            flush(() => done());
+            Polymer.RenderStatus.afterNextRender(element, () => {
+              flush(() => done());
+            });
           });
         });
 
@@ -418,7 +486,9 @@
             element = fixture('Basic');
             element.amfModel = data[0];
             element.type = data[1];
-            flush(() => done());
+            Polymer.RenderStatus.afterNextRender(element, () => {
+              flush(() => done());
+            });
           });
         });
 
@@ -435,7 +505,9 @@
             element = fixture('Basic');
             element.amfModel = data[0];
             element.type = data[1];
-            flush(() => done());
+            Polymer.RenderStatus.afterNextRender(element, () => {
+              flush(() => done());
+            });
           });
         });
 
@@ -489,6 +561,50 @@
           const key = element._getAmfKey(ApiElements.Amf.ns.raml.vocabularies.shapes + 'anyOf');
           const type = element.type[key][1];
           assert.deepEqual(doc.type, type);
+        });
+      });
+
+      suite('And type', () => {
+        let element;
+        setup((done) => {
+          AmfLoader.loadType('Pet', item[1], 'Petstore')
+          .then((data) => {
+            element = fixture('Basic');
+            element.amfModel = data[0];
+            element.type = data[1];
+            Polymer.RenderStatus.afterNextRender(element, () => {
+              flush(() => done());
+            });
+          });
+        });
+
+        test('isAnd is true', () => {
+          assert.isTrue(element.isAnd);
+        });
+
+        test('Does not render object document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.object-document');
+          assert.notOk(doc);
+        });
+
+        test('Does not render array document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.array-document');
+          assert.notOk(doc);
+        });
+
+        test('Does not render scalar document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.shape-document');
+          assert.notOk(doc);
+        });
+
+        test('"And" documents are in the DOM', () => {
+          const docs = element.shadowRoot.querySelectorAll('api-type-document.and-document');
+          assert.lengthOf(docs, 3);
+        });
+
+        test('Inheritance labels are rendered', () => {
+          const docs = element.shadowRoot.querySelectorAll('.inheritance-label');
+          assert.lengthOf(docs, 3);
         });
       });
     });
