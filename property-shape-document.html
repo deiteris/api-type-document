@@ -385,23 +385,29 @@
      * @return {String} Display name of the property
      */
     _computePropertyName(range, shape) {
-      if (!shape || !range) {
+      if (!shape && !range) {
         return;
       }
-      range = this._resolve(range);
-      shape = this._resolve(shape);
-      if (this._hasType(shape, this.ns.raml.vocabularies.http + 'Parameter')) {
-        return this._getValue(shape, this.ns.schema.schemaName);
+      if (shape) {
+        shape = this._resolve(shape);
+        if (this._hasType(shape, this.ns.raml.vocabularies.http + 'Parameter')) {
+          return this._getValue(shape, this.ns.schema.schemaName);
+        }
+        if (this._hasType(shape, this.ns.w3.shacl.name + 'PropertyShape') ||
+          this._hasType(shape, this.ns.raml.vocabularies.shapes + 'NilShape') ||
+          this._hasType(shape, this.ns.raml.vocabularies.shapes + 'AnyShape')) {
+          return this._getValue(shape, this.ns.w3.shacl.name + 'name');
+        }
       }
-      if (this._hasType(shape, this.ns.w3.shacl.name + 'PropertyShape')) {
-        return this._getValue(shape, this.ns.w3.shacl.name + 'name');
-      }
-      const name = this._getValue(range, this.ns.w3.shacl.name + 'name');
-      if (name === 'items' &&
+      if (range) {
+        range = this._resolve(range);
+        const name = this._getValue(range, this.ns.w3.shacl.name + 'name');
+        if (name === 'items' &&
         this._hasType(shape, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
-        return;
+          return;
+        }
+        return name;
       }
-      return name;
     }
     /**
      * Computes value for `hasDisplayName` property.

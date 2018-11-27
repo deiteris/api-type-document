@@ -21,11 +21,9 @@
   <script>
   /* global AmfLoader, MockInteractions */
   suite('api-type-document', () => {
-    let element;
-
     suite('Basic', () => {
       test('Renders no params table without data', (done) => {
-        element = fixture('Basic');
+        const element = fixture('Basic');
         flush(() => {
           const doc = element.shadowRoot.querySelector('property-shape-document');
           assert.notOk(doc);
@@ -37,21 +35,15 @@
     });
 
     suite('Object type', () => {
-      let amf;
-      let typeData;
-      suiteSetup(() => {
-        return AmfLoader.load(4)
-        .then((data) => {
-          amf = data[0];
-          typeData = data[1];
-        });
-      });
-
+      let element;
       setup((done) => {
-        element = fixture('Basic');
-        element.amfModel = amf;
-        element.type = typeData;
-        flush(() => done());
+        AmfLoader.loadType('Notification')
+        .then((data) => {
+          element = fixture('Basic');
+          element.amfModel = data[0];
+          element.type = data[1];
+          flush(() => done());
+        });
       });
 
       test('isObject is true', () => {
@@ -85,21 +77,15 @@
     });
 
     suite('Array type', () => {
-      let amf;
-      let typeData;
-      suiteSetup(() => {
-        return AmfLoader.load(9)
-        .then((data) => {
-          amf = data[0];
-          typeData = data[1];
-        });
-      });
-
+      let element;
       setup((done) => {
-        element = fixture('Basic');
-        element.amfModel = amf;
-        element.type = typeData;
-        flush(() => done());
+        AmfLoader.loadType('ArrayType')
+        .then((data) => {
+          element = fixture('Basic');
+          element.amfModel = data[0];
+          element.type = data[1];
+          flush(() => done());
+        });
       });
 
       test('isArray is true', () => {
@@ -133,21 +119,15 @@
     });
 
     suite('Scalar type', () => {
-      let amf;
-      let typeData;
-      suiteSetup(() => {
-        return AmfLoader.load(15)
-        .then((data) => {
-          amf = data[0];
-          typeData = data[1];
-        });
-      });
-
+      let element;
       setup((done) => {
-        element = fixture('Basic');
-        element.amfModel = amf;
-        element.type = typeData;
-        flush(() => done());
+        AmfLoader.loadType('BooleanType')
+        .then((data) => {
+          element = fixture('Basic');
+          element.amfModel = data[0];
+          element.type = data[1];
+          flush(() => done());
+        });
       });
 
       test('isScalar is true', () => {
@@ -180,22 +160,33 @@
       });
     });
 
-    suite('Union type', () => {
-      let amf;
-      let typeData;
-      suiteSetup(() => {
-        return AmfLoader.load(7)
+    suite('Nil type', () => {
+      let element;
+      setup((done) => {
+        AmfLoader.loadType('NilType')
         .then((data) => {
-          amf = data[0];
-          typeData = data[1];
+          element = fixture('Basic');
+          element.amfModel = data[0];
+          element.type = data[1];
+          flush(() => done());
         });
       });
 
+      test('isScalar is true', () => {
+        assert.isTrue(element.isScalar);
+      });
+    });
+
+    suite('Union type', () => {
+      let element;
       setup((done) => {
-        element = fixture('Basic');
-        element.amfModel = amf;
-        element.type = typeData;
-        flush(() => done());
+        AmfLoader.loadType('Unionable')
+        .then((data) => {
+          element = fixture('Basic');
+          element.amfModel = data[0];
+          element.type = data[1];
+          flush(() => done());
+        });
       });
 
       test('isUnion is true', () => {
@@ -245,7 +236,7 @@
       test('Selection change computes properties for the table', () => {
         element.selectedUnion = 1;
         const doc = element.shadowRoot.querySelector('api-type-document.union-document');
-        const type = typeData['http://a.ml/vocabularies/shapes#anyOf'][1];
+        const type = element.type['http://a.ml/vocabularies/shapes#anyOf'][1];
         assert.deepEqual(doc.type, type);
       });
     });
