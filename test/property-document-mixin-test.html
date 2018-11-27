@@ -6,6 +6,7 @@
   <title>api-type-document test</title>
   <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
   <script src="../../web-component-tester/browser.js"></script>
+  <script src="amf-loader.js"></script>
   <link rel="import" href="../../arc-polyfills/arc-polyfills.html">
   <link rel="import" href="test-document-mixin.html">
 </head>
@@ -17,6 +18,7 @@
   </test-fixture>
 
   <script>
+  /* global AmfLoader */
   suite('property-document-mixin', () => {
     suite('_computeRangeDataType()', () => {
       let element;
@@ -97,6 +99,89 @@
       });
     });
 
+    suite('_computeRangeDataType() - compact model', () => {
+      let element;
+      suiteSetup(() => {
+        return AmfLoader.load(true)
+        .then((model) => {
+          element = fixture('Basic');
+          element.amfModel = model;
+        });
+      });
+
+      test('Computes UnionShape', () => {
+        const type = 'raml-shapes:UnionShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Union');
+      });
+
+      test('Computes ArrayShape', () => {
+        const type = 'raml-shapes:ArrayShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Array');
+      });
+
+      test('Computes NodeShape', () => {
+        const type = 'shacl:NodeShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Object');
+      });
+
+      test('Computes FileShape', () => {
+        const type = 'raml-shapes:FileShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'File');
+      });
+
+      test('Computes NilShape', () => {
+        const type = 'raml-shapes:NilShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Null');
+      });
+
+      test('Computes AnyShape', () => {
+        const type = 'raml-shapes:AnyShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Any');
+      });
+
+      test('Computes MatrixShape', () => {
+        const type = 'raml-shapes:MatrixShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Matrix');
+      });
+
+      test('Computes TupleShape', () => {
+        const type = 'raml-shapes:TupleShape';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Tuple');
+      });
+
+      test('Computes Unknown type', () => {
+        const type = 'unknown';
+        const result = element._computeRangeDataType({
+          '@type': [type]
+        });
+        assert.equal(result, 'Unknown type');
+      });
+    });
+
     suite('_computeRangeDataType() - ScalarShape', () => {
       let element;
       let shape = {
@@ -111,6 +196,51 @@
 
       function setType(type) {
         shape['http://www.w3.org/ns/shacl#datatype'][0]['@id'] = type;
+      }
+
+      [
+        ['http://a.ml/vocabularies/shapes#number', 'Number'],
+        ['http://www.w3.org/2001/XMLSchema#integer', 'Integer'],
+        ['http://www.w3.org/2001/XMLSchema#string', 'String'],
+        ['http://www.w3.org/2001/XMLSchema#boolean', 'Boolean'],
+        ['http://www.w3.org/2001/XMLSchema#date', 'Date'],
+        ['http://www.w3.org/2001/XMLSchema#time', 'Time'],
+        ['http://www.w3.org/2001/XMLSchema#dateTime', 'DateTime'],
+        ['http://a.ml/vocabularies/shapes#dateTimeOnly', 'Time'],
+        ['http://www.w3.org/2001/XMLSchema#float', 'Float'],
+        ['http://www.w3.org/2001/XMLSchema#long', 'Long'],
+        ['http://www.w3.org/2001/XMLSchema#double', 'Double'],
+        ['http://www.w3.org/2001/XMLSchema#base64Binary', 'Base64 binary'],
+        ['http://a.ml/vocabularies/shapes#password', 'Password'],
+        ['UNKNOWN', 'Unknown type']
+      ].forEach((item) => {
+        test('Computes ' + item[0], () => {
+          setType(item[0]);
+          const result = element._computeRangeDataType(shape);
+          assert.equal(result, item[1]);
+        });
+      });
+    });
+
+    suite('_computeRangeDataType() - ScalarShape - compact model', () => {
+      let element;
+      const shape = {
+        '@type': ['raml-shapes:ScalarShape'],
+        'shacl:datatype': [{
+          '@id': ''
+        }]
+      };
+
+      suiteSetup(() => {
+        return AmfLoader.load(true)
+        .then((model) => {
+          element = fixture('Basic');
+          element.amfModel = model;
+        });
+      });
+
+      function setType(type) {
+        shape['shacl:datatype'][0]['@id'] = type;
       }
 
       [
@@ -170,33 +300,6 @@
       test('Computes range for node shape', () => {
         const result = element._computeRange(NodeShape);
         assert.equal(result, 'TEST-RANGE');
-      });
-    });
-
-    suite('_getValue()', () => {
-      const shape = {
-        testKey: [{
-          '@value': 'test-value'
-        }]
-      };
-      let element;
-      suiteSetup(() => {
-        element = fixture('Basic');
-      });
-
-      test('Computes value for key', () => {
-        const result = element._getValue(shape, 'testKey');
-        assert.equal(result, 'test-value');
-      });
-
-      test('Undefined for not existing key', () => {
-        const result = element._getValue(shape, 'testKey2');
-        assert.isUndefined(result);
-      });
-
-      test('Undefined for undefined', () => {
-        const result = element._getValue(undefined, 'testKey');
-        assert.isUndefined(result);
       });
     });
   });

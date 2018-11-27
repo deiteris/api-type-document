@@ -346,7 +346,11 @@
       if (!item) {
         return;
       }
+      if (item instanceof Array) {
+        item = item[0];
+      }
       if (this._hasType(item, this.ns.raml.vocabularies.shapes + 'ArrayShape')) {
+        item = this._resolve(item);
         const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'items');
         const items = this._ensureArray(item[key]);
         if (items && items.length === 1) {
@@ -371,11 +375,11 @@
      * @return {Array<Object>} Shape object
      */
     _computeProperties(item) {
-      if (item instanceof Array) {
-        return item;
-      }
       if (!item) {
         return;
+      }
+      if (item instanceof Array) {
+        return item;
       }
       const key = this._getAmfKey(this.ns.w3.shacl.name + 'property');
       return this._ensureArray(item[key]);
