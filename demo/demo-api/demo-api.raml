@@ -133,16 +133,17 @@ types:
         "processVar2": "value2"
       }
   Notification:
-   properties:
-    scalarArray:
-      required: true
-      type: array
-      items: integer
-      description: Integer array item type
-      displayName: Scalar array (integer)
-    otherScalar:
-      required: false
-      type: string[]
+    properties:
+      scalarArray:
+        required: true
+        type: array
+        items: integer
+        description: Integer array item type
+        displayName: Scalar array (integer)
+      otherScalar:
+        required: false
+        type: string[]
+
 resourceTypes:
   ErrorredResource:
     get:

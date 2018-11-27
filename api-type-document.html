@@ -266,7 +266,8 @@
       if (type instanceof Array) {
         isObject = true;
       } else if (this._hasType(type, this.ns.raml.vocabularies.shapes + 'ScalarShape') ||
-        this._hasType(type, this.ns.raml.vocabularies.shapes + 'NilShape')) {
+        this._hasType(type, this.ns.raml.vocabularies.shapes + 'NilShape') ||
+        this._hasType(type, this.ns.raml.vocabularies.shapes + 'AnyShape')) {
         isScalar = true;
       } else if (this._hasType(type, this.ns.raml.vocabularies.shapes + 'UnionShape')) {
         isUnion = true;
