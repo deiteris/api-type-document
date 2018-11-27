@@ -140,11 +140,21 @@ declare namespace ApiElements {
     readonly isUnion: boolean|null|undefined;
 
     /**
+     * True if given `type` is OAS "and" type.
+     */
+    readonly isAnd: boolean|null|undefined;
+
+    /**
      * Computed list of union type types to render in union type
      * selector.
      * Each item has `label` and `isScalar` property.
      */
     unionTypes: Array<object|null>|null;
+
+    /**
+     * List of types definition and name for OAS' "and" type
+     */
+    andTypes: any[]|null|undefined;
 
     /**
      * Selected index of union type in `unionTypes` array.
@@ -208,6 +218,14 @@ declare namespace ApiElements {
      * @returns Shape object
      */
     _computeProperties(item: object|null): Array<object|null>|null;
+
+    /**
+     * Computes list values for `andTypes` property.
+     *
+     * @param items List of OAS' "and" properties
+     * @returns An array of type definitions and label to render
+     */
+    _computeAndTypes(items: Array<object|null>|null): Array<object|null>|null;
   }
 }
 

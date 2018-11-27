@@ -40,11 +40,11 @@ declare namespace ApiElements {
    * `--property-shape-document-title` | Mixin applied to the property title | `{}`
    * `--api-type-document-property-parent-color` | Color of the parent property label | `#757575`
    * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
-   * `--api-type-document-child-docs-margin-left` | Margin left of the item's properties description relative to the title when the item is a child property of another property | `24px`
+   * `--api-type-document-child-docs-margin-left` | Margin left of item's properties description relative to the title when the item is a child of another property | `24px`
    * `--api-type-document-type-color` | Color of the "type" trait | `white`
    * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
-   * `--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`,
-   * `--api-type-document-trait-border-radius` | Border radious of a main property traits like type, required, enum | `3px`
+   * `--api-type-document-trait-background-color` | Background color to main range trait (type name) | `#EEEEEE`,
+   * `--api-type-document-trait-border-radius` | Border radious of a main property traits | `3px`
    * `--api-type-document-property-name-width` | Width of the left hand side column with property name | `240px`
    */
   class PropertyShapeDocument extends
@@ -154,15 +154,16 @@ declare namespace ApiElements {
      * `displayName` if `displayName` is set in API spec.
      *
      * @param range Range object of current shape.
+     * @param shape The shape object
      * @returns Display name of the property
      */
-    _computePropertyName(range: object|null, shape: any): String|null;
+    _computePropertyName(range: object|null, shape: object|null): String|null;
 
     /**
      * Computes value for `hasDisplayName` property.
      * Indicates that `displayName` has been defined in the API specification.
      */
-    _computeHasDisplayName(displayName: String|null, propertyName: any): Boolean|null;
+    _computeHasDisplayName(displayName: String|null, propertyName: String|null): Boolean|null;
 
     /**
      * Computes value for `hasParentTypeName`.
@@ -189,7 +190,7 @@ declare namespace ApiElements {
     /**
      * Computes value for `isComplex` property.
      */
-    _computeIsComplex(isUnion: any, isObject: any, isArray: any): any;
+    _computeIsComplex(isUnion: Boolean|null, isObject: Boolean|null, isArray: Boolean|null): Boolean|null;
   }
 }
 
