@@ -11,6 +11,7 @@
     <style>
     :host {
       display: block;
+      @apply --arc-font-body1;
       @apply --api-type-document;
     }
 
@@ -48,6 +49,10 @@
       padding-left: 0px;
       border-left: none;
     }
+
+    .inheritance-label {
+      font-size: var(--api-type-document-inheritance-label-font-size, 16px);
+    }
     </style>
     <template is="dom-if" if="[[aware]]">
       <raml-aware raml="{{amfModel}}" scope="[[aware]]"></raml-aware>
@@ -83,6 +88,18 @@
         </template>
       </div>
       <api-type-document class="union-document" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[_computeUnionProperty(_resolvedType, selectedUnion)]]" narrow="[[narrow]]"></api-type-document>
+    </template>
+
+    <template is="dom-if" if="[[isAnd]]">
+      <template is="dom-repeat" items="[[andTypes]]">
+        <template is="dom-if" if="[[item.label]]">
+          <p class="inheritance-label">Properties inherited from <b>[[item.label]]</b>.</p>
+        </template>
+        <template is="dom-if" if="[[!item.label]]">
+          <p class="inheritance-label">Properties defined inline.</p>
+        </template>
+        <api-type-document class="and-document" amf-model="[[amfModel]]" type="[[item.type]]" narrow="[[narrow]]"></api-type-document>
+      </template>
     </template>
   </template>
   <script>
@@ -180,7 +197,6 @@
         // The type after it has been resolved.
         _resolvedType: {
           type: Object,
-          observer: '_typeChanged',
           computed: '_resolve(type)'
         },
         /**
@@ -226,6 +242,13 @@
           readOnly: true
         },
         /**
+         * True if given `type` is OAS "and" type.
+         */
+        isAnd: {
+          type: Boolean,
+          readOnly: true
+        },
+        /**
          * Computed list of union type types to render in union type
          * selector.
          * Each item has `label` and `isScalar` property.
@@ -235,6 +258,12 @@
         unionTypes: {
           type: Array,
           observer: '_unionTypesChanged'
+        },
+        /**
+         * List of types definition and name for OAS' "and" type
+         */
+        andTypes: {
+          type: Array
         },
         /**
          * Selected index of union type in `unionTypes` array.
@@ -250,6 +279,28 @@
         narrow: Boolean
       };
     }
+
+    static get observers() {
+      return [
+        '__typeChanged(_resolvedType, amfModel)'
+      ];
+    }
+    /**
+     * Called when resolved type or amfModel changed.
+     * Creates a debouncer to compute UI values so it's independent of
+     * order of assigning properties.
+     */
+    __typeChanged() {
+      if (this.__typeChangeDebouncer) {
+        return;
+      }
+      this.__typeChangeDebouncer = true;
+      Polymer.RenderStatus.afterNextRender(this, () => {
+        this.__typeChangeDebouncer = false;
+        this._typeChanged(this._resolvedType);
+      });
+    }
+
     /**
      * Handles type change. Sets basic view control properties.
      *
@@ -263,6 +314,7 @@
       let isArray = false;
       let isObject = false;
       let isUnion = false;
+      let isAnd = false;
       if (type instanceof Array) {
         isObject = true;
       } else if (this._hasType(type, this.ns.raml.vocabularies.shapes + 'ScalarShape') ||
@@ -275,11 +327,20 @@
         isArray = true;
       } else if (this._hasType(type, this.ns.w3.shacl.name + 'NodeShape')) {
         isObject = true;
+      } else if (this._hasType(type, this.ns.raml.vocabularies.shapes + 'AnyShape')) {
+        const key = this._getAmfKey(this.ns.w3.shacl.name + 'and');
+        if (key in type) {
+          isAnd = true;
+          this.andTypes = this._computeAndTypes(type[key]);
+        } else {
+          isScalar = true;
+        }
       }
       this._setIsScalar(isScalar);
       this._setIsArray(isArray);
       this._setIsObject(isObject);
       this._setIsUnion(isUnion);
+      this._setIsAnd(isAnd);
     }
     /**
      * Computes parent name for the array type table.
@@ -345,7 +406,11 @@
       if (!item) {
         return;
       }
+      if (item instanceof Array) {
+        item = item[0];
+      }
       if (this._hasType(item, this.ns.raml.vocabularies.shapes + 'ArrayShape')) {
+        item = this._resolve(item);
         const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'items');
         const items = this._ensureArray(item[key]);
         if (items && items.length === 1) {
@@ -370,14 +435,41 @@
      * @return {Array<Object>} Shape object
      */
     _computeProperties(item) {
-      if (item instanceof Array) {
-        return item;
-      }
       if (!item) {
         return;
       }
+      if (item instanceof Array) {
+        return item;
+      }
       const key = this._getAmfKey(this.ns.w3.shacl.name + 'property');
       return this._ensureArray(item[key]);
+    }
+    /**
+     * Computes list values for `andTypes` property.
+     * @param {Array<Object>} items List of OAS' "and" properties
+     * @return {Array<Object>} An array of type definitions and label to render
+     */
+    _computeAndTypes(items) {
+      if (!items || !items.length) {
+        return;
+      }
+      return items.map((item) => {
+        if (item instanceof Array) {
+          item = item[0];
+        }
+        item = this._resolve(item);
+        let label = this._getValue(item, this.ns.schema.schemaName);
+        if (!label) {
+          label = this._getValue(item, this.ns.w3.shacl.name + 'name');
+        }
+        if (label && label.indexOf('item') === 0) {
+          label = undefined;
+        }
+        return {
+          label,
+          type: item
+        };
+      });
     }
   }
   window.customElements.define(ApiTypeDocument.is, ApiTypeDocument);

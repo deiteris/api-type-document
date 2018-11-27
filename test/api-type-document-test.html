@@ -20,12 +20,10 @@
 
   <script>
   /* global AmfLoader, MockInteractions */
-  suite('api-type-document', () => {
-    let element;
-
+  suite('Model independent', () => {
     suite('Basic', () => {
       test('Renders no params table without data', (done) => {
-        element = fixture('Basic');
+        const element = fixture('Basic');
         flush(() => {
           const doc = element.shadowRoot.querySelector('property-shape-document');
           assert.notOk(doc);
@@ -36,217 +34,578 @@
       });
     });
 
-    suite('Object type', () => {
-      let amf;
-      let typeData;
-      suiteSetup(() => {
-        return AmfLoader.load(4)
-        .then((data) => {
-          amf = data[0];
-          typeData = data[1];
-        });
-      });
-
-      setup((done) => {
+    suite('_computeArrayParentName()', () => {
+      let element;
+      setup(() => {
         element = fixture('Basic');
-        element.amfModel = amf;
-        element.type = typeData;
-        flush(() => done());
       });
 
-      test('isObject is true', () => {
-        assert.isTrue(element.isObject);
+      test('Returns argument', () => {
+        const value = 'abcd';
+        const result = element._computeArrayParentName(value);
+        assert.equal(result, value);
       });
 
-      test('Renders object document', () => {
-        const doc = element.shadowRoot.querySelector('property-shape-document.object-document');
-        assert.ok(doc);
-      });
-
-      test('Does not render array document', () => {
-        const doc = element.shadowRoot.querySelector('property-shape-document.array-document');
-        assert.notOk(doc);
-      });
-
-      test('Does not render scalar document', () => {
-        const doc = element.shadowRoot.querySelector('property-shape-document.shape-document');
-        assert.notOk(doc);
-      });
-
-      test('Does not render union selector', () => {
-        const selector = element.shadowRoot.querySelector('.union-type-selector');
-        assert.notOk(selector);
-      });
-
-      test('Does not render union document', () => {
-        const doc = element.shadowRoot.querySelector('property-shape-document.union-document');
-        assert.notOk(doc);
+      test('Returns empty string when no argument', () => {
+        const result = element._computeArrayParentName();
+        assert.equal(result, '');
       });
     });
 
-    suite('Array type', () => {
-      let amf;
-      let typeData;
-      suiteSetup(() => {
-        return AmfLoader.load(9)
-        .then((data) => {
-          amf = data[0];
-          typeData = data[1];
-        });
-      });
-
-      setup((done) => {
+    suite('_unionTypesChanged()', () => {
+      let element;
+      setup(() => {
         element = fixture('Basic');
-        element.amfModel = amf;
-        element.type = typeData;
-        flush(() => done());
       });
 
-      test('isArray is true', () => {
-        assert.isTrue(element.isArray);
-      });
-
-      test('Does not render object document', () => {
-        const doc = element.shadowRoot.querySelector('property-shape-document.object-document');
-        assert.notOk(doc);
-      });
-
-      test('Renders array document', () => {
-        const doc = element.shadowRoot.querySelector('property-shape-document.array-document');
-        assert.ok(doc);
-      });
-
-      test('Does not render scalar document', () => {
-        const doc = element.shadowRoot.querySelector('property-shape-document.shape-document');
-        assert.notOk(doc);
-      });
-
-      test('Does not render union selector', () => {
-        const selector = element.shadowRoot.querySelector('.union-type-selector');
-        assert.notOk(selector);
-      });
-
-      test('Does not render union document', () => {
-        const doc = element.shadowRoot.querySelector('property-shape-document.union-document');
-        assert.notOk(doc);
-      });
-    });
-
-    suite('Scalar type', () => {
-      let amf;
-      let typeData;
-      suiteSetup(() => {
-        return AmfLoader.load(15)
-        .then((data) => {
-          amf = data[0];
-          typeData = data[1];
-        });
-      });
-
-      setup((done) => {
-        element = fixture('Basic');
-        element.amfModel = amf;
-        element.type = typeData;
-        flush(() => done());
-      });
-
-      test('isScalar is true', () => {
-        assert.isTrue(element.isScalar);
-      });
-
-      test('Does not render object document', () => {
-        const doc = element.shadowRoot.querySelector('property-shape-document.object-document');
-        assert.notOk(doc);
-      });
-
-      test('Does not render array document', () => {
-        const doc = element.shadowRoot.querySelector('property-shape-document.array-document');
-        assert.notOk(doc);
-      });
-
-      test('Renders scalar document', () => {
-        const doc = element.shadowRoot.querySelector('property-shape-document.shape-document');
-        assert.ok(doc);
-      });
-
-      test('Does not render union selector', () => {
-        const selector = element.shadowRoot.querySelector('.union-type-selector');
-        assert.notOk(selector);
-      });
-
-      test('Does not render union document', () => {
-        const doc = element.shadowRoot.querySelector('property-shape-document.union-document');
-        assert.notOk(doc);
-      });
-    });
-
-    suite('Union type', () => {
-      let amf;
-      let typeData;
-      suiteSetup(() => {
-        return AmfLoader.load(7)
-        .then((data) => {
-          amf = data[0];
-          typeData = data[1];
-        });
-      });
-
-      setup((done) => {
-        element = fixture('Basic');
-        element.amfModel = amf;
-        element.type = typeData;
-        flush(() => done());
-      });
-
-      test('isUnion is true', () => {
-        assert.isTrue(element.isUnion);
-      });
-
-      test('Does not render object document', () => {
-        const doc = element.shadowRoot.querySelector('property-shape-document.object-document');
-        assert.notOk(doc);
-      });
-
-      test('Does not render array document', () => {
-        const doc = element.shadowRoot.querySelector('property-shape-document.array-document');
-        assert.notOk(doc);
-      });
-
-      test('Does not render scalar document', () => {
-        const doc = element.shadowRoot.querySelector('property-shape-document.shape-document');
-        assert.notOk(doc);
-      });
-
-      test('Renders union selector', () => {
-        const selector = element.shadowRoot.querySelector('.union-type-selector');
-        assert.ok(selector);
-      });
-
-      test('Selectes first union => selectedUnion = 0', () => {
-        assert.equal(element.selectedUnion, 0);
-      });
-
-      test('Renders union document', () => {
-        const doc = element.shadowRoot.querySelector('api-type-document.union-document');
-        assert.ok(doc);
-      });
-
-      test('Renders 2 union type change buttons', () => {
-        const buttons = element.shadowRoot.querySelectorAll('.union-toggle');
-        assert.equal(buttons.length, 2);
-      });
-
-      test('Button change selection', () => {
-        const buttons = element.shadowRoot.querySelectorAll('.union-toggle');
-        MockInteractions.tap(buttons[1]);
+      test('Does nothing whe no argument', () => {
+        element.selectedUnion = 1;
+        element._unionTypesChanged();
         assert.equal(element.selectedUnion, 1);
       });
 
-      test('Selection change computes properties for the table', () => {
+      test('Re-sets selected union index', () => {
         element.selectedUnion = 1;
-        const doc = element.shadowRoot.querySelector('api-type-document.union-document');
-        const type = typeData['http://a.ml/vocabularies/shapes#anyOf'][1];
-        assert.deepEqual(doc.type, type);
+        element._unionTypesChanged([]);
+        assert.equal(element.selectedUnion, 0);
+      });
+    });
+
+    suite('_unionTypeActive()', () => {
+      let element;
+      setup(() => {
+        element = fixture('Basic');
+      });
+
+      test('Returns false when index does not match', () => {
+        const result = element._unionTypeActive(1, 2);
+        assert.isFalse(result);
+      });
+
+      test('Returns true when index matches', () => {
+        const result = element._unionTypeActive(1, 1);
+        assert.isTrue(result);
+      });
+    });
+  });
+
+  [
+    ['Regulatr model', false],
+    ['Compact model', true]
+  ].forEach((item) => {
+    suite(item[0], () => {
+      suite('_typeChanged()', () => {
+        let element;
+        setup(() => {
+          element = fixture('Basic');
+        });
+
+        test('Computes isScalar for ScalarShape', () => {
+          return AmfLoader.loadType('ScalarType', item[1])
+          .then((data) => {
+            element.amfModel = data[0];
+            element._typeChanged(element._resolve(data[1]));
+            assert.isTrue(element.isScalar);
+          });
+        });
+
+        test('Computes isScalar for NilShape', () => {
+          return AmfLoader.loadType('NilType', item[1])
+          .then((data) => {
+            element.amfModel = data[0];
+            element._typeChanged(element._resolve(data[1]));
+            assert.isTrue(element.isScalar);
+          });
+        });
+
+        test('Computes isScalar for AnyShape', () => {
+          return AmfLoader.loadType('AnyType', item[1])
+          .then((data) => {
+            element.amfModel = data[0];
+            element._typeChanged(element._resolve(data[1]));
+            assert.isTrue(element.isScalar);
+          });
+        });
+
+        test('Computes isUnion for UnionShape', () => {
+          return AmfLoader.loadType('Unionable', item[1])
+          .then((data) => {
+            element.amfModel = data[0];
+            element._typeChanged(element._resolve(data[1]));
+            assert.isTrue(element.isUnion);
+          });
+        });
+
+        test('Sets unionTypes', () => {
+          return AmfLoader.loadType('Unionable', item[1])
+          .then((data) => {
+            element.amfModel = data[0];
+            element._typeChanged(element._resolve(data[1]));
+            assert.typeOf(element.unionTypes, 'array');
+            assert.lengthOf(element.unionTypes, 2);
+          });
+        });
+
+        test('Computes isArray for ArrayShape', () => {
+          return AmfLoader.loadType('ArrayType', item[1])
+          .then((data) => {
+            element.amfModel = data[0];
+            element._typeChanged(element._resolve(data[1]));
+            assert.isTrue(element.isArray);
+          });
+        });
+
+        test('Computes isArray for ArrayShape with [] notation', () => {
+          return AmfLoader.loadType('Arrable2', item[1])
+          .then((data) => {
+            element.amfModel = data[0];
+            element._typeChanged(element._resolve(data[1]));
+            assert.isTrue(element.isArray);
+          });
+        });
+
+        test('Computes isObject for NodeShape', () => {
+          return AmfLoader.loadType('Notification', item[1])
+          .then((data) => {
+            element.amfModel = data[0];
+            element._typeChanged(element._resolve(data[1]));
+            assert.isTrue(element.isObject);
+          });
+        });
+
+        test('Computes isAnd for AnyShape with "and" property', () => {
+          return AmfLoader.loadType('Pet', item[1], 'Petstore')
+          .then((data) => {
+            element.amfModel = data[0];
+            element._typeChanged(element._resolve(data[1]));
+            assert.isTrue(element.isAnd);
+          });
+        });
+
+        test('Sets andTypes for AnyShape with "and" property', () => {
+          return AmfLoader.loadType('Pet', item[1], 'Petstore')
+          .then((data) => {
+            element.amfModel = data[0];
+            element._typeChanged(element._resolve(data[1]));
+            assert.typeOf(element.andTypes, 'array');
+            assert.lengthOf(element.andTypes, 3);
+          });
+        });
+      });
+
+      suite('_selectUnion()', () => {
+        let element;
+        let amf;
+        let type;
+        suiteSetup(() => {
+          return AmfLoader.loadType('Unionable', item[1])
+          .then((data) => {
+            amf = data[0];
+            type = data[1];
+          });
+        });
+
+        setup((done) => {
+          element = fixture('Basic');
+          element.amfModel = amf;
+          element.type = type;
+          Polymer.RenderStatus.afterNextRender(element, () => {
+            flush(() => done());
+          });
+        });
+
+        test('selectedUnion is 0', () => {
+          assert.equal(element.selectedUnion, 0);
+        });
+
+        test('unionTypes is computed', () => {
+          assert.typeOf(element.unionTypes, 'array');
+        });
+
+        test('Sets event target as active when selecting current selection', (done) => {
+          flush(() => {
+            const nodes = element.shadowRoot.querySelectorAll('.union-type-selector .union-toggle');
+            nodes[0].active = false;
+            MockInteractions.tap(nodes[0]);
+            assert.isTrue(nodes[0].active);
+            done();
+          });
+        });
+
+        test('Changes the selection', (done) => {
+          flush(() => {
+            const nodes = element.shadowRoot.querySelectorAll('.union-type-selector .union-toggle');
+            MockInteractions.tap(nodes[1]);
+            assert.equal(element.selectedUnion, 1);
+            done();
+          });
+        });
+      });
+
+      suite('_computeUnionProperty()', () => {
+        let element;
+        setup(() => {
+          element = fixture('Basic');
+        });
+
+        test('Computes union type', () => {
+          return AmfLoader.loadType('Unionable', item[1])
+          .then((data) => {
+            element.amfModel = data[0];
+            const result = element._computeUnionProperty(data[1], 0);
+            assert.typeOf(result, 'object');
+          });
+        });
+
+        test('Returns undefined when no type', () => {
+          const result = element._computeUnionProperty();
+          assert.isUndefined(result);
+        });
+
+        test('Returns undefined when no anyOf property', () => {
+          const result = element._computeUnionProperty({});
+          assert.isUndefined(result);
+        });
+
+        test('Computes union type for an array item', () => {
+          return AmfLoader.loadType('UnionArray', item[1])
+          .then((data) => {
+            element.amfModel = data[0];
+            const result = element._computeUnionProperty(data[1], 0);
+            assert.isTrue(element._hasType(result, ApiElements.Amf.ns.raml.vocabularies.shapes + 'ScalarShape'));
+          });
+        });
+      });
+
+      suite('_computeProperties()', () => {
+        let element;
+        setup(() => {
+          element = fixture('Basic');
+        });
+
+        test('Returns passed item is array', () => {
+          // Used when recuresively rendering properties
+          const result = element._computeProperties(['test']);
+          assert.deepEqual(result, ['test']);
+        });
+
+        test('Returns undefined for no argument', () => {
+          const result = element._computeProperties();
+          assert.isUndefined(result);
+        });
+
+        test('Computes object properties', () => {
+          return AmfLoader.loadType('Image', item[1])
+          .then((data) => {
+            element.amfModel = data[0];
+            const result = element._computeProperties(data[1]);
+            assert.typeOf(result, 'array');
+            assert.lengthOf(result, 2);
+          });
+        });
+      });
+
+      suite('_computeAndTypes()', () => {
+        let element;
+        let amf;
+        let type;
+        let list;
+        suiteSetup(() => {
+          return AmfLoader.loadType('Pet', item[1], 'Petstore')
+          .then((data) => {
+            amf = data[0];
+            type = data[1];
+          });
+        });
+
+        setup(() => {
+          element = fixture('Basic');
+          element.amfModel = amf;
+          const key = element._getAmfKey(element.ns.w3.shacl.name + 'and');
+          list = type[key];
+        });
+
+        test('Returns an array', () => {
+          const result = element._computeAndTypes(list);
+          assert.typeOf(result, 'array');
+        });
+
+        test('Label is computed', () => {
+          const result = element._computeAndTypes(list);
+          assert.equal(result[0].label, 'NewPet');
+        });
+
+        test('Type is computed', () => {
+          const result = element._computeAndTypes(list);
+          assert.typeOf(result[0].type, 'object');
+        });
+
+        test('Inline label is undefined', () => {
+          const result = element._computeAndTypes(list);
+          assert.isUndefined(result[2].label);
+        });
+      });
+
+      suite('Object type', () => {
+        let element;
+        setup((done) => {
+          AmfLoader.loadType('Notification', item[1])
+          .then((data) => {
+            element = fixture('Basic');
+            element.amfModel = data[0];
+            element.type = data[1];
+            Polymer.RenderStatus.afterNextRender(element, () => {
+              flush(() => done());
+            });
+          });
+        });
+
+        test('isObject is true', () => {
+          assert.isTrue(element.isObject);
+        });
+
+        test('Renders object document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.object-document');
+          assert.ok(doc);
+        });
+
+        test('Does not render array document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.array-document');
+          assert.notOk(doc);
+        });
+
+        test('Does not render scalar document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.shape-document');
+          assert.notOk(doc);
+        });
+
+        test('Does not render union selector', () => {
+          const selector = element.shadowRoot.querySelector('.union-type-selector');
+          assert.notOk(selector);
+        });
+
+        test('Does not render union document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.union-document');
+          assert.notOk(doc);
+        });
+      });
+
+      suite('Array type', () => {
+        let element;
+        setup((done) => {
+          AmfLoader.loadType('ArrayType', item[1])
+          .then((data) => {
+            element = fixture('Basic');
+            element.amfModel = data[0];
+            element.type = data[1];
+            Polymer.RenderStatus.afterNextRender(element, () => {
+              flush(() => done());
+            });
+          });
+        });
+
+        test('isArray is true', () => {
+          assert.isTrue(element.isArray);
+        });
+
+        test('Does not render object document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.object-document');
+          assert.notOk(doc);
+        });
+
+        test('Renders array document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.array-document');
+          assert.ok(doc);
+        });
+
+        test('Does not render scalar document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.shape-document');
+          assert.notOk(doc);
+        });
+
+        test('Does not render union selector', () => {
+          const selector = element.shadowRoot.querySelector('.union-type-selector');
+          assert.notOk(selector);
+        });
+
+        test('Does not render union document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.union-document');
+          assert.notOk(doc);
+        });
+      });
+
+      suite('Scalar type', () => {
+        let element;
+        setup((done) => {
+          AmfLoader.loadType('BooleanType', item[1])
+          .then((data) => {
+            element = fixture('Basic');
+            element.amfModel = data[0];
+            element.type = data[1];
+            Polymer.RenderStatus.afterNextRender(element, () => {
+              flush(() => done());
+            });
+          });
+        });
+
+        test('isScalar is true', () => {
+          assert.isTrue(element.isScalar);
+        });
+
+        test('Does not render object document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.object-document');
+          assert.notOk(doc);
+        });
+
+        test('Does not render array document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.array-document');
+          assert.notOk(doc);
+        });
+
+        test('Renders scalar document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.shape-document');
+          assert.ok(doc);
+        });
+
+        test('Does not render union selector', () => {
+          const selector = element.shadowRoot.querySelector('.union-type-selector');
+          assert.notOk(selector);
+        });
+
+        test('Does not render union document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.union-document');
+          assert.notOk(doc);
+        });
+      });
+
+      suite('Nil type', () => {
+        let element;
+        setup((done) => {
+          AmfLoader.loadType('NilType', item[1])
+          .then((data) => {
+            element = fixture('Basic');
+            element.amfModel = data[0];
+            element.type = data[1];
+            Polymer.RenderStatus.afterNextRender(element, () => {
+              flush(() => done());
+            });
+          });
+        });
+
+        test('isScalar is true', () => {
+          assert.isTrue(element.isScalar);
+        });
+      });
+
+      suite('Union type', () => {
+        let element;
+        setup((done) => {
+          AmfLoader.loadType('Unionable', item[1])
+          .then((data) => {
+            element = fixture('Basic');
+            element.amfModel = data[0];
+            element.type = data[1];
+            Polymer.RenderStatus.afterNextRender(element, () => {
+              flush(() => done());
+            });
+          });
+        });
+
+        test('isUnion is true', () => {
+          assert.isTrue(element.isUnion);
+        });
+
+        test('Does not render object document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.object-document');
+          assert.notOk(doc);
+        });
+
+        test('Does not render array document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.array-document');
+          assert.notOk(doc);
+        });
+
+        test('Does not render scalar document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.shape-document');
+          assert.notOk(doc);
+        });
+
+        test('Renders union selector', () => {
+          const selector = element.shadowRoot.querySelector('.union-type-selector');
+          assert.ok(selector);
+        });
+
+        test('Selectes first union => selectedUnion = 0', () => {
+          assert.equal(element.selectedUnion, 0);
+        });
+
+        test('Renders union document', () => {
+          const doc = element.shadowRoot.querySelector('api-type-document.union-document');
+          assert.ok(doc);
+        });
+
+        test('Renders 2 union type change buttons', () => {
+          const buttons = element.shadowRoot.querySelectorAll('.union-toggle');
+          assert.equal(buttons.length, 2);
+        });
+
+        test('Button change selection', () => {
+          const buttons = element.shadowRoot.querySelectorAll('.union-toggle');
+          MockInteractions.tap(buttons[1]);
+          assert.equal(element.selectedUnion, 1);
+        });
+
+        test('Selection change computes properties for the table', () => {
+          element.selectedUnion = 1;
+          const doc = element.shadowRoot.querySelector('api-type-document.union-document');
+          const key = element._getAmfKey(ApiElements.Amf.ns.raml.vocabularies.shapes + 'anyOf');
+          const type = element.type[key][1];
+          assert.deepEqual(doc.type, type);
+        });
+      });
+
+      suite('And type', () => {
+        let element;
+        setup((done) => {
+          AmfLoader.loadType('Pet', item[1], 'Petstore')
+          .then((data) => {
+            element = fixture('Basic');
+            element.amfModel = data[0];
+            element.type = data[1];
+            Polymer.RenderStatus.afterNextRender(element, () => {
+              flush(() => done());
+            });
+          });
+        });
+
+        test('isAnd is true', () => {
+          assert.isTrue(element.isAnd);
+        });
+
+        test('Does not render object document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.object-document');
+          assert.notOk(doc);
+        });
+
+        test('Does not render array document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.array-document');
+          assert.notOk(doc);
+        });
+
+        test('Does not render scalar document', () => {
+          const doc = element.shadowRoot.querySelector('property-shape-document.shape-document');
+          assert.notOk(doc);
+        });
+
+        test('"And" documents are in the DOM', () => {
+          const docs = element.shadowRoot.querySelectorAll('api-type-document.and-document');
+          assert.lengthOf(docs, 3);
+        });
+
+        test('Inheritance labels are rendered', () => {
+          const docs = element.shadowRoot.querySelectorAll('.inheritance-label');
+          assert.lengthOf(docs, 3);
+        });
       });
     });
   });

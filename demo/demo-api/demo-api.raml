@@ -133,16 +133,24 @@ types:
         "processVar2": "value2"
       }
   Notification:
-   properties:
-    scalarArray:
-      required: true
-      type: array
-      items: integer
-      description: Integer array item type
-      displayName: Scalar array (integer)
-    otherScalar:
-      required: false
-      type: string[]
+    properties:
+      scalarArray:
+        required: true
+        type: array
+        items: integer
+        description: Integer array item type
+        displayName: Scalar array (integer)
+      otherScalar:
+        required: false
+        type: string[]
+  AnyType: any
+  NilType: nil
+  ScalarType: string
+  BooleanType: boolean
+  Arrable2:
+    type: string[]
+  UnionArray:
+    type: Arrable2 | string
 resourceTypes:
   ErrorredResource:
     get:

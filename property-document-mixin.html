@@ -264,7 +264,6 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
       }
       return list.map((item) => {
         if (item instanceof Array) {
-          // Why??
           item = item[0];
         }
         item = this._resolve(item);
