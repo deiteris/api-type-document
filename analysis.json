@@ -424,11 +424,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 128,
+              "line": 129,
               "column": 8
             },
             "end": {
-              "line": 128,
+              "line": 129,
               "column": 32
             }
           },
@@ -493,11 +493,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 132,
+              "line": 133,
               "column": 8
             },
             "end": {
-              "line": 138,
+              "line": 139,
               "column": 9
             }
           },
@@ -975,11 +975,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 147,
+              "line": 148,
               "column": 4
             },
             "end": {
-              "line": 179,
+              "line": 180,
               "column": 5
             }
           },
@@ -1004,11 +1004,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 186,
+              "line": 187,
               "column": 4
             },
             "end": {
-              "line": 196,
+              "line": 197,
               "column": 5
             }
           },
@@ -1033,11 +1033,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 206,
+              "line": 207,
               "column": 4
             },
             "end": {
-              "line": 214,
+              "line": 215,
               "column": 5
             }
           },
@@ -1061,11 +1061,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 221,
+              "line": 222,
               "column": 4
             },
             "end": {
-              "line": 239,
+              "line": 240,
               "column": 5
             }
           },
@@ -1095,11 +1095,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 246,
+              "line": 247,
               "column": 4
             },
             "end": {
-              "line": 253,
+              "line": 254,
               "column": 5
             }
           },
@@ -1129,11 +1129,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 260,
+              "line": 261,
               "column": 4
             },
             "end": {
-              "line": 272,
+              "line": 273,
               "column": 5
             }
           },
@@ -1163,11 +1163,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 279,
+              "line": 280,
               "column": 4
             },
             "end": {
-              "line": 282,
+              "line": 283,
               "column": 5
             }
           },
@@ -1196,11 +1196,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 290,
+              "line": 291,
               "column": 4
             },
             "end": {
-              "line": 300,
+              "line": 301,
               "column": 5
             }
           },
@@ -1229,11 +1229,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 309,
+              "line": 310,
               "column": 4
             },
             "end": {
-              "line": 313,
+              "line": 314,
               "column": 5
             }
           },
@@ -1262,11 +1262,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 320,
+              "line": 321,
               "column": 4
             },
             "end": {
-              "line": 322,
+              "line": 323,
               "column": 5
             }
           },
@@ -1290,11 +1290,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 329,
+              "line": 330,
               "column": 4
             },
             "end": {
-              "line": 331,
+              "line": 332,
               "column": 5
             }
           },
@@ -1318,11 +1318,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 337,
+              "line": 338,
               "column": 4
             },
             "end": {
-              "line": 339,
+              "line": 340,
               "column": 5
             }
           },
@@ -1347,11 +1347,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 341,
+              "line": 342,
               "column": 4
             },
             "end": {
-              "line": 343,
+              "line": 344,
               "column": 5
             }
           },
@@ -1370,11 +1370,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 345,
+              "line": 346,
               "column": 4
             },
             "end": {
-              "line": 347,
+              "line": 348,
               "column": 5
             }
           },
@@ -1393,11 +1393,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 349,
+              "line": 350,
               "column": 4
             },
             "end": {
-              "line": 351,
+              "line": 352,
               "column": 5
             }
           },
@@ -1410,40 +1410,17 @@
           "inheritedFrom": "ApiElements.AmfHelperMixin"
         },
         {
-          "name": "_computeApiVersion",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../amf-helper-mixin/amf-helper-mixin.html",
-            "start": {
-              "line": 353,
-              "column": 4
-            },
-            "end": {
-              "line": 360,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "amfModel"
-            }
-          ],
-          "inheritedFrom": "ApiElements.AmfHelperMixin"
-        },
-        {
           "name": "_computeServerVariables",
           "description": "Computes value for `serverVariables` property.",
           "privacy": "protected",
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 368,
+              "line": 359,
               "column": 4
             },
             "end": {
-              "line": 370,
+              "line": 361,
               "column": 5
             }
           },
@@ -1468,11 +1445,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 377,
+              "line": 368,
               "column": 4
             },
             "end": {
-              "line": 379,
+              "line": 370,
               "column": 5
             }
           },
@@ -1497,11 +1474,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 386,
+              "line": 377,
               "column": 4
             },
             "end": {
-              "line": 388,
+              "line": 379,
               "column": 5
             }
           },
@@ -1522,6 +1499,34 @@
         {
           "name": "_computeReturns",
           "description": "Computes value for `returns` property",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../amf-helper-mixin/amf-helper-mixin.html",
+            "start": {
+              "line": 386,
+              "column": 4
+            },
+            "end": {
+              "line": 388,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "method",
+              "type": "Object",
+              "description": "AMF `supportedOperation` model"
+            }
+          ],
+          "return": {
+            "type": "(Array.<Object> | undefined)"
+          },
+          "inheritedFrom": "ApiElements.AmfHelperMixin"
+        },
+        {
+          "name": "_computeSecurity",
+          "description": "Computes value for `security` property",
           "privacy": "protected",
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
@@ -1548,8 +1553,8 @@
           "inheritedFrom": "ApiElements.AmfHelperMixin"
         },
         {
-          "name": "_computeSecurity",
-          "description": "Computes value for `security` property",
+          "name": "_computeHasCustomProperties",
+          "description": "Computes value for `hasCustomProperties` property.",
           "privacy": "protected",
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
@@ -1559,34 +1564,6 @@
             },
             "end": {
               "line": 406,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "method",
-              "type": "Object",
-              "description": "AMF `supportedOperation` model"
-            }
-          ],
-          "return": {
-            "type": "(Array.<Object> | undefined)"
-          },
-          "inheritedFrom": "ApiElements.AmfHelperMixin"
-        },
-        {
-          "name": "_computeHasCustomProperties",
-          "description": "Computes value for `hasCustomProperties` property.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../amf-helper-mixin/amf-helper-mixin.html",
-            "start": {
-              "line": 413,
-              "column": 4
-            },
-            "end": {
-              "line": 415,
               "column": 5
             }
           },
@@ -1604,17 +1581,44 @@
           "inheritedFrom": "ApiElements.AmfHelperMixin"
         },
         {
+          "name": "_computeApiVersion",
+          "description": "Computes API version from the AMF model.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../amf-helper-mixin/amf-helper-mixin.html",
+            "start": {
+              "line": 413,
+              "column": 4
+            },
+            "end": {
+              "line": 419,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "amfModel",
+              "type": "(Object | Array.<Object>)"
+            }
+          ],
+          "return": {
+            "type": "(String | undefined)"
+          },
+          "inheritedFrom": "ApiElements.AmfHelperMixin"
+        },
+        {
           "name": "_computeEncodes",
           "description": "Computes model's `encodes` property.",
           "privacy": "protected",
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 422,
+              "line": 426,
               "column": 4
             },
             "end": {
-              "line": 434,
+              "line": 438,
               "column": 5
             }
           },
@@ -1639,11 +1643,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 441,
+              "line": 445,
               "column": 4
             },
             "end": {
-              "line": 454,
+              "line": 458,
               "column": 5
             }
           },
@@ -1668,11 +1672,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 461,
+              "line": 465,
               "column": 4
             },
             "end": {
-              "line": 474,
+              "line": 478,
               "column": 5
             }
           },
@@ -1697,11 +1701,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 481,
+              "line": 485,
               "column": 4
             },
             "end": {
-              "line": 489,
+              "line": 493,
               "column": 5
             }
           },
@@ -1726,11 +1730,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 496,
+              "line": 500,
               "column": 4
             },
             "end": {
-              "line": 504,
+              "line": 508,
               "column": 5
             }
           },
@@ -1755,11 +1759,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 514,
+              "line": 518,
               "column": 4
             },
             "end": {
-              "line": 526,
+              "line": 530,
               "column": 5
             }
           },
@@ -1799,11 +1803,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 536,
+              "line": 540,
               "column": 4
             },
             "end": {
-              "line": 547,
+              "line": 551,
               "column": 5
             }
           },
@@ -1838,11 +1842,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 557,
+              "line": 561,
               "column": 4
             },
             "end": {
-              "line": 561,
+              "line": 565,
               "column": 5
             }
           },
@@ -1872,11 +1876,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 573,
+              "line": 577,
               "column": 4
             },
             "end": {
-              "line": 587,
+              "line": 591,
               "column": 5
             }
           },
@@ -1906,11 +1910,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 594,
+              "line": 598,
               "column": 4
             },
             "end": {
-              "line": 600,
+              "line": 604,
               "column": 5
             }
           },
@@ -1934,11 +1938,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 607,
+              "line": 611,
               "column": 4
             },
             "end": {
-              "line": 615,
+              "line": 619,
               "column": 5
             }
           },
@@ -1962,11 +1966,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 623,
+              "line": 627,
               "column": 4
             },
             "end": {
-              "line": 641,
+              "line": 648,
               "column": 5
             }
           },
@@ -1990,11 +1994,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 647,
+              "line": 654,
               "column": 4
             },
             "end": {
-              "line": 653,
+              "line": 660,
               "column": 5
             }
           },
@@ -2018,11 +2022,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 661,
+              "line": 668,
               "column": 4
             },
             "end": {
-              "line": 664,
+              "line": 671,
               "column": 5
             }
           },
@@ -2052,11 +2056,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 672,
+              "line": 679,
               "column": 4
             },
             "end": {
-              "line": 683,
+              "line": 690,
               "column": 5
             }
           },
@@ -2086,11 +2090,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 691,
+              "line": 698,
               "column": 4
             },
             "end": {
-              "line": 697,
+              "line": 704,
               "column": 5
             }
           },
@@ -2120,11 +2124,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 704,
+              "line": 711,
               "column": 4
             },
             "end": {
-              "line": 711,
+              "line": 718,
               "column": 5
             }
           },
@@ -2154,11 +2158,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 718,
+              "line": 725,
               "column": 4
             },
             "end": {
-              "line": 739,
+              "line": 746,
               "column": 5
             }
           },
@@ -2188,11 +2192,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 748,
+              "line": 755,
               "column": 4
             },
             "end": {
-              "line": 755,
+              "line": 762,
               "column": 5
             }
           },
@@ -2222,11 +2226,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 764,
+              "line": 771,
               "column": 4
             },
             "end": {
-              "line": 781,
+              "line": 788,
               "column": 5
             }
           },
@@ -2261,11 +2265,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 788,
+              "line": 795,
               "column": 4
             },
             "end": {
-              "line": 803,
+              "line": 810,
               "column": 5
             }
           },
@@ -2295,11 +2299,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 811,
+              "line": 818,
               "column": 4
             },
             "end": {
-              "line": 816,
+              "line": 823,
               "column": 5
             }
           },
@@ -2329,11 +2333,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 824,
+              "line": 831,
               "column": 4
             },
             "end": {
-              "line": 831,
+              "line": 838,
               "column": 5
             }
           },
@@ -2363,11 +2367,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 838,
+              "line": 845,
               "column": 4
             },
             "end": {
-              "line": 887,
+              "line": 894,
               "column": 5
             }
           },
@@ -2392,11 +2396,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 889,
+              "line": 896,
               "column": 4
             },
             "end": {
-              "line": 911,
+              "line": 918,
               "column": 5
             }
           },
@@ -2418,11 +2422,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 913,
+              "line": 920,
               "column": 4
             },
             "end": {
-              "line": 932,
+              "line": 937,
               "column": 5
             }
           },
@@ -2444,11 +2448,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 934,
+              "line": 939,
               "column": 4
             },
             "end": {
-              "line": 945,
+              "line": 950,
               "column": 5
             }
           },
@@ -2470,11 +2474,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 954,
+              "line": 959,
               "column": 4
             },
             "end": {
-              "line": 967,
+              "line": 972,
               "column": 5
             }
           },
@@ -2503,11 +2507,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 974,
+              "line": 979,
               "column": 4
             },
             "end": {
-              "line": 995,
+              "line": 1000,
               "column": 5
             }
           },
@@ -2532,11 +2536,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 1001,
+              "line": 1006,
               "column": 4
             },
             "end": {
-              "line": 1027,
+              "line": 1032,
               "column": 5
             }
           },
@@ -2800,11 +2804,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 128,
+              "line": 129,
               "column": 8
             },
             "end": {
-              "line": 128,
+              "line": 129,
               "column": 32
             }
           },
@@ -2854,11 +2858,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 132,
+              "line": 133,
               "column": 8
             },
             "end": {
-              "line": 138,
+              "line": 139,
               "column": 9
             }
           },
@@ -3036,11 +3040,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 128,
+              "line": 129,
               "column": 8
             },
             "end": {
-              "line": 128,
+              "line": 129,
               "column": 32
             }
           },
@@ -3104,11 +3108,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 132,
+              "line": 133,
               "column": 8
             },
             "end": {
-              "line": 138,
+              "line": 139,
               "column": 9
             }
           },
@@ -3725,11 +3729,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 147,
+              "line": 148,
               "column": 4
             },
             "end": {
-              "line": 179,
+              "line": 180,
               "column": 5
             }
           },
@@ -3754,11 +3758,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 186,
+              "line": 187,
               "column": 4
             },
             "end": {
-              "line": 196,
+              "line": 197,
               "column": 5
             }
           },
@@ -3783,11 +3787,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 206,
+              "line": 207,
               "column": 4
             },
             "end": {
-              "line": 214,
+              "line": 215,
               "column": 5
             }
           },
@@ -3811,11 +3815,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 221,
+              "line": 222,
               "column": 4
             },
             "end": {
-              "line": 239,
+              "line": 240,
               "column": 5
             }
           },
@@ -3845,11 +3849,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 246,
+              "line": 247,
               "column": 4
             },
             "end": {
-              "line": 253,
+              "line": 254,
               "column": 5
             }
           },
@@ -3879,11 +3883,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 260,
+              "line": 261,
               "column": 4
             },
             "end": {
-              "line": 272,
+              "line": 273,
               "column": 5
             }
           },
@@ -3913,11 +3917,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 279,
+              "line": 280,
               "column": 4
             },
             "end": {
-              "line": 282,
+              "line": 283,
               "column": 5
             }
           },
@@ -3946,11 +3950,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 290,
+              "line": 291,
               "column": 4
             },
             "end": {
-              "line": 300,
+              "line": 301,
               "column": 5
             }
           },
@@ -3979,11 +3983,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 309,
+              "line": 310,
               "column": 4
             },
             "end": {
-              "line": 313,
+              "line": 314,
               "column": 5
             }
           },
@@ -4012,11 +4016,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 320,
+              "line": 321,
               "column": 4
             },
             "end": {
-              "line": 322,
+              "line": 323,
               "column": 5
             }
           },
@@ -4040,11 +4044,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 329,
+              "line": 330,
               "column": 4
             },
             "end": {
-              "line": 331,
+              "line": 332,
               "column": 5
             }
           },
@@ -4095,11 +4099,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 341,
+              "line": 342,
               "column": 4
             },
             "end": {
-              "line": 343,
+              "line": 344,
               "column": 5
             }
           },
@@ -4118,11 +4122,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 345,
+              "line": 346,
               "column": 4
             },
             "end": {
-              "line": 347,
+              "line": 348,
               "column": 5
             }
           },
@@ -4141,11 +4145,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 349,
+              "line": 350,
               "column": 4
             },
             "end": {
-              "line": 351,
+              "line": 352,
               "column": 5
             }
           },
@@ -4158,40 +4162,17 @@
           "inheritedFrom": "ApiElements.AmfHelperMixin"
         },
         {
-          "name": "_computeApiVersion",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../amf-helper-mixin/amf-helper-mixin.html",
-            "start": {
-              "line": 353,
-              "column": 4
-            },
-            "end": {
-              "line": 360,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "amfModel"
-            }
-          ],
-          "inheritedFrom": "ApiElements.AmfHelperMixin"
-        },
-        {
           "name": "_computeServerVariables",
           "description": "Computes value for `serverVariables` property.",
           "privacy": "protected",
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 368,
+              "line": 359,
               "column": 4
             },
             "end": {
-              "line": 370,
+              "line": 361,
               "column": 5
             }
           },
@@ -4216,11 +4197,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 377,
+              "line": 368,
               "column": 4
             },
             "end": {
-              "line": 379,
+              "line": 370,
               "column": 5
             }
           },
@@ -4245,11 +4226,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 386,
+              "line": 377,
               "column": 4
             },
             "end": {
-              "line": 388,
+              "line": 379,
               "column": 5
             }
           },
@@ -4270,6 +4251,34 @@
         {
           "name": "_computeReturns",
           "description": "Computes value for `returns` property",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../amf-helper-mixin/amf-helper-mixin.html",
+            "start": {
+              "line": 386,
+              "column": 4
+            },
+            "end": {
+              "line": 388,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "method",
+              "type": "Object",
+              "description": "AMF `supportedOperation` model"
+            }
+          ],
+          "return": {
+            "type": "(Array.<Object> | undefined)"
+          },
+          "inheritedFrom": "ApiElements.AmfHelperMixin"
+        },
+        {
+          "name": "_computeSecurity",
+          "description": "Computes value for `security` property",
           "privacy": "protected",
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
@@ -4296,8 +4305,8 @@
           "inheritedFrom": "ApiElements.AmfHelperMixin"
         },
         {
-          "name": "_computeSecurity",
-          "description": "Computes value for `security` property",
+          "name": "_computeHasCustomProperties",
+          "description": "Computes value for `hasCustomProperties` property.",
           "privacy": "protected",
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
@@ -4307,34 +4316,6 @@
             },
             "end": {
               "line": 406,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "method",
-              "type": "Object",
-              "description": "AMF `supportedOperation` model"
-            }
-          ],
-          "return": {
-            "type": "(Array.<Object> | undefined)"
-          },
-          "inheritedFrom": "ApiElements.AmfHelperMixin"
-        },
-        {
-          "name": "_computeHasCustomProperties",
-          "description": "Computes value for `hasCustomProperties` property.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../amf-helper-mixin/amf-helper-mixin.html",
-            "start": {
-              "line": 413,
-              "column": 4
-            },
-            "end": {
-              "line": 415,
               "column": 5
             }
           },
@@ -4352,17 +4333,44 @@
           "inheritedFrom": "ApiElements.AmfHelperMixin"
         },
         {
+          "name": "_computeApiVersion",
+          "description": "Computes API version from the AMF model.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../amf-helper-mixin/amf-helper-mixin.html",
+            "start": {
+              "line": 413,
+              "column": 4
+            },
+            "end": {
+              "line": 419,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "amfModel",
+              "type": "(Object | Array.<Object>)"
+            }
+          ],
+          "return": {
+            "type": "(String | undefined)"
+          },
+          "inheritedFrom": "ApiElements.AmfHelperMixin"
+        },
+        {
           "name": "_computeEncodes",
           "description": "Computes model's `encodes` property.",
           "privacy": "protected",
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 422,
+              "line": 426,
               "column": 4
             },
             "end": {
-              "line": 434,
+              "line": 438,
               "column": 5
             }
           },
@@ -4387,11 +4395,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 441,
+              "line": 445,
               "column": 4
             },
             "end": {
-              "line": 454,
+              "line": 458,
               "column": 5
             }
           },
@@ -4416,11 +4424,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 461,
+              "line": 465,
               "column": 4
             },
             "end": {
-              "line": 474,
+              "line": 478,
               "column": 5
             }
           },
@@ -4445,11 +4453,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 481,
+              "line": 485,
               "column": 4
             },
             "end": {
-              "line": 489,
+              "line": 493,
               "column": 5
             }
           },
@@ -4474,11 +4482,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 496,
+              "line": 500,
               "column": 4
             },
             "end": {
-              "line": 504,
+              "line": 508,
               "column": 5
             }
           },
@@ -4503,11 +4511,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 514,
+              "line": 518,
               "column": 4
             },
             "end": {
-              "line": 526,
+              "line": 530,
               "column": 5
             }
           },
@@ -4547,11 +4555,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 536,
+              "line": 540,
               "column": 4
             },
             "end": {
-              "line": 547,
+              "line": 551,
               "column": 5
             }
           },
@@ -4586,11 +4594,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 557,
+              "line": 561,
               "column": 4
             },
             "end": {
-              "line": 561,
+              "line": 565,
               "column": 5
             }
           },
@@ -4620,11 +4628,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 573,
+              "line": 577,
               "column": 4
             },
             "end": {
-              "line": 587,
+              "line": 591,
               "column": 5
             }
           },
@@ -4654,11 +4662,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 594,
+              "line": 598,
               "column": 4
             },
             "end": {
-              "line": 600,
+              "line": 604,
               "column": 5
             }
           },
@@ -4682,11 +4690,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 607,
+              "line": 611,
               "column": 4
             },
             "end": {
-              "line": 615,
+              "line": 619,
               "column": 5
             }
           },
@@ -4710,11 +4718,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 623,
+              "line": 627,
               "column": 4
             },
             "end": {
-              "line": 641,
+              "line": 648,
               "column": 5
             }
           },
@@ -4738,11 +4746,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 647,
+              "line": 654,
               "column": 4
             },
             "end": {
-              "line": 653,
+              "line": 660,
               "column": 5
             }
           },
@@ -4766,11 +4774,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 661,
+              "line": 668,
               "column": 4
             },
             "end": {
-              "line": 664,
+              "line": 671,
               "column": 5
             }
           },
@@ -4800,11 +4808,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 672,
+              "line": 679,
               "column": 4
             },
             "end": {
-              "line": 683,
+              "line": 690,
               "column": 5
             }
           },
@@ -4834,11 +4842,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 691,
+              "line": 698,
               "column": 4
             },
             "end": {
-              "line": 697,
+              "line": 704,
               "column": 5
             }
           },
@@ -4868,11 +4876,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 704,
+              "line": 711,
               "column": 4
             },
             "end": {
-              "line": 711,
+              "line": 718,
               "column": 5
             }
           },
@@ -4902,11 +4910,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 718,
+              "line": 725,
               "column": 4
             },
             "end": {
-              "line": 739,
+              "line": 746,
               "column": 5
             }
           },
@@ -4936,11 +4944,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 748,
+              "line": 755,
               "column": 4
             },
             "end": {
-              "line": 755,
+              "line": 762,
               "column": 5
             }
           },
@@ -4994,11 +5002,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 788,
+              "line": 795,
               "column": 4
             },
             "end": {
-              "line": 803,
+              "line": 810,
               "column": 5
             }
           },
@@ -5028,11 +5036,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 811,
+              "line": 818,
               "column": 4
             },
             "end": {
-              "line": 816,
+              "line": 823,
               "column": 5
             }
           },
@@ -5062,11 +5070,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 824,
+              "line": 831,
               "column": 4
             },
             "end": {
-              "line": 831,
+              "line": 838,
               "column": 5
             }
           },
@@ -5096,11 +5104,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 838,
+              "line": 845,
               "column": 4
             },
             "end": {
-              "line": 887,
+              "line": 894,
               "column": 5
             }
           },
@@ -5125,11 +5133,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 889,
+              "line": 896,
               "column": 4
             },
             "end": {
-              "line": 911,
+              "line": 918,
               "column": 5
             }
           },
@@ -5151,11 +5159,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 913,
+              "line": 920,
               "column": 4
             },
             "end": {
-              "line": 932,
+              "line": 937,
               "column": 5
             }
           },
@@ -5177,11 +5185,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 934,
+              "line": 939,
               "column": 4
             },
             "end": {
-              "line": 945,
+              "line": 950,
               "column": 5
             }
           },
@@ -5203,11 +5211,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 954,
+              "line": 959,
               "column": 4
             },
             "end": {
-              "line": 967,
+              "line": 972,
               "column": 5
             }
           },
@@ -5236,11 +5244,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 974,
+              "line": 979,
               "column": 4
             },
             "end": {
-              "line": 995,
+              "line": 1000,
               "column": 5
             }
           },
@@ -5265,11 +5273,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 1001,
+              "line": 1006,
               "column": 4
             },
             "end": {
-              "line": 1027,
+              "line": 1032,
               "column": 5
             }
           },
@@ -5488,11 +5496,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 128,
+              "line": 129,
               "column": 8
             },
             "end": {
-              "line": 128,
+              "line": 129,
               "column": 32
             }
           },
@@ -5540,11 +5548,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 132,
+              "line": 133,
               "column": 8
             },
             "end": {
-              "line": 138,
+              "line": 139,
               "column": 9
             }
           },
@@ -5885,11 +5893,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 132,
+              "line": 133,
               "column": 8
             },
             "end": {
-              "line": 138,
+              "line": 139,
               "column": 9
             }
           },
@@ -6478,11 +6486,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 147,
+              "line": 148,
               "column": 4
             },
             "end": {
-              "line": 179,
+              "line": 180,
               "column": 5
             }
           },
@@ -6507,11 +6515,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 186,
+              "line": 187,
               "column": 4
             },
             "end": {
-              "line": 196,
+              "line": 197,
               "column": 5
             }
           },
@@ -6536,11 +6544,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 206,
+              "line": 207,
               "column": 4
             },
             "end": {
-              "line": 214,
+              "line": 215,
               "column": 5
             }
           },
@@ -6564,11 +6572,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 221,
+              "line": 222,
               "column": 4
             },
             "end": {
-              "line": 239,
+              "line": 240,
               "column": 5
             }
           },
@@ -6598,11 +6606,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 246,
+              "line": 247,
               "column": 4
             },
             "end": {
-              "line": 253,
+              "line": 254,
               "column": 5
             }
           },
@@ -6632,11 +6640,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 260,
+              "line": 261,
               "column": 4
             },
             "end": {
-              "line": 272,
+              "line": 273,
               "column": 5
             }
           },
@@ -6666,11 +6674,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 279,
+              "line": 280,
               "column": 4
             },
             "end": {
-              "line": 282,
+              "line": 283,
               "column": 5
             }
           },
@@ -6699,11 +6707,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 290,
+              "line": 291,
               "column": 4
             },
             "end": {
-              "line": 300,
+              "line": 301,
               "column": 5
             }
           },
@@ -6732,11 +6740,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 309,
+              "line": 310,
               "column": 4
             },
             "end": {
-              "line": 313,
+              "line": 314,
               "column": 5
             }
           },
@@ -6765,11 +6773,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 320,
+              "line": 321,
               "column": 4
             },
             "end": {
-              "line": 322,
+              "line": 323,
               "column": 5
             }
           },
@@ -6793,11 +6801,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 329,
+              "line": 330,
               "column": 4
             },
             "end": {
-              "line": 331,
+              "line": 332,
               "column": 5
             }
           },
@@ -6821,11 +6829,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 337,
+              "line": 338,
               "column": 4
             },
             "end": {
-              "line": 339,
+              "line": 340,
               "column": 5
             }
           },
@@ -6850,11 +6858,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 341,
+              "line": 342,
               "column": 4
             },
             "end": {
-              "line": 343,
+              "line": 344,
               "column": 5
             }
           },
@@ -6873,11 +6881,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 345,
+              "line": 346,
               "column": 4
             },
             "end": {
-              "line": 347,
+              "line": 348,
               "column": 5
             }
           },
@@ -6896,11 +6904,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 349,
+              "line": 350,
               "column": 4
             },
             "end": {
-              "line": 351,
+              "line": 352,
               "column": 5
             }
           },
@@ -6913,40 +6921,17 @@
           "inheritedFrom": "ApiElements.AmfHelperMixin"
         },
         {
-          "name": "_computeApiVersion",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../amf-helper-mixin/amf-helper-mixin.html",
-            "start": {
-              "line": 353,
-              "column": 4
-            },
-            "end": {
-              "line": 360,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "amfModel"
-            }
-          ],
-          "inheritedFrom": "ApiElements.AmfHelperMixin"
-        },
-        {
           "name": "_computeServerVariables",
           "description": "Computes value for `serverVariables` property.",
           "privacy": "protected",
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 368,
+              "line": 359,
               "column": 4
             },
             "end": {
-              "line": 370,
+              "line": 361,
               "column": 5
             }
           },
@@ -6971,11 +6956,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 377,
+              "line": 368,
               "column": 4
             },
             "end": {
-              "line": 379,
+              "line": 370,
               "column": 5
             }
           },
@@ -7000,11 +6985,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 386,
+              "line": 377,
               "column": 4
             },
             "end": {
-              "line": 388,
+              "line": 379,
               "column": 5
             }
           },
@@ -7025,6 +7010,34 @@
         {
           "name": "_computeReturns",
           "description": "Computes value for `returns` property",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../amf-helper-mixin/amf-helper-mixin.html",
+            "start": {
+              "line": 386,
+              "column": 4
+            },
+            "end": {
+              "line": 388,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "method",
+              "type": "Object",
+              "description": "AMF `supportedOperation` model"
+            }
+          ],
+          "return": {
+            "type": "(Array.<Object> | undefined)"
+          },
+          "inheritedFrom": "ApiElements.AmfHelperMixin"
+        },
+        {
+          "name": "_computeSecurity",
+          "description": "Computes value for `security` property",
           "privacy": "protected",
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
@@ -7051,8 +7064,8 @@
           "inheritedFrom": "ApiElements.AmfHelperMixin"
         },
         {
-          "name": "_computeSecurity",
-          "description": "Computes value for `security` property",
+          "name": "_computeHasCustomProperties",
+          "description": "Computes value for `hasCustomProperties` property.",
           "privacy": "protected",
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
@@ -7062,34 +7075,6 @@
             },
             "end": {
               "line": 406,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "method",
-              "type": "Object",
-              "description": "AMF `supportedOperation` model"
-            }
-          ],
-          "return": {
-            "type": "(Array.<Object> | undefined)"
-          },
-          "inheritedFrom": "ApiElements.AmfHelperMixin"
-        },
-        {
-          "name": "_computeHasCustomProperties",
-          "description": "Computes value for `hasCustomProperties` property.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../amf-helper-mixin/amf-helper-mixin.html",
-            "start": {
-              "line": 413,
-              "column": 4
-            },
-            "end": {
-              "line": 415,
               "column": 5
             }
           },
@@ -7107,17 +7092,44 @@
           "inheritedFrom": "ApiElements.AmfHelperMixin"
         },
         {
+          "name": "_computeApiVersion",
+          "description": "Computes API version from the AMF model.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../amf-helper-mixin/amf-helper-mixin.html",
+            "start": {
+              "line": 413,
+              "column": 4
+            },
+            "end": {
+              "line": 419,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "amfModel",
+              "type": "(Object | Array.<Object>)"
+            }
+          ],
+          "return": {
+            "type": "(String | undefined)"
+          },
+          "inheritedFrom": "ApiElements.AmfHelperMixin"
+        },
+        {
           "name": "_computeEncodes",
           "description": "Computes model's `encodes` property.",
           "privacy": "protected",
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 422,
+              "line": 426,
               "column": 4
             },
             "end": {
-              "line": 434,
+              "line": 438,
               "column": 5
             }
           },
@@ -7142,11 +7154,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 441,
+              "line": 445,
               "column": 4
             },
             "end": {
-              "line": 454,
+              "line": 458,
               "column": 5
             }
           },
@@ -7171,11 +7183,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 461,
+              "line": 465,
               "column": 4
             },
             "end": {
-              "line": 474,
+              "line": 478,
               "column": 5
             }
           },
@@ -7200,11 +7212,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 481,
+              "line": 485,
               "column": 4
             },
             "end": {
-              "line": 489,
+              "line": 493,
               "column": 5
             }
           },
@@ -7229,11 +7241,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 496,
+              "line": 500,
               "column": 4
             },
             "end": {
-              "line": 504,
+              "line": 508,
               "column": 5
             }
           },
@@ -7258,11 +7270,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 514,
+              "line": 518,
               "column": 4
             },
             "end": {
-              "line": 526,
+              "line": 530,
               "column": 5
             }
           },
@@ -7302,11 +7314,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 536,
+              "line": 540,
               "column": 4
             },
             "end": {
-              "line": 547,
+              "line": 551,
               "column": 5
             }
           },
@@ -7341,11 +7353,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 557,
+              "line": 561,
               "column": 4
             },
             "end": {
-              "line": 561,
+              "line": 565,
               "column": 5
             }
           },
@@ -7375,11 +7387,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 573,
+              "line": 577,
               "column": 4
             },
             "end": {
-              "line": 587,
+              "line": 591,
               "column": 5
             }
           },
@@ -7409,11 +7421,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 594,
+              "line": 598,
               "column": 4
             },
             "end": {
-              "line": 600,
+              "line": 604,
               "column": 5
             }
           },
@@ -7437,11 +7449,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 607,
+              "line": 611,
               "column": 4
             },
             "end": {
-              "line": 615,
+              "line": 619,
               "column": 5
             }
           },
@@ -7465,11 +7477,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 623,
+              "line": 627,
               "column": 4
             },
             "end": {
-              "line": 641,
+              "line": 648,
               "column": 5
             }
           },
@@ -7493,11 +7505,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 647,
+              "line": 654,
               "column": 4
             },
             "end": {
-              "line": 653,
+              "line": 660,
               "column": 5
             }
           },
@@ -7521,11 +7533,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 661,
+              "line": 668,
               "column": 4
             },
             "end": {
-              "line": 664,
+              "line": 671,
               "column": 5
             }
           },
@@ -7555,11 +7567,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 672,
+              "line": 679,
               "column": 4
             },
             "end": {
-              "line": 683,
+              "line": 690,
               "column": 5
             }
           },
@@ -7589,11 +7601,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 691,
+              "line": 698,
               "column": 4
             },
             "end": {
-              "line": 697,
+              "line": 704,
               "column": 5
             }
           },
@@ -7623,11 +7635,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 704,
+              "line": 711,
               "column": 4
             },
             "end": {
-              "line": 711,
+              "line": 718,
               "column": 5
             }
           },
@@ -7657,11 +7669,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 718,
+              "line": 725,
               "column": 4
             },
             "end": {
-              "line": 739,
+              "line": 746,
               "column": 5
             }
           },
@@ -7691,11 +7703,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 748,
+              "line": 755,
               "column": 4
             },
             "end": {
-              "line": 755,
+              "line": 762,
               "column": 5
             }
           },
@@ -7725,11 +7737,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 764,
+              "line": 771,
               "column": 4
             },
             "end": {
-              "line": 781,
+              "line": 788,
               "column": 5
             }
           },
@@ -7764,11 +7776,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 788,
+              "line": 795,
               "column": 4
             },
             "end": {
-              "line": 803,
+              "line": 810,
               "column": 5
             }
           },
@@ -7798,11 +7810,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 811,
+              "line": 818,
               "column": 4
             },
             "end": {
-              "line": 816,
+              "line": 823,
               "column": 5
             }
           },
@@ -7832,11 +7844,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 824,
+              "line": 831,
               "column": 4
             },
             "end": {
-              "line": 831,
+              "line": 838,
               "column": 5
             }
           },
@@ -7866,11 +7878,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 838,
+              "line": 845,
               "column": 4
             },
             "end": {
-              "line": 887,
+              "line": 894,
               "column": 5
             }
           },
@@ -7895,11 +7907,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 889,
+              "line": 896,
               "column": 4
             },
             "end": {
-              "line": 911,
+              "line": 918,
               "column": 5
             }
           },
@@ -7921,11 +7933,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 913,
+              "line": 920,
               "column": 4
             },
             "end": {
-              "line": 932,
+              "line": 937,
               "column": 5
             }
           },
@@ -7947,11 +7959,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 934,
+              "line": 939,
               "column": 4
             },
             "end": {
-              "line": 945,
+              "line": 950,
               "column": 5
             }
           },
@@ -7973,11 +7985,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 954,
+              "line": 959,
               "column": 4
             },
             "end": {
-              "line": 967,
+              "line": 972,
               "column": 5
             }
           },
@@ -8006,11 +8018,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 974,
+              "line": 979,
               "column": 4
             },
             "end": {
-              "line": 995,
+              "line": 1000,
               "column": 5
             }
           },
@@ -8035,11 +8047,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 1001,
+              "line": 1006,
               "column": 4
             },
             "end": {
-              "line": 1027,
+              "line": 1032,
               "column": 5
             }
           },
@@ -8377,11 +8389,11 @@
           "sourceRange": {
             "file": "../amf-helper-mixin/amf-helper-mixin.html",
             "start": {
-              "line": 132,
+              "line": 133,
               "column": 8
             },
             "end": {
-              "line": 138,
+              "line": 139,
               "column": 9
             }
           },
