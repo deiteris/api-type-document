@@ -30,9 +30,15 @@
       @apply --arc-font-subhead;
       margin: 4px 0 4px 0;
       font-size: 15px;
-      font-weight: 500;
+      font-weight: var(--api-type-document-property-title-font-weight, 500);
       word-break: break-word;
+      color: var(--api-type-document-property-title-color);
       @apply --property-shape-document-title;
+    }
+
+    .property-title[secondary] {
+      font-weight: var(--api-type-document-property-title-secondary-font-weight, 400);
+      color: var(--api-type-document-property-title-secondary-color, #616161);
     }
 
     .parent-label {
@@ -40,9 +46,10 @@
     }
 
     .property-display-name {
-      font-weight: 400;
-      color: var(--api-type-document-property-color, #757575);
+      font-weight: var(--api-type-document-property-name-font-weight, 500);
+      color: var(--api-type-document-property-name-color, var(--api-type-document-property-color, #212121));
       margin: 4px 0 4px 0;
+      font-size: var(--api-type-document-property-name-font-size, 16px);
     }
 
     .doc-wrapper {
@@ -94,10 +101,6 @@
       padding: var(--api-type-document-trait-data-type-padding, 2px 4px);
     }
 
-    .property-description {
-      margin-top: 8px;
-    }
-
     :host([narrow]) .property-description {
       margin: 20px 0;
     }
@@ -107,7 +110,7 @@
     }
 
     .shape-properties {
-      min-width: var(--api-type-document-property-name-width, 200px);
+      min-width: var(--api-type-document-property-name-width, 120px);
     }
 
     .shape-docs {
@@ -145,23 +148,18 @@
       vertical-align: middle;
       margin-right: 8px;
     }
-
-    property-range-document {
-      margin-top: 12px;
-    }
     </style>
+    <template is="dom-if" if="[[hasDisplayName]]">
+      <div class="property-display-name">[[displayName]]</div>
+    </template>
+    <template is="dom-if" if="[[propertyName]]">
+      <h4 class="property-title" secondary$="[[hasDisplayName]]">
+        <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
+        <span class="property-name">[[propertyName]]</span>
+      </h4>
+    </template>
     <div class="content-wrapper">
       <div class="shape-properties">
-        <template is="dom-if" if="[[propertyName]]">
-          <h4 class="property-title">
-            <span class="parent-label" hidden$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
-            <span class="property-name">[[propertyName]]</span>
-          </h4>
-        </template>
-        <template is="dom-if" if="[[hasDisplayName]]">
-          <div class="property-display-name">[[displayName]]</div>
-        </template>
-
         <div class="property-traits">
           <span class="data-type">[[propertyDataType]]</span>
           <template is="dom-if" if="[[isRequired]]">
@@ -182,7 +180,7 @@
         </template>
         <div class="doc-wrapper">
           <div class="doc-content">
-            <property-range-document amf-model="[[amfModel]]" shape="[[shape]]" range="[[range]]"></property-range-document>
+            <property-range-document amf-model="[[amfModel]]" shape="[[shape]]" range="[[range]]" no-examples-actions="[[noExamplesActions]]" no-examples-actions="[[noExamplesActions]]" media-type="[[mediaType]]" property-name="[[propertyName]]"></property-range-document>
           </div>
         </div>
       </div>
@@ -191,18 +189,17 @@
       <div class="doc-wrapper complex">
         <div class="doc-content">
           <template is="dom-if" if="[[isArray]]">
-            <api-type-document class="children" amf-model="[[amfModel]]" type="[[_resolve(range)]]" parent-type-name="item" narrow="[[narrow]]"></api-type-document>
+            <api-type-document class="children" amf-model="[[amfModel]]" type="[[_resolve(range)]]" parent-type-name="item" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" no-main-example media-type="[[mediaType]]"></api-type-document>
           </template>
           <template is="dom-if" if="[[isObject]]">
-            <api-type-document class="children" amf-model="[[amfModel]]" type="[[_resolve(range)]]" parent-type-name="[[displayName]]" narrow="[[narrow]]"></api-type-document>
+            <api-type-document class="children" amf-model="[[amfModel]]" type="[[_resolve(range)]]" parent-type-name="[[displayName]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" no-main-example media-type="[[mediaType]]"></api-type-document>
           </template>
           <template is="dom-if" if="[[isUnion]]">
-            <api-type-document class="children" amf-model="[[amfModel]]" type="[[_resolve(range)]]" parent-type-name="[[displayName]]" narrow="[[narrow]]"></api-type-document>
+            <api-type-document class="children" amf-model="[[amfModel]]" type="[[_resolve(range)]]" parent-type-name="[[displayName]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" no-main-example media-type="[[mediaType]]"></api-type-document>
           </template>
         </div>
       </div>
     </template>
-  </div>
   </template>
   <script>
   /**
@@ -240,7 +237,9 @@
    */
   class PropertyShapeDocument extends
     ApiElements.AmfHelperMixin(ArcBehaviors.PropertyDocumentMixin(Polymer.Element)) {
-    static get is() {return 'property-shape-document';}
+    static get is() {
+      return 'property-shape-document';
+    }
     static get properties() {
       return {
         /**
@@ -367,7 +366,11 @@
         narrow: {
           type: Boolean,
           reflectToAttribute: true
-        }
+        },
+        /**
+         * When set it removes actions bar from the examples render.
+         */
+        noExamplesActions: Boolean
       };
     }
     _computeType(range, shape) {

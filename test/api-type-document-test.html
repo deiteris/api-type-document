@@ -87,6 +87,28 @@
         assert.isTrue(result);
       });
     });
+
+    suite('_computeRenderMainExample()', () => {
+      let element;
+      setup(() => {
+        element = fixture('Basic');
+      });
+
+      test('Returns true when has examples and not stopped', () => {
+        const result = element._computeRenderMainExample(false, true);
+        assert.isTrue(result);
+      });
+
+      test('Returns fasle when no examples and not stopped', () => {
+        const result = element._computeRenderMainExample(false, false);
+        assert.isFalse(result);
+      });
+
+      test('Returns false when has examples and stopped', () => {
+        const result = element._computeRenderMainExample(true, true);
+        assert.isFalse(result);
+      });
+    });
   });
 
   [

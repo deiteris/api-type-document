@@ -20,6 +20,7 @@
 /// <reference path="../marked-element/marked-element.d.ts" />
 /// <reference path="../api-annotation-document/api-annotation-document.d.ts" />
 /// <reference path="../amf-helper-mixin/amf-helper-mixin.d.ts" />
+/// <reference path="../api-resource-example-document/api-resource-example-document.d.ts" />
 /// <reference path="api-type-document.d.ts" />
 /// <reference path="property-document-mixin.d.ts" />
 
@@ -50,14 +51,14 @@ declare namespace ApiElements {
     Object)) {
 
     /**
-     * Computed value, true if there is a list of examples
+     * When set it removes actions bar from the examples render.
      */
-    readonly hasExamples: boolean|null|undefined;
+    noExamplesActions: boolean|null|undefined;
 
     /**
-     * Computed list of examples
+     * Name of the property that is being described by this definition.
      */
-    readonly examples: Array<object|null>|null;
+    propertyName: string|null|undefined;
 
     /**
      * Computed value form the shape. True if the property is ENUM.
@@ -85,16 +86,11 @@ declare namespace ApiElements {
     readonly isFile: boolean|null|undefined;
 
     /**
-     * Should be set if described properties has a parent type.
-     * This is used when recursively iterating over properties.
-     */
-    parentTypeName: string|null|undefined;
-
-    /**
      * Computed values for list of enums.
      * Enums are list of types names.
      */
     readonly enumValues: Array<String|null>|null;
+    _hasExamples: boolean|null|undefined;
 
     /**
      * Computes value for `isUnion` property.
@@ -122,24 +118,7 @@ declare namespace ApiElements {
      * @param range Range object of current shape.
      */
     _computeIsArray(range: object|null): Boolean|null;
-
-    /**
-     * Computes value for `hasExamples`.
-     *
-     * @param range Range object of current shape.
-     */
-    _computeHasExamples(range: object|null): Boolean|null;
-
-    /**
-     * Computes list of examples for the property.
-     *
-     * @param hasExamples Current value of `hasExamples`
-     * @param range Range object of current shape.
-     * @returns List of examples.
-     * Each object has `value` property as a string example value. Also, it has
-     * `hasName` property describing if `name` property is set.
-     */
-    _computeExamplesValue(hasExamples: Boolean|null, range: object|null): Array<object|null>|null|undefined;
+    _rangeChanged(): void;
 
     /**
      * Computes value `isEnum` property.
@@ -165,14 +144,6 @@ declare namespace ApiElements {
      * @returns List of enum types.
      */
     _computeEnumValues(isEnum: Boolean|null, range: object|null): Array<String|null>|null|undefined;
-
-    /**
-     * Computes example value to set on `marked-element`.
-     * It adds "```" to create a code block.
-     *
-     * @param value Value to display
-     */
-    _computeExampleDisplay(value: String|null): String|null|undefined;
 
     /**
      * Computes label for examples section title.

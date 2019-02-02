@@ -173,6 +173,14 @@ declare namespace ApiElements {
     narrow: boolean|null|undefined;
 
     /**
+     * When set an example in this `type` object won't be rendered even if set.
+     */
+    noMainExample: boolean|null|undefined;
+    _hasExamples: boolean|null|undefined;
+    readonly _renderMainExample: boolean|null|undefined;
+    _computeRenderMainExample(noMainExample: any, hasExamples: any): any;
+
+    /**
      * Handles type change. Sets basic view control properties.
      *
      * @param type Passed type/

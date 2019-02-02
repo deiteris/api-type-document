@@ -62,6 +62,11 @@ declare namespace ApiElements {
     readonly range: object|null;
 
     /**
+     * When set it removes actions bar from the examples render.
+     */
+    noExamplesActions: boolean|null|undefined;
+
+    /**
      * Computed value of "display name" of the property
      */
     readonly displayName: string|null|undefined;

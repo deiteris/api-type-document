@@ -49,6 +49,20 @@ declare namespace ArcBehaviors {
     range: object|null;
 
     /**
+     * Type's current media type.
+     * This is used to select/generate examples according to current body
+     * media type. When not set it only renders examples that were defined
+     * in API specfile in a form as they were written.
+     */
+    mediaType: string|null|undefined;
+
+    /**
+     * When set it removes actions bar from the examples render.
+     */
+    noExamplesActions: boolean|null|undefined;
+    readonly _hasMediaType: boolean|null|undefined;
+
+    /**
      * Computes type from a `http://raml.org/vocabularies/shapes#range` object
      *
      * @param range AMF property range object
@@ -120,5 +134,6 @@ declare namespace ArcBehaviors {
      * @returns Display name of the property
      */
     _computeDisplayName(range: object|null, shape: object|null): String|null;
+    _computeHasMediaType(mediaType: any): any;
   }
 }

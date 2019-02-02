@@ -57,28 +57,32 @@
     <template is="dom-if" if="[[aware]]">
       <raml-aware raml="{{amfModel}}" scope="[[aware]]"></raml-aware>
     </template>
+    <section class="examples" hidden$="[[!_renderMainExample]]">
+      <h5 class="examples-section-title">Examples</h5>
+      <api-resource-example-document amf-model="[[amfModel]]" examples="[[_resolvedType]]" media-type="[[mediaType]]" type-name="[[parentTypeName]]" has-examples="{{_hasExamples}}" no-auto no-actions="[[noExamplesActions]]" raw-only="[[!_hasMediaType]]"></api-resource-example-document>
+    </section>
     <template is="dom-if" if="[[isObject]]" restamp>
       <template is="dom-repeat" data-object-repeater items="[[_computeProperties(_resolvedType)]]">
-        <property-shape-document class="object-document" shape="[[_resolve(item)]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" narrow="[[narrow]]"></property-shape-document>
+        <property-shape-document class="object-document" shape="[[_resolve(item)]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" media-type="[[mediaType]]"></property-shape-document>
       </template>
     </template>
     <template is="dom-if" if="[[isArray]]" restamp>
       <template is="dom-if" if="[[!hasParentType]]">
-        <property-shape-document class="array-document" amf-model="[[amfModel]]" shape="[[_resolve(_resolvedType)]]" parent-type-name="Array test" narrow="[[narrow]]"></property-shape-document>
+        <property-shape-document class="array-document" amf-model="[[amfModel]]" shape="[[_resolve(_resolvedType)]]" parent-type-name="Array test" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" media-type="[[mediaType]]"></property-shape-document>
       </template>
       <div class="array-children">
         <template is="dom-repeat" data-array-repeater items="[[_computeArrayProperties(_resolvedType)]]">
           <template is="dom-if" if="[[item.isShape]]" restamp="true">
-            <property-shape-document class="array-document" amf-model="[[amfModel]]" shape="[[_resolve(item)]]" parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]" narrow="[[narrow]]"></property-shape-document>
+            <property-shape-document class="array-document" amf-model="[[amfModel]]" shape="[[_resolve(item)]]" parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" media-type="[[mediaType]]"></property-shape-document>
           </template>
           <template is="dom-if" if="[[item.isType]]" restamp="true">
-            <api-type-document class="union-document" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[item]]" narrow="[[narrow]]"></api-type-document>
+            <api-type-document class="union-document" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[item]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" no-main-example="[[_renderMainExample]]" media-type="[[mediaType]]"></api-type-document>
           </template>
         </template>
       </div>
     </template>
     <template is="dom-if" if="[[isScalar]]" restamp>
-      <property-shape-document class="shape-document" amf-model="[[amfModel]]" shape="[[_resolvedType]]" parent-type-name="[[parentTypeName]]" narrow="[[narrow]]"></property-shape-document>
+      <property-shape-document class="shape-document" amf-model="[[amfModel]]" shape="[[_resolvedType]]" parent-type-name="[[parentTypeName]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" media-type="[[mediaType]]"></property-shape-document>
     </template>
     <template is="dom-if" if="[[isUnion]]">
       <div class="union-type-selector">
@@ -87,7 +91,7 @@
           <paper-button class="union-toggle" active="[[_unionTypeActive(selectedUnion, index)]]" on-click="_selectUnion" title$="Select [[item.label]] type">[[item.label]]</paper-button>
         </template>
       </div>
-      <api-type-document class="union-document" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[_computeUnionProperty(_resolvedType, selectedUnion)]]" narrow="[[narrow]]"></api-type-document>
+      <api-type-document class="union-document" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[_computeUnionProperty(_resolvedType, selectedUnion)]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" no-main-example="[[_renderMainExample]]" media-type="[[mediaType]]"></api-type-document>
     </template>
 
     <template is="dom-if" if="[[isAnd]]">
@@ -98,7 +102,7 @@
         <template is="dom-if" if="[[!item.label]]">
           <p class="inheritance-label">Properties defined inline.</p>
         </template>
-        <api-type-document class="and-document" amf-model="[[amfModel]]" type="[[item.type]]" narrow="[[narrow]]"></api-type-document>
+        <api-type-document class="and-document" amf-model="[[amfModel]]" type="[[item.type]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" no-main-example="[[_renderMainExample]]" media-type="[[mediaType]]"></api-type-document>
       </template>
     </template>
   </template>
@@ -162,7 +166,9 @@
    */
   class ApiTypeDocument extends
     ApiElements.AmfHelperMixin(ArcBehaviors.PropertyDocumentMixin(Polymer.Element)) {
-    static get is() {return 'api-type-document';}
+    static get is() {
+      return 'api-type-document';
+    }
     static get properties() {
       return {
         /**
@@ -276,7 +282,17 @@
          * view. To be used with mobile rendering or when the
          * components occupies only small part of the screen.
          */
-        narrow: Boolean
+        narrow: Boolean,
+        /**
+         * When set an example in this `type` object won't be rendered even if set.
+         */
+        noMainExample: Boolean,
+
+        _hasExamples: Boolean,
+        _renderMainExample: {
+          type: Boolean,
+          computed: '_computeRenderMainExample(noMainExample, _hasExamples)'
+        }
       };
     }
 
@@ -284,6 +300,10 @@
       return [
         '__typeChanged(_resolvedType, amfModel)'
       ];
+    }
+
+    _computeRenderMainExample(noMainExample, hasExamples) {
+      return !!(!noMainExample && hasExamples);
     }
     /**
      * Called when resolved type or amfModel changed.

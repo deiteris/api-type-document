@@ -57,7 +57,23 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
          * Computes value of shape's http://raml.org/vocabularies/shapes#range
          * @type {Object}
          */
-        range: Object
+        range: Object,
+        /**
+         * Type's current media type.
+         * This is used to select/generate examples according to current body
+         * media type. When not set it only renders examples that were defined
+         * in API specfile in a form as they were written.
+         */
+        mediaType: String,
+        /**
+         * When set it removes actions bar from the examples render.
+         */
+        noExamplesActions: Boolean,
+        _hasMediaType: {
+          type: Boolean,
+          value: false,
+          computed: '_computeHasMediaType(mediaType)'
+        }
       };
     }
 
@@ -353,6 +369,10 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
         name = name.substr(0, name.length - 1);
       }
       return name;
+    }
+
+    _computeHasMediaType(mediaType) {
+      return !!mediaType;
     }
   }
 return PDmixin;

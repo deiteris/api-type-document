@@ -80,6 +80,8 @@
           <paper-dropdown-menu label="Select demo endpoint">
             <paper-listbox slot="dropdown-content" id="enpointsList" on-selected-changed="_apiChanged">
               <paper-item data-src="demo-api.json">Demo api</paper-item>
+              <paper-item data-src="examples-api.json">Examples render demo api</paper-item>
+              <paper-item data-src="examples-api-compact.json">Examples render demo - compact model</paper-item>
               <paper-item data-src="demo-api-compact.json">Demo api - compact version</paper-item>
               <paper-item data-src="apic-83.json">APIC-83 (issue)</paper-item>
               <paper-item data-src="apic-83-compact.json">APIC-83 - compact model (issue)</paper-item>
@@ -90,6 +92,7 @@
           <div class="spacer"></div>
           <div class="options">
             <paper-toggle-button checked="{{narrow}}">Render narrow view</paper-toggle-button>
+            <paper-toggle-button checked="{{noActions}}">Remove actions from examples</paper-toggle-button>
           </div>
         </header>
 
@@ -97,7 +100,7 @@
           <raml-aware raml="{{amfModel}}" scope="model"></raml-aware>
           <api-navigation aware="model" types-opened></api-navigation>
           <template is="dom-if" if="[[hasType]]">
-            <api-type-document narrow="[[narrow]]" aware="model" type="[[dataProperties]]"></api-type-document>
+            <api-type-document narrow="[[narrow]]" aware="model" type="[[dataProperties]]" no-examples-actions="[[noActions]]"></api-type-document>
           </template>
           <template is="dom-if" if="[[!hasType]]">
             <p>Select type in the navigation to see the demo.</p>
