@@ -89,6 +89,12 @@ declare namespace ApiElements {
     amfModel: object|any[]|null;
 
     /**
+     * Media type to use to render examples.
+     * If not set a "raw" version of the example from API spec file is used.
+     */
+    mediaType: string|null|undefined;
+
+    /**
      * `raml-aware` scope property to use.
      */
     aware: string|null|undefined;

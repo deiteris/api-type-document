@@ -6140,16 +6140,15 @@
         {
           "name": "mediaType",
           "type": "string | null | undefined",
-          "description": "Type's current media type.\nThis is used to select/generate examples according to current body\nmedia type. When not set it only renders examples that were defined\nin API specfile in a form as they were written.",
+          "description": "Media type to use to render examples.\nIf not set a \"raw\" version of the example from API spec file is used.",
           "privacy": "public",
           "sourceRange": {
-            "file": "property-document-mixin.html",
             "start": {
-              "line": 66,
+              "line": 206,
               "column": 8
             },
             "end": {
-              "line": 66,
+              "line": 206,
               "column": 25
             }
           },
@@ -6157,8 +6156,7 @@
             "polymer": {
               "attributeType": "String"
             }
-          },
-          "inheritedFrom": "ArcBehaviors.PropertyDocumentMixin"
+          }
         },
         {
           "name": "noExamplesActions",
@@ -6281,11 +6279,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 203,
+              "line": 208,
               "column": 8
             },
             "end": {
-              "line": 206,
+              "line": 211,
               "column": 9
             }
           },
@@ -6303,11 +6301,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 216,
               "column": 8
             },
             "end": {
-              "line": 211,
+              "line": 216,
               "column": 30
             }
           },
@@ -6324,11 +6322,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 215,
+              "line": 220,
               "column": 8
             },
             "end": {
-              "line": 220,
+              "line": 225,
               "column": 9
             }
           },
@@ -6347,11 +6345,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 224,
+              "line": 229,
               "column": 8
             },
             "end": {
-              "line": 227,
+              "line": 232,
               "column": 9
             }
           },
@@ -6369,11 +6367,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 231,
+              "line": 236,
               "column": 8
             },
             "end": {
-              "line": 234,
+              "line": 239,
               "column": 9
             }
           },
@@ -6391,11 +6389,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 238,
+              "line": 243,
               "column": 8
             },
             "end": {
-              "line": 241,
+              "line": 246,
               "column": 9
             }
           },
@@ -6413,11 +6411,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 245,
+              "line": 250,
               "column": 8
             },
             "end": {
-              "line": 248,
+              "line": 253,
               "column": 9
             }
           },
@@ -6435,11 +6433,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 252,
+              "line": 257,
               "column": 8
             },
             "end": {
-              "line": 255,
+              "line": 260,
               "column": 9
             }
           },
@@ -6457,11 +6455,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 263,
+              "line": 268,
               "column": 8
             },
             "end": {
-              "line": 266,
+              "line": 271,
               "column": 9
             }
           },
@@ -6479,11 +6477,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 270,
+              "line": 275,
               "column": 8
             },
             "end": {
-              "line": 272,
+              "line": 277,
               "column": 9
             }
           },
@@ -6500,11 +6498,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 276,
+              "line": 281,
               "column": 8
             },
             "end": {
-              "line": 278,
+              "line": 283,
               "column": 9
             }
           },
@@ -6521,11 +6519,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 284,
+              "line": 289,
               "column": 8
             },
             "end": {
-              "line": 284,
+              "line": 289,
               "column": 23
             }
           },
@@ -6542,11 +6540,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 288,
+              "line": 293,
               "column": 8
             },
             "end": {
-              "line": 288,
+              "line": 293,
               "column": 30
             }
           },
@@ -6563,11 +6561,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 290,
+              "line": 295,
               "column": 8
             },
             "end": {
-              "line": 290,
+              "line": 295,
               "column": 29
             }
           },
@@ -6584,11 +6582,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 291,
+              "line": 296,
               "column": 8
             },
             "end": {
-              "line": 294,
+              "line": 299,
               "column": 9
             }
           },
@@ -8485,11 +8483,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 304,
+              "line": 309,
               "column": 4
             },
             "end": {
-              "line": 306,
+              "line": 311,
               "column": 5
             }
           },
@@ -8509,11 +8507,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 312,
+              "line": 317,
               "column": 4
             },
             "end": {
-              "line": 321,
+              "line": 326,
               "column": 5
             }
           },
@@ -8529,11 +8527,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 328,
+              "line": 333,
               "column": 4
             },
             "end": {
-              "line": 363,
+              "line": 368,
               "column": 5
             }
           },
@@ -8555,11 +8553,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 370,
+              "line": 375,
               "column": 4
             },
             "end": {
-              "line": 372,
+              "line": 377,
               "column": 5
             }
           },
@@ -8582,11 +8580,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 378,
+              "line": 383,
               "column": 4
             },
             "end": {
-              "line": 383,
+              "line": 388,
               "column": 5
             }
           },
@@ -8608,11 +8606,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 390,
+              "line": 395,
               "column": 4
             },
             "end": {
-              "line": 397,
+              "line": 402,
               "column": 5
             }
           },
@@ -8633,11 +8631,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 405,
+              "line": 410,
               "column": 4
             },
             "end": {
-              "line": 407,
+              "line": 412,
               "column": 5
             }
           },
@@ -8662,11 +8660,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 415,
+              "line": 420,
               "column": 4
             },
             "end": {
-              "line": 448,
+              "line": 453,
               "column": 5
             }
           },
@@ -8694,11 +8692,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 456,
+              "line": 461,
               "column": 4
             },
             "end": {
-              "line": 465,
+              "line": 470,
               "column": 5
             }
           },
@@ -8721,11 +8719,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 471,
+              "line": 476,
               "column": 4
             },
             "end": {
-              "line": 492,
+              "line": 497,
               "column": 5
             }
           },
@@ -8757,7 +8755,7 @@
           "column": 2
         },
         "end": {
-          "line": 493,
+          "line": 498,
           "column": 3
         }
       },
@@ -8819,21 +8817,19 @@
         },
         {
           "name": "media-type",
-          "description": "Type's current media type.\nThis is used to select/generate examples according to current body\nmedia type. When not set it only renders examples that were defined\nin API specfile in a form as they were written.",
+          "description": "Media type to use to render examples.\nIf not set a \"raw\" version of the example from API spec file is used.",
           "sourceRange": {
-            "file": "property-document-mixin.html",
             "start": {
-              "line": 66,
+              "line": 206,
               "column": 8
             },
             "end": {
-              "line": 66,
+              "line": 206,
               "column": 25
             }
           },
           "metadata": {},
-          "type": "string | null | undefined",
-          "inheritedFrom": "ArcBehaviors.PropertyDocumentMixin"
+          "type": "string | null | undefined"
         },
         {
           "name": "no-examples-actions",
@@ -8908,11 +8904,11 @@
           "description": "Should be set if described properties has a parent type.\nThis is used when recursively iterating over properties.",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 216,
               "column": 8
             },
             "end": {
-              "line": 211,
+              "line": 216,
               "column": 30
             }
           },
@@ -8924,11 +8920,11 @@
           "description": "Computed value, true if the shape has parent type.",
           "sourceRange": {
             "start": {
-              "line": 215,
+              "line": 220,
               "column": 8
             },
             "end": {
-              "line": 220,
+              "line": 225,
               "column": 9
             }
           },
@@ -8940,11 +8936,11 @@
           "description": "True if given `type` is a scalar property",
           "sourceRange": {
             "start": {
-              "line": 224,
+              "line": 229,
               "column": 8
             },
             "end": {
-              "line": 227,
+              "line": 232,
               "column": 9
             }
           },
@@ -8956,11 +8952,11 @@
           "description": "True if given `type` is an array property",
           "sourceRange": {
             "start": {
-              "line": 231,
+              "line": 236,
               "column": 8
             },
             "end": {
-              "line": 234,
+              "line": 239,
               "column": 9
             }
           },
@@ -8972,11 +8968,11 @@
           "description": "True if given `type` is an object property",
           "sourceRange": {
             "start": {
-              "line": 238,
+              "line": 243,
               "column": 8
             },
             "end": {
-              "line": 241,
+              "line": 246,
               "column": 9
             }
           },
@@ -8988,11 +8984,11 @@
           "description": "True if given `type` is an union property",
           "sourceRange": {
             "start": {
-              "line": 245,
+              "line": 250,
               "column": 8
             },
             "end": {
-              "line": 248,
+              "line": 253,
               "column": 9
             }
           },
@@ -9004,11 +9000,11 @@
           "description": "True if given `type` is OAS \"and\" type.",
           "sourceRange": {
             "start": {
-              "line": 252,
+              "line": 257,
               "column": 8
             },
             "end": {
-              "line": 255,
+              "line": 260,
               "column": 9
             }
           },
@@ -9020,11 +9016,11 @@
           "description": "Computed list of union type types to render in union type\nselector.\nEach item has `label` and `isScalar` property.",
           "sourceRange": {
             "start": {
-              "line": 263,
+              "line": 268,
               "column": 8
             },
             "end": {
-              "line": 266,
+              "line": 271,
               "column": 9
             }
           },
@@ -9036,11 +9032,11 @@
           "description": "List of types definition and name for OAS' \"and\" type",
           "sourceRange": {
             "start": {
-              "line": 270,
+              "line": 275,
               "column": 8
             },
             "end": {
-              "line": 272,
+              "line": 277,
               "column": 9
             }
           },
@@ -9052,11 +9048,11 @@
           "description": "Selected index of union type in `unionTypes` array.",
           "sourceRange": {
             "start": {
-              "line": 276,
+              "line": 281,
               "column": 8
             },
             "end": {
-              "line": 278,
+              "line": 283,
               "column": 9
             }
           },
@@ -9068,11 +9064,11 @@
           "description": "A property to set when the component is rendered in the narrow\nview. To be used with mobile rendering or when the\ncomponents occupies only small part of the screen.",
           "sourceRange": {
             "start": {
-              "line": 284,
+              "line": 289,
               "column": 8
             },
             "end": {
-              "line": 284,
+              "line": 289,
               "column": 23
             }
           },
@@ -9084,11 +9080,11 @@
           "description": "When set an example in this `type` object won't be rendered even if set.",
           "sourceRange": {
             "start": {
-              "line": 288,
+              "line": 293,
               "column": 8
             },
             "end": {
-              "line": 288,
+              "line": 293,
               "column": 30
             }
           },
