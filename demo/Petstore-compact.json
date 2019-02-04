@@ -285,6 +285,16 @@
 "@value": "Returns all pets from the system that the user has access to\n"
 }
 ],
+"raml-http:accepts": [
+{
+"@value": "application/json"
+}
+],
+"raml-http:contentType": [
+{
+"@value": "application/json"
+}
+],
 "hydra:expects": [
 {
 "@id": "#23",
@@ -966,7 +976,7 @@
 ],
 "hydra:statusCode": [
 {
-"@value": "200"
+"@value": "default"
 }
 ],
 "raml-http:payload": [
@@ -1118,6 +1128,16 @@
 "schema-org:description": [
 {
 "@value": "Creates a new pet in the store.  Duplicates are allowed"
+}
+],
+"raml-http:accepts": [
+{
+"@value": "application/json"
+}
+],
+"raml-http:contentType": [
+{
+"@value": "application/json"
 }
 ],
 "hydra:expects": [
@@ -1309,7 +1329,7 @@
 ],
 "hydra:statusCode": [
 {
-"@value": "200"
+"@value": "default"
 }
 ],
 "raml-http:payload": [
@@ -1497,6 +1517,16 @@
 "schema-org:description": [
 {
 "@value": "Returns a user based on a single ID, if the user does not have access to the pet"
+}
+],
+"raml-http:accepts": [
+{
+"@value": "application/json"
+}
+],
+"raml-http:contentType": [
+{
+"@value": "application/json"
 }
 ],
 "hydra:expects": [
@@ -1859,7 +1889,7 @@
 ],
 "hydra:statusCode": [
 {
-"@value": "200"
+"@value": "default"
 }
 ],
 "raml-http:payload": [
@@ -2011,6 +2041,16 @@
 "schema-org:description": [
 {
 "@value": "deletes a single pet based on the ID supplied"
+}
+],
+"raml-http:accepts": [
+{
+"@value": "application/json"
+}
+],
+"raml-http:contentType": [
+{
+"@value": "application/json"
 }
 ],
 "hydra:expects": [
@@ -2340,7 +2380,7 @@
 ],
 "hydra:statusCode": [
 {
-"@value": "200"
+"@value": "default"
 }
 ],
 "raml-http:payload": [

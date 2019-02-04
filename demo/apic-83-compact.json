@@ -1204,6 +1204,11 @@
 ]
 }
 ],
+"shacl:name": [
+{
+"@value": "items"
+}
+],
 "sourcemaps:sources": [
 {
 "@id": "#14/source-map",
