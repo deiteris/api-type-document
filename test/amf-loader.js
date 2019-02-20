@@ -1,4 +1,4 @@
-const AmfLoader = {};
+export const AmfLoader = {};
 AmfLoader.load = function(compact, modelFile) {
   modelFile = modelFile || 'demo-api';
   const file = '/' + modelFile + (compact ? '-compact' : '') + '.json';
@@ -23,7 +23,7 @@ AmfLoader.load = function(compact, modelFile) {
     xhr.send();
   });
 };
-
+import {ns} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
 AmfLoader.loadType = function(name, compact, modelFile) {
   return AmfLoader.load(compact, modelFile)
   .then((amf) => {
@@ -31,7 +31,6 @@ AmfLoader.loadType = function(name, compact, modelFile) {
     if (amf instanceof Array) {
       amf = amf[0];
     }
-    const ns = ApiElements.Amf.ns;
     const key = compact ? 'doc:declares' : ns.raml.vocabularies.document + 'declares';
     const defs = amf[key];
     for (let i = 0; i < defs.length; i++) {

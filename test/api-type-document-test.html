@@ -4,12 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
   <title>api-type-document test</title>
-  <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
-  <script src="../../web-component-tester/browser.js"></script>
-  <script src="../../iron-test-helpers/mock-interactions.js"></script>
-  <script src="amf-loader.js"></script>
-  <link rel="import" href="../../arc-polyfills/arc-polyfills.html">
-  <link rel="import" href="../api-type-document.html">
+
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+  <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
+
+  <!-- <script type="module" src="../../../arc-polyfills/arc-polyfills.js"></script> -->
+  <script type="module" src="../api-type-document.js"></script>
 </head>
 <body>
   <test-fixture id="Basic">
@@ -18,8 +21,11 @@
     </template>
   </test-fixture>
 
-  <script>
-  /* global AmfLoader, MockInteractions */
+  <script type="module">
+  import {afterNextRender} from '@polymer/polymer/lib/utils/render-status.js';
+  import {tap} from '@polymer/iron-test-helpers/mock-interactions.js';
+  import {AmfLoader} from './amf-loader.js';
+  import {ns} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
   suite('Model independent', () => {
     suite('Basic', () => {
       test('Renders no params table without data', (done) => {
@@ -231,7 +237,7 @@
           element = fixture('Basic');
           element.amfModel = amf;
           element.type = type;
-          Polymer.RenderStatus.afterNextRender(element, () => {
+          afterNextRender(element, () => {
             flush(() => done());
           });
         });
@@ -248,7 +254,7 @@
           flush(() => {
             const nodes = element.shadowRoot.querySelectorAll('.union-type-selector .union-toggle');
             nodes[0].active = false;
-            MockInteractions.tap(nodes[0]);
+            tap(nodes[0]);
             assert.isTrue(nodes[0].active);
             done();
           });
@@ -257,7 +263,7 @@
         test('Changes the selection', (done) => {
           flush(() => {
             const nodes = element.shadowRoot.querySelectorAll('.union-type-selector .union-toggle');
-            MockInteractions.tap(nodes[1]);
+            tap(nodes[1]);
             assert.equal(element.selectedUnion, 1);
             done();
           });
@@ -294,7 +300,7 @@
           .then((data) => {
             element.amfModel = data[0];
             const result = element._computeUnionProperty(data[1], 0);
-            assert.isTrue(element._hasType(result, ApiElements.Amf.ns.raml.vocabularies.shapes + 'ScalarShape'));
+            assert.isTrue(element._hasType(result, ns.raml.vocabularies.shapes + 'ScalarShape'));
           });
         });
       });
@@ -376,7 +382,7 @@
             element = fixture('Basic');
             element.amfModel = data[0];
             element.type = data[1];
-            Polymer.RenderStatus.afterNextRender(element, () => {
+            afterNextRender(element, () => {
               flush(() => done());
             });
           });
@@ -420,7 +426,7 @@
             element = fixture('Basic');
             element.amfModel = data[0];
             element.type = data[1];
-            Polymer.RenderStatus.afterNextRender(element, () => {
+            afterNextRender(element, () => {
               flush(() => done());
             });
           });
@@ -464,7 +470,7 @@
             element = fixture('Basic');
             element.amfModel = data[0];
             element.type = data[1];
-            Polymer.RenderStatus.afterNextRender(element, () => {
+            afterNextRender(element, () => {
               flush(() => done());
             });
           });
@@ -508,7 +514,7 @@
             element = fixture('Basic');
             element.amfModel = data[0];
             element.type = data[1];
-            Polymer.RenderStatus.afterNextRender(element, () => {
+            afterNextRender(element, () => {
               flush(() => done());
             });
           });
@@ -527,7 +533,7 @@
             element = fixture('Basic');
             element.amfModel = data[0];
             element.type = data[1];
-            Polymer.RenderStatus.afterNextRender(element, () => {
+            afterNextRender(element, () => {
               flush(() => done());
             });
           });
@@ -573,14 +579,14 @@
 
         test('Button change selection', () => {
           const buttons = element.shadowRoot.querySelectorAll('.union-toggle');
-          MockInteractions.tap(buttons[1]);
+          tap(buttons[1]);
           assert.equal(element.selectedUnion, 1);
         });
 
         test('Selection change computes properties for the table', () => {
           element.selectedUnion = 1;
           const doc = element.shadowRoot.querySelector('api-type-document.union-document');
-          const key = element._getAmfKey(ApiElements.Amf.ns.raml.vocabularies.shapes + 'anyOf');
+          const key = element._getAmfKey(ns.raml.vocabularies.shapes + 'anyOf');
           const type = element.type[key][1];
           assert.deepEqual(doc.type, type);
         });
@@ -594,7 +600,7 @@
             element = fixture('Basic');
             element.amfModel = data[0];
             element.type = data[1];
-            Polymer.RenderStatus.afterNextRender(element, () => {
+            afterNextRender(element, () => {
               flush(() => done());
             });
           });

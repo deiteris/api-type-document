@@ -5,21 +5,22 @@
  *   https://github.com/Polymer/tools/tree/master/packages/gen-typescript-declarations
  *
  * To modify these typings, edit the source file(s):
- *   api-type-document.html
+ *   api-type-document.js
  */
 
 
 // tslint:disable:variable-name Describing an API that's defined elsewhere.
 // tslint:disable:no-any describes the API as best we are able today
 
-/// <reference path="../polymer/types/polymer-element.d.ts" />
-/// <reference path="../polymer/types/lib/elements/dom-if.d.ts" />
-/// <reference path="../polymer/types/lib/elements/dom-repeat.d.ts" />
-/// <reference path="../raml-aware/raml-aware.d.ts" />
-/// <reference path="../paper-button/paper-button.d.ts" />
-/// <reference path="../amf-helper-mixin/amf-helper-mixin.d.ts" />
-/// <reference path="property-shape-document.d.ts" />
-/// <reference path="property-document-mixin.d.ts" />
+import {PolymerElement} from '@polymer/polymer/polymer-element.js';
+
+import {AmfHelperMixin} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
+
+import {html} from '@polymer/polymer/lib/utils/html-tag.js';
+
+import {afterNextRender} from '@polymer/polymer/lib/utils/render-status.js';
+
+import {PropertyDocumentMixin} from './property-document-mixin.js';
 
 declare namespace ApiElements {
 
@@ -74,8 +75,8 @@ declare namespace ApiElements {
    * `--arc-font-body2` | Mixin applied to the examples section title | `{}`
    */
   class ApiTypeDocument extends
-    ArcBehaviors.PropertyDocumentMixin(
-    ApiElements.AmfHelperMixin(
+    PropertyDocumentMixin(
+    AmfHelperMixin(
     Object)) {
 
     /**
@@ -247,6 +248,9 @@ declare namespace ApiElements {
   }
 }
 
-interface HTMLElementTagNameMap {
-  "api-type-document": ApiElements.ApiTypeDocument;
+declare global {
+
+  interface HTMLElementTagNameMap {
+    "api-type-document": ApiElements.ApiTypeDocument;
+  }
 }

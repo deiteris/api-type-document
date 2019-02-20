@@ -4,19 +4,30 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
     <title>api-request-editor demo</title>
-    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
-    <link rel="import" href="../../shadycss/apply-shim.html">
-    <link rel="import" href="../../polymer/lib/elements/custom-style.html">
-    <link rel="import" href="../../polymer/lib/elements/dom-bind.html">
-    <link rel="import" href="../../polymer/lib/elements/dom-if.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../../paper-styles/typography.html">
+    <script src="../../../@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script type="module" src="../../../@webcomponents/shadycss/entrypoints/apply-shim.js"></script>
+    <script type="module" src="../../../@polymer/polymer/lib/elements/custom-style.js"></script>
+    <script type="module" src="../../../@polymer/polymer/lib/elements/dom-bind.js"></script>
+    <script type="module" src="../../../@polymer/polymer/lib/elements/dom-if.js"></script>
+    <script type="module" src="../../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+    <script type="module" src="../../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
+    <script type="module" src="../../../@polymer/paper-styles/typography.js"></script>
     <link rel="import" href="../../paper-checkbox/paper-checkbox.html">
-    <link rel="import" href="../api-type-document.html">
-    <link rel="import" href="../../raml-aware/raml-aware.html">
-    <link rel="import" href="../../api-navigation/api-navigation.html">
-    <custom-style>
+    <script type="module" src="../api-type-document.js"></script>
+    <script type="module" src="../../../raml-aware/raml-aware.js"></script>
+    <script type="module" src="../../../api-navigation/api-navigation.js"></script>
+    <!-- FIXME(polymer-modulizer):
+        These imperative modules that innerHTML your HTML are
+        a hacky way to be sure that any mixins in included style
+        modules are ready before any elements that reference them are
+        instantiated, otherwise the CSS @apply mixin polyfill won't be
+        able to expand the underlying CSS custom properties.
+        See: https://github.com/Polymer/polymer-modulizer/issues/154
+        -->
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
       :root {
         --code-background-color: #f5f2f0;
@@ -101,17 +112,23 @@
         };
       }
       </style>
-    </custom-style>
+    </custom-style>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
   </head>
   <body>
-    <dom-bind id="demo">
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<dom-bind id="demo">
       <template is="dom-bind">
         <header>
           <paper-checkbox checked="{{narrow}}">Render narrow layout</paper-checkbox>
         </header>
         <div class="vertical-section-container" role="main">
           <raml-aware raml="{{amfModel}}" scope="model"></raml-aware>
-          <api-navigation aware="model" types-opened></api-navigation>
+          <api-navigation aware="model" types-opened=""></api-navigation>
           <template is="dom-if" if="[[hasType]]">
             <api-type-document narrow="[[narrow]]" aware="model" type="[[dataProperties]]"></api-type-document>
           </template>
@@ -120,55 +137,68 @@
           </template>
         </div>
       </template>
-    </dom-bind>
-    <script>
-    (function(app) {
+    </dom-bind>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
+    <script type="module">
+import '../../../@webcomponents/shadycss/entrypoints/apply-shim.js';
+import '../../../@polymer/polymer/lib/elements/custom-style.js';
+import '../../../@polymer/polymer/lib/elements/dom-bind.js';
+import '../../../@polymer/polymer/lib/elements/dom-if.js';
+import '../../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
+import '../../../@polymer/iron-demo-helpers/demo-snippet.js';
+import '../../../@polymer/paper-styles/typography.js';
+import '../api-type-document.js';
+import '../../../raml-aware/raml-aware.js';
+import '../../../api-navigation/api-navigation.js';
+(function(app) {
+  app.hasType = false;
+  app._load = function() {
+    fetch('./amf-model.json')
+    .then((response) => response.json())
+    .then((data) => {
+      app.amfModel = data;
+    });
+  };
+  app._navChanged = function(e) {
+    const type = e.detail.type;
+    if (type === 'type') {
+      app.setTypeData(e.detail.selected);
+      app.hasType = true;
+    } else {
       app.hasType = false;
-      app._load = function() {
-        fetch('./amf-model.json')
-        .then((response) => response.json())
-        .then((data) => {
-          app.amfModel = data;
-        });
-      };
-      app._navChanged = function(e) {
-        const type = e.detail.type;
-        if (type === 'type') {
-          app.setTypeData(e.detail.selected);
-          app.hasType = true;
-        } else {
-          app.hasType = false;
-        }
-      };
-      app.setTypeData = function(id) {
-        const dKey = 'http://a.ml/vocabularies/document#declares';
-        const d = app.amfModel[0][dKey];
-        let type = d.find((item) => item['@id'] === id);
-        if (!type) {
-          const r = app.amfModel[0]['http://a.ml/vocabularies/document#references'];
-          if (r) {
-            for (let i = 0; i < r.length; i++) {
-              const ref = r[i];
-              const rd = ref[dKey];
-              if (!rd) {
-                continue;
-              }
-              type = rd.find((item) => item['@id'] === id);
-              if (type) {
-                break;
-              }
-            }
+    }
+  };
+  app.setTypeData = function(id) {
+    const dKey = 'http://a.ml/vocabularies/document#declares';
+    const d = app.amfModel[0][dKey];
+    let type = d.find((item) => item['@id'] === id);
+    if (!type) {
+      const r = app.amfModel[0]['http://a.ml/vocabularies/document#references'];
+      if (r) {
+        for (let i = 0; i < r.length; i++) {
+          const ref = r[i];
+          const rd = ref[dKey];
+          if (!rd) {
+            continue;
+          }
+          type = rd.find((item) => item['@id'] === id);
+          if (type) {
+            break;
           }
         }
-        if (!type) {
-          console.error('Type not found');
-          return;
-        }
-        app.dataProperties = type;
-      };
-      window.addEventListener('WebComponentsReady', () => app._load());
-      window.addEventListener('api-navigation-selection-changed', app._navChanged);
-    })(document.getElementById('demo'));
-  </script>
+      }
+    }
+    if (!type) {
+      console.error('Type not found');
+      return;
+    }
+    app.dataProperties = type;
+  };
+  window.addEventListener('WebComponentsReady', () => app._load());
+  window.addEventListener('api-navigation-selection-changed', app._navChanged);
+})(document.getElementById('demo'));
+</script>
   </body>
 </html>
