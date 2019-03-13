@@ -92,6 +92,8 @@
               <paper-item data-src="Petstore-compact.json">Petstore - compact model (issue)</paper-item>
               <paper-item data-src="SE-10469.json">SE-10469 (issue)</paper-item>
               <paper-item data-src="SE-10469-compact.json">SE-10469 - compact model (issue)</paper-item>
+              <paper-item data-src="SE-11155.json">SE-11155 (issue)</paper-item>
+              <paper-item data-src="SE-11155-compact.json">SE-11155 - compact model (issue)</paper-item>
             </paper-listbox>
           </paper-dropdown-menu>
           <div class="spacer"></div>
@@ -105,7 +107,7 @@
           <raml-aware raml="{{amfModel}}" scope="model"></raml-aware>
           <api-navigation aware="model" types-opened=""></api-navigation>
           <template is="dom-if" if="[[hasType]]">
-            <api-type-document narrow="[[narrow]]" aware="model" type="[[dataProperties]]" no-examples-actions="[[noActions]]"></api-type-document>
+            <api-type-document narrow="[[narrow]]" aware="model" type="[[dataProperties]]" media-type="[[mediaType]]" no-examples-actions="[[noActions]]"></api-type-document>
           </template>
           <template is="dom-if" if="[[!hasType]]">
             <p>Select type in the navigation to see the demo.</p>
@@ -117,7 +119,7 @@
     </dom-bind>
     <script type="module">
     import {PolymerElement} from '@polymer/polymer/polymer-element.js';
-    import {AmfHelperMixin} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
+    import {AmfHelperMixin, ns} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
     (function(app) {
       app.hasType = false;
 
@@ -141,13 +143,31 @@
       };
 
       app._navChanged = function(e) {
+        app.hasType = false;
+        app.mediaType = undefined;
         const type = e.detail.type;
         if (type === 'type') {
           app.setTypeData(e.detail.selected);
-          app.hasType = true;
-        } else {
-          app.hasType = false;
+        } else if (type === 'method') {
+          app.setBodyData(e.detail.selected);
         }
+      };
+
+      app.setBodyData = function(id) {
+        const webApi = app.$.helper._computeWebApi(app.amfModel);
+        const method = app.$.helper._computeMethodModel(webApi, id);
+        const expects = app.$.helper._computeExpects(method);
+        const payload = app.$.helper._computePayload(expects)[0];
+        const mt = app.$.helper._getValue(payload, ns.raml.vocabularies.http + 'mediaType');
+        const key = app.$.helper._getAmfKey(ns.raml.vocabularies.http + 'schema');
+        let schema = payload && payload[key];
+        if (!schema) {
+          return;
+        }
+        schema = schema instanceof Array ? schema[0] : schema;
+        app.dataProperties = schema;
+        app.mediaType = mt;
+        app.hasType = true;
       };
       app.setTypeData = function(id) {
         const declares = app.$.helper._computeDeclares(app.amfModel);
@@ -177,6 +197,7 @@
           return;
         }
         app.dataProperties = type;
+        app.hasType = true;
       };
       window.addEventListener('WebComponentsReady', () => app._load());
       window.addEventListener('api-navigation-selection-changed', app._navChanged);

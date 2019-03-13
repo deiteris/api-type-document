@@ -637,6 +637,96 @@
       });
     });
   });
+
+  [
+    ['Regular model - Union types', false],
+    ['Compact model - Union types', true]
+  ].forEach((item) => {
+    suite(item[0], () => {
+      suite('_typeChanged()', () => {
+        let element;
+        setup(() => {
+          element = fixture('Basic');
+        });
+
+        function getPatloadType(element, model, path, methodName) {
+          const webApi = element._computeWebApi(model);
+          const endpoint = element._computeEndpointByPath(webApi, path);
+          const opKey = element._getAmfKey(element.ns.w3.hydra.supportedOperation);
+          const methods = endpoint[opKey];
+          let method;
+          for (let j = 0, jLen = methods.length; j < jLen; j++) {
+            const m = methods[j];
+            const value = element._getValue(m, element.ns.w3.hydra.core + 'method');
+            if (value === methodName) {
+              method = m;
+              break;
+            }
+          }
+          const expects = element._computeExpects(method);
+          const payload = element._computePayload(expects)[0];
+          const mt = element._getValue(payload, element.ns.raml.vocabularies.http + 'mediaType');
+          const key = element._getAmfKey(element.ns.raml.vocabularies.http + 'schema');
+          let schema = payload && payload[key];
+          if (!schema) {
+            return;
+          }
+          schema = schema instanceof Array ? schema[0] : schema;
+          return [schema, mt];
+        }
+
+        test('Computes names in union shape #1', (done) => {
+          AmfLoader.load(item[1], 'SE-11155')
+          .then((data) => {
+            element.amfModel = data[0];
+            const [schema, mt] = getPatloadType(element, data[0], '/users', 'post');
+            element.type = schema;
+            element.mediaType = mt;
+            afterNextRender(element, () => {
+              const u1 = element.unionTypes[0];
+              const u2 = element.unionTypes[1];
+              assert.isTrue(u1.isArray, 'Union1 is array');
+              assert.isFalse(u1.isScalar, 'Union1 is not scalar');
+              assert.isFalse(u1.isType, 'Union1 is not type');
+              assert.equal(u1.label, 'users', 'Union1 has name');
+
+              assert.isFalse(u2.isArray, 'Union2 is not array');
+              assert.isFalse(u2.isScalar, 'Union2 is not scalar');
+              assert.isTrue(u2.isType, 'Union2 is type');
+              assert.equal(u2.label, 'user', 'Union2 has name');
+
+              done();
+            });
+          });
+        });
+
+        test('Computes names in union shape #2', (done) => {
+          AmfLoader.load(item[1], 'examples-api')
+          .then((data) => {
+            element.amfModel = data[0];
+            const [schema, mt] = getPatloadType(element, data[0], '/union', 'post');
+            element.type = schema;
+            element.mediaType = mt;
+            afterNextRender(element, () => {
+              const u1 = element.unionTypes[0];
+              const u2 = element.unionTypes[1];
+              assert.isFalse(u1.isArray, 'Union1 is not array');
+              assert.isFalse(u1.isScalar, 'Union1 is not scalar');
+              assert.isTrue(u1.isType, 'Union1 is type');
+              assert.equal(u1.label, 'Person', 'Union1 has name');
+
+              assert.isFalse(u2.isArray, 'Union2 is not array');
+              assert.isFalse(u2.isScalar, 'Union2 is not scalar');
+              assert.isTrue(u2.isType, 'Union2 is type');
+              assert.equal(u2.label, 'PropertyExamples', 'Union2 has name');
+
+              done();
+            });
+          });
+        });
+      });
+    });
+  });
   </script>
 </body>
 </html>

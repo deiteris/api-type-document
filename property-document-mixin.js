@@ -283,8 +283,11 @@ export const PropertyDocumentMixin = dedupingMixin((base) => {
         let isType = !isScalar && !isArray;
         let label;
         if (isArray) {
-          const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'items');
-          label = this._computeArrayUnionLabel(item[key]);
+          label = this._getValue(item, this.ns.w3.shacl.name + 'name');
+          if (!label) {
+            const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'items');
+            label = this._computeArrayUnionLabel(item[key]);
+          }
         } else if (isNil) {
           label = 'Null';
         } else {
