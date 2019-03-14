@@ -120,7 +120,7 @@ class ApiTypeDocument extends
     </template>
     <section class="examples" hidden\$="[[!_renderMainExample]]">
       <h5 class="examples-section-title">Examples</h5>
-      <api-resource-example-document amf-model="[[amfModel]]" examples="[[_resolvedType]]" media-type="[[mediaType]]" type-name="[[parentTypeName]]" has-examples="{{_hasExamples}}" no-auto="" no-actions="[[noExamplesActions]]" raw-only="[[!_hasMediaType]]"></api-resource-example-document>
+      <api-resource-example-document amf-model="[[amfModel]]" examples="[[_resolvedType]]" media-type="[[mediaType]]" type-name="[[parentTypeName]]" has-examples="{{_hasExamples}}" no-auto="[[_computeNoAutoExamples(isScalar)]]" no-actions="[[noExamplesActions]]" raw-only="[[!_hasMediaType]]"></api-resource-example-document>
     </section>
     <template is="dom-if" if="[[isObject]]" restamp="">
       <template is="dom-repeat" data-object-repeater="" items="[[_computeProperties(_resolvedType)]]">
@@ -498,6 +498,10 @@ class ApiTypeDocument extends
         type: item
       };
     });
+  }
+
+  _computeNoAutoExamples(isScalar) {
+    return !!isScalar;
   }
 }
 window.customElements.define(ApiTypeDocument.is, ApiTypeDocument);
