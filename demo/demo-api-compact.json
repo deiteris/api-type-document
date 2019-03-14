@@ -22,7 +22,7 @@
 ],
 "raml-http:server": [
 {
-"@id": "#274",
+"@id": "#279",
 "@type": [
 "raml-http:Server",
 "doc:DomainElement"
@@ -34,7 +34,7 @@
 ],
 "raml-http:variable": [
 {
-"@id": "#275",
+"@id": "#280",
 "@type": [
 "raml-http:Parameter",
 "doc:DomainElement"
@@ -56,7 +56,7 @@
 ],
 "raml-http:schema": [
 {
-"@id": "#276",
+"@id": "#281",
 "@type": [
 "raml-shapes:ScalarShape",
 "shacl:Shape",
@@ -77,7 +77,7 @@
 ],
 "sourcemaps:sources": [
 {
-"@id": "#275/source-map",
+"@id": "#280/source-map",
 "@type": [
 "sourcemaps:SourceMap"
 ],
@@ -85,7 +85,7 @@
 {
 "sourcemaps:element": [
 {
-"@value": "amf://id#275"
+"@value": "amf://id#280"
 }
 ],
 "sourcemaps:value": [
@@ -99,7 +99,7 @@
 ]
 },
 {
-"@id": "#277",
+"@id": "#282",
 "@type": [
 "raml-http:Parameter",
 "doc:DomainElement"
@@ -121,7 +121,7 @@
 ],
 "raml-http:schema": [
 {
-"@id": "#278",
+"@id": "#283",
 "@type": [
 "raml-shapes:ScalarShape",
 "shacl:Shape",
@@ -142,7 +142,7 @@
 ],
 "sourcemaps:sources": [
 {
-"@id": "#277/source-map",
+"@id": "#282/source-map",
 "@type": [
 "sourcemaps:SourceMap"
 ],
@@ -150,7 +150,7 @@
 {
 "sourcemaps:element": [
 {
-"@value": "amf://id#277"
+"@value": "amf://id#282"
 }
 ],
 "sourcemaps:value": [
@@ -166,7 +166,7 @@
 ],
 "sourcemaps:sources": [
 {
-"@id": "#274/source-map",
+"@id": "#279/source-map",
 "@type": [
 "sourcemaps:SourceMap"
 ],
@@ -188,7 +188,7 @@
 {
 "sourcemaps:element": [
 {
-"@value": "amf://id#274"
+"@value": "amf://id#279"
 }
 ],
 "sourcemaps:value": [
@@ -608,7 +608,7 @@
 ],
 "raml-http:schema": [
 {
-"@id": "#136/linked_4",
+"@id": "#136/linked_7",
 "@type": [
 "shacl:NodeShape",
 "shacl:Shape",
@@ -663,7 +663,7 @@
 ],
 "raml-http:schema": [
 {
-"@id": "#136/linked_5",
+"@id": "#136/linked_8",
 "@type": [
 "shacl:NodeShape",
 "shacl:Shape",
@@ -754,6 +754,197 @@
 ]
 }
 ]
+},
+{
+"@id": "#274",
+"@type": [
+"raml-http:EndPoint",
+"doc:DomainElement"
+],
+"raml-http:path": [
+{
+"@value": "/notifications"
+}
+],
+"hydra:supportedOperation": [
+{
+"@id": "#275",
+"@type": [
+"hydra:Operation",
+"doc:DomainElement"
+],
+"hydra:method": [
+{
+"@value": "post"
+}
+],
+"hydra:expects": [
+{
+"@id": "#276",
+"@type": [
+"raml-http:Request",
+"doc:DomainElement"
+],
+"raml-http:payload": [
+{
+"@id": "#277",
+"@type": [
+"raml-http:Payload",
+"doc:DomainElement"
+],
+"raml-http:mediaType": [
+{
+"@value": "application/json"
+}
+],
+"raml-http:schema": [
+{
+"@id": "#136/linked_9",
+"@type": [
+"shacl:NodeShape",
+"shacl:Shape",
+"raml-shapes:Shape",
+"doc:DomainElement"
+],
+"doc:link-target": [
+{
+"@id": "#136"
+}
+],
+"doc:link-label": [
+{
+"@value": "Notification"
+}
+]
+}
+],
+"sourcemaps:sources": [
+{
+"@id": "#277/source-map",
+"@type": [
+"sourcemaps:SourceMap"
+],
+"sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "amf://id#277"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(212,4)-(214,0)]"
+}
+]
+}
+]
+}
+]
+},
+{
+"@id": "#278",
+"@type": [
+"raml-http:Payload",
+"doc:DomainElement"
+],
+"raml-http:mediaType": [
+{
+"@value": "application/xml"
+}
+],
+"raml-http:schema": [
+{
+"@id": "#136/linked_10",
+"@type": [
+"shacl:NodeShape",
+"shacl:Shape",
+"raml-shapes:Shape",
+"doc:DomainElement"
+],
+"doc:link-target": [
+{
+"@id": "#136"
+}
+],
+"doc:link-label": [
+{
+"@value": "Notification"
+}
+]
+}
+],
+"sourcemaps:sources": [
+{
+"@id": "#278/source-map",
+"@type": [
+"sourcemaps:SourceMap"
+],
+"sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "amf://id#278"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(212,4)-(214,0)]"
+}
+]
+}
+]
+}
+]
+}
+]
+}
+],
+"sourcemaps:sources": [
+{
+"@id": "#275/source-map",
+"@type": [
+"sourcemaps:SourceMap"
+],
+"sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "amf://id#275"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(211,2)-(214,0)]"
+}
+]
+}
+]
+}
+]
+}
+],
+"sourcemaps:sources": [
+{
+"@id": "#274/source-map",
+"@type": [
+"sourcemaps:SourceMap"
+],
+"sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "amf://id#274"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(210,0)-(214,0)]"
+}
+]
+}
+]
+}
+]
 }
 ],
 "sourcemaps:sources": [
@@ -809,7 +1000,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(2,0)-(210,0)]"
+"@value": "[(2,0)-(214,0)]"
 }
 ]
 },
