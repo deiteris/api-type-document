@@ -245,6 +245,7 @@ declare namespace ApiElements {
      * @returns An array of type definitions and label to render
      */
     _computeAndTypes(items: Array<object|null>|null): Array<object|null>|null;
+    _computeNoAutoExamples(isScalar: any): any;
   }
 }
 
