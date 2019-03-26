@@ -24,164 +24,110 @@
   import {AmfLoader} from './amf-loader.js';
   suite('property-document-mixin', () => {
     suite('_computeRangeDataType()', () => {
-      let element;
-      suiteSetup(() => {
-        element = fixture('Basic');
-      });
+      [
+        ['Regulat model', false],
+        ['Compact model', true]
+      ].forEach((item) => {
+        suite(item[0], () => {
+          let element;
+          let model;
+          suiteSetup(() => {
+            return AmfLoader.loadType('ScalarType', item[1])
+            .then((data) => {
+              model = data[0];
+            });
+          });
 
-      test('Computes UnionShape', () => {
-        const type = 'http://a.ml/vocabularies/shapes#UnionShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'Union');
-      });
+          setup(() => {
+            element = fixture('Basic');
+            element.amfModel = model;
+          });
 
-      test('Computes ArrayShape', () => {
-        const type = 'http://a.ml/vocabularies/shapes#ArrayShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'Array');
-      });
+          test('Computes UnionShape', () => {
+            const type = element._getAmfKey('http://a.ml/vocabularies/shapes#UnionShape');
+            const result = element._computeRangeDataType({
+              '@type': [type]
+            });
+            assert.equal(result, 'Union');
+          });
 
-      test('Computes NodeShape', () => {
-        const type = 'http://www.w3.org/ns/shacl#NodeShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'Object');
-      });
+          test('Computes ArrayShape', () => {
+            const type = element._getAmfKey('http://a.ml/vocabularies/shapes#ArrayShape');
+            const result = element._computeRangeDataType({
+              '@type': [type]
+            });
+            assert.equal(result, 'Array');
+          });
 
-      test('Computes FileShape', () => {
-        const type = 'http://a.ml/vocabularies/shapes#FileShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'File');
-      });
+          test('Computes NodeShape', () => {
+            const type = element._getAmfKey('http://www.w3.org/ns/shacl#NodeShape');
+            const result = element._computeRangeDataType({
+              '@type': [type]
+            });
+            assert.equal(result, 'Object');
+          });
 
-      test('Computes NilShape', () => {
-        const type = 'http://a.ml/vocabularies/shapes#NilShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'Null');
-      });
+          test('Computes FileShape', () => {
+            const type = element._getAmfKey('http://a.ml/vocabularies/shapes#FileShape');
+            const result = element._computeRangeDataType({
+              '@type': [type]
+            });
+            assert.equal(result, 'File');
+          });
 
-      test('Computes AnyShape', () => {
-        const type = 'http://a.ml/vocabularies/shapes#AnyShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'Any');
-      });
+          test('Computes NilShape', () => {
+            const type = element._getAmfKey('http://a.ml/vocabularies/shapes#NilShape');
+            const result = element._computeRangeDataType({
+              '@type': [type]
+            });
+            assert.equal(result, 'Null');
+          });
 
-      test('Computes MatrixShape', () => {
-        const type = 'http://a.ml/vocabularies/shapes#MatrixShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'Matrix');
-      });
+          test('Computes AnyShape', () => {
+            const type = element._getAmfKey('http://a.ml/vocabularies/shapes#AnyShape');
+            const result = element._computeRangeDataType({
+              '@type': [type]
+            });
+            assert.equal(result, 'Any');
+          });
 
-      test('Computes TupleShape', () => {
-        const type = 'http://a.ml/vocabularies/shapes#TupleShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'Tuple');
-      });
+          test('Computes MatrixShape', () => {
+            const type = element._getAmfKey('http://a.ml/vocabularies/shapes#MatrixShape');
+            const result = element._computeRangeDataType({
+              '@type': [type]
+            });
+            assert.equal(result, 'Matrix');
+          });
 
-      test('Computes Unknown type', () => {
-        const type = 'unknown';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'Unknown type');
-      });
-    });
+          test('Computes TupleShape', () => {
+            const type = element._getAmfKey('http://a.ml/vocabularies/shapes#TupleShape');
+            const result = element._computeRangeDataType({
+              '@type': [type]
+            });
+            assert.equal(result, 'Tuple');
+          });
 
-    suite('_computeRangeDataType() - compact model', () => {
-      let element;
-      suiteSetup(() => {
-        return AmfLoader.load(true)
-        .then((model) => {
-          element = fixture('Basic');
-          element.amfModel = model;
-        });
-      });
+          test('Computes RecursiveShape', () => {
+            const type = element._getAmfKey('http://a.ml/vocabularies/shapes#RecursiveShape');
+            const result = element._computeRangeDataType({
+              '@type': [type]
+            });
+            assert.equal(result, 'Recursive');
+          });
 
-      test('Computes UnionShape', () => {
-        const type = 'raml-shapes:UnionShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'Union');
-      });
+          test('Computes Unknown type', () => {
+            const type = 'unknown';
+            const result = element._computeRangeDataType({
+              '@type': [type]
+            });
+            assert.equal(result, 'Unknown type');
+          });
 
-      test('Computes ArrayShape', () => {
-        const type = 'raml-shapes:ArrayShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
+          test('Returns undefined when no argument', () => {
+            const result = element._computeRangeDataType();
+            assert.isUndefined(result);
+          });
         });
-        assert.equal(result, 'Array');
-      });
-
-      test('Computes NodeShape', () => {
-        const type = 'shacl:NodeShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'Object');
-      });
-
-      test('Computes FileShape', () => {
-        const type = 'raml-shapes:FileShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'File');
-      });
-
-      test('Computes NilShape', () => {
-        const type = 'raml-shapes:NilShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'Null');
-      });
-
-      test('Computes AnyShape', () => {
-        const type = 'raml-shapes:AnyShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'Any');
-      });
-
-      test('Computes MatrixShape', () => {
-        const type = 'raml-shapes:MatrixShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'Matrix');
-      });
-
-      test('Computes TupleShape', () => {
-        const type = 'raml-shapes:TupleShape';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'Tuple');
-      });
-
-      test('Computes Unknown type', () => {
-        const type = 'unknown';
-        const result = element._computeRangeDataType({
-          '@type': [type]
-        });
-        assert.equal(result, 'Unknown type');
       });
     });
 
@@ -303,6 +249,106 @@
       test('Computes range for node shape', () => {
         const result = element._computeRange(NodeShape);
         assert.equal(result, 'TEST-RANGE');
+      });
+    });
+  });
+
+  suite('_computeArrayProperties()', () => {
+    [
+      ['Regulat model', false],
+      ['Compact model', true]
+    ].forEach((item) => {
+      suite(item[0], () => {
+        let element;
+        let model;
+        suiteSetup(() => {
+          return AmfLoader.loadType('ScalarType', item[1])
+          .then((data) => {
+            model = data[0];
+          });
+        });
+
+        setup(() => {
+          element = fixture('Basic');
+          element.amfModel = model;
+        });
+
+        test('Returnms undefined when no argument', () => {
+          const result = element._computeArrayProperties();
+          assert.isUndefined(result);
+        });
+
+        test('Returnms undefined when no "items" in shape', () => {
+          const result = element._computeArrayProperties({});
+          assert.isUndefined(result);
+        });
+
+        test('Returnms undefined when "items" is empty array', () => {
+          const iKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'items');
+          const model = {};
+          model[iKey] = [];
+          const result = element._computeArrayProperties(model);
+          assert.isUndefined(result);
+        });
+
+        test('Handles scalar shape', () => {
+          const iKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'items');
+          const sKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'ScalarShape');
+          const model = {};
+          const item = {
+            '@type': [sKey]
+          };
+          model[iKey] = [item];
+          const result = element._computeArrayProperties(model);
+          assert.typeOf(result, 'array');
+          assert.lengthOf(result, 1);
+          assert.isTrue(result[0].isShape);
+        });
+
+        test('Handles UnionShape shape', () => {
+          const iKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'items');
+          const sKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'UnionShape');
+          const model = {};
+          const item = {
+            '@type': [sKey]
+          };
+          model[iKey] = [item];
+          const result = element._computeArrayProperties(model);
+          assert.typeOf(result, 'array');
+          assert.lengthOf(result, 1);
+          assert.isTrue(result[0].isType);
+        });
+
+        test('Handles ArrayShape shape', () => {
+          const iKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'items');
+          const sKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'ArrayShape');
+          const model = {};
+          const item = {
+            '@type': [sKey]
+          };
+          model[iKey] = [item];
+          const result = element._computeArrayProperties(model);
+          assert.typeOf(result, 'array');
+          assert.lengthOf(result, 1);
+          assert.isTrue(result[0].isType);
+        });
+
+        test('Handles NodeShape shape', () => {
+          const iKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'items');
+          const sKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'NodeShape');
+          const pKey = element._getAmfKey(element.ns.w3.shacl.name + 'property');
+          const model = {};
+          const item = {
+            '@type': [sKey]
+          };
+          const properties = [{}];
+          item[pKey] = properties;
+          model[iKey] = [item];
+          const result = element._computeArrayProperties(model);
+          assert.typeOf(result, 'array');
+          assert.lengthOf(result, 1);
+          assert.isTrue(result[0].isShape);
+        });
       });
     });
   });
