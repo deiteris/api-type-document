@@ -1,13 +1,11 @@
-import {PolymerElement} from '@polymer/polymer/polymer-element.js';
-import {AmfHelperMixin} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
-import '@polymer/polymer/lib/elements/dom-if.js';
-import '@polymer/polymer/lib/elements/dom-repeat.js';
-import '@polymer/iron-flex-layout/iron-flex-layout.js';
-import '@advanced-rest-client/markdown-styles/markdown-styles.js';
-import '@polymer/marked-element/marked-element.js';
-import '@api-components/api-annotation-document/api-annotation-document.js';
-import '@api-components/api-resource-example-document/api-resource-example-document.js';
-import {html} from '@polymer/polymer/lib/utils/html-tag.js';
+import {PolymerElement} from '../../@polymer/polymer/polymer-element.js';
+import {AmfHelperMixin} from '../../@api-components/amf-helper-mixin/amf-helper-mixin.js';
+import '../../@polymer/iron-flex-layout/iron-flex-layout.js';
+import '../../@advanced-rest-client/markdown-styles/markdown-styles.js';
+import '../../@polymer/marked-element/marked-element.js';
+import '../../@api-components/api-annotation-document/api-annotation-document.js';
+import '../../@api-components/api-resource-example-document/api-resource-example-document.js';
+import {html} from '../../@polymer/polymer/lib/utils/html-tag.js';
 import {PropertyDocumentMixin} from './property-document-mixin.js';
 import './api-type-document.js';
 /**

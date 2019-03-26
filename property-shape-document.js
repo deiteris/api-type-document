@@ -1,12 +1,10 @@
-import {PolymerElement} from '@polymer/polymer/polymer-element.js';
-import '@polymer/polymer/lib/elements/dom-if.js';
-import '@polymer/polymer/lib/elements/dom-repeat.js';
-import '@polymer/iron-flex-layout/iron-flex-layout.js';
-import '@advanced-rest-client/markdown-styles/markdown-styles.js';
-import '@polymer/marked-element/marked-element.js';
-import {AmfHelperMixin} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
+import {PolymerElement} from '../../@polymer/polymer/polymer-element.js';
+import '../../@polymer/iron-flex-layout/iron-flex-layout.js';
+import '../../@advanced-rest-client/markdown-styles/markdown-styles.js';
+import '../../@polymer/marked-element/marked-element.js';
+import {AmfHelperMixin} from '../../@api-components/amf-helper-mixin/amf-helper-mixin.js';
 import {PropertyDocumentMixin} from './property-document-mixin.js';
-import {html} from '@polymer/polymer/lib/utils/html-tag.js';
+import {html} from '../../@polymer/polymer/lib/utils/html-tag.js';
 import './api-type-document.js';
 import './property-range-document.js';
 /**

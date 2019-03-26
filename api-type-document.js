@@ -1,11 +1,9 @@
-import {PolymerElement} from '@polymer/polymer/polymer-element.js';
-import {AmfHelperMixin} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
-import {html} from '@polymer/polymer/lib/utils/html-tag.js';
-import {afterNextRender} from '@polymer/polymer/lib/utils/render-status.js';
-import '@polymer/polymer/lib/elements/dom-if.js';
-import '@polymer/polymer/lib/elements/dom-repeat.js';
-import '@api-components/raml-aware/raml-aware.js';
-import '@polymer/paper-button/paper-button.js';
+import {PolymerElement} from '../../@polymer/polymer/polymer-element.js';
+import {AmfHelperMixin} from '../../@api-components/amf-helper-mixin/amf-helper-mixin.js';
+import {html} from '../../@polymer/polymer/lib/utils/html-tag.js';
+import {afterNextRender} from '../../@polymer/polymer/lib/utils/render-status.js';
+import '../../@api-components/raml-aware/raml-aware.js';
+import '../../@polymer/paper-button/paper-button.js';
 import './property-shape-document.js';
 import {PropertyDocumentMixin} from './property-document-mixin.js';
 /**

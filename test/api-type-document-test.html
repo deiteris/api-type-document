@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
   <title>api-type-document test</title>
 
-  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-  <script src="../node_modules/@polymer/test-fixture/test-fixture.js"></script>
-  <script src="../node_modules/mocha/mocha.js"></script>
-  <script src="../node_modules/chai/chai.js"></script>
-  <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="../../../@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../../../@polymer/test-fixture/test-fixture.js"></script>
+  <script src="../../../mocha/mocha.js"></script>
+  <script src="../../../chai/chai.js"></script>
+  <script src="../../../wct-mocha/wct-mocha.js"></script>
 
-  <!-- <script type="module" src="../../../arc-polyfills/arc-polyfills.js"></script> -->
   <script type="module" src="../api-type-document.js"></script>
 </head>
 <body>
@@ -22,10 +21,10 @@
   </test-fixture>
 
   <script type="module">
-  import {afterNextRender} from '@polymer/polymer/lib/utils/render-status.js';
-  import {tap} from '@polymer/iron-test-helpers/mock-interactions.js';
+  import {afterNextRender} from '../../../@polymer/polymer/lib/utils/render-status.js';
+  import {tap} from '../../../@polymer/iron-test-helpers/mock-interactions.js';
   import {AmfLoader} from './amf-loader.js';
-  import {ns} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
+  import {ns} from '../../../@api-components/amf-helper-mixin/amf-helper-mixin.js';
   suite('Model independent', () => {
     suite('Basic', () => {
       test('Renders no params table without data', (done) => {
