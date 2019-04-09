@@ -59,7 +59,7 @@
     </template>
     <section class="examples" hidden$="[[!_renderMainExample]]">
       <h5 class="examples-section-title">Examples</h5>
-      <api-resource-example-document amf-model="[[amfModel]]" examples="[[_resolvedType]]" media-type="[[mediaType]]" type-name="[[parentTypeName]]" has-examples="{{_hasExamples}}" no-auto="[[_computeNoAutoExamples(isScalar)]]" no-actions="[[noExamplesActions]]" raw-only="[[!_hasMediaType]]"></api-resource-example-document>
+      <api-resource-example-document amf-model="[[amfModel]]" payload-id="[[selectedBodyId]]" examples="[[_resolvedType]]" media-type="[[mediaType]]" type-name="[[parentTypeName]]" has-examples="{{_hasExamples}}" no-auto="[[_computeNoAutoExamples(isScalar)]]" no-actions="[[noExamplesActions]]" raw-only="[[!_hasMediaType]]"></api-resource-example-document>
     </section>
     <template is="dom-if" if="[[isObject]]" restamp>
       <template is="dom-repeat" data-object-repeater items="[[_computeProperties(_resolvedType)]]">
@@ -292,6 +292,11 @@
          * When set an example in this `type` object won't be rendered even if set.
          */
         noMainExample: Boolean,
+        /**
+         * When rendering schema for a payload set this to the payload ID
+         * so the examples can be correctly rendered.
+         */
+        selectedBodyId: String,
 
         _hasExamples: Boolean,
         _renderMainExample: {
