@@ -5061,12 +5061,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#951"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -5473,12 +5545,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#961"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -6018,12 +6162,72 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:type"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,8)-(5,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,8)-(3,14)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:activityGroupCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,21)-(7,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#977"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(7,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:classificationCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,22)-(6,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,15)-(4,51)]"
 }
 ]
 }
@@ -6458,12 +6662,120 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,14)-(4,33)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumberAddition"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,23)-(6,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,23)-(11,82)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,11)-(9,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#985"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(12,74)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,8)-(8,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,15)-(10,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,15)-(5,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:postalCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,14)-(7,20)]"
 }
 ]
 }
@@ -6747,12 +7059,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#995"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -6912,12 +7296,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:value"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,9)-(3,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#1005"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(4,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:type"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,8)-(2,17)]"
 }
 ]
 }
@@ -7026,12 +7434,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:value"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,9)-(6,32)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#1008"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(5,0)-(7,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:type"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,8)-(5,17)]"
 }
 ]
 }
@@ -7291,12 +7723,72 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:type"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,8)-(3,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:formatted"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,13)-(7,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:areaCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,13)-(5,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#1012"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryDialCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,20)-(4,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:subscriberNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,20)-(6,30)]"
 }
 ]
 }
@@ -7551,12 +8043,72 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:type"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,8)-(3,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:formatted"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,13)-(7,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:areaCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,13)-(5,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#1019"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryDialCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,20)-(4,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:subscriberNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,20)-(6,30)]"
 }
 ]
 }
@@ -7703,12 +8255,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:value"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,9)-(4,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#1026"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(5,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:type"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,8)-(3,17)]"
 }
 ]
 }
@@ -7770,12 +8346,60 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:website"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,9)-(5,46)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:faxNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,11)-(3,44)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#1003"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(6,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,7)-(4,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:phoneNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,42)]"
 }
 ]
 }
@@ -7965,12 +8589,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,44)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#1032"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,44)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,9)]"
 }
 ]
 }
@@ -8146,12 +8794,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#1036"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,9)]"
 }
 ]
 }
@@ -8370,12 +9042,60 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:numberOfFte"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,13)-(4,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#1040"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(5,23)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:class"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,7)-(2,10)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:numberOfEmployees"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,19)-(5,23)]"
 }
 ]
 }
@@ -8622,6 +9342,30 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:size"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "numberOfFte->[(4,0)-(5,0)]#description->[(3,0)-(4,0)]#numberOfEmployees->[(5,0)-(5,23)]#class->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:contactInformation"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "faxNumber->[(3,0)-(4,0)]#phoneNumber->[(2,0)-(3,0)]#email->[(4,0)-(5,0)]#website->[(5,0)-(6,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#975"
 }
 ],
@@ -8630,9 +9374,117 @@
 "@value": "dissolutionDate->[(20,0)-(21,0)]#nonEmailIndicator->[(21,0)-(23,0)]#size->[(14,0)-(15,0)]#contactInformation->[(12,0)-(13,0)]#companyAddress->[(11,0)-(12,0)]#foundationDate->[(19,0)-(20,0)]#activities->[(17,0)-(18,0)]#industry->[(15,0)-(17,0)]#legalForm->[(13,0)-(14,0)]#companyName->[(3,0)-(4,0)]#alternateCompanyName->[(4,0)-(5,0)]#isActive->[(18,0)-(19,0)]#tradeNames->[(5,0)-(11,0)]#companyIdentification->[(2,0)-(3,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,30)]#code->[(2,0)-(3,0)]"
+}
+]
 }
 ],
 "sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(11,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(21,19)-(21,23)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(18,10)-(18,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(19,16)-(19,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:contactInformation"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(6,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:alternateCompanyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,22)-(4,43)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -8642,6 +9494,90 @@
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(23,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:activities"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(17,12)-(17,35)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,16)-(11,39)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,32)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(20,17)-(20,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:industry"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(15,9)-(17,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:size"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(5,23)]"
 }
 ]
 }
@@ -8696,6 +9632,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:startDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,11)-(3,23)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#974"
 }
 ],
@@ -8704,9 +9652,33 @@
 "@value": "[(2,0)-(4,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:company"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(23,0)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:company"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "dissolutionDate->[(20,0)-(21,0)]#nonEmailIndicator->[(21,0)-(23,0)]#size->[(14,0)-(15,0)]#contactInformation->[(12,0)-(13,0)]#companyAddress->[(11,0)-(12,0)]#foundationDate->[(19,0)-(20,0)]#activities->[(17,0)-(18,0)]#industry->[(15,0)-(17,0)]#legalForm->[(13,0)-(14,0)]#companyName->[(3,0)-(4,0)]#alternateCompanyName->[(4,0)-(5,0)]#isActive->[(18,0)-(19,0)]#tradeNames->[(5,0)-(11,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -10126,12 +11098,108 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(22,14)-(22,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:newsletter"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(28,16)-(28,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(21,8)-(21,12)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(26,11)-(26,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#19"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(21,0)-(29,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:age"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(27,9)-(27,11)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(23,15)-(23,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(24,14)-(24,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(25,18)-(25,48)]"
 }
 ]
 }
@@ -10540,12 +11608,108 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(31,14)-(31,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:newsletter"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(37,16)-(37,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(30,8)-(30,12)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(35,11)-(35,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#28"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(30,0)-(38,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:age"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(36,9)-(36,11)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(32,15)-(32,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(33,14)-(33,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(34,18)-(34,45)]"
 }
 ]
 }
@@ -10882,12 +12046,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(268,22)-(268,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(270,22)-(270,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(269,23)-(269,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#37"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(267,0)-(273,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(272,19)-(272,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(267,16)-(267,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(271,26)-(271,56)]"
 }
 ]
 }
@@ -11252,12 +12488,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(275,22)-(275,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(277,22)-(277,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(276,23)-(276,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#45"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(274,0)-(280,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(279,19)-(279,34)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(274,16)-(274,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(278,26)-(278,53)]"
 }
 ]
 }
@@ -12519,12 +13827,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,14)-(3,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,14)-(5,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,15)-(4,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#73"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(1,1)-(8,1)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,8)-(2,46)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,49)]"
 }
 ]
 }
@@ -13224,12 +14604,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#314"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -13641,12 +15093,120 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,14)-(4,33)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumberAddition"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,23)-(6,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,23)-(11,82)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,11)-(9,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#324"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(12,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,8)-(8,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,15)-(10,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,15)-(5,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:postalCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,14)-(7,20)]"
 }
 ]
 }
@@ -13930,12 +15490,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#334"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -14190,12 +15822,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#345"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,9)]"
 }
 ]
 }
@@ -14400,6 +16056,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,30)]#code->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#321"
 }
 ],
@@ -14408,9 +16076,81 @@
 "@value": "dissolutionDate->[(13,0)-(14,0)]#nonEmailIndicator->[(14,0)-(15,0)]#companyAddress->[(9,0)-(10,0)]#foundationDate->[(12,0)-(13,0)]#legalForm->[(10,0)-(11,0)]#companyName->[(3,0)-(4,0)]#alternateCompanyName->[(4,0)-(5,0)]#isActive->[(11,0)-(12,0)]#tradeNames->[(5,0)-(9,0)]#companyIdentification->[(2,0)-(3,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
+}
+]
 }
 ],
 "sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(9,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,16)-(12,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,22)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,16)-(9,54)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -14420,6 +16160,66 @@
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(15,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:alternateCompanyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,22)-(4,35)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(13,17)-(13,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,10)-(11,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(14,19)-(14,23)]"
 }
 ]
 }
@@ -14438,6 +16238,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:companyProfile"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(15,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#313"
 }
 ],
@@ -14446,9 +16258,33 @@
 "@value": "[(2,0)-(3,59)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyProfile"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "dissolutionDate->[(13,0)-(14,0)]#nonEmailIndicator->[(14,0)-(15,0)]#companyAddress->[(9,0)-(10,0)]#foundationDate->[(12,0)-(13,0)]#legalForm->[(10,0)-(11,0)]#companyName->[(3,0)-(4,0)]#alternateCompanyName->[(4,0)-(5,0)]#isActive->[(11,0)-(12,0)]#tradeNames->[(5,0)-(9,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -14458,6 +16294,18 @@
 "sourcemaps:value": [
 {
 "@value": "companyProfile->[(3,0)-(3,59)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
 }
 ]
 }
@@ -14814,12 +16662,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#354"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,26)]"
 }
 ]
 }
@@ -15123,12 +17043,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetNameAdd1"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,45)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,23)-(9,85)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#363"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(10,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:building"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,12)-(4,39)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,15)-(8,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,14)-(5,32)]"
 }
 ]
 }
@@ -15412,12 +17416,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#371"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,26)]"
 }
 ]
 }
@@ -15672,12 +17748,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#382"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,9)]"
 }
 ]
 }
@@ -15804,6 +17904,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,38)]#code->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#361"
 }
 ],
@@ -15812,9 +17924,81 @@
 "@value": "dissolutionDate->[(10,0)-(11,0)]#nonEmailIndicator->[(11,0)-(12,0)]#companyAddress->[(6,0)-(7,0)]#foundationDate->[(9,0)-(10,0)]#legalForm->[(7,0)-(8,0)]#companyName->[(3,0)-(4,0)]#isActive->[(8,0)-(9,0)]#tradeNames->[(4,0)-(6,0)]#companyIdentification->[(2,0)-(3,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
+}
+]
 }
 ],
 "sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,11)-(6,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,16)-(9,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,16)-(6,54)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -15824,6 +18008,54 @@
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(12,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,17)-(10,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,10)-(8,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,19)-(11,24)]"
 }
 ]
 }
@@ -15842,6 +18074,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:companyProfile"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(12,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#353"
 }
 ],
@@ -15850,9 +18094,33 @@
 "@value": "[(2,0)-(3,59)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyProfile"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "dissolutionDate->[(10,0)-(11,0)]#nonEmailIndicator->[(11,0)-(12,0)]#companyAddress->[(6,0)-(7,0)]#foundationDate->[(9,0)-(10,0)]#legalForm->[(7,0)-(8,0)]#companyName->[(3,0)-(4,0)]#isActive->[(8,0)-(9,0)]#tradeNames->[(4,0)-(6,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -15862,6 +18130,18 @@
 "sourcemaps:value": [
 {
 "@value": "companyProfile->[(3,0)-(3,59)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
 }
 ]
 }
@@ -16218,12 +18498,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#389"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,30)]"
 }
 ]
 }
@@ -16527,12 +18879,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,14)-(4,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,23)-(9,69)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#398"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(10,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,8)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,15)-(8,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,15)-(5,20)]"
 }
 ]
 }
@@ -16821,12 +19257,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,14)-(12,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(17,23)-(17,64)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(15,11)-(15,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,15)-(11,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#406"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(11,0)-(18,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(14,8)-(14,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(16,15)-(16,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(13,15)-(13,20)]"
 }
 ]
 }
@@ -17115,12 +19635,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#414"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,30)]"
 }
 ]
 }
@@ -17375,12 +19967,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#425"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,10)]"
 }
 ]
 }
@@ -17546,6 +20162,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,37)]#code->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#396"
 }
 ],
@@ -17554,9 +20182,81 @@
 "@value": "dissolutionDate->[(11,0)-(12,0)]#nonEmailIndicator->[(12,0)-(13,0)]#companyAddress->[(7,0)-(8,0)]#foundationDate->[(10,0)-(11,0)]#legalForm->[(8,0)-(9,0)]#companyName->[(3,0)-(4,0)]#isActive->[(9,0)-(10,0)]#tradeNames->[(4,0)-(7,0)]#companyIdentification->[(2,0)-(3,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(8,0)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
+}
+]
 }
 ],
 "sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,11)-(7,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,16)-(10,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,34)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,54)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -17566,6 +20266,54 @@
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(13,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,17)-(11,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,10)-(9,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,19)-(12,24)]"
 }
 ]
 }
@@ -17584,6 +20332,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:companyProfile"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(13,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#388"
 }
 ],
@@ -17592,9 +20352,33 @@
 "@value": "[(2,0)-(3,59)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(8,0)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyProfile"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "dissolutionDate->[(11,0)-(12,0)]#nonEmailIndicator->[(12,0)-(13,0)]#companyAddress->[(7,0)-(8,0)]#foundationDate->[(10,0)-(11,0)]#legalForm->[(8,0)-(9,0)]#companyName->[(3,0)-(4,0)]#isActive->[(9,0)-(10,0)]#tradeNames->[(4,0)-(7,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -17604,6 +20388,18 @@
 "sourcemaps:value": [
 {
 "@value": "companyProfile->[(3,0)-(3,59)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(8,0)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
 }
 ]
 }
@@ -19901,12 +22697,120 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,14)-(4,33)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumberAddition"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,23)-(6,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,23)-(11,82)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,11)-(9,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#221"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(12,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,8)-(8,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,15)-(10,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,15)-(5,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:postalCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,14)-(7,20)]"
 }
 ]
 }
@@ -20190,12 +23094,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#231"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -20450,12 +23426,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#242"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,9)]"
 }
 ]
 }
@@ -20660,6 +23660,66 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(9,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,16)-(12,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,22)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,16)-(9,54)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#218"
 }
 ],
@@ -20668,9 +23728,81 @@
 "@value": "[(2,0)-(15,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:alternateCompanyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,22)-(4,35)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(13,17)-(13,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,10)-(11,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(14,19)-(14,23)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,30)]#code->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -20680,6 +23812,18 @@
 "sourcemaps:value": [
 {
 "@value": "dissolutionDate->[(13,0)-(14,0)]#nonEmailIndicator->[(14,0)-(15,0)]#companyAddress->[(9,0)-(10,0)]#foundationDate->[(12,0)-(13,0)]#legalForm->[(10,0)-(11,0)]#companyName->[(3,0)-(4,0)]#alternateCompanyName->[(4,0)-(5,0)]#isActive->[(11,0)-(12,0)]#tradeNames->[(5,0)-(9,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
 }
 ]
 }
@@ -21065,12 +24209,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetNameAdd1"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,45)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,23)-(9,85)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#252"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(10,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:building"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,12)-(4,39)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,15)-(8,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,14)-(5,32)]"
 }
 ]
 }
@@ -21354,12 +24582,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#260"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,26)]"
 }
 ]
 }
@@ -21614,12 +24914,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#271"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,9)]"
 }
 ]
 }
@@ -21746,6 +25070,66 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,11)-(6,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,16)-(9,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,16)-(6,54)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#250"
 }
 ],
@@ -21754,9 +25138,69 @@
 "@value": "[(2,0)-(12,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,17)-(10,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,10)-(8,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,19)-(11,24)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,38)]#code->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -21766,6 +25210,18 @@
 "sourcemaps:value": [
 {
 "@value": "dissolutionDate->[(10,0)-(11,0)]#nonEmailIndicator->[(11,0)-(12,0)]#companyAddress->[(6,0)-(7,0)]#foundationDate->[(9,0)-(10,0)]#legalForm->[(7,0)-(8,0)]#companyName->[(3,0)-(4,0)]#isActive->[(8,0)-(9,0)]#tradeNames->[(4,0)-(6,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
 }
 ]
 }
@@ -22151,12 +25607,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,14)-(4,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,23)-(9,69)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#279"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(10,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,8)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,15)-(8,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,15)-(5,20)]"
 }
 ]
 }
@@ -22445,12 +25985,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,14)-(12,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(17,23)-(17,64)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(15,11)-(15,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,15)-(11,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#287"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(11,0)-(18,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(14,8)-(14,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(16,15)-(16,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(13,15)-(13,20)]"
 }
 ]
 }
@@ -22739,12 +26363,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#295"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,30)]"
 }
 ]
 }
@@ -22999,12 +26695,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#306"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,10)]"
 }
 ]
 }
@@ -23170,6 +26890,66 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,11)-(7,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,16)-(10,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,34)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,54)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#277"
 }
 ],
@@ -23178,9 +26958,69 @@
 "@value": "[(2,0)-(13,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,17)-(11,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,10)-(9,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,19)-(12,24)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,37)]#code->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -23190,6 +27030,18 @@
 "sourcemaps:value": [
 {
 "@value": "dissolutionDate->[(11,0)-(12,0)]#nonEmailIndicator->[(12,0)-(13,0)]#companyAddress->[(7,0)-(8,0)]#foundationDate->[(10,0)-(11,0)]#legalForm->[(8,0)-(9,0)]#companyName->[(3,0)-(4,0)]#isActive->[(9,0)-(10,0)]#tradeNames->[(4,0)-(7,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(8,0)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
 }
 ]
 }
@@ -27552,12 +31404,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#104"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -27894,12 +31818,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#111"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,26)]"
 }
 ]
 }
@@ -28236,12 +32232,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#118"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,30)]"
 }
 ]
 }
@@ -31938,12 +36006,120 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,12)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumberAddition"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,21)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,21)-(10,80)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,9)-(8,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,40)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#169"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(11,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,6)-(7,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,13)-(9,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,13)-(4,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:postalCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,12)-(6,18)]"
 }
 ]
 }
@@ -32316,12 +36492,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetNameAdd1"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,16)-(5,43)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,21)-(8,83)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,9)-(6,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,40)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#179"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(9,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:building"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,10)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,13)-(7,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,12)-(4,30)]"
 }
 ]
 }
@@ -32694,12 +36954,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,12)-(3,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,21)-(8,67)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,9)-(6,22)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,40)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#187"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,67)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,6)-(5,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,13)-(7,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,13)-(4,18)]"
 }
 ]
 }
@@ -34939,12 +39283,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#104"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -35281,12 +39697,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#111"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,26)]"
 }
 ]
 }
@@ -35623,12 +40111,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#118"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,30)]"
 }
 ]
 }
@@ -39456,12 +44016,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#104"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -39798,12 +44430,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#111"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,26)]"
 }
 ]
 }
@@ -40140,12 +44844,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#118"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,30)]"
 }
 ]
 }
@@ -41537,12 +46313,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(21,14)-(21,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(23,14)-(23,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(22,15)-(22,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#491"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(20,0)-(26,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(25,11)-(25,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(20,8)-(20,12)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(24,18)-(24,48)]"
 }
 ]
 }
@@ -41879,12 +46727,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(28,14)-(28,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(30,14)-(30,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(29,15)-(29,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#498"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(27,0)-(33,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(32,11)-(32,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(27,8)-(27,12)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(31,18)-(31,45)]"
 }
 ]
 }
@@ -43186,12 +48106,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,14)-(3,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,14)-(5,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,15)-(4,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#523"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(1,0)-(8,1)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,8)-(2,46)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,49)]"
 }
 ]
 }
@@ -44319,12 +49311,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,14)-(3,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,14)-(5,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,15)-(4,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#545"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(1,0)-(8,1)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,8)-(2,46)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,49)]"
 }
 ]
 }
@@ -44632,7 +49696,7 @@
 ],
 "doc:raw": [
 {
-"@value": "#%RAML 1.0 NamedExample\ncountryCode: \"BE\"\ngraydonEnterpriseId: 1057155523\nregistrationId: \"0422319093\"\nvatNumber: \"BE0422319093\"\ngraydonCompanyId: \"0422319093\"  \nisBranchOffice: false"
+"@value": "#%RAML 1.0 NamedExample\nphoneNumber: !include contact-example.raml\nfaxNumber: !include contact-fax-example.raml\nemail: !include contact-email-example.raml\nwebsite: !include contact-website-example.raml\n"
 }
 ],
 "raml-http:mediaType": [
@@ -44664,29 +49728,7 @@
 ]
 }
 ],
-"sourcemaps:sources": [
-{
-"@id": "#558/source-map",
-"@type": [
-"sourcemaps:SourceMap"
-],
-"sourcemaps:lexical": [
-{
-"sourcemaps:element": [
-{
-"@value": "amf://id#558"
-}
-],
-"sourcemaps:value": [
-{
-"@value": "[(2,0)-(7,21)]"
-}
-]
-}
-]
-}
-]
-},
+"doc:references": [
 {
 "@id": "#560",
 "@type": [
@@ -44703,7 +49745,7 @@
 ],
 "doc:raw": [
 {
-"@value": "#%RAML 1.0 NamedExample\ncode: '5'\ndescription: 'Limited company'"
+"@value": "#%RAML 1.0 NamedExample\n-\n  type: 'GENERAL'\n  countryDialCode : '+32'\n  areaCode : '22'\n  subscriberNumber: '12.87.00'\n  formatted: '+32-(0)22 000000'\n"
 }
 ],
 "raml-http:mediaType": [
@@ -44750,7 +49792,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(2,0)-(3,30)]"
+"@value": "[(2,0)-(8,0)]"
 }
 ]
 }
@@ -44774,7 +49816,7 @@
 ],
 "doc:raw": [
 {
-"@value": "#%RAML 1.0 NamedExample\n- #Item 1\n  addressType: 'REGISTERED-OFFICE-ADDRESS'\n  streetName: 'UITBREIDINGSTRAAT'\n  houseNumber: '84'\n  houseNumberAddition: '/1'\n  postalCode: '2600'\n  city: 'BERCHEM (ANTWERPEN)'\n  country: 'Belgium'\n  countryCode: 'BE'\n  fullFormatedAddress: \"UITBREIDINGSTRAAT 84 /1, 2600 BERCHEM (ANTWERPEN), BELIUM\"\n#  addressClassification: !include AddressClassification_BE-Example-1.raml"
+"@value": "#%RAML 1.0 NamedExample\n-\n  type: \"GENERAL\"\n  value: \"www.company.be\"\n"
 }
 ],
 "raml-http:mediaType": [
@@ -44821,7 +49863,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(2,0)-(12,74)]"
+"@value": "[(2,0)-(5,0)]"
 }
 ]
 }
@@ -44845,7 +49887,7 @@
 ],
 "doc:raw": [
 {
-"@value": "#%RAML 1.0 NamedExample\nphoneNumber: !include contact-example.raml\nfaxNumber: !include contact-fax-example.raml\nemail: !include contact-email-example.raml\nwebsite: !include contact-website-example.raml\n"
+"@value": "#%RAML 1.0 NamedExample\n-\n  type: 'GENERAL'\n  countryDialCode : '+32'\n  areaCode : '21'\n  subscriberNumber: '12.87.00'\n  formatted: '+32-(0)21 302099'\n"
 }
 ],
 "raml-http:mediaType": [
@@ -44877,7 +49919,29 @@
 ]
 }
 ],
-"doc:references": [
+"sourcemaps:sources": [
+{
+"@id": "#564/source-map",
+"@type": [
+"sourcemaps:SourceMap"
+],
+"sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "amf://id#564"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(8,0)]"
+}
+]
+}
+]
+}
+]
+},
 {
 "@id": "#566",
 "@type": [
@@ -44894,33 +49958,13 @@
 ],
 "doc:raw": [
 {
-"@value": "#%RAML 1.0 NamedExample\n-\n  type: 'GENERAL'\n  countryDialCode : '+32'\n  areaCode : '22'\n  subscriberNumber: '12.87.00'\n  formatted: '+32-(0)22 000000'\n"
+"@value": "-\n  type: 'GENERAL'\n  value: 'info@company.be'\n-\n  type: 'IT_DEPT'\n  value: 'it-service@company.be'\n"
 }
 ],
 "raml-http:mediaType": [
 {
 "@value": "application/raml+yaml"
 }
-],
-"sourcemaps:sources": [
-{
-"@id": "#567/source-map",
-"@type": [
-"sourcemaps:SourceMap"
-],
-"sourcemaps:source-vendor": [
-{
-"sourcemaps:element": [
-{
-"@value": "amf://id#567"
-}
-],
-"sourcemaps:value": [
-{
-"@value": "RAML 1.0"
-}
-]
-}
 ]
 }
 ]
@@ -44928,7 +49972,7 @@
 ],
 "sourcemaps:sources": [
 {
-"@id": "#566/source-map",
+"@id": "#558/source-map",
 "@type": [
 "sourcemaps:SourceMap"
 ],
@@ -44936,12 +49980,12 @@
 {
 "sourcemaps:element": [
 {
-"@value": "amf://id#566"
+"@value": "amf://id#558"
 }
 ],
 "sourcemaps:value": [
 {
-"@value": "[(2,0)-(8,0)]"
+"@value": "[(2,0)-(6,0)]"
 }
 ]
 }
@@ -44965,7 +50009,7 @@
 ],
 "doc:raw": [
 {
-"@value": "#%RAML 1.0 NamedExample\n-\n  type: \"GENERAL\"\n  value: \"www.company.be\"\n"
+"@value": "#%RAML 1.0 NamedExample\ncode: '5'\ndescription: 'Limited company'"
 }
 ],
 "raml-http:mediaType": [
@@ -45012,7 +50056,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(2,0)-(5,0)]"
+"@value": "[(2,0)-(3,30)]"
 }
 ]
 }
@@ -45036,7 +50080,7 @@
 ],
 "doc:raw": [
 {
-"@value": "#%RAML 1.0 NamedExample\n-\n  type: 'GENERAL'\n  countryDialCode : '+32'\n  areaCode : '21'\n  subscriberNumber: '12.87.00'\n  formatted: '+32-(0)21 302099'\n"
+"@value": "#%RAML 1.0 NamedExample\nclass: '3'\ndescription: '150 - 300'\nnumberOfFte: 5500\nnumberOfEmployees: 5232"
 }
 ],
 "raml-http:mediaType": [
@@ -45083,7 +50127,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(2,0)-(8,0)]"
+"@value": "[(2,0)-(5,23)]"
 }
 ]
 }
@@ -45107,12 +50151,32 @@
 ],
 "doc:raw": [
 {
-"@value": "-\n  type: 'GENERAL'\n  value: 'info@company.be'\n-\n  type: 'IT_DEPT'\n  value: 'it-service@company.be'\n"
+"@value": "#%RAML 1.0 NamedExample\ncountryCode: \"BE\"\ngraydonEnterpriseId: 1057155523\nregistrationId: \"0422319093\"\nvatNumber: \"BE0422319093\"\ngraydonCompanyId: \"0422319093\"  \nisBranchOffice: false"
 }
 ],
 "raml-http:mediaType": [
 {
 "@value": "application/raml+yaml"
+}
+],
+"sourcemaps:sources": [
+{
+"@id": "#573/source-map",
+"@type": [
+"sourcemaps:SourceMap"
+],
+"sourcemaps:source-vendor": [
+{
+"sourcemaps:element": [
+{
+"@value": "amf://id#573"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "RAML 1.0"
+}
+]
 }
 ]
 }
@@ -45121,7 +50185,7 @@
 ],
 "sourcemaps:sources": [
 {
-"@id": "#564/source-map",
+"@id": "#572/source-map",
 "@type": [
 "sourcemaps:SourceMap"
 ],
@@ -45129,12 +50193,12 @@
 {
 "sourcemaps:element": [
 {
-"@value": "amf://id#564"
+"@value": "amf://id#572"
 }
 ],
 "sourcemaps:value": [
 {
-"@value": "[(2,0)-(6,0)]"
+"@value": "[(2,0)-(7,21)]"
 }
 ]
 }
@@ -45158,7 +50222,7 @@
 ],
 "doc:raw": [
 {
-"@value": "#%RAML 1.0 NamedExample\nclass: '3'\ndescription: '150 - 300'\nnumberOfFte: 5500\nnumberOfEmployees: 5232"
+"@value": "#%RAML 1.0 NamedExample\n- #Item 1\n  addressType: 'REGISTERED-OFFICE-ADDRESS'\n  streetName: 'UITBREIDINGSTRAAT'\n  houseNumber: '84'\n  houseNumberAddition: '/1'\n  postalCode: '2600'\n  city: 'BERCHEM (ANTWERPEN)'\n  country: 'Belgium'\n  countryCode: 'BE'\n  fullFormatedAddress: \"UITBREIDINGSTRAAT 84 /1, 2600 BERCHEM (ANTWERPEN), BELIUM\"\n#  addressClassification: !include AddressClassification_BE-Example-1.raml"
 }
 ],
 "raml-http:mediaType": [
@@ -45205,7 +50269,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(2,0)-(5,23)]"
+"@value": "[(2,0)-(12,74)]"
 }
 ]
 }
@@ -45229,7 +50293,7 @@
 ],
 "doc:raw": [
 {
-"@value": "#%RAML 1.0 NamedExample\n- \n  code: '7487'\n  description: 'Financial and insurance activities'\n  type: \"PRIMARY\"\n  classificationCode: 'BE_NACEBEL2008'\n  activityGroupCode: 'ABCDE'"
+"@value": "#%RAML 1.0 NamedExample\ncode: 'J'\ndescription: 'Information and communication'"
 }
 ],
 "raml-http:mediaType": [
@@ -45276,7 +50340,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(2,0)-(7,28)]"
+"@value": "[(2,0)-(3,44)]"
 }
 ]
 }
@@ -45300,7 +50364,7 @@
 ],
 "doc:raw": [
 {
-"@value": "#%RAML 1.0 NamedExample\ncode: 'J'\ndescription: 'Information and communication'"
+"@value": "#%RAML 1.0 NamedExample\n- \n  code: '7487'\n  description: 'Financial and insurance activities'\n  type: \"PRIMARY\"\n  classificationCode: 'BE_NACEBEL2008'\n  activityGroupCode: 'ABCDE'"
 }
 ],
 "raml-http:mediaType": [
@@ -45347,7 +50411,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(2,0)-(3,44)]"
+"@value": "[(2,0)-(7,28)]"
 }
 ]
 }
@@ -46401,12 +51465,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(21,14)-(21,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(23,14)-(23,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(22,15)-(22,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#491"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(20,0)-(26,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(25,11)-(25,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(20,8)-(20,12)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(24,18)-(24,48)]"
 }
 ]
 }
@@ -46743,12 +51879,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(28,14)-(28,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(30,14)-(30,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(29,15)-(29,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#498"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(27,0)-(33,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(32,11)-(32,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(27,8)-(27,12)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(31,18)-(31,45)]"
 }
 ]
 }
@@ -47835,12 +53043,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,14)-(3,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,14)-(5,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,15)-(4,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#73"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(1,1)-(8,1)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,8)-(2,46)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,49)]"
 }
 ]
 }
@@ -52861,12 +58141,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:url"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,11)-(8,58)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#660"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(7,11)-(10,3)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:thumb"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,13)-(9,66)]"
 }
 ]
 }
@@ -53043,6 +58347,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:image"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "url->[(8,4)-(8,11)]#thumb->[(9,4)-(9,13)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#655"
 }
 ],
@@ -53057,12 +58373,120 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:url"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,9)-(6,50)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:name"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,10)-(3,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:image"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(10,3)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:gender"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,12)-(5,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:birthday"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,14)-(4,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#655"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(1,0)-(14,1)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:etag"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(13,10)-(13,40)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,8)-(2,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:language"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,14)-(12,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:tagline"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,13)-(11,34)]"
 }
 ]
 }
@@ -53393,12 +58817,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:url"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(78,13)-(78,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#672"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(78,0)-(80,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:thumb"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(79,15)-(79,38)]"
 }
 ]
 }
@@ -53561,6 +59009,66 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:url"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(74,11)-(74,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:name"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(71,12)-(71,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:image"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(78,0)-(80,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:etag"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(76,12)-(76,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:birthday"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(72,16)-(72,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#667"
 }
 ],
@@ -53569,9 +59077,69 @@
 "@value": "[(69,0)-(80,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:error"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(69,13)-(69,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(70,10)-(70,14)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:language"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(75,16)-(75,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:tagline"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(73,15)-(73,27)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:image"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "url->[(78,8)-(79,0)]#thumb->[(79,8)-(80,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -53973,12 +59541,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:url"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(126,22)-(126,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#682"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(126,14)-(126,50)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:thumb"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(126,40)-(126,49)]"
 }
 ]
 }
@@ -56497,12 +62089,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:url"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(78,13)-(78,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#672"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(78,0)-(80,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:thumb"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(79,15)-(79,38)]"
 }
 ]
 }
@@ -56665,6 +62281,66 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:url"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(74,11)-(74,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:name"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(71,12)-(71,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:image"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(78,0)-(80,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:etag"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(76,12)-(76,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:birthday"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(72,16)-(72,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#667"
 }
 ],
@@ -56673,9 +62349,69 @@
 "@value": "[(69,0)-(80,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:error"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(69,13)-(69,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(70,10)-(70,14)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:language"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(75,16)-(75,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:tagline"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(73,15)-(73,27)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:image"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "url->[(78,8)-(79,0)]#thumb->[(79,8)-(80,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -56994,6 +62730,18 @@
 "sourcemaps:SourceMap"
 ],
 "sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:testProperty"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(26,20)-(26,24)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -59436,12 +65184,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:url"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(78,13)-(78,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#672"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(78,0)-(80,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:thumb"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(79,15)-(79,38)]"
 }
 ]
 }
@@ -59604,6 +65376,66 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:url"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(74,11)-(74,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:name"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(71,12)-(71,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:image"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(78,0)-(80,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:etag"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(76,12)-(76,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:birthday"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(72,16)-(72,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#667"
 }
 ],
@@ -59612,9 +65444,69 @@
 "@value": "[(69,0)-(80,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:error"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(69,13)-(69,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(70,10)-(70,14)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:language"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(75,16)-(75,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:tagline"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(73,15)-(73,27)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:image"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "url->[(78,8)-(79,0)]#thumb->[(79,8)-(80,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -59968,12 +65860,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:url"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(155,17)-(155,34)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#698"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(155,0)-(157,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:thumb"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(156,19)-(156,42)]"
 }
 ]
 }
@@ -60136,6 +66052,66 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:url"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(151,15)-(151,33)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:name"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(148,16)-(148,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:image"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(155,0)-(157,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:etag"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(153,16)-(153,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:birthday"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(149,20)-(149,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#693"
 }
 ],
@@ -60144,9 +66120,69 @@
 "@value": "[(146,0)-(157,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:error"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(146,17)-(146,22)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(147,14)-(147,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:language"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(152,20)-(152,22)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:tagline"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(150,19)-(150,31)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:image"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "url->[(155,12)-(156,0)]#thumb->[(156,12)-(157,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -64203,12 +70239,120 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,12)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumberAddition"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,21)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,21)-(10,80)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,9)-(8,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,40)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#169"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(11,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,6)-(7,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,13)-(9,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,13)-(4,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:postalCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,12)-(6,18)]"
 }
 ]
 }
@@ -64581,12 +70725,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetNameAdd1"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,16)-(5,43)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,21)-(8,83)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,9)-(6,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,40)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#179"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(9,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:building"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,10)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,13)-(7,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,12)-(4,30)]"
 }
 ]
 }
@@ -64959,12 +71187,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,12)-(3,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,21)-(8,67)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,9)-(6,22)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,40)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#187"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,67)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,6)-(5,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,13)-(7,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,13)-(4,18)]"
 }
 ]
 }
@@ -67035,12 +73347,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#104"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -67377,12 +73761,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#111"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,26)]"
 }
 ]
 }
@@ -67719,12 +74175,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#118"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,30)]"
 }
 ]
 }
@@ -69850,12 +76378,120 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,14)-(4,33)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumberAddition"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,23)-(6,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,23)-(11,82)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,11)-(9,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#221"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(12,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,8)-(8,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,15)-(10,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,15)-(5,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:postalCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,14)-(7,20)]"
 }
 ]
 }
@@ -70139,12 +76775,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#231"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -70399,12 +77107,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#242"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,9)]"
 }
 ]
 }
@@ -70609,6 +77341,66 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(9,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,16)-(12,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,22)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,16)-(9,54)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#218"
 }
 ],
@@ -70617,9 +77409,81 @@
 "@value": "[(2,0)-(15,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:alternateCompanyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,22)-(4,35)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(13,17)-(13,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,10)-(11,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(14,19)-(14,23)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,30)]#code->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -70629,6 +77493,18 @@
 "sourcemaps:value": [
 {
 "@value": "dissolutionDate->[(13,0)-(14,0)]#nonEmailIndicator->[(14,0)-(15,0)]#companyAddress->[(9,0)-(10,0)]#foundationDate->[(12,0)-(13,0)]#legalForm->[(10,0)-(11,0)]#companyName->[(3,0)-(4,0)]#alternateCompanyName->[(4,0)-(5,0)]#isActive->[(11,0)-(12,0)]#tradeNames->[(5,0)-(9,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
 }
 ]
 }
@@ -71014,12 +77890,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetNameAdd1"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,45)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,23)-(9,85)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#252"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(10,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:building"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,12)-(4,39)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,15)-(8,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,14)-(5,32)]"
 }
 ]
 }
@@ -71303,12 +78263,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#260"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,26)]"
 }
 ]
 }
@@ -71563,12 +78595,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#271"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,9)]"
 }
 ]
 }
@@ -71695,6 +78751,66 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,11)-(6,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,16)-(9,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,16)-(6,54)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#250"
 }
 ],
@@ -71703,9 +78819,69 @@
 "@value": "[(2,0)-(12,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,17)-(10,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,10)-(8,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,19)-(11,24)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,38)]#code->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -71715,6 +78891,18 @@
 "sourcemaps:value": [
 {
 "@value": "dissolutionDate->[(10,0)-(11,0)]#nonEmailIndicator->[(11,0)-(12,0)]#companyAddress->[(6,0)-(7,0)]#foundationDate->[(9,0)-(10,0)]#legalForm->[(7,0)-(8,0)]#companyName->[(3,0)-(4,0)]#isActive->[(8,0)-(9,0)]#tradeNames->[(4,0)-(6,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
 }
 ]
 }
@@ -72100,12 +79288,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,14)-(4,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,23)-(9,69)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#279"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(10,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,8)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,15)-(8,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,15)-(5,20)]"
 }
 ]
 }
@@ -72394,12 +79666,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,14)-(12,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(17,23)-(17,64)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(15,11)-(15,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,15)-(11,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#287"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(11,0)-(18,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(14,8)-(14,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(16,15)-(16,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(13,15)-(13,20)]"
 }
 ]
 }
@@ -72688,12 +80044,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#295"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,30)]"
 }
 ]
 }
@@ -72948,12 +80376,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#306"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,10)]"
 }
 ]
 }
@@ -73119,6 +80571,66 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,11)-(7,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,16)-(10,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,34)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,54)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#277"
 }
 ],
@@ -73127,9 +80639,69 @@
 "@value": "[(2,0)-(13,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,17)-(11,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,10)-(9,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,19)-(12,24)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,37)]#code->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -73139,6 +80711,18 @@
 "sourcemaps:value": [
 {
 "@value": "dissolutionDate->[(11,0)-(12,0)]#nonEmailIndicator->[(12,0)-(13,0)]#companyAddress->[(7,0)-(8,0)]#foundationDate->[(10,0)-(11,0)]#legalForm->[(8,0)-(9,0)]#companyName->[(3,0)-(4,0)]#isActive->[(9,0)-(10,0)]#tradeNames->[(4,0)-(7,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(8,0)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
 }
 ]
 }
@@ -75164,12 +82748,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#104"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -75506,12 +83162,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#111"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,26)]"
 }
 ]
 }
@@ -75848,12 +83576,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#118"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,30)]"
 }
 ]
 }
@@ -76363,12 +84163,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#314"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -76780,12 +84652,120 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,14)-(4,33)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumberAddition"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,23)-(6,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,23)-(11,82)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,11)-(9,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#324"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(12,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,8)-(8,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,15)-(10,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,15)-(5,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:postalCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,14)-(7,20)]"
 }
 ]
 }
@@ -77069,12 +85049,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#334"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -77329,12 +85381,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#345"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,9)]"
 }
 ]
 }
@@ -77539,6 +85615,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,30)]#code->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#321"
 }
 ],
@@ -77547,9 +85635,81 @@
 "@value": "dissolutionDate->[(13,0)-(14,0)]#nonEmailIndicator->[(14,0)-(15,0)]#companyAddress->[(9,0)-(10,0)]#foundationDate->[(12,0)-(13,0)]#legalForm->[(10,0)-(11,0)]#companyName->[(3,0)-(4,0)]#alternateCompanyName->[(4,0)-(5,0)]#isActive->[(11,0)-(12,0)]#tradeNames->[(5,0)-(9,0)]#companyIdentification->[(2,0)-(3,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
+}
+]
 }
 ],
 "sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(9,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,16)-(12,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,22)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,16)-(9,54)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -77559,6 +85719,66 @@
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(15,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:alternateCompanyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,22)-(4,35)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(13,17)-(13,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,10)-(11,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(14,19)-(14,23)]"
 }
 ]
 }
@@ -77577,6 +85797,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:companyProfile"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(15,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#313"
 }
 ],
@@ -77585,9 +85817,33 @@
 "@value": "[(2,0)-(3,59)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyProfile"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "dissolutionDate->[(13,0)-(14,0)]#nonEmailIndicator->[(14,0)-(15,0)]#companyAddress->[(9,0)-(10,0)]#foundationDate->[(12,0)-(13,0)]#legalForm->[(10,0)-(11,0)]#companyName->[(3,0)-(4,0)]#alternateCompanyName->[(4,0)-(5,0)]#isActive->[(11,0)-(12,0)]#tradeNames->[(5,0)-(9,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -77597,6 +85853,18 @@
 "sourcemaps:value": [
 {
 "@value": "companyProfile->[(3,0)-(3,59)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
 }
 ]
 }
@@ -77953,12 +86221,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#354"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,26)]"
 }
 ]
 }
@@ -78262,12 +86602,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetNameAdd1"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,45)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,23)-(9,85)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#363"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(10,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:building"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,12)-(4,39)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,15)-(8,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,14)-(5,32)]"
 }
 ]
 }
@@ -78551,12 +86975,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#371"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,26)]"
 }
 ]
 }
@@ -78811,12 +87307,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#382"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,9)]"
 }
 ]
 }
@@ -78943,6 +87463,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,38)]#code->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#361"
 }
 ],
@@ -78951,9 +87483,81 @@
 "@value": "dissolutionDate->[(10,0)-(11,0)]#nonEmailIndicator->[(11,0)-(12,0)]#companyAddress->[(6,0)-(7,0)]#foundationDate->[(9,0)-(10,0)]#legalForm->[(7,0)-(8,0)]#companyName->[(3,0)-(4,0)]#isActive->[(8,0)-(9,0)]#tradeNames->[(4,0)-(6,0)]#companyIdentification->[(2,0)-(3,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
+}
+]
 }
 ],
 "sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,11)-(6,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,16)-(9,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,16)-(6,54)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -78963,6 +87567,54 @@
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(12,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,17)-(10,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,10)-(8,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,19)-(11,24)]"
 }
 ]
 }
@@ -78981,6 +87633,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:companyProfile"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(12,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#353"
 }
 ],
@@ -78989,9 +87653,33 @@
 "@value": "[(2,0)-(3,59)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyProfile"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "dissolutionDate->[(10,0)-(11,0)]#nonEmailIndicator->[(11,0)-(12,0)]#companyAddress->[(6,0)-(7,0)]#foundationDate->[(9,0)-(10,0)]#legalForm->[(7,0)-(8,0)]#companyName->[(3,0)-(4,0)]#isActive->[(8,0)-(9,0)]#tradeNames->[(4,0)-(6,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -79001,6 +87689,18 @@
 "sourcemaps:value": [
 {
 "@value": "companyProfile->[(3,0)-(3,59)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
 }
 ]
 }
@@ -79357,12 +88057,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#389"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,30)]"
 }
 ]
 }
@@ -79666,12 +88438,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,14)-(4,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,23)-(9,69)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#398"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(10,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,8)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,15)-(8,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,15)-(5,20)]"
 }
 ]
 }
@@ -79960,12 +88816,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,14)-(12,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(17,23)-(17,64)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(15,11)-(15,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,15)-(11,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#406"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(11,0)-(18,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(14,8)-(14,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(16,15)-(16,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(13,15)-(13,20)]"
 }
 ]
 }
@@ -80254,12 +89194,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#414"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,30)]"
 }
 ]
 }
@@ -80514,12 +89526,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#425"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,10)]"
 }
 ]
 }
@@ -80685,6 +89721,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,37)]#code->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#396"
 }
 ],
@@ -80693,9 +89741,81 @@
 "@value": "dissolutionDate->[(11,0)-(12,0)]#nonEmailIndicator->[(12,0)-(13,0)]#companyAddress->[(7,0)-(8,0)]#foundationDate->[(10,0)-(11,0)]#legalForm->[(8,0)-(9,0)]#companyName->[(3,0)-(4,0)]#isActive->[(9,0)-(10,0)]#tradeNames->[(4,0)-(7,0)]#companyIdentification->[(2,0)-(3,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(8,0)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
+}
+]
 }
 ],
 "sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,11)-(7,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,16)-(10,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,34)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,54)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -80705,6 +89825,54 @@
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(13,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,17)-(11,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,10)-(9,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,19)-(12,24)]"
 }
 ]
 }
@@ -80723,6 +89891,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:companyProfile"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(13,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#388"
 }
 ],
@@ -80731,9 +89911,33 @@
 "@value": "[(2,0)-(3,59)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(8,0)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyProfile"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "dissolutionDate->[(11,0)-(12,0)]#nonEmailIndicator->[(12,0)-(13,0)]#companyAddress->[(7,0)-(8,0)]#foundationDate->[(10,0)-(11,0)]#legalForm->[(8,0)-(9,0)]#companyName->[(3,0)-(4,0)]#isActive->[(9,0)-(10,0)]#tradeNames->[(4,0)-(7,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -80743,6 +89947,18 @@
 "sourcemaps:value": [
 {
 "@value": "companyProfile->[(3,0)-(3,59)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(8,0)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
 }
 ]
 }
@@ -81076,12 +90292,72 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:type"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,8)-(5,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,8)-(3,14)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:activityGroupCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,21)-(7,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#716"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(7,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:classificationCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,22)-(6,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,15)-(4,51)]"
 }
 ]
 }
@@ -81516,12 +90792,120 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,14)-(4,33)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumberAddition"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,23)-(6,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,23)-(11,82)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,11)-(9,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#724"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(12,74)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,8)-(8,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,15)-(10,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,15)-(5,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:postalCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,14)-(7,20)]"
 }
 ]
 }
@@ -81805,12 +91189,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#734"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -81970,12 +91426,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:value"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,9)-(3,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#744"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(4,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:type"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,8)-(2,17)]"
 }
 ]
 }
@@ -82084,12 +91564,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:value"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,9)-(6,32)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#747"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(5,0)-(7,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:type"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,8)-(5,17)]"
 }
 ]
 }
@@ -82349,12 +91853,72 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:type"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,8)-(3,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:formatted"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,13)-(7,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:areaCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,13)-(5,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#751"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryDialCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,20)-(4,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:subscriberNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,20)-(6,30)]"
 }
 ]
 }
@@ -82609,12 +92173,72 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:type"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,8)-(3,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:formatted"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,13)-(7,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:areaCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,13)-(5,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#758"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryDialCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,20)-(4,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:subscriberNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,20)-(6,30)]"
 }
 ]
 }
@@ -82761,12 +92385,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:value"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,9)-(4,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#765"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(5,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:type"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,8)-(3,17)]"
 }
 ]
 }
@@ -82828,12 +92476,60 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:website"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,9)-(5,46)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:faxNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,11)-(3,44)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#742"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(6,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,7)-(4,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:phoneNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,42)]"
 }
 ]
 }
@@ -83023,12 +92719,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,44)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#771"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,44)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,9)]"
 }
 ]
 }
@@ -83204,12 +92924,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#775"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,9)]"
 }
 ]
 }
@@ -83428,12 +93172,60 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:numberOfFte"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,13)-(4,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#779"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(5,23)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:class"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,7)-(2,10)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:numberOfEmployees"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,19)-(5,23)]"
 }
 ]
 }
@@ -83680,6 +93472,30 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:size"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "numberOfFte->[(4,0)-(5,0)]#description->[(3,0)-(4,0)]#numberOfEmployees->[(5,0)-(5,23)]#class->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:contactInformation"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "faxNumber->[(3,0)-(4,0)]#phoneNumber->[(2,0)-(3,0)]#email->[(4,0)-(5,0)]#website->[(5,0)-(6,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#714"
 }
 ],
@@ -83688,9 +93504,117 @@
 "@value": "dissolutionDate->[(20,0)-(21,0)]#nonEmailIndicator->[(21,0)-(23,0)]#size->[(14,0)-(15,0)]#contactInformation->[(12,0)-(13,0)]#companyAddress->[(11,0)-(12,0)]#foundationDate->[(19,0)-(20,0)]#activities->[(17,0)-(18,0)]#industry->[(15,0)-(17,0)]#legalForm->[(13,0)-(14,0)]#companyName->[(3,0)-(4,0)]#alternateCompanyName->[(4,0)-(5,0)]#isActive->[(18,0)-(19,0)]#tradeNames->[(5,0)-(11,0)]#companyIdentification->[(2,0)-(3,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,30)]#code->[(2,0)-(3,0)]"
+}
+]
 }
 ],
 "sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(11,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(21,19)-(21,23)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(18,10)-(18,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(19,16)-(19,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:contactInformation"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(6,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:alternateCompanyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,22)-(4,43)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -83700,6 +93624,90 @@
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(23,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:activities"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(17,12)-(17,35)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,16)-(11,39)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,32)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(20,17)-(20,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:industry"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(15,9)-(17,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:size"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(5,23)]"
 }
 ]
 }
@@ -83754,6 +93762,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:startDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,11)-(3,23)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#713"
 }
 ],
@@ -83762,9 +93782,33 @@
 "@value": "[(2,0)-(4,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:company"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(23,0)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:company"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "dissolutionDate->[(20,0)-(21,0)]#nonEmailIndicator->[(21,0)-(23,0)]#size->[(14,0)-(15,0)]#contactInformation->[(12,0)-(13,0)]#companyAddress->[(11,0)-(12,0)]#foundationDate->[(19,0)-(20,0)]#activities->[(17,0)-(18,0)]#industry->[(15,0)-(17,0)]#legalForm->[(13,0)-(14,0)]#companyName->[(3,0)-(4,0)]#alternateCompanyName->[(4,0)-(5,0)]#isActive->[(18,0)-(19,0)]#tradeNames->[(5,0)-(11,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -85209,12 +95253,108 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(22,14)-(22,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:newsletter"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(28,16)-(28,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(21,8)-(21,12)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(26,11)-(26,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#19"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(21,0)-(29,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:age"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(27,9)-(27,11)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(23,15)-(23,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(24,14)-(24,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(25,18)-(25,48)]"
 }
 ]
 }
@@ -85623,12 +95763,108 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(31,14)-(31,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:newsletter"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(37,16)-(37,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(30,8)-(30,12)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(35,11)-(35,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#28"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(30,0)-(38,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:age"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(36,9)-(36,11)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(32,15)-(32,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(33,14)-(33,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(34,18)-(34,45)]"
 }
 ]
 }
@@ -86789,12 +97025,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,14)-(3,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,14)-(5,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,15)-(4,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#545"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(1,0)-(8,1)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,8)-(2,46)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,49)]"
 }
 ]
 }
@@ -87231,12 +97539,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(122,16)-(122,22)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#801"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(121,0)-(123,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(121,17)-(121,22)]"
 }
 ]
 }
@@ -89269,12 +99601,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,14)-(3,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,14)-(5,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,15)-(4,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#523"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(1,0)-(8,1)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,8)-(2,46)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,49)]"
 }
 ]
 }
@@ -91510,12 +101914,108 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(22,14)-(22,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:newsletter"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(28,16)-(28,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(21,8)-(21,12)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(26,11)-(26,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#19"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(21,0)-(29,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:age"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(27,9)-(27,11)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(23,15)-(23,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(24,14)-(24,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(25,18)-(25,48)]"
 }
 ]
 }
@@ -91924,12 +102424,108 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(31,14)-(31,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:newsletter"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(37,16)-(37,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(30,8)-(30,12)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(35,11)-(35,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#28"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(30,0)-(38,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:age"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(36,9)-(36,11)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(32,15)-(32,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(33,14)-(33,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(34,18)-(34,45)]"
 }
 ]
 }
@@ -92266,12 +102862,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(268,22)-(268,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(270,22)-(270,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(269,23)-(269,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#37"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(267,0)-(273,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(272,19)-(272,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(267,16)-(267,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(271,26)-(271,56)]"
 }
 ]
 }
@@ -92636,12 +103304,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(275,22)-(275,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(277,22)-(277,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(276,23)-(276,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#45"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(274,0)-(280,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(279,19)-(279,34)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(274,16)-(274,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(278,26)-(278,53)]"
 }
 ]
 }
@@ -93763,12 +104503,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,14)-(3,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,14)-(5,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,15)-(4,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#545"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(1,0)-(8,1)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,8)-(2,46)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,49)]"
 }
 ]
 }
@@ -94851,12 +105663,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(21,14)-(21,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(23,14)-(23,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(22,15)-(22,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#491"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(20,0)-(26,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(25,11)-(25,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(20,8)-(20,12)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(24,18)-(24,48)]"
 }
 ]
 }
@@ -95193,12 +106077,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(28,14)-(28,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(30,14)-(30,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(29,15)-(29,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#498"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(27,0)-(33,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(32,11)-(32,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(27,8)-(27,12)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(31,18)-(31,45)]"
 }
 ]
 }
@@ -96285,12 +107241,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:username"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,14)-(3,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:lastName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,14)-(5,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:firstName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,15)-(4,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#73"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(1,1)-(8,1)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:email"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:id"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,8)-(2,46)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:profilePhoto"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,49)]"
 }
 ]
 }
@@ -98276,12 +109304,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#104"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -98618,12 +109718,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#111"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,26)]"
 }
 ]
 }
@@ -98960,12 +110132,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#118"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,30)]"
 }
 ]
 }
@@ -102451,12 +113695,120 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,12)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumberAddition"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,21)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,21)-(10,80)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,9)-(8,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,40)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#169"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(11,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,6)-(7,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,13)-(9,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,13)-(4,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:postalCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,12)-(6,18)]"
 }
 ]
 }
@@ -102829,12 +114181,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetNameAdd1"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,16)-(5,43)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,21)-(8,83)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,9)-(6,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,40)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#179"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(9,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:building"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,10)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,13)-(7,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,12)-(4,30)]"
 }
 ]
 }
@@ -103207,12 +114643,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,12)-(3,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,21)-(8,67)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,9)-(6,22)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,40)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#187"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,67)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,6)-(5,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,13)-(7,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,13)-(4,18)]"
 }
 ]
 }
@@ -105283,12 +116803,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#104"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -105625,12 +117217,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#111"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,26)]"
 }
 ]
 }
@@ -105967,12 +117631,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#118"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,30)]"
 }
 ]
 }
@@ -108098,12 +119834,120 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,14)-(4,33)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumberAddition"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,23)-(6,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,23)-(11,82)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,11)-(9,20)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#221"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(12,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,8)-(8,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,15)-(10,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,15)-(5,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:postalCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,14)-(7,20)]"
 }
 ]
 }
@@ -108387,12 +120231,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#231"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,28)]"
 }
 ]
 }
@@ -108647,12 +120563,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#242"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,9)]"
 }
 ]
 }
@@ -108857,6 +120797,66 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(9,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,16)-(12,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,22)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,16)-(9,54)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#218"
 }
 ],
@@ -108865,9 +120865,81 @@
 "@value": "[(2,0)-(15,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:alternateCompanyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,22)-(4,35)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(13,17)-(13,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,10)-(11,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(14,19)-(14,23)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,30)]#code->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -108877,6 +120949,18 @@
 "sourcemaps:value": [
 {
 "@value": "dissolutionDate->[(13,0)-(14,0)]#nonEmailIndicator->[(14,0)-(15,0)]#companyAddress->[(9,0)-(10,0)]#foundationDate->[(12,0)-(13,0)]#legalForm->[(10,0)-(11,0)]#companyName->[(3,0)-(4,0)]#alternateCompanyName->[(4,0)-(5,0)]#isActive->[(11,0)-(12,0)]#tradeNames->[(5,0)-(9,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
 }
 ]
 }
@@ -109262,12 +121346,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetNameAdd1"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,45)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,23)-(9,85)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#252"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(10,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:building"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,12)-(4,39)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,15)-(8,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,14)-(5,32)]"
 }
 ]
 }
@@ -109551,12 +121719,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#260"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,26)]"
 }
 ]
 }
@@ -109811,12 +122051,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#271"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,9)]"
 }
 ]
 }
@@ -109943,6 +122207,66 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,11)-(6,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,38)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,16)-(9,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,16)-(6,54)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#250"
 }
 ],
@@ -109951,9 +122275,69 @@
 "@value": "[(2,0)-(12,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,17)-(10,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,10)-(8,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,19)-(11,24)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,38)]#code->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -109963,6 +122347,18 @@
 "sourcemaps:value": [
 {
 "@value": "dissolutionDate->[(10,0)-(11,0)]#nonEmailIndicator->[(11,0)-(12,0)]#companyAddress->[(6,0)-(7,0)]#foundationDate->[(9,0)-(10,0)]#legalForm->[(7,0)-(8,0)]#companyName->[(3,0)-(4,0)]#isActive->[(8,0)-(9,0)]#tradeNames->[(4,0)-(6,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(7,21)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
 }
 ]
 }
@@ -110348,12 +122744,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,14)-(4,29)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,23)-(9,69)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,11)-(7,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,15)-(3,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#279"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(3,0)-(10,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,8)-(6,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,15)-(8,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,15)-(5,20)]"
 }
 ]
 }
@@ -110642,12 +123122,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,14)-(12,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(17,23)-(17,64)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(15,11)-(15,24)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,15)-(11,42)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#287"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(11,0)-(18,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(14,8)-(14,28)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(16,15)-(16,19)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(13,15)-(13,20)]"
 }
 ]
 }
@@ -110936,12 +123500,84 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:vatNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,11)-(5,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isBranchOffice"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,21)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonCompanyId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,18)-(6,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#295"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:graydonEnterpriseId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,21)-(3,30)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:registrationId"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,16)-(4,30)]"
 }
 ]
 }
@@ -111196,12 +123832,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:description"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#306"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:code"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,6)-(2,10)]"
 }
 ]
 }
@@ -111367,6 +124027,66 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:tradeNames"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,11)-(7,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:foundationDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,16)-(10,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,13)-(3,34)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,16)-(7,54)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#277"
 }
 ],
@@ -111375,9 +124095,69 @@
 "@value": "[(2,0)-(13,0)]"
 }
 ]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,0)-(8,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:dissolutionDate"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,17)-(11,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:isActive"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,10)-(9,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:nonEmailIndicator"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,19)-(12,24)]"
+}
+]
 }
 ],
 "sourcemaps:data-node-properties": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:legalForm"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "description->[(3,0)-(3,37)]#code->[(2,0)-(3,0)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -111387,6 +124167,18 @@
 "sourcemaps:value": [
 {
 "@value": "dissolutionDate->[(11,0)-(12,0)]#nonEmailIndicator->[(12,0)-(13,0)]#companyAddress->[(7,0)-(8,0)]#foundationDate->[(10,0)-(11,0)]#legalForm->[(8,0)-(9,0)]#companyName->[(3,0)-(4,0)]#isActive->[(9,0)-(10,0)]#tradeNames->[(4,0)-(7,0)]#companyIdentification->[(2,0)-(3,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:companyIdentification"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "isBranchOffice->[(7,0)-(8,0)]#registrationId->[(4,0)-(5,0)]#countryCode->[(2,0)-(3,0)]#vatNumber->[(5,0)-(6,0)]#graydonEnterpriseId->[(3,0)-(4,0)]#graydonCompanyId->[(6,0)-(7,0)]"
 }
 ]
 }
@@ -114822,12 +127614,120 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,12)-(3,31)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumberAddition"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,21)-(5,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(10,21)-(10,80)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,9)-(8,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,40)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#169"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(11,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,6)-(7,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(9,13)-(9,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,13)-(4,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:postalCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,12)-(6,18)]"
 }
 ]
 }
@@ -115200,12 +128100,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetNameAdd1"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,16)-(5,43)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,21)-(8,83)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,9)-(6,25)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,40)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#179"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(9,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:building"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,10)-(3,37)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,13)-(7,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,12)-(4,30)]"
 }
 ]
 }
@@ -115578,12 +128562,96 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:streetName"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(3,12)-(3,27)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:fullFormatedAddress"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(8,21)-(8,67)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:country"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,9)-(6,22)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:addressType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(2,13)-(2,40)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#187"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(2,0)-(8,67)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:city"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,6)-(5,26)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:countryCode"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(7,13)-(7,17)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:houseNumber"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,13)-(4,18)]"
 }
 ]
 }
