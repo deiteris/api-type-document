@@ -63,8 +63,7 @@ import {PropertyDocumentMixin} from './property-document-mixin.js';
  * @appliesMixin PropertyDocumentMixin
  * @appliesMixin AmfHelperMixin
  */
-class ApiTypeDocument extends
-  AmfHelperMixin(PropertyDocumentMixin(PolymerElement)) {
+class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElement)) {
   static get template() {
     return html`
     <style>
@@ -118,39 +117,96 @@ class ApiTypeDocument extends
     </template>
     <section class="examples" hidden\$="[[!_renderMainExample]]">
       <h5 class="examples-section-title">Examples</h5>
-      <api-resource-example-document amf-model="[[amfModel]]" examples="[[_resolvedType]]" media-type="[[mediaType]]" type-name="[[parentTypeName]]" has-examples="{{_hasExamples}}" no-auto="[[_computeNoAutoExamples(isScalar)]]" no-actions="[[noExamplesActions]]" raw-only="[[!_hasMediaType]]"></api-resource-example-document>
+      <api-resource-example-document
+        amf-model="[[amfModel]]"
+        payload-id="[[selectedBodyId]]"
+        examples="[[_resolvedType]]"
+        media-type="[[mediaType]]"
+        type-name="[[parentTypeName]]"
+        has-examples="{{_hasExamples}}"
+        no-auto="[[_computeNoAutoExamples(isScalar)]]"
+        no-actions="[[noExamplesActions]]"
+        raw-only="[[!_hasMediaType]]"></api-resource-example-document>
     </section>
     <template is="dom-if" if="[[isObject]]" restamp="">
       <template is="dom-repeat" data-object-repeater="" items="[[_computeProperties(_resolvedType)]]">
-        <property-shape-document class="object-document" shape="[[_resolve(item)]]" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" media-type="[[mediaType]]"></property-shape-document>
+        <property-shape-document
+          class="object-document"
+          shape="[[_resolve(item)]]"
+          amf-model="[[amfModel]]"
+          parent-type-name="[[parentTypeName]]"
+          narrow="[[narrow]]"
+          no-examples-actions="[[noExamplesActions]]"
+          media-type="[[mediaType]]"></property-shape-document>
       </template>
     </template>
     <template is="dom-if" if="[[isArray]]" restamp="">
       <template is="dom-if" if="[[!hasParentType]]">
-        <property-shape-document class="array-document" amf-model="[[amfModel]]" shape="[[_resolve(_resolvedType)]]" parent-type-name="Array test" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" media-type="[[mediaType]]"></property-shape-document>
+        <property-shape-document
+          class="array-document"
+          amf-model="[[amfModel]]"
+          shape="[[_resolve(_resolvedType)]]"
+          parent-type-name="Array test"
+          narrow="[[narrow]]"
+          no-examples-actions="[[noExamplesActions]]"
+          media-type="[[mediaType]]"></property-shape-document>
       </template>
       <div class="array-children">
         <template is="dom-repeat" data-array-repeater="" items="[[_computeArrayProperties(_resolvedType)]]">
           <template is="dom-if" if="[[item.isShape]]" restamp="true">
-            <property-shape-document class="array-document" amf-model="[[amfModel]]" shape="[[_resolve(item)]]" parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" media-type="[[mediaType]]"></property-shape-document>
+            <property-shape-document
+              class="array-document"
+              amf-model="[[amfModel]]"
+              shape="[[_resolve(item)]]"
+              parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]"
+              narrow="[[narrow]]"
+              no-examples-actions="[[noExamplesActions]]"
+              media-type="[[mediaType]]"></property-shape-document>
           </template>
           <template is="dom-if" if="[[item.isType]]" restamp="true">
-            <api-type-document class="union-document" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[item]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" no-main-example="[[_renderMainExample]]" media-type="[[mediaType]]"></api-type-document>
+            <api-type-document
+              class="union-document"
+              amf-model="[[amfModel]]"
+              parent-type-name="[[parentTypeName]]"
+              type="[[item]]"
+              narrow="[[narrow]]"
+              no-examples-actions="[[noExamplesActions]]"
+              no-main-example="[[_renderMainExample]]"
+              media-type="[[mediaType]]"></api-type-document>
           </template>
         </template>
       </div>
     </template>
     <template is="dom-if" if="[[isScalar]]" restamp="">
-      <property-shape-document class="shape-document" amf-model="[[amfModel]]" shape="[[_resolvedType]]" parent-type-name="[[parentTypeName]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" media-type="[[mediaType]]"></property-shape-document>
+      <property-shape-document
+        class="shape-document"
+        amf-model="[[amfModel]]"
+        shape="[[_resolvedType]]"
+        parent-type-name="[[parentTypeName]]"
+        narrow="[[narrow]]"
+        no-examples-actions="[[noExamplesActions]]"
+        media-type="[[mediaType]]"></property-shape-document>
     </template>
     <template is="dom-if" if="[[isUnion]]">
       <div class="union-type-selector">
         <span>Any of:</span>
         <template is="dom-repeat" data-union-repeater="" items="[[unionTypes]]">
-          <paper-button class="union-toggle" active="[[_unionTypeActive(selectedUnion, index)]]" on-click="_selectUnion" title\$="Select [[item.label]] type">[[item.label]]</paper-button>
+          <paper-button
+            class="union-toggle"
+            active="[[_unionTypeActive(selectedUnion, index)]]"
+            on-click="_selectUnion"
+            title\$="Select [[item.label]] type">[[item.label]]</paper-button>
         </template>
       </div>
-      <api-type-document class="union-document" amf-model="[[amfModel]]" parent-type-name="[[parentTypeName]]" type="[[_computeUnionProperty(_resolvedType, selectedUnion)]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" no-main-example="[[_renderMainExample]]" media-type="[[mediaType]]"></api-type-document>
+      <api-type-document
+        class="union-document"
+        amf-model="[[amfModel]]"
+        parent-type-name="[[parentTypeName]]"
+        type="[[_computeUnionProperty(_resolvedType, selectedUnion)]]"
+        narrow="[[narrow]]"
+        no-examples-actions="[[noExamplesActions]]"
+        no-main-example="[[_renderMainExample]]"
+        media-type="[[mediaType]]"></api-type-document>
     </template>
 
     <template is="dom-if" if="[[isAnd]]">
@@ -161,15 +217,18 @@ class ApiTypeDocument extends
         <template is="dom-if" if="[[!item.label]]">
           <p class="inheritance-label">Properties defined inline.</p>
         </template>
-        <api-type-document class="and-document" amf-model="[[amfModel]]" type="[[item.type]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" no-main-example="[[_renderMainExample]]" media-type="[[mediaType]]"></api-type-document>
+        <api-type-document
+          class="and-document"
+          amf-model="[[amfModel]]"
+          type="[[item.type]]"
+          narrow="[[narrow]]"
+          no-examples-actions="[[noExamplesActions]]"
+          no-main-example="[[_renderMainExample]]"
+          media-type="[[mediaType]]"></api-type-document>
       </template>
-    </template>
-`;
+    </template>`;
   }
 
-  static get is() {
-    return 'api-type-document';
-  }
   static get properties() {
     return {
       /**
@@ -293,6 +352,11 @@ class ApiTypeDocument extends
        * When set an example in this `type` object won't be rendered even if set.
        */
       noMainExample: Boolean,
+      /**
+       * When rendering schema for a payload set this to the payload ID
+       * so the examples can be correctly rendered.
+       */
+      selectedBodyId: String,
 
       _hasExamples: Boolean,
       _renderMainExample: {
@@ -502,4 +566,4 @@ class ApiTypeDocument extends
     return !!isScalar;
   }
 }
-window.customElements.define(ApiTypeDocument.is, ApiTypeDocument);
+window.customElements.define('api-type-document', ApiTypeDocument);
