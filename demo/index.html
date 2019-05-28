@@ -104,7 +104,7 @@
           <raml-aware raml="{{amfModel}}" scope="model"></raml-aware>
           <api-navigation aware="model" types-opened></api-navigation>
           <template is="dom-if" if="[[hasType]]">
-            <api-type-document narrow="[[narrow]]" aware="model" type="[[dataProperties]]" media-type="[[mediaType]]" no-examples-actions="[[noActions]]"></api-type-document>
+            <api-type-document narrow="[[narrow]]" aware="model" type="[[dataProperties]]" media-type="[[mediaType]]" media-types="[[mediaTypes]]" no-examples-actions="[[noActions]]"></api-type-document>
           </template>
           <template is="dom-if" if="[[!hasType]]">
             <p>Select type in the navigation to see the demo.</p>
@@ -140,6 +140,8 @@
       app._navChanged = function(e) {
         app.hasType = false;
         app.mediaType = undefined;
+        app.mediaTypes = undefined;
+
         const type = e.detail.type;
         if (type === 'type') {
           app.setTypeData(e.detail.selected);
@@ -193,6 +195,16 @@
         }
         app.dataProperties = type;
         app.hasType = true;
+
+        let webApi = app.$.helper._computeWebApi(app.amfModel);
+        if (webApi instanceof Array) {
+          webApi = webApi[0];
+        }
+        const key = app.$.helper._getAmfKey(app.$.helper.ns.raml.vocabularies.http + 'accepts');
+        const value = app.$.helper._ensureArray(webApi[key]);
+        if (value) {
+          app.mediaTypes = value.map((item) => item['@value']);
+        }
       };
       window.addEventListener('WebComponentsReady', () => app._load());
       window.addEventListener('api-navigation-selection-changed', app._navChanged);
