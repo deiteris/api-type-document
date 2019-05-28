@@ -89,6 +89,16 @@
 ]
 }
 ],
+"raml-http:accepts": [
+{
+"@value": "application/json"
+}
+],
+"raml-http:contentType": [
+{
+"@value": "application/json"
+}
+],
 "raml-http:scheme": [
 {
 "@value": "http"
@@ -2586,6 +2596,18 @@
 {
 "sourcemaps:element": [
 {
+"@value": "raml-http:contentType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(20,0)-(22,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "schema-org:description"
 }
 ],
@@ -2616,6 +2638,18 @@
 "sourcemaps:value": [
 {
 "@value": "[(4,2)-(5,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "raml-http:accepts"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(18,0)-(20,0)]"
 }
 ]
 },
