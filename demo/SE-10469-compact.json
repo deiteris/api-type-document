@@ -375,7 +375,7 @@
 "@type": [
 "sourcemaps:SourceMap"
 ],
-"sourcemaps:declared-element": [
+"sourcemaps:auto-generated-name": [
 {
 "sourcemaps:element": [
 {
@@ -389,7 +389,7 @@
 ]
 }
 ],
-"sourcemaps:json-schema-id": [
+"sourcemaps:parsed-json-schema": [
 {
 "sourcemaps:element": [
 {
@@ -398,7 +398,21 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "http://www.openapplications.org/oagis/10"
+"@value": "{\n  \"$schema\" : \"http://json-schema.org/draft-04/schema#\",\n  \"id\" : \"http://www.openapplications.org/oagis/10\",\n  \"type\" : \"object\",\n  \"required\" : [ \"content\", \"typeCode\" ],\n  \"additionalProperties\" : false,\n  \"properties\" : {\n    \"content\" : {\n      \"$ref\" : \"#/definitions/normalizedString\"\n    },\n    \"typeCode\" : {\n      \"$ref\" : \"#/definitions/token\"\n    },\n    \"schemeAgencyIdentifier\" : {\n      \"$ref\" : \"#/definitions/token\"\n    }\n  },\n  \"definitions\" : {\n    \"token\" : {\n      \"type\" : \"string\"\n    },\n    \"normalizedString\" : {\n      \"type\" : \"string\"\n    },\n    \"string\" : {\n      \"type\" : \"string\"\n    },\n    \"decimal\" : {\n      \"type\" : \"number\"\n    },\n    \"integer\" : {\n      \"type\" : \"number\",\n      \"multipleOf\" : 1\n    },\n    \"xbt_BooleanType\" : {\n      \"type\" : \"boolean\"\n    }\n  }\n}"
+}
+]
+}
+],
+"sourcemaps:type-property-lexical-info": [
+{
+"sourcemaps:element": [
+{
+"@value": "amf://id#14"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(4,2)-(4,8)]"
 }
 ]
 }
@@ -429,7 +443,7 @@
 ]
 }
 ],
-"sourcemaps:type-property-lexical-info": [
+"sourcemaps:json-schema-id": [
 {
 "sourcemaps:element": [
 {
@@ -438,12 +452,12 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(4,2)-(4,8)]"
+"@value": "http://www.openapplications.org/oagis/10"
 }
 ]
 }
 ],
-"sourcemaps:parsed-json-schema": [
+"sourcemaps:declared-element": [
 {
 "sourcemaps:element": [
 {
@@ -452,7 +466,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "{\n  \"$schema\" : \"http://json-schema.org/draft-04/schema#\",\n  \"id\" : \"http://www.openapplications.org/oagis/10\",\n  \"type\" : \"object\",\n  \"required\" : [ \"content\", \"typeCode\" ],\n  \"additionalProperties\" : false,\n  \"properties\" : {\n    \"content\" : {\n      \"$ref\" : \"#/definitions/normalizedString\"\n    },\n    \"typeCode\" : {\n      \"$ref\" : \"#/definitions/token\"\n    },\n    \"schemeAgencyIdentifier\" : {\n      \"$ref\" : \"#/definitions/token\"\n    }\n  },\n  \"definitions\" : {\n    \"token\" : {\n      \"type\" : \"string\"\n    },\n    \"normalizedString\" : {\n      \"type\" : \"string\"\n    },\n    \"string\" : {\n      \"type\" : \"string\"\n    },\n    \"decimal\" : {\n      \"type\" : \"number\"\n    },\n    \"integer\" : {\n      \"type\" : \"number\",\n      \"multipleOf\" : 1\n    },\n    \"xbt_BooleanType\" : {\n      \"type\" : \"boolean\"\n    }\n  }\n}"
+"@value": ""
 }
 ]
 }

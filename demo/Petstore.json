@@ -89,6 +89,16 @@
 ]
 }
 ],
+"http://a.ml/vocabularies/http#accepts": [
+{
+"@value": "application/json"
+}
+],
+"http://a.ml/vocabularies/http#contentType": [
+{
+"@value": "application/json"
+}
+],
 "http://a.ml/vocabularies/http#scheme": [
 {
 "@value": "http"
@@ -2586,6 +2596,18 @@
 {
 "http://a.ml/vocabularies/document-source-maps#element": [
 {
+"@value": "http://a.ml/vocabularies/http#contentType"
+}
+],
+"http://a.ml/vocabularies/document-source-maps#value": [
+{
+"@value": "[(20,0)-(22,0)]"
+}
+]
+},
+{
+"http://a.ml/vocabularies/document-source-maps#element": [
+{
 "@value": "http://schema.org/description"
 }
 ],
@@ -2616,6 +2638,18 @@
 "http://a.ml/vocabularies/document-source-maps#value": [
 {
 "@value": "[(4,2)-(5,0)]"
+}
+]
+},
+{
+"http://a.ml/vocabularies/document-source-maps#element": [
+{
+"@value": "http://a.ml/vocabularies/http#accepts"
+}
+],
+"http://a.ml/vocabularies/document-source-maps#value": [
+{
+"@value": "[(18,0)-(20,0)]"
 }
 ]
 },

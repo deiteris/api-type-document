@@ -375,7 +375,7 @@
 "@type": [
 "http://a.ml/vocabularies/document-source-maps#SourceMap"
 ],
-"http://a.ml/vocabularies/document-source-maps#declared-element": [
+"http://a.ml/vocabularies/document-source-maps#auto-generated-name": [
 {
 "http://a.ml/vocabularies/document-source-maps#element": [
 {
@@ -389,7 +389,7 @@
 ]
 }
 ],
-"http://a.ml/vocabularies/document-source-maps#json-schema-id": [
+"http://a.ml/vocabularies/document-source-maps#parsed-json-schema": [
 {
 "http://a.ml/vocabularies/document-source-maps#element": [
 {
@@ -398,7 +398,21 @@
 ],
 "http://a.ml/vocabularies/document-source-maps#value": [
 {
-"@value": "http://www.openapplications.org/oagis/10"
+"@value": "{\n  \"$schema\" : \"http://json-schema.org/draft-04/schema#\",\n  \"id\" : \"http://www.openapplications.org/oagis/10\",\n  \"type\" : \"object\",\n  \"required\" : [ \"content\", \"typeCode\" ],\n  \"additionalProperties\" : false,\n  \"properties\" : {\n    \"content\" : {\n      \"$ref\" : \"#/definitions/normalizedString\"\n    },\n    \"typeCode\" : {\n      \"$ref\" : \"#/definitions/token\"\n    },\n    \"schemeAgencyIdentifier\" : {\n      \"$ref\" : \"#/definitions/token\"\n    }\n  },\n  \"definitions\" : {\n    \"token\" : {\n      \"type\" : \"string\"\n    },\n    \"normalizedString\" : {\n      \"type\" : \"string\"\n    },\n    \"string\" : {\n      \"type\" : \"string\"\n    },\n    \"decimal\" : {\n      \"type\" : \"number\"\n    },\n    \"integer\" : {\n      \"type\" : \"number\",\n      \"multipleOf\" : 1\n    },\n    \"xbt_BooleanType\" : {\n      \"type\" : \"boolean\"\n    }\n  }\n}"
+}
+]
+}
+],
+"http://a.ml/vocabularies/document-source-maps#type-property-lexical-info": [
+{
+"http://a.ml/vocabularies/document-source-maps#element": [
+{
+"@value": "amf://id#14"
+}
+],
+"http://a.ml/vocabularies/document-source-maps#value": [
+{
+"@value": "[(4,2)-(4,8)]"
 }
 ]
 }
@@ -429,7 +443,7 @@
 ]
 }
 ],
-"http://a.ml/vocabularies/document-source-maps#type-property-lexical-info": [
+"http://a.ml/vocabularies/document-source-maps#json-schema-id": [
 {
 "http://a.ml/vocabularies/document-source-maps#element": [
 {
@@ -438,12 +452,12 @@
 ],
 "http://a.ml/vocabularies/document-source-maps#value": [
 {
-"@value": "[(4,2)-(4,8)]"
+"@value": "http://www.openapplications.org/oagis/10"
 }
 ]
 }
 ],
-"http://a.ml/vocabularies/document-source-maps#parsed-json-schema": [
+"http://a.ml/vocabularies/document-source-maps#declared-element": [
 {
 "http://a.ml/vocabularies/document-source-maps#element": [
 {
@@ -452,7 +466,7 @@
 ],
 "http://a.ml/vocabularies/document-source-maps#value": [
 {
-"@value": "{\n  \"$schema\" : \"http://json-schema.org/draft-04/schema#\",\n  \"id\" : \"http://www.openapplications.org/oagis/10\",\n  \"type\" : \"object\",\n  \"required\" : [ \"content\", \"typeCode\" ],\n  \"additionalProperties\" : false,\n  \"properties\" : {\n    \"content\" : {\n      \"$ref\" : \"#/definitions/normalizedString\"\n    },\n    \"typeCode\" : {\n      \"$ref\" : \"#/definitions/token\"\n    },\n    \"schemeAgencyIdentifier\" : {\n      \"$ref\" : \"#/definitions/token\"\n    }\n  },\n  \"definitions\" : {\n    \"token\" : {\n      \"type\" : \"string\"\n    },\n    \"normalizedString\" : {\n      \"type\" : \"string\"\n    },\n    \"string\" : {\n      \"type\" : \"string\"\n    },\n    \"decimal\" : {\n      \"type\" : \"number\"\n    },\n    \"integer\" : {\n      \"type\" : \"number\",\n      \"multipleOf\" : 1\n    },\n    \"xbt_BooleanType\" : {\n      \"type\" : \"boolean\"\n    }\n  }\n}"
+"@value": ""
 }
 ]
 }
