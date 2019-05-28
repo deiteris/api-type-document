@@ -111,12 +111,36 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElemen
     .inheritance-label {
       font-size: var(--api-type-document-inheritance-label-font-size, 16px);
     }
+
+    paper-button[active] {
+      background-color: var(--api-body-document-media-button-background-color, #CDDC39);
+    }
+
+    .media-type-selector {
+      margin: 20px 0;
+    }
+
+    .media-toggle {
+      outline: none;
+    }
     </style>
     <template is="dom-if" if="[[aware]]">
       <raml-aware raml="{{amfModel}}" scope="[[aware]]"></raml-aware>
     </template>
     <section class="examples" hidden\$="[[!_renderMainExample]]">
       <h5 class="examples-section-title">Examples</h5>
+      <template is="dom-if" if="[[renderMediaSelector]]">
+        <div class="media-type-selector">
+          <span>Media type:</span>
+          <template is="dom-repeat" items="[[mediaTypes]]">
+            <paper-button
+              class="media-toggle"
+              active="[[_mediaTypeActive(selectedMediaType, index)]]"
+              on-click="_selectMediaType"
+              title$="Select [[item]] media type">[[item]]</paper-button>
+          </template>
+        </div>
+      </template>
       <api-resource-example-document
         amf-model="[[amfModel]]"
         payload-id="[[selectedBodyId]]"
@@ -265,6 +289,28 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElemen
        * If not set a "raw" version of the example from API spec file is used.
        */
       mediaType: String,
+      /**
+       * A list of supported media types for the type.
+       * This is used by `api-resource-example-document` to compute examples.
+       * In practive it should be value of raml's `mediaType`.
+       *
+       * Each item in the array is just a name of thr media type.
+       *
+       * Example:
+       *
+       * ```json
+       * ["application/json", "application/xml"]
+       * ```
+       *
+       * @type {Array<String>}
+       */
+      mediaTypes: {type: Array, observer: '_mediaTypesChanged'},
+      /**
+       * Currently selected media type.
+       * It is an index of a media type in `mediaTypes` array.
+       * It is set to `0` each time the body changes.
+       */
+      selectedMediaType: Number,
       // The type after it has been resolved.
       _resolvedType: {
         type: Object,
@@ -564,6 +610,51 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElemen
 
   _computeNoAutoExamples(isScalar) {
     return !!isScalar;
+  }
+  /**
+   * Observer for `mediaTypes` property.
+   * Controls media type selected depending on the value.
+   *
+   * @param {?Array<String>} types List of media types that are supported by the API.
+   */
+  _mediaTypesChanged(types) {
+    if (!types || !(types instanceof Array) || !types.length) {
+      this.renderMediaSelector = false;
+    } else if (types.length === 1) {
+      this.renderMediaSelector = false;
+      this.mediaType = types[0];
+    } else {
+      this.renderMediaSelector = true;
+      this.mediaType = types[0];
+      this.selectedMediaType = 0;
+    }
+  }
+
+  /**
+   * Computes if `selected` equals current item index.
+   *
+   * @param {Number} selected
+   * @param {Number} index
+   * @return {Boolean}
+   */
+  _mediaTypeActive(selected, index) {
+    return selected === index;
+  }
+
+  /**
+   * Handler for media type type button click.
+   * Sets `selected` property.
+   *
+   * @param {ClickEvent} e
+   */
+  _selectMediaType(e) {
+    const index = e.model.get('index');
+    if (index !== this.selectedMediaType) {
+      this.selectedMediaType = index;
+      this.mediaType = this.mediaTypes[index];
+    } else {
+      e.target.active = true;
+    }
   }
 }
 window.customElements.define('api-type-document', ApiTypeDocument);

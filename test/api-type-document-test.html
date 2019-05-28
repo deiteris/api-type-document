@@ -726,6 +726,109 @@
       });
     });
   });
+
+  suite('_mediaTypesChanged()', () => {
+    let element;
+    setup(() => {
+      element = fixture('Basic');
+    });
+
+    test('Sets renderMediaSelector to false when no argument', () => {
+      element._mediaTypesChanged();
+      assert.isFalse(element.renderMediaSelector);
+    });
+
+    test('Sets renderMediaSelector to false when argument is not an array', () => {
+      element._mediaTypesChanged('test');
+      assert.isFalse(element.renderMediaSelector);
+    });
+
+    test('Sets renderMediaSelector to false when arument has no items', () => {
+      element._mediaTypesChanged([]);
+      assert.isFalse(element.renderMediaSelector);
+    });
+
+    test('Sets renderMediaSelector to false when single media type provided', () => {
+      element._mediaTypesChanged(['application/json']);
+      assert.isFalse(element.renderMediaSelector);
+    });
+
+    test('Sets media type when single media type provided', () => {
+      element._mediaTypesChanged(['application/json']);
+      assert.equal(element.mediaType, 'application/json');
+    });
+
+    test('Sets renderMediaSelector to true when multiple media types provided', () => {
+      element._mediaTypesChanged(['application/json', 'application/xml']);
+      assert.isTrue(element.renderMediaSelector);
+    });
+
+    test('Sets media type when multiple media type provided', () => {
+      element._mediaTypesChanged(['application/xml', 'application/json']);
+      assert.equal(element.mediaType, 'application/xml');
+    });
+  });
+
+  suite('_mediaTypeActive()', () => {
+    let element;
+    setup(() => {
+      element = fixture('Basic');
+    });
+
+    test('Returns false when arguments do not match', () => {
+      const result = element._mediaTypeActive(1, 2);
+      assert.isFalse(result);
+    });
+
+    test('Returns true when arguments matches', () => {
+      const result = element._mediaTypeActive(1, 1);
+      assert.isTrue(result);
+    });
+  });
+
+  suite('_selectMediaType()', () => {
+    let element;
+    setup(() => {
+      element = fixture('Basic');
+    });
+
+    test('Sets selectedMediaType', () => {
+      const e = {
+        model: {
+          get: () => 1
+        }
+      };
+      element.mediaTypes = ['invalid', 'valid'];
+      element._selectMediaType(e);
+      assert.equal(element.selectedMediaType, 1);
+    });
+
+    test('Sets mediaType', () => {
+      const e = {
+        model: {
+          get: () => 1
+        }
+      };
+      element.mediaTypes = ['invalid', 'valid'];
+      element._selectMediaType(e);
+      assert.equal(element.mediaType, 'valid');
+    });
+
+    test('Sets event target active', () => {
+      const e = {
+        model: {
+          get: () => 1
+        },
+        target: {
+          active: false
+        }
+      };
+      element.mediaTypes = ['invalid', 'valid'];
+      element.selectedMediaType = 1;
+      element._selectMediaType(e);
+      assert.isTrue(e.target.active);
+    });
+  });
   </script>
 </body>
 </html>
