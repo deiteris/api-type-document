@@ -1,12 +1,9 @@
-import {PolymerElement} from '../../@polymer/polymer/polymer-element.js';
-import {AmfHelperMixin} from '../../@api-components/amf-helper-mixin/amf-helper-mixin.js';
-import '../../@polymer/iron-flex-layout/iron-flex-layout.js';
-import '../../@advanced-rest-client/markdown-styles/markdown-styles.js';
-import '../../@polymer/marked-element/marked-element.js';
-import '../../@api-components/api-annotation-document/api-annotation-document.js';
-import '../../@api-components/api-resource-example-document/api-resource-example-document.js';
-import {html} from '../../@polymer/polymer/lib/utils/html-tag.js';
-import {PropertyDocumentMixin} from './property-document-mixin.js';
+import { LitElement, html, css } from 'lit-element';
+import { AmfHelperMixin, ns } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
+import '@polymer/iron-flex-layout/iron-flex-layout.js';
+import '@api-components/api-annotation-document/api-annotation-document.js';
+import '@api-components/api-resource-example-document/api-resource-example-document.js';
+import { PropertyDocumentMixin } from './property-document-mixin.js';
 import './api-type-document.js';
 /**
  * `property-range-document`
@@ -34,14 +31,10 @@ import './api-type-document.js';
  * @appliesMixin PropertyDocumentMixin
  * @appliesMixin AmfHelperMixin
  */
-class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElement)) {
-  static get template() {
-    return html`
-    <style include="markdown-styles"></style>
-    <style>
-    :host {
+class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElement)) {
+  static get styles() {
+    return css`:host {
       display: block;
-      @apply --property-range-document;
     }
 
     [hidden] {
@@ -49,8 +42,9 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(Polymer
     }
 
     .property-attribute {
-      @apply --layout-horizontal;
-      @apply --layout-start;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
       margin: 0;
       padding: 0;
       color: var(--api-type-document-type-attribute-color, #616161);
@@ -66,7 +60,8 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(Polymer
     }
 
     .attribute-value {
-      @apply --layout-flex;
+      flex: 1;
+      flex-basis: 0.000000001px;
     }
 
     .attribute-value ul {
@@ -84,177 +79,83 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(Polymer
     }
 
     .examples-section-title {
-      @apply --arc-font-body2;
+      font-size: var(--arc-font-body2-font-size);
+      font-weight: var(--arc-font-body2-font-weight);
+      line-height: var(--arc-font-body2-line-height);
       padding: 8px;
       margin: 0;
       color: var(--api-type-document-examples-title-color);
     }
 
     .example-title {
-      @apply --arc-font-body1;
+      font-weight: var(--arc-font-body1-font-weight);
+      line-height: var(--arc-font-body1-line-height);
       font-size: 15px;
       margin: 0;
       padding: 0 8px;
-    }
-    </style>
-    <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.defaultValueStr)]]">
-      <div class="property-attribute">
-        <span class="attribute-label">Default value:</span>
-        <span class="attribute-value" title="This value is used as a default value">[[_getValue(range, ns.w3.shacl.defaultValueStr)]]</span>
-      </div>
-    </template>
-    <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.pattern)]]">
-      <div class="property-attribute">
-        <span class="attribute-label">Pattern:</span>
-        <span class="attribute-value" title="Regular expression value for this property">[[_getValue(range, ns.w3.shacl.pattern)]]</span>
-      </div>
-    </template>
-    <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.minInclusive)]]">
-      <div class="property-attribute">
-        <span class="attribute-label">Min value:</span>
-        <span class="attribute-value" title="Minimum numeric value possible to set on this property">[[_getValue(range, ns.w3.shacl.minInclusive)]]</span>
-      </div>
-    </template>
-    <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.maxInclusive)]]">
-      <div class="property-attribute">
-        <span class="attribute-label">Max value:</span>
-        <span class="attribute-value" title="Maximum numeric value possible to set on this property">[[_getValue(range, ns.w3.shacl.maxInclusive)]]</span>
-      </div>
-    </template>
-    <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.multipleOf)]]">
-      <div class="property-attribute">
-        <span class="attribute-label">Multiple of:</span>
-        <span class="attribute-value" title="The numeric value has to be multiplicable by this value">[[_getValue(range, ns.w3.shacl.multipleOf)]]</span>
-      </div>
-    </template>
-    <template is="dom-if" if="[[!isFile]]">
-      <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.minLength)]]">
-        <div class="property-attribute">
-          <span class="attribute-label">Minimum characters:</span>
-          <span class="attribute-value" title="Minimum number of characters in the value">[[_getValue(range, ns.w3.shacl.minLength)]]</span>
-        </div>
-      </template>
-      <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.maxLength)]]">
-        <div class="property-attribute">
-          <span class="attribute-label">Maximum characters:</span>
-          <span class="attribute-value" title="Maximum number of characters in the value">[[_getValue(range, ns.w3.shacl.maxLength)]]</span>
-        </div>
-      </template>
-    </template>
-    <template is="dom-if" if="[[isFile]]">
-      <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.fileType)]]">
-        <div class="property-attribute">
-          <span class="attribute-label">File types:</span>
-          <span class="attribute-value" title="File mime types accepted by the endpoint">[[_getValueArray(range, ns.w3.shacl.fileType)]]</span>
-        </div>
-      </template>
-      <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.minLength)]]">
-        <div class="property-attribute">
-          <span class="attribute-label">File minimum size:</span>
-          <span class="attribute-value" title="Minimum size of the file accepted by this endpoint">[[_getValue(range, ns.w3.shacl.minLength)]]</span>
-        </div>
-      </template>
-      <template is="dom-if" if="[[_hasProperty(range, ns.w3.shacl.maxLength)]]">
-        <div class="property-attribute">
-          <span class="attribute-label">File maximum size:</span>
-          <span class="attribute-value" title="Maximum size of the file accepted by this endpoint">[[_getValue(range, ns.w3.shacl.maxLength)]]</span>
-        </div>
-      </template>
-    </template>
-    <template is="dom-if" if="[[isEnum]]">
-      <div class="property-attribute">
-        <span class="attribute-label">Enum values:</span>
-        <span class="attribute-value" title="List of possible values to use with this property">
-          <ul>
-            <template is="dom-repeat" items="[[enumValues]]">
-              <li>[[item]]</li>
-            </template>
-          </ul>
-        </span>
-      </div>
-    </template>
-    <api-annotation-document amf-model="[[amfModel]]" shape="[[range]]"></api-annotation-document>
-    <section class="examples" hidden\$="[[!_hasExamples]]">
-      <h5 class="examples-section-title">[[_computeExamplesLabel(examples)]]</h5>
-      <api-resource-example-document amf-model="[[amfModel]]" examples="[[range]]" rendered-examples="{{examples}}" media-type="[[mediaType]]" type-name="[[propertyName]]" has-examples="{{_hasExamples}}" no-auto="" no-actions="[[noExamplesActions]]" raw-only="[[!_hasMediaType]]"></api-resource-example-document>
-    </section>
-`;
+    }`;
   }
 
-  static get is() {
-    return 'property-range-document';
-  }
   static get properties() {
     return {
       /**
        * Name of the property that is being described by this definition.
        */
-      propertyName: String,
+      propertyName: { type: String },
       /**
        * Computed value form the shape. True if the property is ENUM.
        */
-      isEnum: {
-        type: Boolean,
-        computed: '_computeIsEnum(range)'
-      },
+      isEnum: { type: Boolean },
       /**
        * Computed value, true if current property is an union.
        */
-      isUnion: {
-        type: Boolean,
-        computed: '_computeIsUnion(range)',
-        reflectToAttribute: true
-      },
+      isUnion: { type: Boolean, reflect: true },
       /**
        * Computed value, true if current property is an object.
        */
-      isObject: {
-        type: Boolean,
-        computed: '_computeIsObject(range)',
-        reflectToAttribute: true
-      },
+      isObject: { type: Boolean, reflect: true },
       /**
        * Computed value, true if current property is an array.
        */
-      isArray: {
-        type: Boolean,
-        computed: '_computeIsArray(range)',
-        reflectToAttribute: true
-      },
+      isArray: { type: Boolean, reflect: true },
       /**
        * Computed value, true if current property is a File.
        */
-      isFile: {
-        type: Boolean,
-        computed: '_computeIsFile(range)',
-        value: false
-      },
+      isFile: { type: Boolean },
       /**
        * Computed values for list of enums.
        * Enums are list of types names.
        *
        * @type {Array<String>}
        */
-      enumValues: {
-        type: Array,
-        computed: '_computeEnumValues(isEnum, range)'
-      },
+      enumValues: { type: Array },
       /**
        * When set it removes actions bar from the examples render.
        */
-      noExamplesActions: Boolean,
-      _hasExamples: {type: Boolean, value: false}
+      noExamplesActions: { type: Boolean },
+      _hasExamples: { type: Boolean },
+      exampleSectionTitle: { type: String }
     };
   }
 
-  static get observers() {
-    return [
-      '_rangeChanged(range)'
-    ];
+  get range() {
+    return this._range;
   }
 
-  _rangeChanged() {
+  set range(value) {
+    if (this._setObservableProperty('range', value)) {
+      this._rangeChanged(value);
+    }
+  }
+
+  _rangeChanged(range) {
     this._hasExamples = false;
+    const isEnum = this.isEnum = this._computeIsEnum(range);
+    this.isUnion = this._computeIsUnion(range);
+    this.isObject = this._computeIsObject(range);
+    this.isArray = this._computeIsArray(range);
+    this.isFile = this._computeIsFile(range);
+    this.enumValues = isEnum ? this._computeEnumValues(range) : false;
   }
   /**
    * Computes value `isEnum` property.
@@ -319,12 +220,11 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(Polymer
   /**
    * Computes value for `enumValues` property.
    *
-   * @param {Boolean} isEnum Current value of `isEnum` property
    * @param {Object} range Range object of current shape.
    * @return {Array<String>|undefined} List of enum types.
    */
-  _computeEnumValues(isEnum, range) {
-    if (!isEnum || !range) {
+  _computeEnumValues(range) {
+    if (!range) {
       return;
     }
     const ikey = this._getAmfKey(this.ns.w3.shacl.name + 'in');
@@ -359,13 +259,107 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(Polymer
     });
     return results;
   }
-  /**
-   * Computes label for examples section title.
-   * @param {Array} examples List of examples
-   * @return {String} Correct form for examples
-   */
-  _computeExamplesLabel(examples) {
-    return examples && examples.length === 1 ? 'Example' : 'Examples';
+
+  _examplesChanged(e) {
+    const {value} = e.detail;
+    this.exampleSectionTitle = value && value.length === 1 ? 'Example' : 'Examples';
+  }
+
+  _hasExamplesHandler(e) {
+    this.hasExamples = e.detail.value;
+  }
+
+  _listItemTemplate(label, title, key, isArray) {
+    let value = isArray ? this._getValueArray(this.range, key) : this._getValue(this.range, key);
+    if (isArray && value instanceof Array) {
+      value = value.join(', ');
+    }
+    return html`<div class="property-attribute">
+      <span class="attribute-label">${label}:</span>
+      <span class="attribute-value" title="${title}">${value}</span>
+    </div>`;
+  }
+
+  _nonFilePropertisTemplate() {
+    const range = this.range;
+    return html`
+    ${this._hasProperty(range, ns.w3.shacl.minLength) ?
+      this._listItemTemplate('Minimum characters', 'Minimum number of characters in the value', ns.w3.shacl.minLength) :
+      undefined}
+    ${this._hasProperty(range, ns.w3.shacl.maxLength) ?
+      this._listItemTemplate('Maximum characters', 'Maximum number of characters in the value', ns.w3.shacl.maxLength) :
+      undefined}`;
+  }
+
+  _filePropertisTemplate() {
+    const range = this.range;
+    return html`
+    ${this._hasProperty(range, ns.w3.shacl.fileType) ?
+      this._listItemTemplate('File types', 'File mime types accepted by the endpoint', ns.w3.shacl.fileType, true) :
+      undefined}
+    ${this._hasProperty(range, ns.w3.shacl.minLength) ?
+      this._listItemTemplate('File minimum size', 'Minimum size of the file accepted by this endpoint',
+        ns.w3.shacl.minLength) :
+      undefined}
+    ${this._hasProperty(range, ns.w3.shacl.maxLength) ?
+      this._listItemTemplate('File maximum size', 'Maximum size of the file accepted by this endpoint',
+        ns.w3.shacl.maxLength) :
+      undefined}`;
+  }
+
+  _enumTemplate() {
+    const items = this.enumValues;
+    if (!items || items.length) {
+      return;
+    }
+    return html`<div class="property-attribute">
+      <span class="attribute-label">Enum values:</span>
+      <span class="attribute-value" title="List of possible values to use with this property">
+        <ul>
+        ${items.map((item) => html`<li>${item}</li>`)}
+        </ul>
+      </span>
+    </div>`;
+  }
+
+  render() {
+    const range = this.range;
+    return html`
+    ${this._hasProperty(range, ns.w3.shacl.defaultValueStr) ?
+      this._listItemTemplate('Default value', 'This value is used as a default value', ns.w3.shacl.defaultValueStr) :
+      undefined}
+    ${this._hasProperty(range, ns.w3.shacl.pattern) ?
+      this._listItemTemplate('Pattern', 'Regular expression value for this property', ns.w3.shacl.pattern) :
+      undefined}
+    ${this._hasProperty(range, ns.w3.shacl.minInclusive) ?
+      this._listItemTemplate('Min value', 'Minimum numeric value possible to set on this property',
+        ns.w3.shacl.minInclusive) :
+      undefined}
+    ${this._hasProperty(range, ns.w3.shacl.maxInclusive) ?
+      this._listItemTemplate('Max value', 'Maximum numeric value possible to set on this property',
+        ns.w3.shacl.maxInclusive) :
+      undefined}
+    ${this._hasProperty(range, ns.w3.shacl.multipleOf) ?
+      this._listItemTemplate('Multiple of', 'The numeric value has to be multiplicable by this value',
+        ns.w3.shacl.multipleOf) :
+      undefined}
+    ${this.isFile ? this._filePropertisTemplate() : this._nonFilePropertisTemplate()}
+    ${this.isEnum ? this._enumTemplate() : undefined}
+
+    <api-annotation-document .amf="${this.amf}" .shape="${this.range}"></api-annotation-document>
+    <section class="examples" ?hidden="${!this._hasExamples}">
+      <h5 class="examples-section-title">${this.exampleSectionTitle}</h5>
+      <api-resource-example-document
+        .amf="${this.amf}"
+        .examples="${range}"
+        .mediaType="${this.mediaType}"
+        .typeName="${this.propertyName}"
+        noauto
+        ?noactions="${this.noExamplesActions}"
+        ?rawonly="${!this._hasMediaType}"
+        @rendered-examples-changed="${this._examplesChanged}"
+        @has-examples-changed="${this._hasExamplesHandler}"></api-resource-example-document>
+    </section>`;
   }
 }
-window.customElements.define(PropertyRangeDocument.is, PropertyRangeDocument);
+window.customElements.define('property-range-document', PropertyRangeDocument);
