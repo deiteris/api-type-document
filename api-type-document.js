@@ -1,11 +1,10 @@
-import {PolymerElement} from '../../@polymer/polymer/polymer-element.js';
-import {AmfHelperMixin} from '../../@api-components/amf-helper-mixin/amf-helper-mixin.js';
-import {html} from '../../@polymer/polymer/lib/utils/html-tag.js';
-import {afterNextRender} from '../../@polymer/polymer/lib/utils/render-status.js';
-import '../../@api-components/raml-aware/raml-aware.js';
-import '../../@polymer/paper-button/paper-button.js';
+import { LitElement, html, css } from 'lit-element';
+import { AmfHelperMixin } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
+import '@api-components/raml-aware/raml-aware.js';
+import '@polymer/paper-button/paper-button.js';
+import '@api-components/api-resource-example-document/api-resource-example-document.js';
 import './property-shape-document.js';
-import {PropertyDocumentMixin} from './property-document-mixin.js';
+import { PropertyDocumentMixin } from './property-document-mixin.js';
 /**
  * `api-type-document`
  *
@@ -14,48 +13,6 @@ import {PropertyDocumentMixin} from './property-document-mixin.js';
  *
  * Pass AMF's shape type `property` array to render the documentation.
  *
- * ## Styling
- *
- * `<api-type-document>` provides the following custom properties and mixins for styling:
- *
- * Custom property | Description | Default
- * ----------------|-------------|----------
- * `--api-type-document` | Mixin applied to this elment | `{}`
- * `--api-type-document-union-button-background-color` | Background color of union selector button | `#fff`
- * `--api-type-document-union-button-color` | Color of union selector button | `#000`
- * `--api-type-document-union-button-active-background-color` | Background color of active union selector button | `#CDDC39`
- * `--api-type-document-union-button-active-color` | Color of active union selector button | `#000`
- *
- * From `property-shape-document`
- *
- * Custom property | Description | Default
- * ----------------|-------------|----------
- * `--property-shape-document` | Mixin applied each proeprty element | `{}`
- * `--property-shape-document-array-color` | Property border color when type is an array | `#8BC34A`
- * `--property-shape-document-object-color` | Property border color when type is an object | `#FF9800`
- * `--property-shape-document-union-color` | Property border color when type is an union | `#FFEB3B`
- * `--arc-font-subhead` | Theme mixin, applied to the property title | `{}`
- * `--property-shape-document-title` | Mixin applied to the property title | `{}`
- * `--api-type-document-property-parent-color` | Color of the parent property label | `#757575`
- * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
- * `--api-type-document-child-docs-margin-left` | Margin left of the item's properties description relative to the title when the item is a child property of another property | `24px`
- * `--api-type-document-type-color` | Color of the "type" trait | `white`
- * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
- * `--api-type-document-trait-background-color` | Background color to main range trait (type, required, enum) | `#EEEEEE`,
- * `--api-type-document-trait-border-radius` | Border radious of a main property traits like type, required, enum | `3px`
- *
- * From `property-range-document`
- *
- * Custom property | Description | Default
- * ----------------|-------------|----------
- * `--property-range-document` | Mixin applied to this elment | `{}`
- * `--api-type-document-type-attribute-color` | Color of each attribute that describes a property | `#616161`
- * `--api-type-document-examples-title-color` | Color of examples section title | ``
- * `--api-type-document-examples-border-color` | Example section border color | `transparent`
- * `--code-background-color` | Background color of the examples section | ``
- * `--arc-font-body1` | Mixin applied to an example name label | `{}`
- * `--arc-font-body2` | Mixin applied to the examples section title | `{}`
- *
  * @customElement
  * @polymer
  * @demo demo/index.html
@@ -63,29 +20,13 @@ import {PropertyDocumentMixin} from './property-document-mixin.js';
  * @appliesMixin PropertyDocumentMixin
  * @appliesMixin AmfHelperMixin
  */
-class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElement)) {
-  static get template() {
-    return html`
-    <style>
-    :host {
+class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElement)) {
+  static get styles() {
+    return css`:host {
       display: block;
-      @apply --arc-font-body1;
-      @apply --api-type-document;
-    }
-
-    .union-toggle {
-      outline: none;
-      background-color: var(--api-type-document-union-button-background-color, #fff);
-      color: var(--api-type-document-union-button-color, #000);
-    }
-
-    .union-toggle[active] {
-      background-color: var(--api-type-document-union-button-active-background-color, #CDDC39);
-      color: var(--api-type-document-union-button-active-color, #000);
-    }
-
-    .union-type-selector {
-      margin: 12px 0;
+      font-size: var(--arc-font-body1-font-size);
+      font-weight: var(--arc-font-body1-font-weight);
+      line-height: var(--arc-font-body1-line-height);
     }
 
     property-shape-document {
@@ -103,7 +44,7 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElemen
       border-left: 2px var(--property-shape-document-array-color, #8BC34A) solid;
     }
 
-    :host([has-parent-type]) .array-children {
+    :host([hasparenttype]) .array-children {
       padding-left: 0px;
       border-left: none;
     }
@@ -112,145 +53,40 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElemen
       font-size: var(--api-type-document-inheritance-label-font-size, 16px);
     }
 
-    paper-button[active] {
-      background-color: var(--api-body-document-media-button-background-color, #CDDC39);
-    }
-
     .media-type-selector {
       margin: 20px 0;
     }
 
     .media-toggle {
       outline: none;
+      color: var(--api-type-document-media-button-color, #000);
+      background-color: var(--api-type-document-media-button-background-color, #fff);
+      border-width: 1px;
+      border-color: var(--api-type-document-media-button-border-color, #a3b11d);
+      border-style: solid;
     }
-    </style>
-    <template is="dom-if" if="[[aware]]">
-      <raml-aware raml="{{amfModel}}" scope="[[aware]]"></raml-aware>
-    </template>
-    <section class="examples" hidden\$="[[!_renderMainExample]]">
-      <h5 class="examples-section-title">Examples</h5>
-      <template is="dom-if" if="[[renderMediaSelector]]">
-        <div class="media-type-selector">
-          <span>Media type:</span>
-          <template is="dom-repeat" items="[[mediaTypes]]">
-            <paper-button
-              class="media-toggle"
-              active="[[_mediaTypeActive(selectedMediaType, index)]]"
-              on-click="_selectMediaType"
-              title$="Select [[item]] media type">[[item]]</paper-button>
-          </template>
-        </div>
-      </template>
-      <api-resource-example-document
-        amf-model="[[amfModel]]"
-        payload-id="[[selectedBodyId]]"
-        examples="[[_resolvedType]]"
-        media-type="[[mediaType]]"
-        type-name="[[parentTypeName]]"
-        has-examples="{{_hasExamples}}"
-        no-auto="[[_computeNoAutoExamples(isScalar)]]"
-        no-actions="[[noExamplesActions]]"
-        raw-only="[[!_hasMediaType]]"></api-resource-example-document>
-    </section>
-    <template is="dom-if" if="[[isObject]]" restamp="">
-      <template is="dom-repeat" data-object-repeater="" items="[[_computeProperties(_resolvedType)]]">
-        <property-shape-document
-          class="object-document"
-          shape="[[_resolve(item)]]"
-          amf-model="[[amfModel]]"
-          parent-type-name="[[parentTypeName]]"
-          narrow="[[narrow]]"
-          no-examples-actions="[[noExamplesActions]]"
-          media-type="[[mediaType]]"></property-shape-document>
-      </template>
-    </template>
-    <template is="dom-if" if="[[isArray]]" restamp="">
-      <template is="dom-if" if="[[!hasParentType]]">
-        <property-shape-document
-          class="array-document"
-          amf-model="[[amfModel]]"
-          shape="[[_resolve(_resolvedType)]]"
-          parent-type-name="Array test"
-          narrow="[[narrow]]"
-          no-examples-actions="[[noExamplesActions]]"
-          media-type="[[mediaType]]"></property-shape-document>
-      </template>
-      <div class="array-children">
-        <template is="dom-repeat" data-array-repeater="" items="[[_computeArrayProperties(_resolvedType)]]">
-          <template is="dom-if" if="[[item.isShape]]" restamp="true">
-            <property-shape-document
-              class="array-document"
-              amf-model="[[amfModel]]"
-              shape="[[_resolve(item)]]"
-              parent-type-name="[[_computeArrayParentName(parentTypeName, item)]]"
-              narrow="[[narrow]]"
-              no-examples-actions="[[noExamplesActions]]"
-              media-type="[[mediaType]]"></property-shape-document>
-          </template>
-          <template is="dom-if" if="[[item.isType]]" restamp="true">
-            <api-type-document
-              class="union-document"
-              amf-model="[[amfModel]]"
-              parent-type-name="[[parentTypeName]]"
-              type="[[item]]"
-              narrow="[[narrow]]"
-              no-examples-actions="[[noExamplesActions]]"
-              no-main-example="[[_renderMainExample]]"
-              media-type="[[mediaType]]"></api-type-document>
-          </template>
-        </template>
-      </div>
-    </template>
-    <template is="dom-if" if="[[isScalar]]" restamp="">
-      <property-shape-document
-        class="shape-document"
-        amf-model="[[amfModel]]"
-        shape="[[_resolvedType]]"
-        parent-type-name="[[parentTypeName]]"
-        narrow="[[narrow]]"
-        no-examples-actions="[[noExamplesActions]]"
-        media-type="[[mediaType]]"></property-shape-document>
-    </template>
-    <template is="dom-if" if="[[isUnion]]">
-      <div class="union-type-selector">
-        <span>Any of:</span>
-        <template is="dom-repeat" data-union-repeater="" items="[[unionTypes]]">
-          <paper-button
-            class="union-toggle"
-            active="[[_unionTypeActive(selectedUnion, index)]]"
-            on-click="_selectUnion"
-            title\$="Select [[item.label]] type">[[item.label]]</paper-button>
-        </template>
-      </div>
-      <api-type-document
-        class="union-document"
-        amf-model="[[amfModel]]"
-        parent-type-name="[[parentTypeName]]"
-        type="[[_computeUnionProperty(_resolvedType, selectedUnion)]]"
-        narrow="[[narrow]]"
-        no-examples-actions="[[noExamplesActions]]"
-        no-main-example="[[_renderMainExample]]"
-        media-type="[[mediaType]]"></api-type-document>
-    </template>
 
-    <template is="dom-if" if="[[isAnd]]">
-      <template is="dom-repeat" items="[[andTypes]]">
-        <template is="dom-if" if="[[item.label]]">
-          <p class="inheritance-label">Properties inherited from <b>[[item.label]]</b>.</p>
-        </template>
-        <template is="dom-if" if="[[!item.label]]">
-          <p class="inheritance-label">Properties defined inline.</p>
-        </template>
-        <api-type-document
-          class="and-document"
-          amf-model="[[amfModel]]"
-          type="[[item.type]]"
-          narrow="[[narrow]]"
-          no-examples-actions="[[noExamplesActions]]"
-          no-main-example="[[_renderMainExample]]"
-          media-type="[[mediaType]]"></api-type-document>
-      </template>
-    </template>`;
+    .media-toggle[active] {
+      background-color: var(--api-type-document-media-button-active-background-color, #CDDC39);
+    }
+
+    .union-toggle {
+      outline: none;
+      background-color: var(--api-type-document-union-button-background-color, #fff);
+      color: var(--api-type-document-union-button-color, #000);
+      border-width: 1px;
+      border-color: var(--api-type-document-media-button-border-color, #a3b11d);
+      border-style: solid;
+    }
+
+    .union-toggle[active] {
+      background-color: var(--api-type-document-union-button-active-background-color, #CDDC39);
+      color: var(--api-type-document-union-button-active-color, #000);
+    }
+
+    .union-type-selector {
+      margin: 12px 0;
+    }`;
   }
 
   static get properties() {
@@ -258,7 +94,7 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElemen
       /**
        * `raml-aware` scope property to use.
        */
-      aware: String,
+      aware: { type: String },
       /**
        * Generated AMF json/ld model form the API spec.
        * The element assumes the object of the first array item to be a
@@ -269,7 +105,7 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElemen
        *
        * @type {Object|Array}
        */
-      amfModel: Object,
+      amf: { type: Object },
       /**
        * A type definition to render.
        * This should be a one of the following AMF types:
@@ -283,12 +119,12 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElemen
        * parameters.
        * @type {Object|Array}
        */
-      type: Object,
+      type: { type: Object },
       /**
        * Media type to use to render examples.
        * If not set a "raw" version of the example from API spec file is used.
        */
-      mediaType: String,
+      mediaType: { type: String },
       /**
        * A list of supported media types for the type.
        * This is used by `api-resource-example-document` to compute examples.
@@ -304,67 +140,44 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElemen
        *
        * @type {Array<String>}
        */
-      mediaTypes: {type: Array, observer: '_mediaTypesChanged'},
+      mediaTypes: { type: Array },
       /**
        * Currently selected media type.
        * It is an index of a media type in `mediaTypes` array.
        * It is set to `0` each time the body changes.
        */
-      selectedMediaType: Number,
+      selectedMediaType: { type: Number },
       // The type after it has been resolved.
-      _resolvedType: {
-        type: Object,
-        computed: '_resolve(type)'
-      },
+      _resolvedType: { type: Object },
       /**
        * Should be set if described properties has a parent type.
        * This is used when recursively iterating over properties.
        */
-      parentTypeName: String,
+      parentTypeName: { type: String },
       /**
        * Computed value, true if the shape has parent type.
        */
-      hasParentType: {
-        type: Boolean,
-        value: false,
-        computed: '_computeHasStringValue(parentTypeName)',
-        reflectToAttribute: true
-      },
+      hasParentType: { type: Boolean },
       /**
        * True if given `type` is a scalar property
        */
-      isScalar: {
-        type: Boolean,
-        readOnly: true
-      },
+      isScalar: { type: Boolean },
       /**
        * True if given `type` is an array property
        */
-      isArray: {
-        type: Boolean,
-        readOnly: true
-      },
+      isArray: { type: Boolean },
       /**
        * True if given `type` is an object property
        */
-      isObject: {
-        type: Boolean,
-        readOnly: true
-      },
+      isObject: { type: Boolean },
       /**
        * True if given `type` is an union property
        */
-      isUnion: {
-        type: Boolean,
-        readOnly: true
-      },
+      isUnion: { type: Boolean },
       /**
        * True if given `type` is OAS "and" type.
        */
-      isAnd: {
-        type: Boolean,
-        readOnly: true
-      },
+      isAnd: { type: Boolean },
       /**
        * Computed list of union type types to render in union type
        * selector.
@@ -372,57 +185,108 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElemen
        *
        * @type {Array<Object>}
        */
-      unionTypes: {
-        type: Array,
-        observer: '_unionTypesChanged'
-      },
+      unionTypes: { type: Array },
       /**
        * List of types definition and name for OAS' "and" type
        */
-      andTypes: {
-        type: Array
-      },
+      andTypes: { type: Array },
       /**
        * Selected index of union type in `unionTypes` array.
        */
-      selectedUnion: {
-        type: Number
-      },
+      selectedUnion: { type: Number },
       /**
        * A property to set when the component is rendered in the narrow
        * view. To be used with mobile rendering or when the
        * components occupies only small part of the screen.
        */
-      narrow: Boolean,
+      narrow: { type: Boolean },
       /**
        * When set an example in this `type` object won't be rendered even if set.
        */
-      noMainExample: Boolean,
+      noMainExample: { type: Boolean },
       /**
        * When rendering schema for a payload set this to the payload ID
        * so the examples can be correctly rendered.
        */
-      selectedBodyId: String,
+      selectedBodyId: { type: String },
 
-      _hasExamples: Boolean,
-      _renderMainExample: {
-        type: Boolean,
-        computed: '_computeRenderMainExample(noMainExample, _hasExamples)'
-      }
+      _hasExamples: { type: Boolean },
+
+      _renderMainExample: { type: Boolean }
     };
   }
 
-  static get observers() {
-    return [
-      '__typeChanged(_resolvedType, amfModel)'
-    ];
+  get type() {
+    return this._type;
+  }
+
+  set type(value) {
+    if (this._setObservableProperty('type', value)) {
+      this._resolvedType = this._resolve(value);
+      this.__typeChanged();
+    }
+  }
+
+  get mediaTypes() {
+    return this._mediaTypes;
+  }
+
+  set mediaTypes(value) {
+    if (this._setObservableProperty('mediaTypes', value)) {
+      this._mediaTypesChanged(value);
+    }
+  }
+
+  get parentTypeName() {
+    return this._parentTypeName;
+  }
+
+  set parentTypeName(value) {
+    if (this._setObservableProperty('parentTypeName', value)) {
+      this.hasParentType = !!value;
+    }
+  }
+
+  get unionTypes() {
+    return this._unionTypes;
+  }
+
+  set unionTypes(value) {
+    if (this._setObservableProperty('unionTypes', value)) {
+      this._unionTypesChanged(value);
+    }
+  }
+
+  get noMainExample() {
+    return this._noMainExample;
+  }
+
+  set noMainExample(value) {
+    if (this._setObservableProperty('noMainExample', value)) {
+      this._renderMainExample = this._computeRenderMainExample(value, this._hasExamples);
+    }
+  }
+
+  get _hasExamples() {
+    return this.__hasExamples;
+  }
+
+  set _hasExamples(value) {
+    if (this._setObservableProperty('_hasExamples', value)) {
+      this._renderMainExample = this._computeRenderMainExample(this.noMainExample, value);
+    }
+  }
+
+  constructor() {
+    super();
+    this.hasParentType = false;
   }
 
   _computeRenderMainExample(noMainExample, hasExamples) {
     return !!(!noMainExample && hasExamples);
   }
   /**
-   * Called when resolved type or amfModel changed.
+   * Called when resolved type or amf changed.
    * Creates a debouncer to compute UI values so it's independent of
    * order of assigning properties.
    */
@@ -431,7 +295,7 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElemen
       return;
     }
     this.__typeChangeDebouncer = true;
-    afterNextRender(this, () => {
+    setTimeout(() => {
       this.__typeChangeDebouncer = false;
       this._typeChanged(this._resolvedType);
     });
@@ -472,11 +336,11 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElemen
         isScalar = true;
       }
     }
-    this._setIsScalar(isScalar);
-    this._setIsArray(isArray);
-    this._setIsObject(isObject);
-    this._setIsUnion(isUnion);
-    this._setIsAnd(isAnd);
+    this.isScalar = isScalar;
+    this.isArray = isArray;
+    this.isObject = isObject;
+    this.isUnion = isUnion;
+    this.isAnd = isAnd;
   }
   /**
    * Computes parent name for the array type table.
@@ -505,22 +369,15 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElemen
    * @param {ClickEvent} e
    */
   _selectUnion(e) {
-    const index = e.model.get('index');
+    const index = Number(e.target.dataset.index);
+    if (index !== index) {
+      return;
+    }
     if (this.selectedUnion === index) {
       e.target.active = true;
     } else {
       this.selectedUnion = index;
     }
-  }
-  /**
-   * Computes if selectedUnion equals current item index.
-   *
-   * @param {Number} selectedUnion
-   * @param {Number} index
-   * @return {Boolean}
-   */
-  _unionTypeActive(selectedUnion, index) {
-    return selectedUnion === index;
   }
   /**
    * Computes properties for union type.
@@ -607,10 +464,6 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElemen
       };
     });
   }
-
-  _computeNoAutoExamples(isScalar) {
-    return !!isScalar;
-  }
   /**
    * Observer for `mediaTypes` property.
    * Controls media type selected depending on the value.
@@ -648,13 +501,167 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(PolymerElemen
    * @param {ClickEvent} e
    */
   _selectMediaType(e) {
-    const index = e.model.get('index');
+    const index = Number(e.target.dataset.index);
+    if (index !== index) {
+      return;
+    }
     if (index !== this.selectedMediaType) {
       this.selectedMediaType = index;
       this.mediaType = this.mediaTypes[index];
     } else {
       e.target.active = true;
     }
+  }
+
+  _apiChangedHandler(e) {
+    const { value } = e.detail;
+    this.amf = value;
+  }
+
+  _hasExamplesHandler(e) {
+    const { value } = e.detail;
+    this._hasExamples = value;
+  }
+
+  _objectTemplate() {
+    const items = this._computeProperties(this._resolvedType);
+    if (!items || !items.length) {
+      return;
+    }
+    return items.map((item) => html`<property-shape-document class="object-document"
+      .shape="${this._resolve(item)}"
+      .amf="${this.amf}"
+      .parentTypeName="${this.parentTypeName}"
+      ?narrow="${this.narrow}"
+      ?noexamplesactions="${this.noExamplesActions}"
+      .mediaType="${this.mediaType}"></property-shape-document>`);
+  }
+
+  _arrayTemplate() {
+    const items = this._computeArrayProperties(this._resolvedType) || [];
+    return html`
+    ${this.hasParentType ? html`<property-shape-document
+      class="array-document"
+      .amf="${this.amf}"
+      .shape="${this._resolvedType}"
+      parentTypeName="Array test"
+      ?narrow="${this.narrow}"
+      ?noexamplesactions="${this.noExamplesActions}"
+      .mediaType="${this.mediaType}"></property-shape-document>` : undefined}
+
+      <div class="array-children">
+      ${items.map((item) => html`
+        ${item.isShape ? html`<property-shape-document
+          class="array-document"
+          .amf="${this.amf}"
+          .shape="${item}"
+          parentTypeName="${this._computeArrayParentName(this.parentTypeName, item)}"
+          ?narrow="${this.narrow}"
+          ?noexamplesactions="${this.noExamplesActions}"
+          .mediaType="${this.mediaType}"></property-shape-document>` : undefined}
+        ${item.isType ? html`<api-type-document
+          class="union-document"
+          .amf="${this.amf}"
+          .parentTypeName="${this.parentTypeName}"
+          .type="${item}"
+          ?narrow="${this.narrow}"
+          ?noexamplesactions="${this.noExamplesActions}"
+          ?nomainexample="${this._renderMainExample}"
+          .mediaType="${this.mediaType}"></api-type-document>` : undefined}
+      `)}
+      </div>
+    `;
+  }
+
+  _unionTemplate() {
+    const items = this.unionTypes || [];
+    return html`
+    <div class="union-type-selector">
+      <span>Any of:</span>
+      ${items.map((item, index) => html`<paper-button
+        class="union-toggle"
+        data-index="${index}"
+        ?active="${this.selectedUnion === index}"
+        @click="${this._selectUnion}"
+        title="Select ${item.label} type">${item.label}</paper-button>`)}
+    </div>
+    <api-type-document
+      class="union-document"
+      .amf="${this.amf}"
+      .parentTypeName="${this.parentTypeName}"
+      .type="${this._computeUnionProperty(this._resolvedType, this.selectedUnion)}"
+      ?narrow="${this.narrow}"
+      ?noexamplesactions="${this.noExamplesActions}"
+      ?nomainexample="${this._renderMainExample}"
+      .mediaType="${this.mediaType}"></api-type-document>
+    `;
+  }
+
+  _anyTemplate() {
+    const items = this.andTypes;
+    if (!items || !items.length) {
+      return;
+    }
+    return html`
+    ${items.map((item) => html`
+      ${item.label ?
+        html`<p class="inheritance-label">Properties inherited from <b>${item.label}</b>.</p>` :
+        html`<p class="inheritance-label">Properties defined inline.</p>`}
+    <api-type-document
+      class="and-document"
+      .amf="${this.amf}"
+      .type="${item.type}"
+      ?narrow="${this.narrow}"
+      ?noexamplesactions="${this.noExamplesActions}"
+      ?nomainexample="${this._renderMainExample}"
+      .mediaType="${this.mediaType}"></api-type-document>`)}`;
+  }
+
+  render() {
+    let parts = 'content-action-button, code-content-action-button, content-action-button-disabled, ';
+    parts += 'code-content-action-button-disabled content-action-button-active, ';
+    parts += 'code-content-action-button-active, code-wrapper, example-code-wrapper, markdown-html';
+    return html`
+    ${this.aware ?
+      html`<raml-aware @api-changed="${this._apiChangedHandler}" scope="${this.aware}"></raml-aware>` : undefined}
+    <section class="examples" ?hidden="${!this._renderMainExample}">
+      <h5 class="examples-section-title">Examples</h5>
+      ${this.renderMediaSelector ? html`<div class="media-type-selector">
+        <span>Media type:</span>
+        ${(this.mediaTypes || []).map((item, index) => html`<paper-button
+          part="content-action-button"
+          class="media-toggle"
+          data-index="${index}"
+          ?active="${this.selectedMediaType === index}"
+          @click="${this._selectMediaType}"
+          title="Select ${item} media type">${item}</paper-button>`)}
+      </div>` : undefined}
+
+      <api-resource-example-document
+        .amf="${this.amf}"
+        .payloadId="${this.selectedBodyId}"
+        .examples="${this._resolvedType}"
+        .mediaType="${this.mediaType}"
+        .typeName="${this.parentTypeName}"
+        @has-examples-changed="${this._hasExamplesHandler}"
+        ?noauto="${!!this.isScalar}"
+        ?noactions="${this.noExamplesActions}"
+        ?rawonly="${this._hasMediaType}"
+        exportparts="${parts}"></api-resource-example-document>
+    </section>
+
+    ${this.isObject ? this._objectTemplate() : undefined}
+    ${this.isArray ? this._arrayTemplate() : undefined}
+    ${this.isScalar ? html`<property-shape-document
+      class="shape-document"
+      .amf="${this.amf}"
+      .shape="${this._resolvedType}"
+      .parentTypeName="${this.parentTypeName}"
+      ?narrow="${this.narrow}"
+      ?noexamplesactions="${this.noExamplesActions}"
+      .mediaType="${this.mediaType}"></property-shape-document>` : undefined}
+    ${this.isUnion ? this._unionTemplate() : undefined}
+    ${this.isAnd ? this._anyTemplate() : undefined}`;
   }
 }
 window.customElements.define('api-type-document', ApiTypeDocument);

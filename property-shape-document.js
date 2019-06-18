@@ -1,10 +1,8 @@
-import {PolymerElement} from '../../@polymer/polymer/polymer-element.js';
-import '../../@polymer/iron-flex-layout/iron-flex-layout.js';
-import '../../@advanced-rest-client/markdown-styles/markdown-styles.js';
-import '../../@polymer/marked-element/marked-element.js';
-import {AmfHelperMixin} from '../../@api-components/amf-helper-mixin/amf-helper-mixin.js';
-import {PropertyDocumentMixin} from './property-document-mixin.js';
-import {html} from '../../@polymer/polymer/lib/utils/html-tag.js';
+import { LitElement, html, css } from 'lit-element';
+import markdownStyles from '@advanced-rest-client/markdown-styles/markdown-styles.js';
+import '@advanced-rest-client/arc-marked/arc-marked.js';
+import { AmfHelperMixin } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
+import { PropertyDocumentMixin } from './property-document-mixin.js';
 import './api-type-document.js';
 import './property-range-document.js';
 /**
@@ -26,7 +24,7 @@ import './property-range-document.js';
  * `--property-shape-document-title` | Mixin applied to the property title | `{}`
  * `--api-type-document-property-parent-color` | Color of the parent property label | `#757575`
  * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
- * `--api-type-document-child-docs-margin-left` | Margin left of item's properties description relative to the title when the item is a child of another property | `24px`
+ * `--api-type-document-child-docs-margin-left` | Margin left of item's description | `0px`
  * `--api-type-document-type-color` | Color of the "type" trait | `white`
  * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
  * `--api-type-document-trait-background-color` | Background color to main range trait (type name) | `#EEEEEE`,
@@ -34,330 +32,251 @@ import './property-range-document.js';
  * `--api-type-document-property-name-width` | Width of the left hand side column with property name | `240px`
  *
  * @customElement
- * @polymer
  * @demo demo/index.html
  * @memberof ApiElements
  * @appliesMixin PropertyDocumentMixin
  * @appliesMixin AmfHelperMixin
  */
-class PropertyShapeDocument extends
-  AmfHelperMixin(PropertyDocumentMixin(PolymerElement)) {
-  static get template() {
-    return html`
-    <style include="markdown-styles"></style>
-    <style>
-    :host {
-      display: block;
-      border-bottom: 1px var(--property-shape-document-border-bottom-color, #CFD8DC) var(--property-shape-document-border-bottom-style, dashed);
-      @apply --property-shape-document;
-    }
+class PropertyShapeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElement)) {
+  static get styles() {
+    return [
+      markdownStyles,
+      css`:host {
+        display: block;
+        border-bottom-width: 1px;
+        border-bottom-color: var(--property-shape-document-border-bottom-color, #CFD8DC);
+        border-bottom-style: var(--property-shape-document-border-bottom-style, dashed);
+        padding: var(--property-shape-document-padding);
+      }
 
-    :host(:last-of-type) {
-      border-bottom: none;
-    }
+      :host(:last-of-type) {
+        border-bottom: none;
+      }
 
-    [hidden] {
-      display: none !important;
-    }
+      [hidden] {
+        display: none !important;
+      }
 
-    .property-title {
-      @apply --arc-font-subhead;
-      margin: 4px 0 4px 0;
-      font-size: 15px;
-      font-weight: var(--api-type-document-property-title-font-weight, 500);
-      word-break: break-word;
-      color: var(--api-type-document-property-title-color);
-      @apply --property-shape-document-title;
-    }
+      .property-title {
+        font-size: var(--property-shape-document-title-font-size, var(--arc-font-subhead-font-size));
+        font-weight: var(--property-shape-document-title-font-weight, var(--arc-font-subhead-font-weight));
+        line-height: var(--property-shape-document-title-line-height, var(--arc-font-subhead-line-height));
 
-    .property-title[secondary] {
-      font-weight: var(--api-type-document-property-title-secondary-font-weight, 400);
-      color: var(--api-type-document-property-title-secondary-color, #616161);
-    }
+        margin: 4px 0 4px 0;
+        font-size: 15px;
+        font-weight: var(--api-type-document-property-title-font-weight, 500);
+        word-break: break-word;
+        color: var(--api-type-document-property-title-color);
+      }
 
-    .parent-label {
-      color: var(--api-type-document-property-parent-color, #757575);
-    }
+      .property-title[secondary] {
+        font-weight: var(--api-type-document-property-title-secondary-font-weight, 400);
+        color: var(--api-type-document-property-title-secondary-color, #616161);
+      }
 
-    .property-display-name {
-      font-weight: var(--api-type-document-property-name-font-weight, 500);
-      color: var(--api-type-document-property-name-color, var(--api-type-document-property-color, #212121));
-      margin: 4px 0 4px 0;
-      font-size: var(--api-type-document-property-name-font-size, 16px);
-    }
+      .parent-label {
+        color: var(--api-type-document-property-parent-color, #757575);
+      }
 
-    .doc-wrapper {
-      transition: background-color 0.4s linear;
-    }
+      .property-display-name {
+        font-weight: var(--api-type-document-property-name-font-weight, 500);
+        color: var(--api-type-document-property-name-color, var(--api-type-document-property-color, #212121));
+        margin: 4px 0 4px 0;
+        font-size: var(--api-type-document-property-name-font-size, 16px);
+      }
 
-    :host([is-object]) .doc-wrapper.complex,
-    :host([is-union]) .doc-wrapper.complex,
-    :host([is-array]) .doc-wrapper.complex {
-      padding-left: var(--api-type-document-child-docs-padding-left, 20px);
-      margin-left: var(--api-type-document-child-docs-margin-left, 4px);
-      margin-top: 12px;
-      @apply --api-type-document-property-complex-wrapper;
-    }
+      .doc-wrapper {
+        transition: background-color 0.4s linear;
+      }
+      .doc-wrapper.with-description {
+        margin-top: 20px;
+      }
 
-    :host([is-object]) .doc-wrapper {
-      border-left: 2px var(--property-shape-document-object-color, #FF9800) solid;
-      padding-left: 12px;
-    }
+      :host([isobject]) .doc-wrapper.complex,
+      :host([isunion]) .doc-wrapper.complex,
+      :host([isarray]) .doc-wrapper.complex {
+        padding-left: var(--api-type-document-child-docs-padding-left, 20px);
+        margin-left: var(--api-type-document-child-docs-margin-left, 0px);
+        margin-top: 12px;
+        padding-right: var(--api-type-document-child-docs-padding-right, initial);
+      }
 
-    :host([is-array]) .doc-wrapper {
-      border-left: 2px var(--property-shape-document-array-color, #8BC34A) solid;
-      padding-left: 12px;
-    }
+      :host([isobject]) .doc-wrapper {
+        border-left-color: var(--property-shape-document-object-color, #FF9800);
+        border-left-width: 2px;
+        border-left-style: solid;
+        padding-left: 12px;
+      }
 
-    :host([is-union]) .doc-wrapper {
-      border-left: 2px var(--property-shape-document-union-color, #FFEB3B) solid;
-      padding-left: 12px;
-    }
+      :host([isarray]) .doc-wrapper {
+        border-left: 2px var(--property-shape-document-array-color, #8BC34A) solid;
+        padding-left: 12px;
+      }
 
-    .property-traits {
-      @apply --layout-horizontal;
-      @apply --layout-wrap;
-    }
+      :host([isunion]) .doc-wrapper {
+        border-left: 2px var(--property-shape-document-union-color, #FFEB3B) solid;
+        padding-left: 12px;
+      }
 
-    .property-traits > span {
-      display: inline-block;
-      margin-right: 8px;
-      padding: var(--api-type-document-trait-padding, 2px 4px);
-      background-color: var(--api-type-document-trait-background-color, #EEEEEE);
-      color: var(--api-type-document-trait-color, #616161);
-      border-radius: var(--api-type-document-trait-border-radius, 3px);
-      font-size: 13px;
-    }
+      .property-traits {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
 
-    .property-traits > span.data-type {
-      background-color: var(--api-type-document-type-background-color, #2196F3);
-      color: var(--api-type-document-type-color, white);
-      padding: var(--api-type-document-trait-data-type-padding, 2px 4px);
-    }
+      .property-traits > span {
+        display: inline-block;
+        margin-right: 8px;
+        padding: var(--api-type-document-trait-padding, 2px 4px);
+        background-color: var(--api-type-document-trait-background-color, #EEEEEE);
+        color: var(--api-type-document-trait-color, #616161);
+        border-radius: var(--api-type-document-trait-border-radius, 3px);
+        font-size: var(--api-type-document-trait-font-size, 13px);
+      }
 
-    :host([narrow]) .property-description {
-      margin: 20px 0;
-    }
+      .property-traits > span.data-type {
+        background-color: var(--api-type-document-type-background-color, #2196F3);
+        color: var(--api-type-document-type-color, white);
+        padding: var(--api-type-document-trait-data-type-padding, 2px 4px);
+        font-weight: var(--api-type-document-trait-data-type-font-weight, normal);
+      }
 
-    .content-wrapper {
-      @apply --layout-horizontal;
-    }
+      :host([narrow]) .property-description {
+        margin: 20px 0;
+      }
 
-    .shape-properties {
-      min-width: var(--api-type-document-property-name-width, 120px);
-    }
+      .content-wrapper {
+        display: flex;
+        flex-direction: row;
+      }
 
-    .shape-docs {
-      @apply --layout-flex;
-      word-break: break-word;
-      overflow: hidden;
-    }
+      .shape-properties {
+        min-width: var(--api-type-document-property-name-width, 120px);
+      }
 
-    .shape-docs .doc-wrapper {
-      border-left: none !important;
-      padding-left: 0 !important;
-    }
+      .shape-docs {
+        flex: 1;
+        flex-basis: 0.000000001px;
+        word-break: break-word;
+        overflow: hidden;
+      }
 
-    :host([narrow]) .content-wrapper {
-      display: block;
-      -ms-flex-direction: initial;
-      -webkit-flex-direction: initial;
-      flex-direction: initial;
-    }
+      .shape-docs .doc-wrapper {
+        border-left: none !important;
+        padding-left: 0 !important;
+      }
 
-    :host([narrow]) .shape-docs {
-      -ms-flex: initial;
-      -webkit-flex: initial;
-      flex: initial;
-      -webkit-flex-basis: initial;
-      flex-basis: initial;
-    }
+      :host([narrow]) .content-wrapper {
+        display: block;
+        -ms-flex-direction: initial;
+        -webkit-flex-direction: initial;
+        flex-direction: initial;
+      }
 
-    :host([narrow]) .shape-properties {
-      min-width: 100%;
-    }
+      :host([narrow]) .shape-docs {
+        -ms-flex: initial;
+        -webkit-flex: initial;
+        flex: initial;
+        -webkit-flex-basis: initial;
+        flex-basis: initial;
+      }
 
-    :host([narrow]) .shape-properties > * {
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 8px;
-    }
-    </style>
-    <template is="dom-if" if="[[hasDisplayName]]">
-      <div class="property-display-name">[[displayName]]</div>
-    </template>
-    <template is="dom-if" if="[[propertyName]]">
-      <h4 class="property-title" secondary\$="[[hasDisplayName]]">
-        <span class="parent-label" hidden\$="[[!hasParentTypeName]]">[[parentTypeName]].</span>
-        <span class="property-name">[[propertyName]]</span>
-      </h4>
-    </template>
-    <div class="content-wrapper">
-      <div class="shape-properties">
-        <div class="property-traits">
-          <span class="data-type">[[propertyDataType]]</span>
-          <template is="dom-if" if="[[isRequired]]">
-            <span class="required-type" title="This property is required by the API">Required</span>
-          </template>
-          <template is="dom-if" if="[[isEnum]]">
-            <span class="enym-type" title="This property represent enumerable value">Enum</span>
-          </template>
-        </div>
-      </div>
-      <div class="shape-docs">
-        <template is="dom-if" if="[[hasPropertyDescription]]">
-          <div class="property-description">
-            <marked-element markdown="[[propertyDescription]]">
-              <div slot="markdown-html" class="markdown-body"></div>
-            </marked-element>
-          </div>
-        </template>
-        <div class="doc-wrapper">
-          <div class="doc-content">
-            <property-range-document amf-model="[[amfModel]]" shape="[[shape]]" range="[[range]]" no-examples-actions="[[noExamplesActions]]" media-type="[[mediaType]]" property-name="[[propertyName]]"></property-range-document>
-          </div>
-        </div>
-      </div>
-    </div>
-    <template is="dom-if" if="[[isComplex]]">
-      <div class="doc-wrapper complex">
-        <div class="doc-content">
-          <template is="dom-if" if="[[isArray]]">
-            <api-type-document class="children" amf-model="[[amfModel]]" type="[[_resolve(range)]]" parent-type-name="item" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" no-main-example="" media-type="[[mediaType]]"></api-type-document>
-          </template>
-          <template is="dom-if" if="[[isObject]]">
-            <api-type-document class="children" amf-model="[[amfModel]]" type="[[_resolve(range)]]" parent-type-name="[[displayName]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" no-main-example="" media-type="[[mediaType]]"></api-type-document>
-          </template>
-          <template is="dom-if" if="[[isUnion]]">
-            <api-type-document class="children" amf-model="[[amfModel]]" type="[[_resolve(range)]]" parent-type-name="[[displayName]]" narrow="[[narrow]]" no-examples-actions="[[noExamplesActions]]" no-main-example="" media-type="[[mediaType]]"></api-type-document>
-          </template>
-        </div>
-      </div>
-    </template>
-`;
+      :host([narrow]) .shape-properties {
+        min-width: 100%;
+      }
+
+      :host([narrow]) .shape-properties > * {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 8px;
+      }
+
+      arc-marked {
+        background-color: transparent;
+        padding: 0;
+      }`
+    ];
   }
 
-  static get is() {
-    return 'property-shape-document';
-  }
   static get properties() {
     return {
       /**
        * Computed value of shape's http://raml.org/vocabularies/shapes#range
        * @type {Object}
        */
-      range: {
-        type: Object,
-        computed: '_computeRange(shape, amfModel.*)'
-      },
+      range: { type: Object },
       /**
        * Computed value of "display name" of the property
        */
-      displayName: {
-        type: String,
-        computed: '_computeDisplayName(range, shape)'
-      },
+      displayName: { type: String },
       /**
        * A type property name.
        * This may be different from `displayName` property if
        * `displayName` was specified in the API spec for this property.
        */
-      propertyName: {
-        type: String,
-        computed: '_computePropertyName(range, shape)'
-      },
+      propertyName: { type: String },
       /**
        * Computed value, true if `displayName` has been defined for this
        * property.
        */
-      hasDisplayName: {
-        type: Boolean,
-        computed: '_computeHasDisplayName(displayName, propertyName)',
-        value: false
-      },
+      hasDisplayName: { type: Boolean },
       /**
        * Computed value, true if current property is an union.
        */
       isUnion: {
         type: Boolean,
-        computed: '_computeIsUnion(range)',
-        reflectToAttribute: true
+        reflect: true
       },
       /**
        * Computed value, true if current property is an object.
        */
       isObject: {
         type: Boolean,
-        computed: '_computeIsObject(range)',
-        reflectToAttribute: true
+        reflect: true
       },
       /**
        * Computed value, true if current property is an array.
        */
       isArray: {
         type: Boolean,
-        computed: '_computeIsArray(range)',
-        reflectToAttribute: true
+        reflect: true
       },
       /**
        * Computed value, true if this propery contains a complex
        * structure. It is computed when the property is and array,
        * object, or union.
        */
-      isComplex: {
-        type: Boolean,
-        computed: '_computeIsComplex(isUnion, isObject, isArray)',
-      },
+      isComplex: { type: Boolean },
       /**
        * Should be set if described properties has a parent type.
        * This is used when recursively iterating over properties.
        */
-      parentTypeName: String,
+      parentTypeName: { type: String },
       /**
        * Computed value, true if `parentTypeName` has a value.
        */
-      hasParentTypeName: {
-        value: false,
-        computed: '_computeHasParentTypeName(parentTypeName)',
-        type: Boolean
-      },
+      hasParentTypeName: { type: Boolean },
       /**
        * Computed value of shape data type
        * @type {Object}
        */
-      propertyDataType: {
-        type: String,
-        computed: '_computeType(range, shape)'
-      },
+      propertyDataType: { type: String },
       /**
        * Computed value form the shape. True if the property is required.
        */
-      isRequired: {
-        type: Boolean,
-        computed: '_computeIsRequired(shape)'
-      },
+      isRequired: { type: Boolean },
       /**
        * Computed value form the shape. True if the property is ENUM.
        */
-      isEnum: {
-        type: Boolean,
-        computed: '_computeIsEnum(range)'
-      },
+      isEnum: { type: Boolean },
       /**
        * A description of the property to render.
        */
-      propertyDescription: {
-        type: String,
-        computed: '_computeDescription(range)'
-      },
+      propertyDescription: { type: String },
       /**
        * Computed value, true if desceription is set.
        */
-      hasPropertyDescription: {
-        type: Boolean,
-        value: false,
-        computed: '_computeHasStringValue(propertyDescription)'
-      },
+      hasPropertyDescription: { type: Boolean },
       /**
        * A property to set when the component is rendered in the narrow
        * view. To be used with mobile rendering or when the
@@ -365,7 +284,7 @@ class PropertyShapeDocument extends
        */
       narrow: {
         type: Boolean,
-        reflectToAttribute: true
+        reflect: true
       },
       /**
        * When set it removes actions bar from the examples render.
@@ -373,6 +292,81 @@ class PropertyShapeDocument extends
       noExamplesActions: Boolean
     };
   }
+
+  get amf() {
+    return this._amf;
+  }
+
+  set amf(value) {
+    if (this._setObservableProperty('amf', value)) {
+      this._shapeChanged(this._shape);
+    }
+  }
+
+  get shape() {
+    return this._shape;
+  }
+
+  set shape(value) {
+    if (this._setObservableProperty('shape', value)) {
+      this._shapeChanged(value);
+      this._shapeRangeChanged(value, this._range);
+    }
+  }
+
+  get range() {
+    return this._range;
+  }
+
+  set range(value) {
+    if (this._setObservableProperty('range', value)) {
+      this._rangeChanged(value);
+      this._shapeRangeChanged(this._shape, value);
+    }
+  }
+
+  get parentTypeName() {
+    return this._parentTypeName;
+  }
+
+  set parentTypeName(value) {
+    if (this._setObservableProperty('parentTypeName', value)) {
+      this.hasParentTypeName = !!value;
+    }
+  }
+
+  constructor() {
+    super();
+    this.hasDisplayName = false;
+    this.hasParentTypeName = false;
+    this.hasPropertyDescription = false;
+  }
+
+  _shapeChanged(shape) {
+    if (!this._amf) {
+      return;
+    }
+    this.range = this._computeRange(shape);
+    this.isRequired = this._computeIsRequired(shape);
+  }
+
+  _rangeChanged(range) {
+    this.propertyDescription = this._computeDescription(range);
+    this.hasPropertyDescription = this._computeHasStringValue(this.propertyDescription);
+    this.isEnum = this._computeIsEnum(range);
+    this.isUnion = this._computeIsUnion(range);
+    this.isObject = this._computeIsObject(range);
+    this.isArray = this._computeIsArray(range);
+    this.isComplex = this._computeIsComplex(this.isUnion, this.isObject, this.isArray);
+  }
+
+  _shapeRangeChanged(shape, range) {
+    this.displayName = this._computeDisplayName(range, shape);
+    this.propertyName = this._computePropertyName(range, shape);
+    this.hasDisplayName = this._computeHasDisplayName(this.displayName, this.propertyName);
+    this.propertyDataType = this._computeType(range, shape);
+  }
+
   _computeType(range, shape) {
     let type = range && this._computeRangeDataType(this._resolve(range));
     if (!type) {
@@ -481,5 +475,67 @@ class PropertyShapeDocument extends
   _computeIsComplex(isUnion, isObject, isArray) {
     return isUnion || isObject || isArray;
   }
+
+  _complexTemplate() {
+    if (!this.isComplex) {
+      return;
+    }
+    const range = this._resolve(this.range);
+    const parentTypeName = this.isArray ? 'item' : this.displayName;
+    return html`<div class="doc-wrapper complex">
+      <div class="doc-content">
+      <api-type-document class="children"
+        .amf="${this.amf}"
+        .type="${range}"
+        .parentTypeName="${parentTypeName}"
+        ?narrow="${this.narrow}"
+        ?noexamplesactions="${this.noExamplesActions}"
+        nomainexample
+        .mediaType="${this.mediaType}"></api-type-document>
+      </div>
+    </div>`;
+  }
+
+  render() {
+    return html`
+    ${this.hasDisplayName ? html`<div class="property-display-name">${this.displayName}</div>` : undefined}
+    ${this.propertyName ? html`<h4 class="property-title" ?secondary="${this.hasDisplayName}">
+      <span class="parent-label" ?hidden="${!this.hasParentTypeName}">${this.parentTypeName}.</span>
+      <span class="property-name">${this.propertyName}</span>
+    </h4>` : undefined}
+
+    <div class="content-wrapper">
+      <div class="shape-properties">
+        <div class="property-traits">
+          <span class="data-type">${this.propertyDataType}</span>
+          ${this.isRequired ?
+            html`<span class="required-type" title="This property is required by the API">Required</span>` : undefined}
+          ${this.isEnum ?
+            html`<span class="enym-type" title="This property represent enumerable value">Enum</span>` : undefined}
+        </div>
+      </div>
+      <div class="shape-docs">
+      ${this.hasPropertyDescription ? html`<div class="property-description">
+          <arc-marked .markdown="${this.propertyDescription}">
+            <div slot="markdown-html" class="markdown-body"></div>
+          </arc-marked>
+        </div>` : undefined}
+
+        <div class="doc-wrapper ${this.hasPropertyDescription ? 'with-description' : ''}">
+          <div class="doc-content">
+            <property-range-document
+              .amf="${this.amf}"
+              .shape="${this.shape}"
+              .range="${this.range}"
+              ?noexamplesactions="${this.noExamplesActions}"
+              .mediaType="${this.mediaType}"
+              .propertyName="${this.propertyName}"></property-range-document>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    ${this._complexTemplate()}`;
+  }
 }
-window.customElements.define(PropertyShapeDocument.is, PropertyShapeDocument);
+window.customElements.define('property-shape-document', PropertyShapeDocument);

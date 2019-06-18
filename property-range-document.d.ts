@@ -12,11 +12,9 @@
 // tslint:disable:variable-name Describing an API that's defined elsewhere.
 // tslint:disable:no-any describes the API as best we are able today
 
-import {PolymerElement} from '@polymer/polymer/polymer-element.js';
+import {LitElement, html, css} from 'lit-element';
 
 import {AmfHelperMixin} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
-
-import {html} from '@polymer/polymer/lib/utils/html-tag.js';
 
 import {PropertyDocumentMixin} from './property-document-mixin.js';
 
@@ -45,6 +43,7 @@ declare namespace ApiElements {
     PropertyDocumentMixin(
     AmfHelperMixin(
     Object)) {
+    range: any;
 
     /**
      * When set it removes actions bar from the examples render.
@@ -59,34 +58,35 @@ declare namespace ApiElements {
     /**
      * Computed value form the shape. True if the property is ENUM.
      */
-    readonly isEnum: boolean|null|undefined;
+    isEnum: boolean|null|undefined;
 
     /**
      * Computed value, true if current property is an union.
      */
-    readonly isUnion: boolean|null|undefined;
+    isUnion: boolean|null|undefined;
 
     /**
      * Computed value, true if current property is an object.
      */
-    readonly isObject: boolean|null|undefined;
+    isObject: boolean|null|undefined;
 
     /**
      * Computed value, true if current property is an array.
      */
-    readonly isArray: boolean|null|undefined;
+    isArray: boolean|null|undefined;
 
     /**
      * Computed value, true if current property is a File.
      */
-    readonly isFile: boolean|null|undefined;
+    isFile: boolean|null|undefined;
 
     /**
      * Computed values for list of enums.
      * Enums are list of types names.
      */
-    readonly enumValues: Array<String|null>|null;
+    enumValues: Array<String|null>|null;
     _hasExamples: boolean|null|undefined;
+    exampleSectionTitle: string|null|undefined;
 
     /**
      * Computes value for `isUnion` property.
@@ -114,7 +114,7 @@ declare namespace ApiElements {
      * @param range Range object of current shape.
      */
     _computeIsArray(range: object|null): Boolean|null;
-    _rangeChanged(): void;
+    _rangeChanged(range: any): void;
 
     /**
      * Computes value `isEnum` property.
@@ -135,19 +135,17 @@ declare namespace ApiElements {
     /**
      * Computes value for `enumValues` property.
      *
-     * @param isEnum Current value of `isEnum` property
      * @param range Range object of current shape.
      * @returns List of enum types.
      */
-    _computeEnumValues(isEnum: Boolean|null, range: object|null): Array<String|null>|null|undefined;
-
-    /**
-     * Computes label for examples section title.
-     *
-     * @param examples List of examples
-     * @returns Correct form for examples
-     */
-    _computeExamplesLabel(examples: any[]|null): String|null;
+    _computeEnumValues(range: object|null): Array<String|null>|null|undefined;
+    _examplesChanged(e: any): void;
+    _hasExamplesHandler(e: any): void;
+    _listItemTemplate(label: any, title: any, key: any, isArray: any): any;
+    _nonFilePropertisTemplate(): any;
+    _filePropertisTemplate(): any;
+    _enumTemplate(): any;
+    render(): any;
   }
 }
 
