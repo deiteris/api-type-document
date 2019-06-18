@@ -261,12 +261,12 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
   }
 
   _examplesChanged(e) {
-    const {value} = e.detail;
+    const { value } = e.detail;
     this.exampleSectionTitle = value && value.length === 1 ? 'Example' : 'Examples';
   }
 
   _hasExamplesHandler(e) {
-    this.hasExamples = e.detail.value;
+    this._hasExamples = e.detail.value;
   }
 
   _listItemTemplate(label, title, key, isArray) {
@@ -274,9 +274,9 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
     if (isArray && value instanceof Array) {
       value = value.join(', ');
     }
-    return html`<div class="property-attribute">
-      <span class="attribute-label">${label}:</span>
-      <span class="attribute-value" title="${title}">${value}</span>
+    return html`<div class="property-attribute" part="property-attribute">
+      <span class="attribute-label" part="attribute-label">${label}:</span>
+      <span class="attribute-value" part="attribute-value" title="${title}">${value}</span>
     </div>`;
   }
 
@@ -312,9 +312,9 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
     if (!items || !items.length) {
       return;
     }
-    return html`<div class="property-attribute">
-      <span class="attribute-label">Enum values:</span>
-      <span class="attribute-value" title="List of possible values to use with this property">
+    return html`<div class="property-attribute" part="property-attribute">
+      <span class="attribute-label" part="attribute-label">Enum values:</span>
+      <span class="attribute-value" part="attribute-value" title="List of possible values to use with this property">
         <ul>
         ${items.map((item) => html`<li>${item}</li>`)}
         </ul>

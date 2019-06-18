@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { AmfHelperMixin } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
 import '@api-components/raml-aware/raml-aware.js';
 import '@polymer/paper-button/paper-button.js';
+import '@api-components/api-resource-example-document/api-resource-example-document.js';
 import './property-shape-document.js';
 import { PropertyDocumentMixin } from './property-document-mixin.js';
 /**
@@ -70,21 +71,6 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElement)) 
       line-height: var(--arc-font-body1-line-height);
     }
 
-    .union-toggle {
-      outline: none;
-      background-color: var(--api-type-document-union-button-background-color, #fff);
-      color: var(--api-type-document-union-button-color, #000);
-    }
-
-    .union-toggle[active] {
-      background-color: var(--api-type-document-union-button-active-background-color, #CDDC39);
-      color: var(--api-type-document-union-button-active-color, #000);
-    }
-
-    .union-type-selector {
-      margin: 12px 0;
-    }
-
     property-shape-document {
       padding: 12px 0;
     }
@@ -109,16 +95,39 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElement)) 
       font-size: var(--api-type-document-inheritance-label-font-size, 16px);
     }
 
-    paper-button[active] {
-      background-color: var(--api-body-document-media-button-background-color, #CDDC39);
-    }
-
     .media-type-selector {
       margin: 20px 0;
     }
 
     .media-toggle {
       outline: none;
+      color: var(--api-type-document-media-button-color, #000);
+      background-color: var(--api-type-document-media-button-background-color, #fff);
+      border-width: 1px;
+      border-color: var(--api-type-document-media-button-border-color, #a3b11d);
+      border-style: solid;
+    }
+
+    .media-toggle[active] {
+      background-color: var(--api-type-document-media-button-active-background-color, #CDDC39);
+    }
+
+    .union-toggle {
+      outline: none;
+      background-color: var(--api-type-document-union-button-background-color, #fff);
+      color: var(--api-type-document-union-button-color, #000);
+      border-width: 1px;
+      border-color: var(--api-type-document-media-button-border-color, #a3b11d);
+      border-style: solid;
+    }
+
+    .union-toggle[active] {
+      background-color: var(--api-type-document-union-button-active-background-color, #CDDC39);
+      color: var(--api-type-document-union-button-active-color, #000);
+    }
+
+    .union-type-selector {
+      margin: 12px 0;
     }`;
   }
 
@@ -651,6 +660,9 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElement)) 
   }
 
   render() {
+    let parts = 'content-action-button, code-content-action-button, content-action-button-disabled, ';
+    parts += 'code-content-action-button-disabled content-action-button-active, ';
+    parts += 'code-content-action-button-active, code-wrapper, example-code-wrapper, markdown-html';
     return html`
     ${this.aware ?
       html`<raml-aware @api-changed="${this._apiChangedHandler}" scope="${this.aware}"></raml-aware>` : undefined}
@@ -659,6 +671,7 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElement)) 
       ${this.renderMediaSelector ? html`<div class="media-type-selector">
         <span>Media type:</span>
         ${(this.mediaTypes || []).map((item, index) => html`<paper-button
+          part="content-action-button"
           class="media-toggle"
           data-index="${index}"
           ?active="${this.selectedMediaType === index}"
@@ -675,7 +688,8 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElement)) 
         @has-examples-changed="${this._hasExamplesHandler}"
         ?noauto="${!!this.isScalar}"
         ?noactions="${this.noExamplesActions}"
-        ?rawonly="${this._hasMediaType}"></api-resource-example-document>
+        ?rawonly="${this._hasMediaType}"
+        exportparts="${parts}"></api-resource-example-document>
     </section>
 
     ${this.isObject ? this._objectTemplate() : undefined}
