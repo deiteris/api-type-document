@@ -1,10 +1,8 @@
 export const AmfLoader = {};
-AmfLoader.load = function(compact, modelFile) {
+AmfLoader.load = async function(compact, modelFile) {
   modelFile = modelFile || 'demo-api';
   const file = '/' + modelFile + (compact ? '-compact' : '') + '.json';
-  const url = location.protocol + '//' + location.host +
-    location.pathname.substr(0, location.pathname.lastIndexOf('/'))
-    .replace('/test', '/demo') + file;
+  const url = location.protocol + '//' + location.host + '/demo/'+ file;
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.addEventListener('load', (e) => {
@@ -23,8 +21,10 @@ AmfLoader.load = function(compact, modelFile) {
     xhr.send();
   });
 };
-import {ns} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
-AmfLoader.loadType = function(name, compact, modelFile) {
+
+import { ns } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
+
+AmfLoader.loadType = async function(name, compact, modelFile) {
   return AmfLoader.load(compact, modelFile)
   .then((amf) => {
     const data = amf;
