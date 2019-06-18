@@ -45,7 +45,7 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
       display: flex;
       flex-direction: row;
       align-items: flex-start;
-      margin: 0;
+      margin: 4px 0;
       padding: 0;
       color: var(--api-type-document-type-attribute-color, #616161);
     }
@@ -309,7 +309,7 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
 
   _enumTemplate() {
     const items = this.enumValues;
-    if (!items || items.length) {
+    if (!items || !items.length) {
       return;
     }
     return html`<div class="property-attribute">

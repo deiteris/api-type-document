@@ -1,217 +1,74 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-    <title>api-type-document demo</title>
 
-    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <script src="../node_modules/web-animations-js/web-animations-next.min.js"></script>
-    <script type="module" src="../node_modules/@advanced-rest-client/arc-demo-helper/arc-demo-helper.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <title>api-type-document demo</title>
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/web-animations-js/web-animations-next.min.js"></script>
+  <script type="module" src="../node_modules/@advanced-rest-client/arc-demo-helper/arc-demo-helper.js"></script>
+  <style>
+    [role="main"].centered {
+      max-width: 1100px;
+    }
 
-    <script type="module">
-      import '../../../@polymer/polymer/lib/elements/dom-bind.js';
-      import '../../../@polymer/polymer/lib/elements/dom-if.js';
-      import '../../../@polymer/paper-styles/typography.js';
-      import '../../../@api-components/raml-aware/raml-aware.js';
-      import '../../../@api-components/api-navigation/api-navigation.js';
-      import '../../../@polymer/paper-dropdown-menu/paper-dropdown-menu.js';
-      import '../../../@polymer/paper-item/paper-item.js';
-      import '../../../@polymer/paper-listbox/paper-listbox.js';
-      import '../../../@polymer/paper-toggle-button/paper-toggle-button.js';
-      import '../api-type-document.js';
-    </script>
+    api-navigation {
+      width: 320px;
+      min-width: 320px;
+      overflow: auto;
+    }
 
-    <custom-style>
-      <style is="custom-style">
-      [role="main"] {
-        max-width: 1100px;
-        @apply --layout-horizontal;
-        @apply --layout-start;
-      }
+    api-type-document {
+      margin-left: 40px;
+      flex: 1;
+      flex-basis: 0.000000001px;
+    }
 
-      api-navigation {
-        width: 320px;
-        min-width: 320px;
-        overflow: auto;
-      }
+    html,
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
 
-      api-type-document {
-        margin-left: 40px;
-        @apply --layout-flex;
-      }
+      --arc-font-body1-font-size: 14px;
+     --arc-font-body1-font-weight: 400;
+     --arc-font-body1-line-height: 20px;
+     --arc-font-code-family: 'Roboto Mono', 'Consolas', 'Menlo', monospace;
+     --code-background-color: #f5f2f0;
+    }
 
-      html,
-      body {
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-
-      header {
-        padding: 12px 24px;
-        background-color: #C5E1A5;
-        --iron-icon-fill-color: #3E2723;
-        --paper-input-container-focus-color: #33691E;
-        --paper-input-container-label: {
-          color: #3E2723;
-        };
-        @apply --layout-horizontal;
-        @apply --layout-center;
-      }
-
-      .spacer {
-        @apply --layout-flex;
-      }
-
-      .options {
-        @apply --layout-horizontal;
-        @apply --layout-center;
-      }
-
-      .options > * {
-        margin-left: 8px;
-      }
-      </style>
-    </custom-style>
-  </head>
-  <body>
-    <dom-bind id="demo">
-      <template is="dom-bind">
-        <header>
-          <paper-dropdown-menu label="Select demo endpoint">
-            <paper-listbox slot="dropdown-content" id="enpointsList" on-selected-changed="_apiChanged">
-              <paper-item data-src="demo-api.json">Demo api</paper-item>
-              <paper-item data-src="examples-api.json">Examples render demo api</paper-item>
-              <paper-item data-src="examples-api-compact.json">Examples render demo - compact model</paper-item>
-              <paper-item data-src="demo-api-compact.json">Demo api - compact version</paper-item>
-              <paper-item data-src="apic-83.json">APIC-83 (issue)</paper-item>
-              <paper-item data-src="apic-83-compact.json">APIC-83 - compact model (issue)</paper-item>
-              <paper-item data-src="Petstore.json">Petstore</paper-item>
-              <paper-item data-src="Petstore-compact.json">Petstore - compact model (issue)</paper-item>
-              <paper-item data-src="SE-10469.json">SE-10469 (issue)</paper-item>
-              <paper-item data-src="SE-10469-compact.json">SE-10469 - compact model (issue)</paper-item>
-              <paper-item data-src="SE-11155.json">SE-11155 (issue)</paper-item>
-              <paper-item data-src="SE-11155-compact.json">SE-11155 - compact model (issue)</paper-item>
-            </paper-listbox>
-          </paper-dropdown-menu>
-          <div class="spacer"></div>
-          <div class="options">
-            <paper-toggle-button checked="{{narrow}}">Render narrow view</paper-toggle-button>
-            <paper-toggle-button checked="{{noActions}}">Remove actions from examples</paper-toggle-button>
-          </div>
-        </header>
-
-        <div class="horizontal-section-container" role="main">
-          <raml-aware raml="{{amfModel}}" scope="model"></raml-aware>
-          <api-navigation aware="model" types-opened=""></api-navigation>
-          <template is="dom-if" if="[[hasType]]">
-            <api-type-document narrow="[[narrow]]" aware="model" type="[[dataProperties]]" media-type="[[mediaType]]" media-types="[[mediaTypes]]" no-examples-actions="[[noActions]]"></api-type-document>
-          </template>
-          <template is="dom-if" if="[[!hasType]]">
-            <p>Select type in the navigation to see the demo.</p>
-          </template>
-        </div>
-
-        <demo-element id="helper" amf="{{amfModel}}"></demo-element>
-      </template>
-    </dom-bind>
-    <script type="module">
-    import {PolymerElement} from '../../../@polymer/polymer/polymer-element.js';
-    import {AmfHelperMixin, ns} from '../../../@api-components/amf-helper-mixin/amf-helper-mixin.js';
-    (function(app) {
-      app.hasType = false;
-
-      app._load = function() {
-        class DemoElement extends AmfHelperMixin(PolymerElement) {}
-        window.customElements.define('demo-element', DemoElement);
-        document.getElementById('enpointsList').selected = 0;
+    header {
+      padding: 12px 24px;
+      background-color: #C5E1A5;
+      display: flex;
+      align-items: center;
+      --iron-icon-fill-color: #3E2723;
+      --paper-input-container-focus-color: #33691E;
+      --paper-input-container-label: {
+        color: #3E2723;
       };
+    }
 
-      app._loadFile = function(file) {
-        fetch('./' + file)
-        .then((response) => response.json())
-        .then((data) => {
-          app.amfModel = data;
-        });
-      };
+    .spacer {
+      flex: 1;
+      flex-basis: 0.000000001px;
+    }
 
-      app._apiChanged = function(e) {
-        const file = e.target.selectedItem.dataset.src;
-        app._loadFile(file);
-      };
+    .options {
+      display: flex;
+      align-items: center;
+    }
 
-      app._navChanged = function(e) {
-        app.hasType = false;
-        app.mediaType = undefined;
-        app.mediaTypes = undefined;
+    .options > * {
+      margin-left: 8px;
+    }
+    </style>
+</head>
 
-        const type = e.detail.type;
-        if (type === 'type') {
-          app.setTypeData(e.detail.selected);
-        } else if (type === 'method') {
-          app.setBodyData(e.detail.selected);
-        }
-      };
+<body>
+  <div id="demo"></div>
 
-      app.setBodyData = function(id) {
-        const webApi = app.$.helper._computeWebApi(app.amfModel);
-        const method = app.$.helper._computeMethodModel(webApi, id);
-        const expects = app.$.helper._computeExpects(method);
-        const payload = app.$.helper._computePayload(expects)[0];
-        const mt = app.$.helper._getValue(payload, ns.raml.vocabularies.http + 'mediaType');
-        const key = app.$.helper._getAmfKey(ns.raml.vocabularies.http + 'schema');
-        let schema = payload && payload[key];
-        if (!schema) {
-          return;
-        }
-        schema = schema instanceof Array ? schema[0] : schema;
-        app.dataProperties = schema;
-        app.mediaType = mt;
-        app.hasType = true;
-      };
-      app.setTypeData = function(id) {
-        const declares = app.$.helper._computeDeclares(app.amfModel);
-        let type = declares.find((item) => item['@id'] === id);
-        if (!type) {
-          const refs = app.$.helper._computeReferences(app.amfModel);
-          if (refs) {
-            for (let i = 0; i < refs.length; i++) {
-              const rd = app.$.helper._computeDeclares(refs[i]);
-              if (!rd) {
-                continue;
-              }
-              for (let j = 0; j < rd.length; j++) {
-                if (rd[j]['@id'] === id) {
-                  type = rd[j];
-                  break;
-                }
-              }
-              if (type) {
-                break;
-              }
-            }
-          }
-        }
-        if (!type) {
-          console.error('Type not found');
-          return;
-        }
-        app.dataProperties = type;
-        app.hasType = true;
+  <script type="module" src="index.js"></script>
+</body>
 
-        let webApi = app.$.helper._computeWebApi(app.amfModel);
-        if (webApi instanceof Array) {
-          webApi = webApi[0];
-        }
-        const key = app.$.helper._getAmfKey(app.$.helper.ns.raml.vocabularies.http + 'accepts');
-        const value = app.$.helper._ensureArray(webApi[key]);
-        if (value) {
-          app.mediaTypes = value.map((item) => item['@value']);
-        }
-      };
-      window.addEventListener('WebComponentsReady', () => app._load());
-      window.addEventListener('api-navigation-selection-changed', app._navChanged);
-    })(document.getElementById('demo'));
-    </script>
-  </body>
 </html>

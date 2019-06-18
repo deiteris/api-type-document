@@ -24,7 +24,7 @@ import './property-range-document.js';
  * `--property-shape-document-title` | Mixin applied to the property title | `{}`
  * `--api-type-document-property-parent-color` | Color of the parent property label | `#757575`
  * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
- * `--api-type-document-child-docs-margin-left` | Margin left of item's properties description relative to the title when the item is a child of another property | `24px`
+ * `--api-type-document-child-docs-margin-left` | Margin left of item's description | `0px`
  * `--api-type-document-type-color` | Color of the "type" trait | `white`
  * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
  * `--api-type-document-trait-background-color` | Background color to main range trait (type name) | `#EEEEEE`,
@@ -32,7 +32,6 @@ import './property-range-document.js';
  * `--api-type-document-property-name-width` | Width of the left hand side column with property name | `240px`
  *
  * @customElement
- * @polymer
  * @demo demo/index.html
  * @memberof ApiElements
  * @appliesMixin PropertyDocumentMixin
@@ -44,7 +43,9 @@ class PropertyShapeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
       markdownStyles,
       css`:host {
         display: block;
-        border-bottom: 1px var(--property-shape-document-border-bottom-color, #CFD8DC) var(--property-shape-document-border-bottom-style, dashed);
+        border-bottom-width: 1px;
+        border-bottom-color: var(--property-shape-document-border-bottom-color, #CFD8DC);
+        border-bottom-style: var(--property-shape-document-border-bottom-style, dashed);
         padding: var(--property-shape-document-padding);
       }
 
@@ -57,9 +58,9 @@ class PropertyShapeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
       }
 
       .property-title {
-        font-size: var(--arc-font-subhead-font-size);
-        font-weight: var(--arc-font-subhead-font-weight);
-        line-height: var(--property-shape-document-title-font-weight, var(--arc-font-subhead-line-height));
+        font-size: var(--property-shape-document-title-font-size, var(--arc-font-subhead-font-size));
+        font-weight: var(--property-shape-document-title-font-weight, var(--arc-font-subhead-font-weight));
+        line-height: var(--property-shape-document-title-line-height, var(--arc-font-subhead-line-height));
 
         margin: 4px 0 4px 0;
         font-size: 15px;
@@ -87,15 +88,17 @@ class PropertyShapeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
       .doc-wrapper {
         transition: background-color 0.4s linear;
       }
+      .doc-wrapper.with-description {
+        margin-top: 20px;
+      }
 
       :host([isobject]) .doc-wrapper.complex,
       :host([isunion]) .doc-wrapper.complex,
       :host([isarray]) .doc-wrapper.complex {
         padding-left: var(--api-type-document-child-docs-padding-left, 20px);
-        margin-left: var(--api-type-document-child-docs-margin-left, 4px);
+        margin-left: var(--api-type-document-child-docs-margin-left, 0px);
         margin-top: 12px;
         padding-right: var(--api-type-document-child-docs-padding-right, initial);
-        /* border: var(--api-type-document-child-docs-border); */
       }
 
       :host([isobject]) .doc-wrapper {
@@ -128,13 +131,14 @@ class PropertyShapeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
         background-color: var(--api-type-document-trait-background-color, #EEEEEE);
         color: var(--api-type-document-trait-color, #616161);
         border-radius: var(--api-type-document-trait-border-radius, 3px);
-        font-size: 13px;
+        font-size: var(--api-type-document-trait-font-size, 13px);
       }
 
       .property-traits > span.data-type {
         background-color: var(--api-type-document-type-background-color, #2196F3);
         color: var(--api-type-document-type-color, white);
         padding: var(--api-type-document-trait-data-type-padding, 2px 4px);
+        font-weight: var(--api-type-document-trait-data-type-font-weight, normal);
       }
 
       :host([narrow]) .property-description {
@@ -517,7 +521,7 @@ class PropertyShapeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
           </arc-marked>
         </div>` : undefined}
 
-        <div class="doc-wrapper">
+        <div class="doc-wrapper ${this.hasPropertyDescription ? 'with-description' : ''}">
           <div class="doc-content">
             <property-range-document
               .amf="${this.amf}"
