@@ -7,7 +7,7 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
-script: >-
+script:
   - npm test
   - if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then npm run test:sl; fi
 env:
