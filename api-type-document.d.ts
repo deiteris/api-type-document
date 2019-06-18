@@ -5,21 +5,18 @@
  *   https://github.com/Polymer/tools/tree/master/packages/gen-typescript-declarations
  *
  * To modify these typings, edit the source file(s):
- *   api-type-document.html
+ *   api-type-document.js
  */
 
 
 // tslint:disable:variable-name Describing an API that's defined elsewhere.
 // tslint:disable:no-any describes the API as best we are able today
 
-/// <reference path="../polymer/types/polymer-element.d.ts" />
-/// <reference path="../polymer/types/lib/elements/dom-if.d.ts" />
-/// <reference path="../polymer/types/lib/elements/dom-repeat.d.ts" />
-/// <reference path="../raml-aware/raml-aware.d.ts" />
-/// <reference path="../paper-button/paper-button.d.ts" />
-/// <reference path="../amf-helper-mixin/amf-helper-mixin.d.ts" />
-/// <reference path="property-shape-document.d.ts" />
-/// <reference path="property-document-mixin.d.ts" />
+import {LitElement, html, css} from 'lit-element';
+
+import {AmfHelperMixin} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
+
+import {PropertyDocumentMixin} from './property-document-mixin.js';
 
 declare namespace ApiElements {
 
@@ -74,9 +71,15 @@ declare namespace ApiElements {
    * `--arc-font-body2` | Mixin applied to the examples section title | `{}`
    */
   class ApiTypeDocument extends
-    ArcBehaviors.PropertyDocumentMixin(
-    ApiElements.AmfHelperMixin(
+    PropertyDocumentMixin(
+    AmfHelperMixin(
     Object)) {
+
+    /**
+     * Media type to use to render examples.
+     * If not set a "raw" version of the example from API spec file is used.
+     */
+    mediaType: string|null|undefined;
 
     /**
      * Generated AMF json/ld model form the API spec.
@@ -86,18 +89,7 @@ declare namespace ApiElements {
      *
      * It is only usefult for the element to resolve references.
      */
-    amfModel: object|any[]|null;
-
-    /**
-     * Media type to use to render examples.
-     * If not set a "raw" version of the example from API spec file is used.
-     */
-    mediaType: string|null|undefined;
-
-    /**
-     * `raml-aware` scope property to use.
-     */
-    aware: string|null|undefined;
+    amf: object|any[]|null;
 
     /**
      * A type definition to render.
@@ -114,9 +106,19 @@ declare namespace ApiElements {
     type: object|any[]|null;
 
     /**
-     * The type after it has been resolved.
+     * A list of supported media types for the type.
+     * This is used by `api-resource-example-document` to compute examples.
+     * In practive it should be value of raml's `mediaType`.
+     *
+     * Each item in the array is just a name of thr media type.
+     *
+     * Example:
+     *
+     * ```json
+     * ["application/json", "application/xml"]
+     * ```
      */
-    readonly _resolvedType: object|null|undefined;
+    mediaTypes: Array<String|null>|null;
 
     /**
      * Should be set if described properties has a parent type.
@@ -125,41 +127,64 @@ declare namespace ApiElements {
     parentTypeName: string|null|undefined;
 
     /**
-     * Computed value, true if the shape has parent type.
-     */
-    readonly hasParentType: boolean|null|undefined;
-
-    /**
-     * True if given `type` is a scalar property
-     */
-    readonly isScalar: boolean|null|undefined;
-
-    /**
-     * True if given `type` is an array property
-     */
-    readonly isArray: boolean|null|undefined;
-
-    /**
-     * True if given `type` is an object property
-     */
-    readonly isObject: boolean|null|undefined;
-
-    /**
-     * True if given `type` is an union property
-     */
-    readonly isUnion: boolean|null|undefined;
-
-    /**
-     * True if given `type` is OAS "and" type.
-     */
-    readonly isAnd: boolean|null|undefined;
-
-    /**
      * Computed list of union type types to render in union type
      * selector.
      * Each item has `label` and `isScalar` property.
      */
     unionTypes: Array<object|null>|null;
+
+    /**
+     * When set an example in this `type` object won't be rendered even if set.
+     */
+    noMainExample: boolean|null|undefined;
+    _hasExamples: boolean|null|undefined;
+
+    /**
+     * `raml-aware` scope property to use.
+     */
+    aware: string|null|undefined;
+
+    /**
+     * Currently selected media type.
+     * It is an index of a media type in `mediaTypes` array.
+     * It is set to `0` each time the body changes.
+     */
+    selectedMediaType: number|null|undefined;
+
+    /**
+     * The type after it has been resolved.
+     */
+    _resolvedType: object|null|undefined;
+
+    /**
+     * Computed value, true if the shape has parent type.
+     */
+    hasParentType: boolean|null|undefined;
+
+    /**
+     * True if given `type` is a scalar property
+     */
+    isScalar: boolean|null|undefined;
+
+    /**
+     * True if given `type` is an array property
+     */
+    isArray: boolean|null|undefined;
+
+    /**
+     * True if given `type` is an object property
+     */
+    isObject: boolean|null|undefined;
+
+    /**
+     * True if given `type` is an union property
+     */
+    isUnion: boolean|null|undefined;
+
+    /**
+     * True if given `type` is OAS "and" type.
+     */
+    isAnd: boolean|null|undefined;
 
     /**
      * List of types definition and name for OAS' "and" type
@@ -179,11 +204,11 @@ declare namespace ApiElements {
     narrow: boolean|null|undefined;
 
     /**
-     * When set an example in this `type` object won't be rendered even if set.
+     * When rendering schema for a payload set this to the payload ID
+     * so the examples can be correctly rendered.
      */
-    noMainExample: boolean|null|undefined;
-    _hasExamples: boolean|null|undefined;
-    readonly _renderMainExample: boolean|null|undefined;
+    selectedBodyId: string|null|undefined;
+    _renderMainExample: boolean|null|undefined;
     _computeRenderMainExample(noMainExample: any, hasExamples: any): any;
 
     /**
@@ -215,11 +240,6 @@ declare namespace ApiElements {
     _selectUnion(e: ClickEvent|null): void;
 
     /**
-     * Computes if selectedUnion equals current item index.
-     */
-    _unionTypeActive(selectedUnion: Number|null, index: Number|null): Boolean|null;
-
-    /**
      * Computes properties for union type.
      *
      * @param type Current `type` value.
@@ -244,9 +264,38 @@ declare namespace ApiElements {
      * @returns An array of type definitions and label to render
      */
     _computeAndTypes(items: Array<object|null>|null): Array<object|null>|null;
+
+    /**
+     * Observer for `mediaTypes` property.
+     * Controls media type selected depending on the value.
+     *
+     * @param types List of media types that are supported by the API.
+     */
+    _mediaTypesChanged(types: Array<String|null>|null): void;
+
+    /**
+     * Computes if `selected` equals current item index.
+     */
+    _mediaTypeActive(selected: Number|null, index: Number|null): Boolean|null;
+
+    /**
+     * Handler for media type type button click.
+     * Sets `selected` property.
+     */
+    _selectMediaType(e: ClickEvent|null): void;
+    _apiChangedHandler(e: any): void;
+    _hasExamplesHandler(e: any): void;
+    _objectTemplate(): any;
+    _arrayTemplate(): any;
+    _unionTemplate(): any;
+    _anyTemplate(): any;
+    render(): any;
   }
 }
 
-interface HTMLElementTagNameMap {
-  "api-type-document": ApiElements.ApiTypeDocument;
+declare global {
+
+  interface HTMLElementTagNameMap {
+    "api-type-document": ApiElements.ApiTypeDocument;
+  }
 }

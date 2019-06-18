@@ -1,4 +1,4 @@
-<!--
+/**
 @license
 Copyright 2018 The Advanced REST client authors <arc@mulesoft.com>
 Licensed under the Apache License, Version 2.0 (the "License"); you may not
@@ -10,17 +10,8 @@ distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
 WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations under
 the License.
--->
-<link rel="import" href="../polymer/lib/utils/mixin.html">
-<script>
-(function(global) {
-'use strict';
-if (!global.ArcBehaviors) {
-  /**
-   * @namespace ArcBehaviors
-   */
-  global.ArcBehaviors = {};
-}
+*/
+import { dedupingMixin } from '@polymer/polymer/lib/utils/mixin.js';
 /**
  * A mixin that contains common function for `property-*-document` elements.
  *
@@ -28,7 +19,7 @@ if (!global.ArcBehaviors) {
  * @mixinFunction
  * @memberof ArcBehaviors
  */
-ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
+export const PropertyDocumentMixin = dedupingMixin((base) => {
   /**
    * @polymer
    * @mixinClass
@@ -46,37 +37,61 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
          *
          * @type {Object|Array}
          */
-        amfModel: Object,
+        amf: { type: Object },
         /**
          * A property shape definition of AMF.
          *
          * @type {Object}
          */
-        shape: Object,
+        shape: { type: Object },
         /**
          * Computes value of shape's http://raml.org/vocabularies/shapes#range
          * @type {Object}
          */
-        range: Object,
+        range: { type: Object },
         /**
          * Type's current media type.
          * This is used to select/generate examples according to current body
          * media type. When not set it only renders examples that were defined
          * in API specfile in a form as they were written.
          */
-        mediaType: String,
+        mediaType: { type: String },
         /**
          * When set it removes actions bar from the examples render.
          */
-        noExamplesActions: Boolean,
-        _hasMediaType: {
-          type: Boolean,
-          value: false,
-          computed: '_computeHasMediaType(mediaType)'
-        }
+        noExamplesActions: { type: Boolean },
+
+        _hasMediaType: { type: Boolean }
       };
     }
 
+    get mediaType() {
+      return this._mediaType;
+    }
+
+    set mediaType(value) {
+      if (this._setObservableProperty('mediaType', value)) {
+        this._hasMediaType = this._computeHasMediaType(value);
+      }
+    }
+
+    constructor() {
+      super();
+      this._hasMediaType = false;
+    }
+
+    _setObservableProperty(prop, value) {
+      const key = '_' + prop;
+      const old = this[key];
+      if (old === value) {
+        return false;
+      }
+      this[key] = value;
+      if (this.requestUpdate) {
+        this.requestUpdate(prop, old);
+      }
+      return true;
+    }
     /**
      * Computes type from a `http://raml.org/vocabularies/shapes#range` object
      *
@@ -380,5 +395,3 @@ ArcBehaviors.PropertyDocumentMixin = Polymer.dedupingMixin((base) => {
   }
 return PDmixin;
 });
-})(window);
-</script>

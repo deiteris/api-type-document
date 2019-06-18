@@ -5,23 +5,18 @@
  *   https://github.com/Polymer/tools/tree/master/packages/gen-typescript-declarations
  *
  * To modify these typings, edit the source file(s):
- *   property-shape-document.html
+ *   property-shape-document.js
  */
 
 
 // tslint:disable:variable-name Describing an API that's defined elsewhere.
 // tslint:disable:no-any describes the API as best we are able today
 
-/// <reference path="../polymer/types/polymer-element.d.ts" />
-/// <reference path="../polymer/types/lib/elements/dom-if.d.ts" />
-/// <reference path="../polymer/types/lib/elements/dom-repeat.d.ts" />
-/// <reference path="../iron-flex-layout/iron-flex-layout.d.ts" />
-/// <reference path="../markdown-styles/markdown-styles.d.ts" />
-/// <reference path="../marked-element/marked-element.d.ts" />
-/// <reference path="../amf-helper-mixin/amf-helper-mixin.d.ts" />
-/// <reference path="api-type-document.d.ts" />
-/// <reference path="property-range-document.d.ts" />
-/// <reference path="property-document-mixin.d.ts" />
+import {LitElement, html, css} from 'lit-element';
+
+import {AmfHelperMixin} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
+
+import {PropertyDocumentMixin} from './property-document-mixin.js';
 
 declare namespace ApiElements {
 
@@ -44,7 +39,7 @@ declare namespace ApiElements {
    * `--property-shape-document-title` | Mixin applied to the property title | `{}`
    * `--api-type-document-property-parent-color` | Color of the parent property label | `#757575`
    * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
-   * `--api-type-document-child-docs-margin-left` | Margin left of item's properties description relative to the title when the item is a child of another property | `24px`
+   * `--api-type-document-child-docs-margin-left` | Margin left of item's description | `0px`
    * `--api-type-document-type-color` | Color of the "type" trait | `white`
    * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
    * `--api-type-document-trait-background-color` | Background color to main range trait (type name) | `#EEEEEE`,
@@ -52,59 +47,21 @@ declare namespace ApiElements {
    * `--api-type-document-property-name-width` | Width of the left hand side column with property name | `240px`
    */
   class PropertyShapeDocument extends
-    ArcBehaviors.PropertyDocumentMixin(
-    ApiElements.AmfHelperMixin(
+    PropertyDocumentMixin(
+    AmfHelperMixin(
     Object)) {
+    amf: any;
+    shape: any;
 
     /**
      * Computed value of shape's http://raml.org/vocabularies/shapes#range
      */
-    readonly range: object|null;
+    range: object|null;
 
     /**
      * When set it removes actions bar from the examples render.
      */
     noExamplesActions: boolean|null|undefined;
-
-    /**
-     * Computed value of "display name" of the property
-     */
-    readonly displayName: string|null|undefined;
-
-    /**
-     * A type property name.
-     * This may be different from `displayName` property if
-     * `displayName` was specified in the API spec for this property.
-     */
-    readonly propertyName: string|null|undefined;
-
-    /**
-     * Computed value, true if `displayName` has been defined for this
-     * property.
-     */
-    readonly hasDisplayName: boolean|null|undefined;
-
-    /**
-     * Computed value, true if current property is an union.
-     */
-    readonly isUnion: boolean|null|undefined;
-
-    /**
-     * Computed value, true if current property is an object.
-     */
-    readonly isObject: boolean|null|undefined;
-
-    /**
-     * Computed value, true if current property is an array.
-     */
-    readonly isArray: boolean|null|undefined;
-
-    /**
-     * Computed value, true if this propery contains a complex
-     * structure. It is computed when the property is and array,
-     * object, or union.
-     */
-    readonly isComplex: boolean|null|undefined;
 
     /**
      * Should be set if described properties has a parent type.
@@ -113,34 +70,74 @@ declare namespace ApiElements {
     parentTypeName: string|null|undefined;
 
     /**
+     * Computed value of "display name" of the property
+     */
+    displayName: string|null|undefined;
+
+    /**
+     * A type property name.
+     * This may be different from `displayName` property if
+     * `displayName` was specified in the API spec for this property.
+     */
+    propertyName: string|null|undefined;
+
+    /**
+     * Computed value, true if `displayName` has been defined for this
+     * property.
+     */
+    hasDisplayName: boolean|null|undefined;
+
+    /**
+     * Computed value, true if current property is an union.
+     */
+    isUnion: boolean|null|undefined;
+
+    /**
+     * Computed value, true if current property is an object.
+     */
+    isObject: boolean|null|undefined;
+
+    /**
+     * Computed value, true if current property is an array.
+     */
+    isArray: boolean|null|undefined;
+
+    /**
+     * Computed value, true if this propery contains a complex
+     * structure. It is computed when the property is and array,
+     * object, or union.
+     */
+    isComplex: boolean|null|undefined;
+
+    /**
      * Computed value, true if `parentTypeName` has a value.
      */
-    readonly hasParentTypeName: boolean|null|undefined;
+    hasParentTypeName: boolean|null|undefined;
 
     /**
      * Computed value of shape data type
      */
-    readonly propertyDataType: object|null;
+    propertyDataType: object|null;
 
     /**
      * Computed value form the shape. True if the property is required.
      */
-    readonly isRequired: boolean|null|undefined;
+    isRequired: boolean|null|undefined;
 
     /**
      * Computed value form the shape. True if the property is ENUM.
      */
-    readonly isEnum: boolean|null|undefined;
+    isEnum: boolean|null|undefined;
 
     /**
      * A description of the property to render.
      */
-    readonly propertyDescription: string|null|undefined;
+    propertyDescription: string|null|undefined;
 
     /**
      * Computed value, true if desceription is set.
      */
-    readonly hasPropertyDescription: boolean|null|undefined;
+    hasPropertyDescription: boolean|null|undefined;
 
     /**
      * A property to set when the component is rendered in the narrow
@@ -157,6 +154,9 @@ declare namespace ApiElements {
      */
     _computeDescription(range: object|null): String|null;
     _computeType(range: any, shape: any): any;
+    _shapeChanged(shape: any): void;
+    _rangeChanged(range: any): void;
+    _shapeRangeChanged(shape: any, range: any): void;
 
     /**
      * Computes name of the property. This may be different from the
@@ -200,9 +200,14 @@ declare namespace ApiElements {
      * Computes value for `isComplex` property.
      */
     _computeIsComplex(isUnion: Boolean|null, isObject: Boolean|null, isArray: Boolean|null): Boolean|null;
+    _complexTemplate(): any;
+    render(): any;
   }
 }
 
-interface HTMLElementTagNameMap {
-  "property-shape-document": ApiElements.PropertyShapeDocument;
+declare global {
+
+  interface HTMLElementTagNameMap {
+    "property-shape-document": ApiElements.PropertyShapeDocument;
+  }
 }

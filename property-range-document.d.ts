@@ -5,24 +5,18 @@
  *   https://github.com/Polymer/tools/tree/master/packages/gen-typescript-declarations
  *
  * To modify these typings, edit the source file(s):
- *   property-range-document.html
+ *   property-range-document.js
  */
 
 
 // tslint:disable:variable-name Describing an API that's defined elsewhere.
 // tslint:disable:no-any describes the API as best we are able today
 
-/// <reference path="../polymer/types/polymer-element.d.ts" />
-/// <reference path="../polymer/types/lib/elements/dom-if.d.ts" />
-/// <reference path="../polymer/types/lib/elements/dom-repeat.d.ts" />
-/// <reference path="../iron-flex-layout/iron-flex-layout.d.ts" />
-/// <reference path="../markdown-styles/markdown-styles.d.ts" />
-/// <reference path="../marked-element/marked-element.d.ts" />
-/// <reference path="../api-annotation-document/api-annotation-document.d.ts" />
-/// <reference path="../amf-helper-mixin/amf-helper-mixin.d.ts" />
-/// <reference path="../api-resource-example-document/api-resource-example-document.d.ts" />
-/// <reference path="api-type-document.d.ts" />
-/// <reference path="property-document-mixin.d.ts" />
+import {LitElement, html, css} from 'lit-element';
+
+import {AmfHelperMixin} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
+
+import {PropertyDocumentMixin} from './property-document-mixin.js';
 
 declare namespace ApiElements {
 
@@ -46,9 +40,10 @@ declare namespace ApiElements {
    * `--arc-font-body2` | Mixin applied to the examples section title | `{}`
    */
   class PropertyRangeDocument extends
-    ArcBehaviors.PropertyDocumentMixin(
-    ApiElements.AmfHelperMixin(
+    PropertyDocumentMixin(
+    AmfHelperMixin(
     Object)) {
+    range: any;
 
     /**
      * When set it removes actions bar from the examples render.
@@ -63,34 +58,35 @@ declare namespace ApiElements {
     /**
      * Computed value form the shape. True if the property is ENUM.
      */
-    readonly isEnum: boolean|null|undefined;
+    isEnum: boolean|null|undefined;
 
     /**
      * Computed value, true if current property is an union.
      */
-    readonly isUnion: boolean|null|undefined;
+    isUnion: boolean|null|undefined;
 
     /**
      * Computed value, true if current property is an object.
      */
-    readonly isObject: boolean|null|undefined;
+    isObject: boolean|null|undefined;
 
     /**
      * Computed value, true if current property is an array.
      */
-    readonly isArray: boolean|null|undefined;
+    isArray: boolean|null|undefined;
 
     /**
      * Computed value, true if current property is a File.
      */
-    readonly isFile: boolean|null|undefined;
+    isFile: boolean|null|undefined;
 
     /**
      * Computed values for list of enums.
      * Enums are list of types names.
      */
-    readonly enumValues: Array<String|null>|null;
+    enumValues: Array<String|null>|null;
     _hasExamples: boolean|null|undefined;
+    exampleSectionTitle: string|null|undefined;
 
     /**
      * Computes value for `isUnion` property.
@@ -118,7 +114,7 @@ declare namespace ApiElements {
      * @param range Range object of current shape.
      */
     _computeIsArray(range: object|null): Boolean|null;
-    _rangeChanged(): void;
+    _rangeChanged(range: any): void;
 
     /**
      * Computes value `isEnum` property.
@@ -139,22 +135,23 @@ declare namespace ApiElements {
     /**
      * Computes value for `enumValues` property.
      *
-     * @param isEnum Current value of `isEnum` property
      * @param range Range object of current shape.
      * @returns List of enum types.
      */
-    _computeEnumValues(isEnum: Boolean|null, range: object|null): Array<String|null>|null|undefined;
-
-    /**
-     * Computes label for examples section title.
-     *
-     * @param examples List of examples
-     * @returns Correct form for examples
-     */
-    _computeExamplesLabel(examples: any[]|null): String|null;
+    _computeEnumValues(range: object|null): Array<String|null>|null|undefined;
+    _examplesChanged(e: any): void;
+    _hasExamplesHandler(e: any): void;
+    _listItemTemplate(label: any, title: any, key: any, isArray: any): any;
+    _nonFilePropertisTemplate(): any;
+    _filePropertisTemplate(): any;
+    _enumTemplate(): any;
+    render(): any;
   }
 }
 
-interface HTMLElementTagNameMap {
-  "property-range-document": ApiElements.PropertyRangeDocument;
+declare global {
+
+  interface HTMLElementTagNameMap {
+    "property-range-document": ApiElements.PropertyRangeDocument;
+  }
 }

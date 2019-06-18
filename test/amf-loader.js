@@ -1,37 +1,28 @@
-const AmfLoader = {};
-AmfLoader.load = function(compact, modelFile) {
+export const AmfLoader = {};
+AmfLoader.load = async function(compact, modelFile) {
   modelFile = modelFile || 'demo-api';
   const file = '/' + modelFile + (compact ? '-compact' : '') + '.json';
-  const url = location.protocol + '//' + location.host +
-    location.pathname.substr(0, location.pathname.lastIndexOf('/'))
-    .replace('/test', '/demo') + file;
-  return new Promise((resolve, reject) => {
+  const url = location.protocol + '//' + location.host + '/demo/'+ file;
+  return new Promise((resolve) => {
     const xhr = new XMLHttpRequest();
     xhr.addEventListener('load', (e) => {
-      let data;
-      try {
-        data = JSON.parse(e.target.response);
-      } catch (e) {
-        reject(e);
-        return;
-      }
+      let data = JSON.parse(e.target.response);
       resolve(data);
     });
-    xhr.addEventListener('error',
-      () => reject(new Error('Unable to load model file')));
     xhr.open('GET', url);
     xhr.send();
   });
 };
 
-AmfLoader.loadType = function(name, compact, modelFile) {
+import { ns } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
+
+AmfLoader.loadType = async function(name, compact, modelFile) {
   return AmfLoader.load(compact, modelFile)
   .then((amf) => {
     const data = amf;
     if (amf instanceof Array) {
       amf = amf[0];
     }
-    const ns = ApiElements.Amf.ns;
     const key = compact ? 'doc:declares' : ns.raml.vocabularies.document + 'declares';
     const defs = amf[key];
     for (let i = 0; i < defs.length; i++) {

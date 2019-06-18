@@ -4,7 +4,7 @@
     "demo/*",
     "test/*",
     "index.html",
-    "bower_components",
+    "karma.*",
     "node_modules"
   ]
 }

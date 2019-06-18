@@ -5,14 +5,16 @@
  *   https://github.com/Polymer/tools/tree/master/packages/gen-typescript-declarations
  *
  * To modify these typings, edit the source file(s):
- *   property-document-mixin.html
+ *   property-document-mixin.js
  */
 
 
 // tslint:disable:variable-name Describing an API that's defined elsewhere.
 // tslint:disable:no-any describes the API as best we are able today
 
-/// <reference path="../polymer/types/lib/utils/mixin.d.ts" />
+import {dedupingMixin} from '@polymer/polymer/lib/utils/mixin.js';
+
+export {PropertyDocumentMixin};
 
 declare namespace ArcBehaviors {
 
@@ -29,6 +31,14 @@ declare namespace ArcBehaviors {
   interface PropertyDocumentMixin {
 
     /**
+     * Type's current media type.
+     * This is used to select/generate examples according to current body
+     * media type. When not set it only renders examples that were defined
+     * in API specfile in a form as they were written.
+     */
+    mediaType: string|null|undefined;
+
+    /**
      * Generated AMF json/ld model form the API spec.
      * The element assumes the object of the first array item to be a
      * type of `"http://raml.org/vocabularies/document#Document`
@@ -36,7 +46,7 @@ declare namespace ArcBehaviors {
      *
      * It is only usefult for the element to resolve references.
      */
-    amfModel: object|any[]|null;
+    amf: object|any[]|null;
 
     /**
      * A property shape definition of AMF.
@@ -49,18 +59,11 @@ declare namespace ArcBehaviors {
     range: object|null;
 
     /**
-     * Type's current media type.
-     * This is used to select/generate examples according to current body
-     * media type. When not set it only renders examples that were defined
-     * in API specfile in a form as they were written.
-     */
-    mediaType: string|null|undefined;
-
-    /**
      * When set it removes actions bar from the examples render.
      */
     noExamplesActions: boolean|null|undefined;
-    readonly _hasMediaType: boolean|null|undefined;
+    _hasMediaType: boolean|null|undefined;
+    _setObservableProperty(prop: any, value: any): any;
 
     /**
      * Computes type from a `http://raml.org/vocabularies/shapes#range` object
@@ -137,3 +140,5 @@ declare namespace ArcBehaviors {
     _computeHasMediaType(mediaType: any): any;
   }
 }
+
+export {PropertyDocumentMixinConstructor};
