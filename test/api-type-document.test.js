@@ -1,4 +1,4 @@
-import { fixture, assert, nextFrame } from '@open-wc/testing';
+import { fixture, assert, nextFrame, aTimeout } from '@open-wc/testing';
 import { ns } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
 import { AmfLoader } from './amf-loader.js';
 import { tap } from '@polymer/iron-test-helpers/mock-interactions.js';
@@ -57,23 +57,6 @@ describe('<api-type-document>', function() {
       });
     });
 
-    describe('_unionTypeActive()', () => {
-      let element;
-      beforeEach(async () => {
-        element = await basicFixture();
-      });
-
-      it('Returns false when index does not match', () => {
-        const result = element._unionTypeActive(1, 2);
-        assert.isFalse(result);
-      });
-
-      it('Returns true when index matches', () => {
-        const result = element._unionTypeActive(1, 1);
-        assert.isTrue(result);
-      });
-    });
-
     describe('_computeRenderMainExample()', () => {
       let element;
       beforeEach(async () => {
@@ -109,7 +92,7 @@ describe('<api-type-document>', function() {
         });
 
         it('Computes isScalar for ScalarShape', async () => {
-          const data = AmfLoader.loadType('ScalarType', item[1]);
+          const data = await AmfLoader.loadType('ScalarType', item[1]);
           element.amf = data[0];
           element._typeChanged(element._resolve(data[1]));
           assert.isTrue(element.isScalar);
@@ -185,19 +168,17 @@ describe('<api-type-document>', function() {
         let element;
         let amf;
         let type;
-        before(() => {
-          return AmfLoader.loadType('Unionable', item[1])
-          .then((data) => {
-            amf = data[0];
-            type = data[1];
-          });
+        before(async () => {
+          const data = await AmfLoader.loadType('Unionable', item[1]);
+          amf = data[0];
+          type = data[1];
         });
 
         beforeEach(async () => {
           element = await basicFixture();
           element.amf = amf;
           element.type = type;
-          await nextFrame();
+          await aTimeout();
         });
 
         it('selectedUnion is 0', () => {
@@ -333,7 +314,7 @@ describe('<api-type-document>', function() {
           element = await basicFixture();
           element.amf = data[0];
           element.type = data[1];
-          await nextFrame();
+          await aTimeout();
         });
 
         it('isObject is true', () => {
@@ -373,7 +354,7 @@ describe('<api-type-document>', function() {
           element = await basicFixture();
           element.amf = data[0];
           element.type = data[1];
-          await nextFrame();
+          await aTimeout();
         });
 
         it('isArray is true', () => {
@@ -414,7 +395,7 @@ describe('<api-type-document>', function() {
           element = await basicFixture();
           element.amf = data[0];
           element.type = data[1];
-          await nextFrame();
+          await aTimeout();
         });
 
         it('isScalar is true', () => {
@@ -455,7 +436,7 @@ describe('<api-type-document>', function() {
           element = await basicFixture();
           element.amf = data[0];
           element.type = data[1];
-          await nextFrame();
+          await aTimeout();
         });
 
         it('isScalar is true', () => {
@@ -471,7 +452,7 @@ describe('<api-type-document>', function() {
           element = await basicFixture();
           element.amf = data[0];
           element.type = data[1];
-          await nextFrame();
+          await aTimeout();
         });
 
         it('isUnion is true', () => {
@@ -522,7 +503,7 @@ describe('<api-type-document>', function() {
           element.selectedUnion = 1;
           const doc = element.shadowRoot.querySelector('api-type-document.union-document');
           const key = element._getAmfKey(ns.raml.vocabularies.shapes + 'anyOf');
-          const type = element.type[key][1];
+          const type = element.type[key][0];
           assert.deepEqual(doc.type, type);
         });
       });
@@ -535,7 +516,7 @@ describe('<api-type-document>', function() {
           element = await basicFixture();
           element.amf = data[0];
           element.type = data[1];
-          await nextFrame();
+          await aTimeout();
         });
 
         it('isAnd is true', () => {
@@ -614,7 +595,7 @@ describe('<api-type-document>', function() {
           element.type = schema;
           element.mediaType = mt;
 
-          await nextFrame();
+          await aTimeout();
 
           const u1 = element.unionTypes[0];
           const u2 = element.unionTypes[1];
@@ -636,7 +617,7 @@ describe('<api-type-document>', function() {
           element.type = schema;
           element.mediaType = mt;
 
-          await nextFrame();
+          await aTimeout();
 
           const u1 = element.unionTypes[0];
           const u2 = element.unionTypes[1];
@@ -715,15 +696,18 @@ describe('<api-type-document>', function() {
 
   describe('_selectMediaType()', () => {
     let element;
+    let target;
+
     beforeEach(async () => {
       element = await basicFixture();
+      await aTimeout();
+      target = document.createElement('span');
+      target.dataset.index = '1';
     });
 
     it('Sets selectedMediaType', () => {
       const e = {
-        model: {
-          get: () => 1
-        }
+        target
       };
       element.mediaTypes = ['invalid', 'valid'];
       element._selectMediaType(e);
@@ -732,9 +716,7 @@ describe('<api-type-document>', function() {
 
     it('Sets mediaType', () => {
       const e = {
-        model: {
-          get: () => 1
-        }
+        target
       };
       element.mediaTypes = ['invalid', 'valid'];
       element._selectMediaType(e);
@@ -743,17 +725,23 @@ describe('<api-type-document>', function() {
 
     it('Sets event target active', () => {
       const e = {
-        model: {
-          get: () => 1
-        },
-        target: {
-          active: false
-        }
+        target
       };
       element.mediaTypes = ['invalid', 'valid'];
       element.selectedMediaType = 1;
       element._selectMediaType(e);
       assert.isTrue(e.target.active);
+    });
+
+    it('Ignores invalid index', () => {
+      target.dataset.index = 'test';
+      const e = {
+        target
+      };
+      element.mediaTypes = ['invalid', 'valid'];
+      element.selectedMediaType = undefined;
+      element._selectMediaType(e);
+      assert.isUndefined(element.selectedMediaType);
     });
   });
 });

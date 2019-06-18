@@ -105,7 +105,7 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
       /**
        * Computed value form the shape. True if the property is ENUM.
        */
-      isEnum: { type: Boolean },
+      isEnum: { type: Boolean, reflect: true },
       /**
        * Computed value, true if current property is an union.
        */
@@ -233,9 +233,6 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
       return;
     }
     model = this._ensureArray(model);
-    if (!model) {
-      return;
-    }
     if (model instanceof Array) {
       model = model[0];
     }
@@ -294,8 +291,13 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
   _filePropertisTemplate() {
     const range = this.range;
     return html`
+    <section class="file-properties">
     ${this._hasProperty(range, ns.w3.shacl.fileType) ?
       this._listItemTemplate('File types', 'File mime types accepted by the endpoint', ns.w3.shacl.fileType, true) :
+      undefined}
+    ${this._hasProperty(range, ns.aml.vocabularies.shapes + 'fileType') ?
+      this._listItemTemplate('File types', 'File mime types accepted by the endpoint',
+        ns.aml.vocabularies.shapes + 'fileType', true) :
       undefined}
     ${this._hasProperty(range, ns.w3.shacl.minLength) ?
       this._listItemTemplate('File minimum size', 'Minimum size of the file accepted by this endpoint',
@@ -304,7 +306,8 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
     ${this._hasProperty(range, ns.w3.shacl.maxLength) ?
       this._listItemTemplate('File maximum size', 'Maximum size of the file accepted by this endpoint',
         ns.w3.shacl.maxLength) :
-      undefined}`;
+      undefined}
+    </div>`;
   }
 
   _enumTemplate() {
@@ -312,7 +315,7 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
     if (!items || !items.length) {
       return;
     }
-    return html`<div class="property-attribute" part="property-attribute">
+    return html`<div class="property-attribute enum-values" part="property-attribute">
       <span class="attribute-label" part="attribute-label">Enum values:</span>
       <span class="attribute-value" part="attribute-value" title="List of possible values to use with this property">
         <ul>

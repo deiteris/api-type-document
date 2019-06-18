@@ -556,12 +556,12 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElement)) 
   }
 
   _apiChangedHandler(e) {
-    const {value} = e.detail;
+    const { value } = e.detail;
     this.amf = value;
   }
 
   _hasExamplesHandler(e) {
-    const {value} = e.detail;
+    const { value } = e.detail;
     this._hasExamples = value;
   }
 

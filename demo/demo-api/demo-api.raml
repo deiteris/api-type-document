@@ -151,6 +151,17 @@ types:
     type: string[]
   UnionArray:
     type: Arrable2 | string
+  FieType:
+    type: object
+    properties:
+      fietype:
+        minLength: 100
+        maxLength: 300
+        required: false
+        type: file
+        fileTypes:
+          - image/png
+          - image/jpeg
 resourceTypes:
   ErrorredResource:
     get:
