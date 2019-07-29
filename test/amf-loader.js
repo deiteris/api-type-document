@@ -2,11 +2,11 @@ export const AmfLoader = {};
 AmfLoader.load = async function(compact, modelFile) {
   modelFile = modelFile || 'demo-api';
   const file = '/' + modelFile + (compact ? '-compact' : '') + '.json';
-  const url = location.protocol + '//' + location.host + '/demo/'+ file;
+  const url = location.protocol + '//' + location.host + '/base/demo/' + file;
   return new Promise((resolve) => {
     const xhr = new XMLHttpRequest();
     xhr.addEventListener('load', (e) => {
-      let data = JSON.parse(e.target.response);
+      const data = JSON.parse(e.target.response);
       resolve(data);
     });
     xhr.open('GET', url);

@@ -1,10 +1,13 @@
 {
   "excludeFiles": [
-    "tasks/*",
     "demo/*",
     "test/*",
-    "index.html",
+    "coverage/*",
     "karma.*",
-    "node_modules"
+    "prettier.config.js",
+    "husky.config.js",
+    "commitlint.config.js",
+    "prettier.config.js",
+    ".*"
   ]
 }

@@ -1,4 +1,4 @@
-import { html, render } from 'lit-html';
+import { html } from 'lit-html';
 import { LitElement } from 'lit-element';
 import { ApiDemoPageBase } from '@advanced-rest-client/arc-demo-helper/ApiDemoPage.js';
 import '@api-components/raml-aware/raml-aware.js';
@@ -17,7 +17,7 @@ class ApiDemo extends ApiDemoPageBase {
     this.typesOpened = true;
     this.hasType = false;
 
-    this._optionChanged = this._optionChanged.bind(this);
+    // this._optionChanged = this._optionChanged.bind(this);
   }
 
   get narrow() {
@@ -64,13 +64,13 @@ class ApiDemo extends ApiDemoPageBase {
     return document.getElementById('helper');
   }
 
-  _optionChanged(e) {
-    const prop = e.target.id;
-    const value = e.detail.value;
-    setTimeout(() => {
-      this[prop] = value;
-    });
-  }
+  // _optionChanged(e) {
+  //   const prop = e.target.id;
+  //   const value = e.detail.value;
+  //   setTimeout(() => {
+  //     this[prop] = value;
+  //   });
+  // }
 
   _navChanged(e) {
     const { selected, type } = e.detail;
@@ -145,23 +145,23 @@ class ApiDemo extends ApiDemoPageBase {
     }
   }
 
-  headerTemplate() {
-    return html`
-    <header>
-      <paper-dropdown-menu label="Select demo API">
-        <paper-listbox slot="dropdown-content" id="apiList" @selected-changed="${this._apiChanged}">
-        ${this._apiListTemplate()}
-        </paper-listbox>
-      </paper-dropdown-menu>
-      <div class="spacer"></div>
-      <div class="options">
-        <paper-toggle-button @checked-changed="${this._optionChanged}"
-          id="narrow">Render narrow view</paper-toggle-button>
-        <paper-toggle-button @checked-changed="${this._optionChanged}"
-          id="noActions">Remove actions from examples</paper-toggle-button>
-      </div>
-    </header>`;
-  }
+  // _headerTemplate() {
+  //   return html`
+  //   <header>
+  //     <paper-dropdown-menu label="Select demo API">
+  //       <paper-listbox slot="dropdown-content" id="apiList" @selected-changed="${this._apiChanged}">
+  //       ${this._apiListTemplate()}
+  //       </paper-listbox>
+  //     </paper-dropdown-menu>
+  //     <div class="spacer"></div>
+  //     <div class="options">
+  //       <paper-toggle-button @checked-changed="${this._optionChanged}"
+  //         id="narrow">Render narrow view</paper-toggle-button>
+  //       <paper-toggle-button @checked-changed="${this._optionChanged}"
+  //         id="noActions">Remove actions from examples</paper-toggle-button>
+  //     </div>
+  //   </header>`;
+  // }
 
   _apiListTemplate() {
     return html`
@@ -178,24 +178,21 @@ class ApiDemo extends ApiDemoPageBase {
     <paper-item data-src="SE-11155.json">SE-11155 (issue)</paper-item>
     <paper-item data-src="SE-11155-compact.json">SE-11155 - compact model (issue)</paper-item>`;
   }
-  render() {
-    render(html `
-    ${this.headerTemplate()}
-    <raml-aware .api="${this.amf}" scope="model"></raml-aware>
-    <section role="main" class="horizontal-section-container centered main">
-      ${this._apiNavigationTemplate()}
-      ${this.hasType ?
-        html`<api-type-document
-          ?narrow="${this.narrow}"
-          aware="model"
-          .type="${this.dataProperties}"
-          .mediaType="${this.mediaType}"
-          .mediaTypes="${this.mediaTypes}"
-          ?noexamplesactions="${this.noActions}"></api-type-document>` :
-        html`<p>Select type in the navigation to see the demo.</p>`}
-    </section>
 
-    <demo-element id="helper" .amf="${this.amf}"></demo-element>`, document.querySelector('#demo'));
+  contentTemplate() {
+    return html`
+    <demo-element id="helper" .amf="${this.amf}"></demo-element>
+    <raml-aware .api="${this.amf}" scope="model"></raml-aware>
+    ${this.hasType ?
+      html`<api-type-document
+        ?narrow="${this.narrow}"
+        aware="model"
+        .type="${this.dataProperties}"
+        .mediaType="${this.mediaType}"
+        .mediaTypes="${this.mediaTypes}"
+        ?noexamplesactions="${this.noActions}"></api-type-document>` :
+      html`<p>Select type in the navigation to see the demo.</p>`}
+    `;
   }
 }
 const instance = new ApiDemo();
