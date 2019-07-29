@@ -202,4 +202,20 @@ describe('<property-range-document>', function() {
       });
     });
   });
+
+  describe('a11y', () => {
+    let element;
+
+    beforeEach(async () => {
+      element = await basicFixture();
+    });
+
+    it('is accessible', async () => {
+      const data = await AmfLoader.loadType('ComplexRecursive');
+      element.amf = data[0];
+      element.range = data[1];
+      await aTimeout();
+      await assert.isAccessible(element);
+    });
+  });
 });

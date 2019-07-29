@@ -9,6 +9,32 @@ describe('<api-type-document>', function() {
     return (await fixture(`<api-type-document></api-type-document>`));
   }
 
+  function getPatloadType(element, model, path, methodName) {
+    const webApi = element._computeWebApi(model);
+    const endpoint = element._computeEndpointByPath(webApi, path);
+    const opKey = element._getAmfKey(element.ns.w3.hydra.supportedOperation);
+    const methods = endpoint[opKey];
+    let method;
+    for (let j = 0, jLen = methods.length; j < jLen; j++) {
+      const m = methods[j];
+      const value = element._getValue(m, element.ns.w3.hydra.core + 'method');
+      if (value === methodName) {
+        method = m;
+        break;
+      }
+    }
+    const expects = element._computeExpects(method);
+    const payload = element._computePayload(expects)[0];
+    const mt = element._getValue(payload, element.ns.raml.vocabularies.http + 'mediaType');
+    const key = element._getAmfKey(element.ns.raml.vocabularies.http + 'schema');
+    let schema = payload && payload[key];
+    if (!schema) {
+      return;
+    }
+    schema = schema instanceof Array ? schema[0] : schema;
+    return [schema, mt];
+  }
+
   describe('Model independent', () => {
     describe('Basic', () => {
       it('Renders no params table without data', async () => {
@@ -562,32 +588,6 @@ describe('<api-type-document>', function() {
           element = await basicFixture();
         });
 
-        function getPatloadType(element, model, path, methodName) {
-          const webApi = element._computeWebApi(model);
-          const endpoint = element._computeEndpointByPath(webApi, path);
-          const opKey = element._getAmfKey(element.ns.w3.hydra.supportedOperation);
-          const methods = endpoint[opKey];
-          let method;
-          for (let j = 0, jLen = methods.length; j < jLen; j++) {
-            const m = methods[j];
-            const value = element._getValue(m, element.ns.w3.hydra.core + 'method');
-            if (value === methodName) {
-              method = m;
-              break;
-            }
-          }
-          const expects = element._computeExpects(method);
-          const payload = element._computePayload(expects)[0];
-          const mt = element._getValue(payload, element.ns.raml.vocabularies.http + 'mediaType');
-          const key = element._getAmfKey(element.ns.raml.vocabularies.http + 'schema');
-          let schema = payload && payload[key];
-          if (!schema) {
-            return;
-          }
-          schema = schema instanceof Array ? schema[0] : schema;
-          return [schema, mt];
-        }
-
         it('Computes names in union shape #1', async () => {
           const data = await AmfLoader.load(item[1], 'SE-11155');
           element.amf = data[0];
@@ -742,6 +742,21 @@ describe('<api-type-document>', function() {
       element.selectedMediaType = undefined;
       element._selectMediaType(e);
       assert.isUndefined(element.selectedMediaType);
+    });
+  });
+
+  describe('a11y', () => {
+    let element;
+
+    beforeEach(async () => {
+      element = await basicFixture();
+    });
+
+    it('is accessible', async () => {
+      const data = await AmfLoader.loadType('ComplexRecursive');
+      element.amf = data[0];
+      element._typeChanged(element._resolve(data[1]));
+      await assert.isAccessible(element);
     });
   });
 });
