@@ -1,7 +1,7 @@
 {
   "name": "@api-components/api-type-document",
   "description": "A documentation table for type (resource) properties. Works with AMF data model",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "license": "Apache-2.0",
   "main": "api-type-document.js",
   "keywords": [
@@ -34,7 +34,7 @@
     "lit-element": "^2.2.1"
   },
   "devDependencies": {
-    "@advanced-rest-client/arc-demo-helper": "^1.0.7",
+    "@advanced-rest-client/arc-demo-helper": "^1.0.9",
     "@advanced-rest-client/eslint-config": "^1.0.6",
     "@advanced-rest-client/prettier-config": "^0.1.0",
     "@advanced-rest-client/testing-karma-sl": "^1.0.2",

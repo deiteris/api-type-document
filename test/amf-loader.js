@@ -1,3 +1,9 @@
+import { LitElement } from 'lit-element';
+import { AmfHelperMixin } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
+
+class TestHelperElement extends AmfHelperMixin(LitElement) {}
+window.customElements.define('demo-element', TestHelperElement);
+
 export const AmfLoader = {};
 AmfLoader.load = async function(compact, modelFile) {
   modelFile = modelFile || 'demo-api';
@@ -14,8 +20,6 @@ AmfLoader.load = async function(compact, modelFile) {
   });
 };
 
-import { ns } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
-
 AmfLoader.loadType = async function(name, compact, modelFile) {
   return AmfLoader.load(compact, modelFile)
   .then((amf) => {
@@ -23,15 +27,19 @@ AmfLoader.loadType = async function(name, compact, modelFile) {
     if (amf instanceof Array) {
       amf = amf[0];
     }
-    const key = compact ? 'doc:declares' : ns.raml.vocabularies.document + 'declares';
-    const defs = amf[key];
+    const helper = new TestHelperElement();
+    helper.amf = data;
+    const ns = helper.ns;
+    const decKey = helper._getAmfKey(ns.raml.vocabularies.document + 'declares');
+    const nameKey = helper._getAmfKey(ns.w3.shacl.name + 'name');
+
+    const defs = amf[decKey];
     for (let i = 0; i < defs.length; i++) {
       let type = defs[i];
       if (type instanceof Array) {
         type = type[0];
       }
-      const key = compact ? 'shacl:name' : ns.w3.shacl.name + 'name';
-      let nameData = type[key];
+      let nameData = type[nameKey];
       if (!nameData) {
         continue;
       }

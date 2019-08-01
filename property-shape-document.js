@@ -26,7 +26,7 @@ import './property-range-document.js';
  * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
  * `--api-type-document-child-docs-margin-left` | Margin left of item's description | `0px`
  * `--api-type-document-type-color` | Color of the "type" trait | `white`
- * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
+ * `--api-type-document-type-background-color` | Background color of the "type" trait | `#1473bf`
  * `--api-type-document-trait-background-color` | Background color to main range trait (type name) | `#EEEEEE`,
  * `--api-type-document-trait-border-radius` | Border radious of a main property traits | `3px`
  * `--api-type-document-property-name-width` | Width of the left hand side column with property name | `240px`
@@ -135,7 +135,7 @@ class PropertyShapeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
       }
 
       .property-traits > span.data-type {
-        background-color: var(--api-type-document-type-background-color, #2196F3);
+        background-color: var(--api-type-document-type-background-color, #1473bf);
         color: var(--api-type-document-type-color, white);
         padding: var(--api-type-document-trait-data-type-padding, 2px 4px);
         font-weight: var(--api-type-document-trait-data-type-font-weight, normal);

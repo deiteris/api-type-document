@@ -582,6 +582,7 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElement)) 
         class="union-toggle"
         data-index="${index}"
         ?active="${this.selectedUnion === index}"
+        aria-pressed="${this.selectedUnion === index ? 'true' : 'false'}"
         @click="${this._selectUnion}"
         title="Select ${item.label} type">${item.label}</paper-button>`)}
     </div>
@@ -628,13 +629,18 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElement)) 
       <h5 class="examples-section-title">Examples</h5>
       ${this.renderMediaSelector ? html`<div class="media-type-selector">
         <span>Media type:</span>
-        ${(this.mediaTypes || []).map((item, index) => html`<paper-button
-          part="content-action-button"
-          class="media-toggle"
-          data-index="${index}"
-          ?active="${this.selectedMediaType === index}"
-          @click="${this._selectMediaType}"
-          title="Select ${item} media type">${item}</paper-button>`)}
+        ${(this.mediaTypes || []).map((item, index) => {
+          const selected = this.selectedMediaType === index;
+          const pressed = selected ? 'true' : 'false';
+          return html`<paper-button
+            part="content-action-button"
+            class="media-toggle"
+            data-index="${index}"
+            ?active="${selected}"
+            aria-pressed="${pressed}"
+            @click="${this._selectMediaType}"
+            title="Select ${item} media type">${item}</paper-button>`;
+        })}
       </div>` : undefined}
 
       <api-resource-example-document
