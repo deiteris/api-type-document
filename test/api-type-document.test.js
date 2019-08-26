@@ -110,6 +110,48 @@ describe('<api-type-document>', function() {
     ['Compact model', true]
   ].forEach((item) => {
     describe(item[0], () => {
+      describe('a11y', () => {
+        let element;
+        beforeEach(async () => {
+          element = await basicFixture();
+        });
+
+        it('is accessible for scalar type', async () => {
+          const data = await AmfLoader.loadType('ScalarType', item[1]);
+          element.amf = data[0];
+          element._typeChanged(element._resolve(data[1]));
+          await assert.isAccessible(element);
+        });
+
+        it('is accessible for NilShape type', async () => {
+          const data = await AmfLoader.loadType('NilType', item[1]);
+          element.amf = data[0];
+          element._typeChanged(element._resolve(data[1]));
+          await assert.isAccessible(element);
+        });
+
+        it('is accessible for AnyShape type', async () => {
+          const data = await AmfLoader.loadType('AnyType', item[1]);
+          element.amf = data[0];
+          element._typeChanged(element._resolve(data[1]));
+          await assert.isAccessible(element);
+        });
+
+        it('is accessible for UnionShape type', async () => {
+          const data = await AmfLoader.loadType('Unionable', item[1]);
+          element.amf = data[0];
+          element._typeChanged(element._resolve(data[1]));
+          await assert.isAccessible(element);
+        });
+
+        it('is accessible for ArrayShape type', async () => {
+          const data = await AmfLoader.loadType('ArrayType', item[1]);
+          element.amf = data[0];
+          element._typeChanged(element._resolve(data[1]));
+          await assert.isAccessible(element);
+        });
+      });
+
       describe('_typeChanged()', () => {
         let element;
         beforeEach(async () => {
