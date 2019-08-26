@@ -291,16 +291,6 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     };
   }
 
-  get amf() {
-    return this._amf;
-  }
-
-  set amf(value) {
-    if (this._setObservableProperty('amf', value)) {
-      this._shapeChanged(this._shape);
-    }
-  }
-
   get shape() {
     return this._shape;
   }
@@ -338,6 +328,10 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     this.hasDisplayName = false;
     this.hasParentTypeName = false;
     this.hasPropertyDescription = false;
+  }
+
+  __amfChanged() {
+    this._shapeChanged(this._shape);
   }
 
   _shapeChanged(shape) {
