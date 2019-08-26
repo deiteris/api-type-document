@@ -217,9 +217,9 @@ describe('<api-type-document>', function() {
         it('Sets event target as active when selecting current selection', async () => {
           await nextFrame();
           const nodes = element.shadowRoot.querySelectorAll('.union-type-selector .union-toggle');
-          nodes[0].active = false;
-          tap(nodes[0]);
-          assert.isTrue(nodes[0].active);
+          tap(nodes[1]);
+          await nextFrame();
+          assert.isTrue(nodes[1].hasAttribute('activated'));
         });
 
         it('Changes the selection', async () => {

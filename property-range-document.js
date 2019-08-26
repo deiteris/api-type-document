@@ -304,7 +304,7 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
       this._listItemTemplate('File maximum size', 'Maximum size of the file accepted by this endpoint',
         this.ns.w3.shacl.maxLength) :
       undefined}
-    </div>`;
+    </section>`;
   }
 
   _enumTemplate() {
@@ -346,7 +346,7 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
     ${this.isFile ? this._filePropertisTemplate() : this._nonFilePropertisTemplate()}
     ${this.isEnum ? this._enumTemplate() : undefined}
 
-    <api-annotation-document .amf="${this.amf}" .shape="${this.range}"></api-annotation-document>
+    <api-annotation-document ?legacy="${this.legacy}" .amf="${this.amf}" .shape="${this.range}"></api-annotation-document>
     <section class="examples" ?hidden="${!this._hasExamples}">
       <h5 class="examples-section-title">${this.exampleSectionTitle}</h5>
       <api-resource-example-document
@@ -355,6 +355,7 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
         .mediaType="${this.mediaType}"
         .typeName="${this.propertyName}"
         noauto
+        ?legacy="${this.legacy}"
         ?noactions="${this.noExamplesActions}"
         ?rawonly="${!this._hasMediaType}"
         @rendered-examples-changed="${this._examplesChanged}"

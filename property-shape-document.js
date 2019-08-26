@@ -482,11 +482,13 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     const parentTypeName = this.isArray ? 'item' : this.displayName;
     return html`<div class="doc-wrapper complex">
       <div class="doc-content">
-      <api-type-document class="children"
+      <api-type-document
+        class="children"
         .amf="${this.amf}"
         .type="${range}"
         .parentTypeName="${parentTypeName}"
         ?narrow="${this.narrow}"
+        ?legacy="${this.legacy}"
         ?noexamplesactions="${this.noExamplesActions}"
         nomainexample
         .mediaType="${this.mediaType}"></api-type-document>
@@ -525,6 +527,7 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
               .amf="${this.amf}"
               .shape="${this.shape}"
               .range="${this.range}"
+              ?legacy="${this.legacy}"
               ?noexamplesactions="${this.noExamplesActions}"
               .mediaType="${this.mediaType}"
               .propertyName="${this.propertyName}"></property-range-document>

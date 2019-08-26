@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import '@api-components/raml-aware/raml-aware.js';
-import '@polymer/paper-button/paper-button.js';
+import '@anypoint-web-components/anypoint-button/anypoint-button.js';
 import '@api-components/api-resource-example-document/api-resource-example-document.js';
 import './property-shape-document.js';
 import { PropertyDocumentMixin } from './property-document-mixin.js';
@@ -65,7 +65,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       border-style: solid;
     }
 
-    .media-toggle[active] {
+    .media-toggle[activated] {
       background-color: var(--api-type-document-media-button-active-background-color, #CDDC39);
     }
 
@@ -78,7 +78,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       border-style: solid;
     }
 
-    .union-toggle[active] {
+    .union-toggle[activated] {
       background-color: var(--api-type-document-union-button-active-background-color, #CDDC39);
       color: var(--api-type-document-union-button-active-color, #000);
     }
@@ -516,12 +516,14 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     if (!items || !items.length) {
       return;
     }
-    return items.map((item) => html`<property-shape-document class="object-document"
+    return items.map((item) => html`<property-shape-document
+      class="object-document"
       .shape="${this._resolve(item)}"
       .amf="${this.amf}"
       .parentTypeName="${this.parentTypeName}"
       ?narrow="${this.narrow}"
       ?noexamplesactions="${this.noExamplesActions}"
+      ?legacy="${this.legacy}"
       .mediaType="${this.mediaType}"></property-shape-document>`);
   }
 
@@ -535,6 +537,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       parentTypeName="Array test"
       ?narrow="${this.narrow}"
       ?noexamplesactions="${this.noExamplesActions}"
+      ?legacy="${this.legacy}"
       .mediaType="${this.mediaType}"></property-shape-document>` : undefined}
 
       <div class="array-children">
@@ -546,6 +549,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
           parentTypeName="${this._computeArrayParentName(this.parentTypeName, item)}"
           ?narrow="${this.narrow}"
           ?noexamplesactions="${this.noExamplesActions}"
+          ?legacy="${this.legacy}"
           .mediaType="${this.mediaType}"></property-shape-document>` : undefined}
         ${item.isType ? html`<api-type-document
           class="union-document"
@@ -555,6 +559,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
           ?narrow="${this.narrow}"
           ?noexamplesactions="${this.noExamplesActions}"
           ?nomainexample="${this._renderMainExample}"
+          ?legacy="${this.legacy}"
           .mediaType="${this.mediaType}"></api-type-document>` : undefined}
       `)}
       </div>
@@ -566,13 +571,14 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     return html`
     <div class="union-type-selector">
       <span>Any of:</span>
-      ${items.map((item, index) => html`<paper-button
+      ${items.map((item, index) => html`<anypoint-button
         class="union-toggle"
         data-index="${index}"
-        ?active="${this.selectedUnion === index}"
+        ?activated="${this.selectedUnion === index}"
         aria-pressed="${this.selectedUnion === index ? 'true' : 'false'}"
         @click="${this._selectUnion}"
-        title="Select ${item.label} type">${item.label}</paper-button>`)}
+        ?legacy="${this.legacy}"
+        title="Select ${item.label} type">${item.label}</anypoint-button>`)}
     </div>
     <api-type-document
       class="union-document"
@@ -582,6 +588,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       ?narrow="${this.narrow}"
       ?noexamplesactions="${this.noExamplesActions}"
       ?nomainexample="${this._renderMainExample}"
+      ?legacy="${this.legacy}"
       .mediaType="${this.mediaType}"></api-type-document>
     `;
   }
@@ -603,6 +610,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       ?narrow="${this.narrow}"
       ?noexamplesactions="${this.noExamplesActions}"
       ?nomainexample="${this._renderMainExample}"
+      ?legacy="${this.legacy}"
       .mediaType="${this.mediaType}"></api-type-document>`)}`;
   }
 
@@ -620,14 +628,15 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
         ${(this.mediaTypes || []).map((item, index) => {
           const selected = this.selectedMediaType === index;
           const pressed = selected ? 'true' : 'false';
-          return html`<paper-button
+          return html`<anypoint-button
             part="content-action-button"
             class="media-toggle"
             data-index="${index}"
-            ?active="${selected}"
+            ?activated="${selected}"
             aria-pressed="${pressed}"
             @click="${this._selectMediaType}"
-            title="Select ${item} media type">${item}</paper-button>`;
+            ?legacy="${this.legacy}"
+            title="Select ${item} media type">${item}</anypoint-button>`;
         })}
       </div>` : undefined}
 
@@ -641,6 +650,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
         ?noauto="${!!this.isScalar}"
         ?noactions="${this.noExamplesActions}"
         ?rawonly="${this._hasMediaType}"
+        ?legacy="${this.legacy}"
         exportparts="${parts}"></api-resource-example-document>
     </section>
 
@@ -653,6 +663,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       .parentTypeName="${this.parentTypeName}"
       ?narrow="${this.narrow}"
       ?noexamplesactions="${this.noExamplesActions}"
+      ?legacy="${this.legacy}"
       .mediaType="${this.mediaType}"></property-shape-document>` : undefined}
     ${this.isUnion ? this._unionTemplate() : undefined}
     ${this.isAnd ? this._anyTemplate() : undefined}`;
