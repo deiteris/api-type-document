@@ -61,7 +61,7 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
         line-height: var(--property-shape-document-title-line-height, var(--arc-font-subhead-line-height));
 
         margin: 4px 0 4px 0;
-        font-size: 15px;
+        font-size: 1rem;
         font-weight: var(--api-type-document-property-title-font-weight, 500);
         word-break: break-word;
         color: var(--api-type-document-property-title-color);
@@ -493,10 +493,10 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
   render() {
     return html`
     ${this.hasDisplayName ? html`<div class="property-display-name">${this.displayName}</div>` : undefined}
-    ${this.propertyName ? html`<h4 class="property-title" ?secondary="${this.hasDisplayName}">
+    ${this.propertyName ? html`<div class="property-title" ?secondary="${this.hasDisplayName}">
       <span class="parent-label" ?hidden="${!this.hasParentTypeName}">${this.parentTypeName}.</span>
       <span class="property-name">${this.propertyName}</span>
-    </h4>` : undefined}
+    </div>` : undefined}
 
     <div class="content-wrapper">
       <div class="shape-properties">

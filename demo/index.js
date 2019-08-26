@@ -4,6 +4,7 @@ import { ApiDemoPageBase } from '@advanced-rest-client/arc-demo-helper/ApiDemoPa
 import '@api-components/raml-aware/raml-aware.js';
 import '@api-components/api-navigation/api-navigation.js';
 import '@polymer/paper-toggle-button/paper-toggle-button.js';
+import '@anypoint-web-components/anypoint-styles/colors.js';
 import '../api-type-document.js';
 
 import { AmfHelperMixin } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
@@ -16,7 +17,7 @@ class ApiDemo extends ApiDemoPageBase {
     this.endpointsOpened = false;
     this.typesOpened = true;
     this.hasType = false;
-
+    this.componentName = 'api-type-document';
     // this._optionChanged = this._optionChanged.bind(this);
   }
 
