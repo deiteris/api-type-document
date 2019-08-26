@@ -1467,3 +1467,12 @@
 
 
 
+## 3.0.2 (2019-08-26)
+
+
+### Bug Fixes
+
+* **a11y:** fixing contrast issue on a property type's label ([853103b](https://github.com/advanced-rest-client/api-type-document/commit/853103b))
+
+
+
