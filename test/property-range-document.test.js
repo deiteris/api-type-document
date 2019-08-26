@@ -1,6 +1,6 @@
 import { fixture, assert, nextFrame, aTimeout } from '@open-wc/testing';
 import { AmfLoader } from './amf-loader.js';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import * as sinon from 'sinon/pkg/sinon-esm.js';
 import './test-document-mixin.js';
 
 describe('<property-range-document>', function() {
@@ -87,9 +87,11 @@ describe('<property-range-document>', function() {
         });
 
         it('Sets "isFile" property', async () => {
+          /* eslint require-atomic-updates: 0 */
           const range = await getTypePropertyRange(element, 'FieType', item[1], 0);
           element.range = range;
           assert.isTrue(element.isFile, 'isFile is set');
+          await nextFrame();
         });
       });
     });

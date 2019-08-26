@@ -1,6 +1,4 @@
 import { LitElement, html, css } from 'lit-element';
-import { AmfHelperMixin, ns } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
-import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import '@api-components/api-annotation-document/api-annotation-document.js';
 import '@api-components/api-resource-example-document/api-resource-example-document.js';
 import { PropertyDocumentMixin } from './property-document-mixin.js';
@@ -29,9 +27,8 @@ import './api-type-document.js';
  * @demo demo/index.html
  * @memberof ApiElements
  * @appliesMixin PropertyDocumentMixin
- * @appliesMixin AmfHelperMixin
  */
-class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElement)) {
+class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
   static get styles() {
     return css`:host {
       display: block;
@@ -280,11 +277,11 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
   _nonFilePropertisTemplate() {
     const range = this.range;
     return html`
-    ${this._hasProperty(range, ns.w3.shacl.minLength) ?
-      this._listItemTemplate('Minimum characters', 'Minimum number of characters in the value', ns.w3.shacl.minLength) :
+    ${this._hasProperty(range, this.ns.w3.shacl.minLength) ?
+      this._listItemTemplate('Minimum characters', 'Minimum number of characters in the value', this.ns.w3.shacl.minLength) :
       undefined}
-    ${this._hasProperty(range, ns.w3.shacl.maxLength) ?
-      this._listItemTemplate('Maximum characters', 'Maximum number of characters in the value', ns.w3.shacl.maxLength) :
+    ${this._hasProperty(range, this.ns.w3.shacl.maxLength) ?
+      this._listItemTemplate('Maximum characters', 'Maximum number of characters in the value', this.ns.w3.shacl.maxLength) :
       undefined}`;
   }
 
@@ -292,20 +289,20 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
     const range = this.range;
     return html`
     <section class="file-properties">
-    ${this._hasProperty(range, ns.w3.shacl.fileType) ?
-      this._listItemTemplate('File types', 'File mime types accepted by the endpoint', ns.w3.shacl.fileType, true) :
+    ${this._hasProperty(range, this.ns.w3.shacl.fileType) ?
+      this._listItemTemplate('File types', 'File mime types accepted by the endpoint', this.ns.w3.shacl.fileType, true) :
       undefined}
-    ${this._hasProperty(range, ns.aml.vocabularies.shapes + 'fileType') ?
+    ${this._hasProperty(range, this.ns.aml.vocabularies.shapes + 'fileType') ?
       this._listItemTemplate('File types', 'File mime types accepted by the endpoint',
-        ns.aml.vocabularies.shapes + 'fileType', true) :
+        this.ns.aml.vocabularies.shapes + 'fileType', true) :
       undefined}
-    ${this._hasProperty(range, ns.w3.shacl.minLength) ?
+    ${this._hasProperty(range, this.ns.w3.shacl.minLength) ?
       this._listItemTemplate('File minimum size', 'Minimum size of the file accepted by this endpoint',
-        ns.w3.shacl.minLength) :
+        this.ns.w3.shacl.minLength) :
       undefined}
-    ${this._hasProperty(range, ns.w3.shacl.maxLength) ?
+    ${this._hasProperty(range, this.ns.w3.shacl.maxLength) ?
       this._listItemTemplate('File maximum size', 'Maximum size of the file accepted by this endpoint',
-        ns.w3.shacl.maxLength) :
+        this.ns.w3.shacl.maxLength) :
       undefined}
     </div>`;
   }
@@ -328,23 +325,23 @@ class PropertyRangeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElem
   render() {
     const range = this.range;
     return html`
-    ${this._hasProperty(range, ns.w3.shacl.defaultValueStr) ?
-      this._listItemTemplate('Default value', 'This value is used as a default value', ns.w3.shacl.defaultValueStr) :
+    ${this._hasProperty(range, this.ns.w3.shacl.defaultValueStr) ?
+      this._listItemTemplate('Default value', 'This value is used as a default value', this.ns.w3.shacl.defaultValueStr) :
       undefined}
-    ${this._hasProperty(range, ns.w3.shacl.pattern) ?
-      this._listItemTemplate('Pattern', 'Regular expression value for this property', ns.w3.shacl.pattern) :
+    ${this._hasProperty(range, this.ns.w3.shacl.pattern) ?
+      this._listItemTemplate('Pattern', 'Regular expression value for this property', this.ns.w3.shacl.pattern) :
       undefined}
-    ${this._hasProperty(range, ns.w3.shacl.minInclusive) ?
+    ${this._hasProperty(range, this.ns.w3.shacl.minInclusive) ?
       this._listItemTemplate('Min value', 'Minimum numeric value possible to set on this property',
-        ns.w3.shacl.minInclusive) :
+        this.ns.w3.shacl.minInclusive) :
       undefined}
-    ${this._hasProperty(range, ns.w3.shacl.maxInclusive) ?
+    ${this._hasProperty(range, this.ns.w3.shacl.maxInclusive) ?
       this._listItemTemplate('Max value', 'Maximum numeric value possible to set on this property',
-        ns.w3.shacl.maxInclusive) :
+        this.ns.w3.shacl.maxInclusive) :
       undefined}
-    ${this._hasProperty(range, ns.w3.shacl.multipleOf) ?
+    ${this._hasProperty(range, this.ns.w3.shacl.multipleOf) ?
       this._listItemTemplate('Multiple of', 'The numeric value has to be multiplicable by this value',
-        ns.w3.shacl.multipleOf) :
+        this.ns.w3.shacl.multipleOf) :
       undefined}
     ${this.isFile ? this._filePropertisTemplate() : this._nonFilePropertisTemplate()}
     ${this.isEnum ? this._enumTemplate() : undefined}

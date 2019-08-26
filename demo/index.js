@@ -6,7 +6,7 @@ import '@api-components/api-navigation/api-navigation.js';
 import '@polymer/paper-toggle-button/paper-toggle-button.js';
 import '../api-type-document.js';
 
-import { AmfHelperMixin, ns } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
+import { AmfHelperMixin } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
 class DemoElement extends AmfHelperMixin(LitElement) {}
 
 window.customElements.define('demo-element', DemoElement);
@@ -91,8 +91,8 @@ class ApiDemo extends ApiDemoPageBase {
     const method = helper._computeMethodModel(webApi, id);
     const expects = helper._computeExpects(method);
     const payload = helper._computePayload(expects)[0];
-    const mt = helper._getValue(payload, ns.raml.vocabularies.http + 'mediaType');
-    const key = helper._getAmfKey(ns.raml.vocabularies.http + 'schema');
+    const mt = helper._getValue(payload, helper.ns.raml.vocabularies.http + 'mediaType');
+    const key = helper._getAmfKey(helper.ns.raml.vocabularies.http + 'schema');
     let schema = payload && payload[key];
     if (!schema) {
       return;

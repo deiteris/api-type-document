@@ -1,5 +1,4 @@
 import { LitElement, html, css } from 'lit-element';
-import { AmfHelperMixin } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
 import '@api-components/raml-aware/raml-aware.js';
 import '@polymer/paper-button/paper-button.js';
 import '@api-components/api-resource-example-document/api-resource-example-document.js';
@@ -20,7 +19,7 @@ import { PropertyDocumentMixin } from './property-document-mixin.js';
  * @appliesMixin PropertyDocumentMixin
  * @appliesMixin AmfHelperMixin
  */
-class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElement)) {
+class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
   static get styles() {
     return css`:host {
       display: block;
@@ -95,17 +94,6 @@ class ApiTypeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElement)) 
        * `raml-aware` scope property to use.
        */
       aware: { type: String },
-      /**
-       * Generated AMF json/ld model form the API spec.
-       * The element assumes the object of the first array item to be a
-       * type of `"http://raml.org/vocabularies/document#Document`
-       * on AMF vocabulary.
-       *
-       * It is only usefult for the element to resolve references.
-       *
-       * @type {Object|Array}
-       */
-      amf: { type: Object },
       /**
        * A type definition to render.
        * This should be a one of the following AMF types:

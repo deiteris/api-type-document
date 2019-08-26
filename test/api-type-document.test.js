@@ -1,5 +1,4 @@
 import { fixture, assert, nextFrame, aTimeout } from '@open-wc/testing';
-import { ns } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
 import { AmfLoader } from './amf-loader.js';
 import { tap } from '@polymer/iron-test-helpers/mock-interactions.js';
 import '../api-type-document.js';
@@ -261,7 +260,7 @@ describe('<api-type-document>', function() {
           .then((data) => {
             element.amf = data[0];
             const result = element._computeUnionProperty(data[1], 0);
-            assert.isTrue(element._hasType(result, ns.raml.vocabularies.shapes + 'ScalarShape'));
+            assert.isTrue(element._hasType(result, element.ns.raml.vocabularies.shapes + 'ScalarShape'));
           });
         });
       });
@@ -528,7 +527,7 @@ describe('<api-type-document>', function() {
         it('Selection change computes properties for the table', () => {
           element.selectedUnion = 1;
           const doc = element.shadowRoot.querySelector('api-type-document.union-document');
-          const key = element._getAmfKey(ns.raml.vocabularies.shapes + 'anyOf');
+          const key = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'anyOf');
           const type = element.type[key][0];
           assert.deepEqual(doc.type, type);
         });

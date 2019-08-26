@@ -115,7 +115,7 @@ describe('PropertyDocumentMixin', function() {
 
   describe('_computeRangeDataType() - ScalarShape', () => {
     let element;
-    let shape = {
+    const shape = {
       '@type': ['http://a.ml/vocabularies/shapes#ScalarShape'],
       'http://www.w3.org/ns/shacl#datatype': [{
         '@id': ''

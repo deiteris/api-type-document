@@ -1,7 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import markdownStyles from '@advanced-rest-client/markdown-styles/markdown-styles.js';
 import '@advanced-rest-client/arc-marked/arc-marked.js';
-import { AmfHelperMixin } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
 import { PropertyDocumentMixin } from './property-document-mixin.js';
 import './api-type-document.js';
 import './property-range-document.js';
@@ -35,9 +34,8 @@ import './property-range-document.js';
  * @demo demo/index.html
  * @memberof ApiElements
  * @appliesMixin PropertyDocumentMixin
- * @appliesMixin AmfHelperMixin
  */
-class PropertyShapeDocument extends AmfHelperMixin(PropertyDocumentMixin(LitElement)) {
+class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
   static get styles() {
     return [
       markdownStyles,
