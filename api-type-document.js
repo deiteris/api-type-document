@@ -618,6 +618,8 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     let parts = 'content-action-button, code-content-action-button, content-action-button-disabled, ';
     parts += 'code-content-action-button-disabled content-action-button-active, ';
     parts += 'code-content-action-button-active, code-wrapper, example-code-wrapper, markdown-html';
+    const mediaTypes = this.mediaTypes || [];
+    const hasMediaType = !!mediaTypes.length;
     return html`
     ${this.aware ?
       html`<raml-aware @api-changed="${this._apiChangedHandler}" scope="${this.aware}"></raml-aware>` : undefined}
@@ -625,7 +627,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       <h5 class="examples-section-title">Examples</h5>
       ${this.renderMediaSelector ? html`<div class="media-type-selector">
         <span>Media type:</span>
-        ${(this.mediaTypes || []).map((item, index) => {
+        ${mediaTypes.map((item, index) => {
           const selected = this.selectedMediaType === index;
           const pressed = selected ? 'true' : 'false';
           return html`<anypoint-button
@@ -649,7 +651,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
         @has-examples-changed="${this._hasExamplesHandler}"
         ?noauto="${!!this.isScalar}"
         ?noactions="${this.noExamplesActions}"
-        ?rawonly="${this._hasMediaType}"
+        .rawOnly="${!hasMediaType}"
         ?legacy="${this.legacy}"
         exportparts="${parts}"></api-resource-example-document>
     </section>
