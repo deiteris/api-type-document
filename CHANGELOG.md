@@ -1494,3 +1494,13 @@
 
 
 
+## 3.0.5 (2019-08-27)
+
+
+### Bug Fixes
+
+* **a11y:** fixing contrast issue on a property type's label ([853103b](https://github.com/advanced-rest-client/api-type-document/commit/853103b))
+* fixing type fragment example rendering ([493b5eb](https://github.com/advanced-rest-client/api-type-document/commit/493b5eb))
+
+
+
