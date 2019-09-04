@@ -1,10 +1,18 @@
-import { fixture, assert, nextFrame } from '@open-wc/testing';
+import { fixture, assert, nextFrame, html } from '@open-wc/testing';
 import { AmfLoader } from './amf-loader.js';
+import * as sinon from 'sinon/pkg/sinon-esm.js';
+import * as MockInteractions from '@polymer/iron-test-helpers/mock-interactions.js';
 import './test-document-mixin.js';
 
 describe('<property-shape-document>', function() {
   async function basicFixture() {
     return (await fixture(`<property-shape-document></property-shape-document>`));
+  }
+
+  async function graphFixture(amf) {
+    return (await fixture(html`<property-shape-document
+      .amf="${amf}"
+      graph></property-shape-document>`));
   }
 
   function getPropertyShape(element, type, name) {
@@ -17,6 +25,13 @@ describe('<property-shape-document>', function() {
         return item;
       }
     }
+  }
+
+  function getShapeRange(element, type, propName) {
+    const shape = getPropertyShape(element, type, propName);
+    const key = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'range');
+    const range = element._ensureArray(shape[key])[0];
+    return [shape, range];
   }
 
   describe('_shapeChanged()', () => {
@@ -261,13 +276,6 @@ describe('<property-shape-document>', function() {
           element.amf = amf;
         });
 
-        function getShapeRange(element, type, propName) {
-          const shape = getPropertyShape(element, type, propName);
-          const key = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'range');
-          const range = element._ensureArray(shape[key])[0];
-          return [shape, range];
-        }
-
         it('returns undefined when no shape and no range', async () => {
           const result = element._computePropertyName();
           assert.isUndefined(result);
@@ -277,6 +285,69 @@ describe('<property-shape-document>', function() {
           const [shape, range] = getShapeRange(element, type, 'favouriteTime');
           const result = element._computePropertyName(range, shape);
           assert.equal(result, 'favouriteTime');
+        });
+      });
+    });
+  });
+
+  describe('Graph linking', () => {
+    [
+      ['Regular model', false],
+      ['Compact model', true]
+    ].forEach(([label, compact]) => {
+      describe(label, () => {
+        let element;
+        let amf;
+        let type;
+        before(async () => {
+          const data = await AmfLoader.loadType('withEmbeddedType', compact);
+          amf = data[0];
+          type = data[1];
+        });
+
+        beforeEach(async () => {
+          element = await graphFixture(amf);
+        });
+
+        it('computes name and id of declared type', async () => {
+          const shape = getPropertyShape(element, type, 'imageProperty');
+          element.shape = shape;
+          await nextFrame();
+          assert.typeOf(element._targetTypeId, 'string', 'id is set');
+          assert.typeOf(element._targetTypeName, 'string', 'name is set');
+        });
+
+        it('renders a link', async () => {
+          const shape = getPropertyShape(element, type, 'imageProperty');
+          element.shape = shape;
+          await nextFrame();
+          const node = element.shadowRoot.querySelector('.data-type.link-label');
+          assert.equal(node.getAttribute('role'), 'link');
+        });
+
+        it('link click dispatches api-navigation-selection-changed event', async () => {
+          const shape = getPropertyShape(element, type, 'imageProperty');
+          element.shape = shape;
+          await nextFrame();
+          const node = element.shadowRoot.querySelector('.data-type.link-label');
+          const spy = sinon.spy();
+          element.addEventListener('api-navigation-selection-changed', spy);
+          MockInteractions.tap(node);
+          assert.isTrue(spy.called, 'the event is called');
+          const { detail } = spy.args[0][0];
+          assert.equal(detail.type, 'type', 'type is set');
+          assert.equal(detail.selected, element._targetTypeId, 'selected is set');
+        });
+
+        it('link enter press dispatches api-navigation-selection-changed event', async () => {
+          const shape = getPropertyShape(element, type, 'imageProperty');
+          element.shape = shape;
+          await nextFrame();
+          const node = element.shadowRoot.querySelector('.data-type.link-label');
+          const spy = sinon.spy();
+          element.addEventListener('api-navigation-selection-changed', spy);
+          MockInteractions.keyDownOn(node, 13, [], 'Enter');
+          assert.isTrue(spy.called, 'the event is called');
         });
       });
     });

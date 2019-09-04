@@ -56,7 +56,12 @@ export const PropertyDocumentMixin = (base) => class extends AmfHelperMixin(base
       /**
        * @deprecated Use `compatibility` instead
        */
-      legacy: { type: Boolean }
+      legacy: { type: Boolean },
+      /**
+       * When enabled it renders external types as links and dispatches
+       * `api-navigation-selection-changed` when clicked.
+       */
+      graph: { type: Boolean }
     };
   }
 
@@ -75,6 +80,16 @@ export const PropertyDocumentMixin = (base) => class extends AmfHelperMixin(base
   set mediaType(value) {
     if (this._setObservableProperty('mediaType', value)) {
       this._hasMediaType = this._computeHasMediaType(value);
+    }
+  }
+
+  get graph() {
+    return this._graph;
+  }
+
+  set graph(value) {
+    if (this._setObservableProperty('graph', value)) {
+      this._evaluateGraph();
     }
   }
 
@@ -397,4 +412,6 @@ export const PropertyDocumentMixin = (base) => class extends AmfHelperMixin(base
   _computeHasMediaType(mediaType) {
     return !!mediaType;
   }
+
+  _evaluateGraph() {}
 };

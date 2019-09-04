@@ -83,6 +83,7 @@
 "@id": "#14",
 "@type": [
 "shacl:NodeShape",
+"raml-shapes:AnyShape",
 "shacl:Shape",
 "raml-shapes:Shape",
 "doc:DomainElement"
@@ -98,7 +99,8 @@
 "@type": [
 "shacl:PropertyShape",
 "shacl:Shape",
-"raml-shapes:Shape"
+"raml-shapes:Shape",
+"doc:DomainElement"
 ],
 "shacl:path": [
 {
@@ -110,6 +112,7 @@
 "@id": "#5",
 "@type": [
 "raml-shapes:ScalarShape",
+"raml-shapes:AnyShape",
 "shacl:Shape",
 "raml-shapes:Shape",
 "doc:DomainElement"
@@ -153,7 +156,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(23,6)-(23,15)]"
+"@value": "[(23,6)-(23,23)]"
 }
 ]
 },
@@ -211,7 +214,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(8,4)-(8,16)]"
+"@value": "[(8,4)-(10,5)]"
 }
 ]
 }
@@ -224,7 +227,8 @@
 "@type": [
 "shacl:PropertyShape",
 "shacl:Shape",
-"raml-shapes:Shape"
+"raml-shapes:Shape",
+"doc:DomainElement"
 ],
 "shacl:path": [
 {
@@ -236,6 +240,7 @@
 "@id": "#7/linked_4",
 "@type": [
 "raml-shapes:ScalarShape",
+"raml-shapes:AnyShape",
 "shacl:Shape",
 "raml-shapes:Shape",
 "doc:DomainElement"
@@ -289,7 +294,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(11,4)-(11,17)]"
+"@value": "[(11,4)-(13,5)]"
 }
 ]
 }
@@ -302,7 +307,8 @@
 "@type": [
 "shacl:PropertyShape",
 "shacl:Shape",
-"raml-shapes:Shape"
+"raml-shapes:Shape",
+"doc:DomainElement"
 ],
 "shacl:path": [
 {
@@ -314,6 +320,7 @@
 "@id": "#7/linked_5",
 "@type": [
 "raml-shapes:ScalarShape",
+"raml-shapes:AnyShape",
 "shacl:Shape",
 "raml-shapes:Shape",
 "doc:DomainElement"
@@ -355,7 +362,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(14,4)-(14,31)]"
+"@value": "[(14,4)-(16,5)]"
 }
 ]
 }
@@ -389,7 +396,7 @@
 ]
 }
 ],
-"sourcemaps:parsed-json-schema": [
+"sourcemaps:json-schema-id": [
 {
 "sourcemaps:element": [
 {
@@ -398,7 +405,33 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "{\n  \"$schema\" : \"http://json-schema.org/draft-04/schema#\",\n  \"id\" : \"http://www.openapplications.org/oagis/10\",\n  \"type\" : \"object\",\n  \"required\" : [ \"content\", \"typeCode\" ],\n  \"additionalProperties\" : false,\n  \"properties\" : {\n    \"content\" : {\n      \"$ref\" : \"#/definitions/normalizedString\"\n    },\n    \"typeCode\" : {\n      \"$ref\" : \"#/definitions/token\"\n    },\n    \"schemeAgencyIdentifier\" : {\n      \"$ref\" : \"#/definitions/token\"\n    }\n  },\n  \"definitions\" : {\n    \"token\" : {\n      \"type\" : \"string\"\n    },\n    \"normalizedString\" : {\n      \"type\" : \"string\"\n    },\n    \"string\" : {\n      \"type\" : \"string\"\n    },\n    \"decimal\" : {\n      \"type\" : \"number\"\n    },\n    \"integer\" : {\n      \"type\" : \"number\",\n      \"multipleOf\" : 1\n    },\n    \"xbt_BooleanType\" : {\n      \"type\" : \"boolean\"\n    }\n  }\n}"
+"@value": "http://www.openapplications.org/oagis/10"
+}
+]
+}
+],
+"sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "shacl:closed"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,2)-(6,32)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "amf://id#14"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(1,0)-(39,1)]"
 }
 ]
 }
@@ -417,46 +450,6 @@
 ]
 }
 ],
-"sourcemaps:lexical": [
-{
-"sourcemaps:element": [
-{
-"@value": "shacl:closed"
-}
-],
-"sourcemaps:value": [
-{
-"@value": "[(6,2)-(6,27)]"
-}
-]
-},
-{
-"sourcemaps:element": [
-{
-"@value": "amf://id#14"
-}
-],
-"sourcemaps:value": [
-{
-"@value": "[(1,0)-(39,1)]"
-}
-]
-}
-],
-"sourcemaps:json-schema-id": [
-{
-"sourcemaps:element": [
-{
-"@value": "amf://id#14"
-}
-],
-"sourcemaps:value": [
-{
-"@value": "http://www.openapplications.org/oagis/10"
-}
-]
-}
-],
 "sourcemaps:declared-element": [
 {
 "sourcemaps:element": [
@@ -467,6 +460,20 @@
 "sourcemaps:value": [
 {
 "@value": ""
+}
+]
+}
+],
+"sourcemaps:parsed-json-schema": [
+{
+"sourcemaps:element": [
+{
+"@value": "amf://id#14"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "{\n  \"$schema\" : \"http://json-schema.org/draft-04/schema#\",\n  \"id\" : \"http://www.openapplications.org/oagis/10\",\n  \"type\" : \"object\",\n  \"required\" : [ \"content\", \"typeCode\" ],\n  \"additionalProperties\" : false,\n  \"properties\" : {\n    \"content\" : {\n      \"$ref\" : \"#/definitions/normalizedString\"\n    },\n    \"typeCode\" : {\n      \"$ref\" : \"#/definitions/token\"\n    },\n    \"schemeAgencyIdentifier\" : {\n      \"$ref\" : \"#/definitions/token\"\n    }\n  },\n  \"definitions\" : {\n    \"token\" : {\n      \"type\" : \"string\"\n    },\n    \"normalizedString\" : {\n      \"type\" : \"string\"\n    },\n    \"string\" : {\n      \"type\" : \"string\"\n    },\n    \"decimal\" : {\n      \"type\" : \"number\"\n    },\n    \"integer\" : {\n      \"type\" : \"number\",\n      \"multipleOf\" : 1\n    },\n    \"xbt_BooleanType\" : {\n      \"type\" : \"boolean\"\n    }\n  }\n}"
 }
 ]
 }
@@ -691,6 +698,7 @@
 "@id": "#3",
 "@type": [
 "shacl:NodeShape",
+"raml-shapes:AnyShape",
 "shacl:Shape",
 "raml-shapes:Shape",
 "doc:DomainElement"
@@ -706,7 +714,8 @@
 "@type": [
 "shacl:PropertyShape",
 "shacl:Shape",
-"raml-shapes:Shape"
+"raml-shapes:Shape",
+"doc:DomainElement"
 ],
 "shacl:path": [
 {
@@ -718,6 +727,7 @@
 "@id": "#5",
 "@type": [
 "raml-shapes:ScalarShape",
+"raml-shapes:AnyShape",
 "shacl:Shape",
 "raml-shapes:Shape",
 "doc:DomainElement"
@@ -761,7 +771,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(23,6)-(23,15)]"
+"@value": "[(23,6)-(23,23)]"
 }
 ]
 },
@@ -819,7 +829,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(8,4)-(8,16)]"
+"@value": "[(8,4)-(10,5)]"
 }
 ]
 }
@@ -832,7 +842,8 @@
 "@type": [
 "shacl:PropertyShape",
 "shacl:Shape",
-"raml-shapes:Shape"
+"raml-shapes:Shape",
+"doc:DomainElement"
 ],
 "shacl:path": [
 {
@@ -844,6 +855,7 @@
 "@id": "#7",
 "@type": [
 "raml-shapes:ScalarShape",
+"raml-shapes:AnyShape",
 "shacl:Shape",
 "raml-shapes:Shape",
 "doc:DomainElement"
@@ -892,7 +904,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(20,6)-(20,15)]"
+"@value": "[(20,6)-(20,23)]"
 }
 ]
 },
@@ -964,7 +976,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(11,4)-(11,17)]"
+"@value": "[(11,4)-(13,5)]"
 }
 ]
 }
@@ -977,7 +989,8 @@
 "@type": [
 "shacl:PropertyShape",
 "shacl:Shape",
-"raml-shapes:Shape"
+"raml-shapes:Shape",
+"doc:DomainElement"
 ],
 "shacl:path": [
 {
@@ -989,6 +1002,7 @@
 "@id": "#7",
 "@type": [
 "raml-shapes:ScalarShape",
+"raml-shapes:AnyShape",
 "shacl:Shape",
 "raml-shapes:Shape",
 "doc:DomainElement"
@@ -1037,7 +1051,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(20,6)-(20,15)]"
+"@value": "[(20,6)-(20,23)]"
 }
 ]
 },
@@ -1097,7 +1111,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(14,4)-(14,31)]"
+"@value": "[(14,4)-(16,5)]"
 }
 ]
 }
@@ -1131,7 +1145,7 @@
 ]
 }
 ],
-"sourcemaps:json-schema-id": [
+"sourcemaps:type-property-lexical-info": [
 {
 "sourcemaps:element": [
 {
@@ -1140,7 +1154,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "http://www.openapplications.org/oagis/10"
+"@value": "[(4,2)-(4,8)]"
 }
 ]
 }
@@ -1178,12 +1192,12 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(6,2)-(6,27)]"
+"@value": "[(6,2)-(6,32)]"
 }
 ]
 }
 ],
-"sourcemaps:type-property-lexical-info": [
+"sourcemaps:json-schema-id": [
 {
 "sourcemaps:element": [
 {
@@ -1192,7 +1206,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(4,2)-(4,8)]"
+"@value": "http://www.openapplications.org/oagis/10"
 }
 ]
 }
@@ -1218,6 +1232,7 @@
 "@id": "#7",
 "@type": [
 "raml-shapes:ScalarShape",
+"raml-shapes:AnyShape",
 "shacl:Shape",
 "raml-shapes:Shape",
 "doc:DomainElement"
@@ -1266,7 +1281,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(20,6)-(20,15)]"
+"@value": "[(20,6)-(20,23)]"
 }
 ]
 },

@@ -191,7 +191,8 @@ class ApiDemo extends ApiDemoPageBase {
         .type="${this.dataProperties}"
         .mediaType="${this.mediaType}"
         .mediaTypes="${this.mediaTypes}"
-        ?noexamplesactions="${this.noActions}"></api-type-document>` :
+        ?noexamplesactions="${this.noActions}"
+        graph></api-type-document>` :
       html`<p>Select type in the navigation to see the demo.</p>`}
     `;
   }

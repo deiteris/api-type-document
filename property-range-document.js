@@ -358,6 +358,7 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
         ?compatibility="${this.compatibility}"
         ?noactions="${this.noExamplesActions}"
         ?rawonly="${!this._hasMediaType}"
+        ?graph="${this.graph}"
         @rendered-examples-changed="${this._examplesChanged}"
         @has-examples-changed="${this._hasExamplesHandler}"></api-resource-example-document>
     </section>`;

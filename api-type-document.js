@@ -524,6 +524,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       ?narrow="${this.narrow}"
       ?noexamplesactions="${this.noExamplesActions}"
       ?compatibility="${this.compatibility}"
+      ?graph="${this.graph}"
       .mediaType="${this.mediaType}"></property-shape-document>`);
   }
 
@@ -538,7 +539,8 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       ?narrow="${this.narrow}"
       ?noexamplesactions="${this.noExamplesActions}"
       ?compatibility="${this.compatibility}"
-      .mediaType="${this.mediaType}"></property-shape-document>` : undefined}
+      .mediaType="${this.mediaType}"
+      ?graph="${this.graph}"></property-shape-document>` : undefined}
 
       <div class="array-children">
       ${items.map((item) => html`
@@ -550,7 +552,8 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
           ?narrow="${this.narrow}"
           ?noexamplesactions="${this.noExamplesActions}"
           ?compatibility="${this.compatibility}"
-          .mediaType="${this.mediaType}"></property-shape-document>` : undefined}
+          .mediaType="${this.mediaType}"
+          ?graph="${this.graph}"></property-shape-document>` : undefined}
         ${item.isType ? html`<api-type-document
           class="union-document"
           .amf="${this.amf}"
@@ -560,7 +563,8 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
           ?noexamplesactions="${this.noExamplesActions}"
           ?nomainexample="${this._renderMainExample}"
           ?compatibility="${this.compatibility}"
-          .mediaType="${this.mediaType}"></api-type-document>` : undefined}
+          .mediaType="${this.mediaType}"
+          ?graph="${this.graph}"></api-type-document>` : undefined}
       `)}
       </div>
     `;
@@ -589,7 +593,8 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       ?noexamplesactions="${this.noExamplesActions}"
       ?nomainexample="${this._renderMainExample}"
       ?compatibility="${this.compatibility}"
-      .mediaType="${this.mediaType}"></api-type-document>
+      .mediaType="${this.mediaType}"
+      ?graph="${this.graph}"></api-type-document>
     `;
   }
 
@@ -611,7 +616,8 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       ?noexamplesactions="${this.noExamplesActions}"
       ?nomainexample="${this._renderMainExample}"
       ?compatibility="${this.compatibility}"
-      .mediaType="${this.mediaType}"></api-type-document>`)}`;
+      .mediaType="${this.mediaType}"
+      ?graph="${this.graph}"></api-type-document>`)}`;
   }
 
   render() {
@@ -666,7 +672,8 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       ?narrow="${this.narrow}"
       ?noexamplesactions="${this.noExamplesActions}"
       ?compatibility="${this.compatibility}"
-      .mediaType="${this.mediaType}"></property-shape-document>` : undefined}
+      .mediaType="${this.mediaType}"
+      ?graph="${this.graph}"></property-shape-document>` : undefined}
     ${this.isUnion ? this._unionTemplate() : undefined}
     ${this.isAnd ? this._anyTemplate() : undefined}`;
   }

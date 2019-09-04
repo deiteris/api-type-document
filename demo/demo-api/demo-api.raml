@@ -162,6 +162,15 @@ types:
         fileTypes:
           - image/png
           - image/jpeg
+  withEmbeddedType:
+    type: object
+    properties:
+      imageProperty: Image
+      other: string
+  withExtendedType:
+    type: Image
+    properties:
+      other: string
 resourceTypes:
   ErrorredResource:
     get:

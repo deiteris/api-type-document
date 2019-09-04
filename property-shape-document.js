@@ -192,6 +192,11 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       arc-marked {
         background-color: transparent;
         padding: 0;
+      }
+
+      .link-label {
+        text-decoration: underline;
+        cursor: pointer;
       }`
     ];
   }
@@ -287,7 +292,10 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       /**
        * When set it removes actions bar from the examples render.
        */
-      noExamplesActions: Boolean
+      noExamplesActions: { type: Boolean },
+
+      _targetTypeId: { type: String },
+      _targetTypeName: { type: String }
     };
   }
 
@@ -332,6 +340,8 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
 
   __amfChanged() {
     this._shapeChanged(this._shape);
+
+    this._evaluateGraph();
   }
 
   _shapeChanged(shape) {
@@ -350,16 +360,18 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     this.isObject = this._computeIsObject(range);
     this.isArray = this._computeIsArray(range);
     this.isComplex = this._computeIsComplex(this.isUnion, this.isObject, this.isArray);
+
+    this._evaluateGraph();
   }
 
   _shapeRangeChanged(shape, range) {
     this.displayName = this._computeDisplayName(range, shape);
     this.propertyName = this._computePropertyName(range, shape);
     this.hasDisplayName = this._computeHasDisplayName(this.displayName, this.propertyName);
-    this.propertyDataType = this._computeType(range, shape);
+    this.propertyDataType = this._computeObjectDataType(range, shape);
   }
 
-  _computeType(range, shape) {
+  _computeObjectDataType(range, shape) {
     let type = range && this._computeRangeDataType(this._resolve(range));
     if (!type) {
       type = shape && this._computeRangeDataType(this._resolve(shape));
@@ -468,6 +480,60 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     return isUnion || isObject || isArray;
   }
 
+  _evaluateGraph() {
+    this._targetTypeId = undefined;
+    this._targetTypeName = undefined;
+    if (!this.graph) {
+      return;
+    }
+    const { amf, range } = this;
+    if (!amf || !range) {
+      return;
+    }
+    const sKey = this._getAmfKey(this.ns.raml.vocabularies.docSourceMaps + 'sources');
+    const maps = this._ensureArray(range[sKey]);
+    if (!maps) {
+      return;
+    }
+    const dKey = this._getAmfKey(this.ns.raml.vocabularies.docSourceMaps + 'declared-element');
+    const dElm = this._ensureArray(maps[0][dKey]);
+    if (!dElm) {
+      return;
+    }
+    const id = this._getValue(dElm[0], this.ns.raml.vocabularies.docSourceMaps + 'element');
+    this._targetTypeId = id;
+    const type = this._getType(amf, id);
+    if (!type) {
+      return;
+    }
+
+    this._targetTypeName = this._getValue(type, this.ns.w3.shacl.name + 'name');
+  }
+
+  _getType(amf, id) {
+    const dcs = this._computeDeclares(amf);
+    let refs; // this._computeReferences(amf);
+    return this._computeType(dcs, refs, id);
+  }
+
+  _navigateType() {
+    const e = new CustomEvent('api-navigation-selection-changed', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        selected: this._targetTypeId,
+        type: 'type'
+      }
+    });
+    this.dispatchEvent(e);
+  }
+
+  _linkKeydown(e) {
+    if (e.key === 'Enter') {
+      this._navigateType();
+    }
+  }
+
   _complexTemplate() {
     if (!this.isComplex) {
       return;
@@ -485,9 +551,28 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
         ?compatibility="${this.compatibility}"
         ?noexamplesactions="${this.noExamplesActions}"
         nomainexample
-        .mediaType="${this.mediaType}"></api-type-document>
+        .mediaType="${this.mediaType}"
+        ?graph="${this.graph}"></api-type-document>
       </div>
     </div>`;
+  }
+
+  _getTypeNameTemplate() {
+    const dataType = this.propertyDataType;
+    const id = this._targetTypeId;
+    if (id) {
+      const label = this._targetTypeName;
+      return html`
+        <span
+          class="data-type link-label"
+          role="link"
+          tabindex="0"
+          @click="${this._navigateType}"
+          @keydown="${this._linkKeydown}">${label}</span>
+        <span class="type-data-type">${dataType}</span>
+      `;
+    }
+    return html`<span class="data-type">${dataType}</span>`;
   }
 
   render() {
@@ -501,11 +586,11 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     <div class="content-wrapper">
       <div class="shape-properties">
         <div class="property-traits">
-          <span class="data-type">${this.propertyDataType}</span>
+          ${this._getTypeNameTemplate()}
           ${this.isRequired ?
             html`<span class="required-type" title="This property is required by the API">Required</span>` : undefined}
           ${this.isEnum ?
-            html`<span class="enym-type" title="This property represent enumerable value">Enum</span>` : undefined}
+            html`<span class="enum-type" title="This property represent enumerable value">Enum</span>` : undefined}
         </div>
       </div>
       <div class="shape-docs">
@@ -524,7 +609,8 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
               ?compatibility="${this.compatibility}"
               ?noexamplesactions="${this.noExamplesActions}"
               .mediaType="${this.mediaType}"
-              .propertyName="${this.propertyName}"></property-range-document>
+              .propertyName="${this.propertyName}"
+              ?graph="${this.graph}"></property-range-document>
           </div>
         </div>
       </div>
