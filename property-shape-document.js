@@ -143,10 +143,15 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
         margin: 20px 0;
       }
 
-      .content-wrapper {
+      .content-wrapper,
+      .shape-docs {
+        margin-top: 12px;
+      }
+
+      /* .content-wrapper {
         display: flex;
         flex-direction: row;
-      }
+      } */
 
       .shape-properties {
         min-width: var(--api-type-document-property-name-width, 120px);
@@ -164,12 +169,12 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
         padding-left: 0 !important;
       }
 
-      :host([narrow]) .content-wrapper {
+      /* :host([narrow]) .content-wrapper {
         display: block;
         -ms-flex-direction: initial;
         -webkit-flex-direction: initial;
         flex-direction: initial;
-      }
+      } */
 
       :host([narrow]) .shape-docs {
         -ms-flex: initial;
