@@ -523,7 +523,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       .parentTypeName="${this.parentTypeName}"
       ?narrow="${this.narrow}"
       ?noexamplesactions="${this.noExamplesActions}"
-      ?legacy="${this.legacy}"
+      ?compatibility="${this.compatibility}"
       .mediaType="${this.mediaType}"></property-shape-document>`);
   }
 
@@ -537,7 +537,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       parentTypeName="Array test"
       ?narrow="${this.narrow}"
       ?noexamplesactions="${this.noExamplesActions}"
-      ?legacy="${this.legacy}"
+      ?compatibility="${this.compatibility}"
       .mediaType="${this.mediaType}"></property-shape-document>` : undefined}
 
       <div class="array-children">
@@ -549,7 +549,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
           parentTypeName="${this._computeArrayParentName(this.parentTypeName, item)}"
           ?narrow="${this.narrow}"
           ?noexamplesactions="${this.noExamplesActions}"
-          ?legacy="${this.legacy}"
+          ?compatibility="${this.compatibility}"
           .mediaType="${this.mediaType}"></property-shape-document>` : undefined}
         ${item.isType ? html`<api-type-document
           class="union-document"
@@ -559,7 +559,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
           ?narrow="${this.narrow}"
           ?noexamplesactions="${this.noExamplesActions}"
           ?nomainexample="${this._renderMainExample}"
-          ?legacy="${this.legacy}"
+          ?compatibility="${this.compatibility}"
           .mediaType="${this.mediaType}"></api-type-document>` : undefined}
       `)}
       </div>
@@ -577,7 +577,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
         ?activated="${this.selectedUnion === index}"
         aria-pressed="${this.selectedUnion === index ? 'true' : 'false'}"
         @click="${this._selectUnion}"
-        ?legacy="${this.legacy}"
+        ?compatibility="${this.compatibility}"
         title="Select ${item.label} type">${item.label}</anypoint-button>`)}
     </div>
     <api-type-document
@@ -588,7 +588,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       ?narrow="${this.narrow}"
       ?noexamplesactions="${this.noExamplesActions}"
       ?nomainexample="${this._renderMainExample}"
-      ?legacy="${this.legacy}"
+      ?compatibility="${this.compatibility}"
       .mediaType="${this.mediaType}"></api-type-document>
     `;
   }
@@ -610,7 +610,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       ?narrow="${this.narrow}"
       ?noexamplesactions="${this.noExamplesActions}"
       ?nomainexample="${this._renderMainExample}"
-      ?legacy="${this.legacy}"
+      ?compatibility="${this.compatibility}"
       .mediaType="${this.mediaType}"></api-type-document>`)}`;
   }
 
@@ -637,7 +637,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
             ?activated="${selected}"
             aria-pressed="${pressed}"
             @click="${this._selectMediaType}"
-            ?legacy="${this.legacy}"
+            ?compatibility="${this.compatibility}"
             title="Select ${item} media type">${item}</anypoint-button>`;
         })}
       </div>` : undefined}
@@ -652,7 +652,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
         ?noauto="${!!this.isScalar}"
         ?noactions="${this.noExamplesActions}"
         .rawOnly="${!hasMediaType}"
-        ?legacy="${this.legacy}"
+        ?compatibility="${this.compatibility}"
         exportparts="${parts}"></api-resource-example-document>
     </section>
 
@@ -665,7 +665,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       .parentTypeName="${this.parentTypeName}"
       ?narrow="${this.narrow}"
       ?noexamplesactions="${this.noExamplesActions}"
-      ?legacy="${this.legacy}"
+      ?compatibility="${this.compatibility}"
       .mediaType="${this.mediaType}"></property-shape-document>` : undefined}
     ${this.isUnion ? this._unionTemplate() : undefined}
     ${this.isAnd ? this._anyTemplate() : undefined}`;

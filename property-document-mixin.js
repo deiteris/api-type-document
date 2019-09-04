@@ -50,10 +50,22 @@ export const PropertyDocumentMixin = (base) => class extends AmfHelperMixin(base
       _hasMediaType: { type: Boolean },
 
       /**
-       * Enables Anypoint legacy styling
+       * Enables compatibility with Anypoint components.
+       */
+      compatibility: { type: Boolean },
+      /**
+       * @deprecated Use `compatibility` instead
        */
       legacy: { type: Boolean }
     };
+  }
+
+  get legacy() {
+    return this.compatibility;
+  }
+
+  set legacy(value) {
+    this.compatibility = value;
   }
 
   get mediaType() {

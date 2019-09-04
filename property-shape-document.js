@@ -482,7 +482,7 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
         .type="${range}"
         .parentTypeName="${parentTypeName}"
         ?narrow="${this.narrow}"
-        ?legacy="${this.legacy}"
+        ?compatibility="${this.compatibility}"
         ?noexamplesactions="${this.noExamplesActions}"
         nomainexample
         .mediaType="${this.mediaType}"></api-type-document>
@@ -521,7 +521,7 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
               .amf="${this.amf}"
               .shape="${this.shape}"
               .range="${this.range}"
-              ?legacy="${this.legacy}"
+              ?compatibility="${this.compatibility}"
               ?noexamplesactions="${this.noExamplesActions}"
               .mediaType="${this.mediaType}"
               .propertyName="${this.propertyName}"></property-range-document>
