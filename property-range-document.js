@@ -348,7 +348,6 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
 
     <api-annotation-document ?compatibility="${this.compatibility}" .amf="${this.amf}" .shape="${this.range}"></api-annotation-document>
     <section class="examples" ?hidden="${!this._hasExamples}">
-      <h5 class="examples-section-title">${this.exampleSectionTitle}</h5>
       <api-resource-example-document
         .amf="${this.amf}"
         .examples="${range}"

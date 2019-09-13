@@ -629,7 +629,6 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     ${this.aware ?
       html`<raml-aware @api-changed="${this._apiChangedHandler}" scope="${this.aware}"></raml-aware>` : undefined}
     <section class="examples" ?hidden="${!this._renderMainExample}">
-      <h5 class="examples-section-title">Examples</h5>
       ${this.renderMediaSelector ? html`<div class="media-type-selector">
         <span>Media type:</span>
         ${mediaTypes.map((item, index) => {
