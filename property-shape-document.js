@@ -600,7 +600,7 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       </div>
       <div class="shape-docs">
       ${this.hasPropertyDescription ? html`<div class="property-description">
-          <arc-marked .markdown="${this.propertyDescription}">
+          <arc-marked .markdown="${this.propertyDescription}" sanitize>
             <div slot="markdown-html" class="markdown-body"></div>
           </arc-marked>
         </div>` : undefined}
