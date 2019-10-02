@@ -403,4 +403,68 @@ describe('<property-shape-document>', function() {
       await assert.isAccessible(element);
     });
   });
+
+  describe('Complex structure toggle', () => {
+    [
+      ['Regular model', false],
+      ['Compact model', true]
+    ].forEach((item) => {
+      describe(item[0], () => {
+        let element;
+        let amf;
+        let type;
+        before(async () => {
+          const data = await AmfLoader.loadType('ComplexRecursive', item[1]);
+          amf = data[0];
+          type = data[1];
+        });
+
+        beforeEach(async () => {
+          element = await basicFixture();
+          element.amf = amf;
+        });
+
+        it('does not render api-type-document by default', async () => {
+          const shape = getPropertyShape(element, type, 'iteration1');
+          element.shape = shape;
+          await nextFrame();
+          const node = element.shadowRoot.querySelector('api-type-document');
+          assert.notOk(node);
+        });
+
+        it('renders api-type-document when opened is set', async () => {
+          const shape = getPropertyShape(element, type, 'iteration1');
+          element.shape = shape;
+          element.opened = true;
+          await nextFrame();
+          const node = element.shadowRoot.querySelector('api-type-document');
+          assert.ok(node);
+        });
+
+        it('renders toggle button', async () => {
+          const shape = getPropertyShape(element, type, 'iteration1');
+          element.shape = shape;
+          await nextFrame();
+          const node = element.shadowRoot.querySelector('.complex-toggle');
+          assert.ok(node);
+        });
+
+        it('toggles opened state on toggle button click', async () => {
+          const shape = getPropertyShape(element, type, 'iteration1');
+          element.shape = shape;
+          await nextFrame();
+          const node = element.shadowRoot.querySelector('.complex-toggle');
+          MockInteractions.tap(node);
+          await nextFrame();
+          const typeDoc = element.shadowRoot.querySelector('api-type-document');
+          assert.ok(typeDoc);
+        });
+
+        it('sets "opened" via toggle()', () => {
+          element.toggle();
+          assert.isTrue(element.opened);
+        });
+      });
+    });
+  });
 });

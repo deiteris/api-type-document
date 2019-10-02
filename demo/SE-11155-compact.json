@@ -154263,7 +154263,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "\n      order: 1\n      type: number\n      name: age\n      value: \"45\"\n"
+"@value": "\r\n      order: 1\r\n      type: number\r\n      name: age\r\n      value: \"45\"\r\n"
 }
 ],
 "sourcemaps:sources": [
@@ -154630,7 +154630,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "\n      order: 5\n      type: string\n      name: city\n      value: Atlanta\n"
+"@value": "\r\n      order: 5\r\n      type: string\r\n      name: city\r\n      value: Atlanta\r\n"
 }
 ],
 "sourcemaps:sources": [
@@ -154997,7 +154997,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "\n      type: string\n      name: ssn\n      value: 2t5rRE4ew3ew==\n      encryption-flag: encrypted"
+"@value": "\r\n      type: string\r\n      name: ssn\r\n      value: 2t5rRE4ew3ew==\r\n      encryption-flag: encrypted"
 }
 ],
 "sourcemaps:sources": [
@@ -164875,7 +164875,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "\n      order: 1\n      type: number\n      name: age\n      value: \"45\"\n"
+"@value": "\r\n      order: 1\r\n      type: number\r\n      name: age\r\n      value: \"45\"\r\n"
 }
 ],
 "sourcemaps:sources": [
@@ -165242,7 +165242,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "\n      order: 5\n      type: string\n      name: city\n      value: Atlanta\n"
+"@value": "\r\n      order: 5\r\n      type: string\r\n      name: city\r\n      value: Atlanta\r\n"
 }
 ],
 "sourcemaps:sources": [
@@ -165609,7 +165609,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "\n      type: string\n      name: ssn\n      value: 2t5rRE4ew3ew==\n      encryption-flag: encrypted"
+"@value": "\r\n      type: string\r\n      name: ssn\r\n      value: 2t5rRE4ew3ew==\r\n      encryption-flag: encrypted"
 }
 ],
 "sourcemaps:sources": [
@@ -194767,7 +194767,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "\n      order: 1\n      type: number\n      name: age\n      value: \"45\"\n"
+"@value": "\r\n      order: 1\r\n      type: number\r\n      name: age\r\n      value: \"45\"\r\n"
 }
 ],
 "sourcemaps:sources": [
@@ -195134,7 +195134,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "\n      order: 5\n      type: string\n      name: city\n      value: Atlanta\n"
+"@value": "\r\n      order: 5\r\n      type: string\r\n      name: city\r\n      value: Atlanta\r\n"
 }
 ],
 "sourcemaps:sources": [
@@ -195501,7 +195501,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "\n      type: string\n      name: ssn\n      value: 2t5rRE4ew3ew==\n      encryption-flag: encrypted"
+"@value": "\r\n      type: string\r\n      name: ssn\r\n      value: 2t5rRE4ew3ew==\r\n      encryption-flag: encrypted"
 }
 ],
 "sourcemaps:sources": [
@@ -198305,7 +198305,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "\n      order: 1\n      type: number\n      name: age\n      value: \"45\"\n"
+"@value": "\r\n      order: 1\r\n      type: number\r\n      name: age\r\n      value: \"45\"\r\n"
 }
 ],
 "sourcemaps:sources": [
@@ -198672,7 +198672,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "\n      order: 5\n      type: string\n      name: city\n      value: Atlanta\n"
+"@value": "\r\n      order: 5\r\n      type: string\r\n      name: city\r\n      value: Atlanta\r\n"
 }
 ],
 "sourcemaps:sources": [
@@ -199039,7 +199039,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "\n      type: string\n      name: ssn\n      value: 2t5rRE4ew3ew==\n      encryption-flag: encrypted"
+"@value": "\r\n      type: string\r\n      name: ssn\r\n      value: 2t5rRE4ew3ew==\r\n      encryption-flag: encrypted"
 }
 ],
 "sourcemaps:sources": [
@@ -201848,7 +201848,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "\n      order: 1\n      type: number\n      name: age\n      value: \"45\"\n"
+"@value": "\r\n      order: 1\r\n      type: number\r\n      name: age\r\n      value: \"45\"\r\n"
 }
 ],
 "sourcemaps:sources": [
@@ -202215,7 +202215,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "\n      order: 5\n      type: string\n      name: city\n      value: Atlanta\n"
+"@value": "\r\n      order: 5\r\n      type: string\r\n      name: city\r\n      value: Atlanta\r\n"
 }
 ],
 "sourcemaps:sources": [
@@ -202582,7 +202582,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "\n      type: string\n      name: ssn\n      value: 2t5rRE4ew3ew==\n      encryption-flag: encrypted"
+"@value": "\r\n      type: string\r\n      name: ssn\r\n      value: 2t5rRE4ew3ew==\r\n      encryption-flag: encrypted"
 }
 ],
 "sourcemaps:sources": [
