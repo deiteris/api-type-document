@@ -165,19 +165,17 @@ class ApiDemo extends ApiDemoPageBase {
   // }
 
   _apiListTemplate() {
-    return html`
-    <paper-item data-src="demo-api.json">Demo API</paper-item>
-    <paper-item data-src="demo-api-compact.json">Demo API - compact</paper-item>
-    <paper-item data-src="examples-api.json">Examples render demo api</paper-item>
-    <paper-item data-src="examples-api-compact.json">Examples render demo - compact model</paper-item>
-    <paper-item data-src="apic-83.json">APIC-83 (issue)</paper-item>
-    <paper-item data-src="apic-83-compact.json">APIC-83 - compact model (issue)</paper-item>
-    <paper-item data-src="Petstore.json">Petstore</paper-item>
-    <paper-item data-src="Petstore-compact.json">Petstore - compact model (issue)</paper-item>
-    <paper-item data-src="SE-10469.json">SE-10469 (issue)</paper-item>
-    <paper-item data-src="SE-10469-compact.json">SE-10469 - compact model (issue)</paper-item>
-    <paper-item data-src="SE-11155.json">SE-11155 (issue)</paper-item>
-    <paper-item data-src="SE-11155-compact.json">SE-11155 - compact model (issue)</paper-item>`;
+    return [
+      ['demo-api', 'Demo API'],
+      ['examples-api', 'Examples render demo'],
+      ['Petstore', 'OAS: Petstore'],
+      ['apic-83', 'APIC-83'],
+      ['SE-10469', 'SE-1046'],
+      ['SE-11155', 'SE-11155'],
+      ['demo-api-v4', 'Demo Api - AMF v4'],
+    ].map(([file, label]) => html`
+    <paper-item data-src="${file}-compact.json">${label} - compact model</paper-item>
+    <paper-item data-src="${file}.json">${label}</paper-item>`);
   }
 
   contentTemplate() {
