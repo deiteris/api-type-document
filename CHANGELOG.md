@@ -1584,3 +1584,20 @@
 
 
 
+## 3.0.10 (2019-10-04)
+
+
+### Bug Fixes
+
+* **a11y:** fixing contrast issue on a property type's label ([853103b](https://github.com/advanced-rest-client/api-type-document/commit/853103b))
+* fixing setting `rawonly` on example generator ([55c837a](https://github.com/advanced-rest-client/api-type-document/commit/55c837a))
+* fixing type fragment example rendering ([493b5eb](https://github.com/advanced-rest-client/api-type-document/commit/493b5eb))
+
+
+### Features
+
+* adding graph internal linking ([eff36fc](https://github.com/advanced-rest-client/api-type-document/commit/eff36fc))
+* complex types are now not rendered by default until toggled ([02ddfec](https://github.com/advanced-rest-client/api-type-document/commit/02ddfec))
+
+
+
