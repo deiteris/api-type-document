@@ -366,7 +366,12 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     if (shape) {
       shape = this._resolve(shape);
       if (this._hasType(shape, this.ns.raml.vocabularies.http + 'Parameter')) {
-        return this._getValue(shape, this.ns.schema.schemaName);
+        // https://www.mulesoft.org/jira/browse/APIC-289
+        let name = this._getValue(shape, this.ns.aml.vocabularies.http + 'paramName');
+        if (!name) {
+          name = this._getValue(shape, this.ns.schema.schemaName);
+        }
+        return name;
       }
       if (this._hasType(shape, this.ns.w3.shacl.name + 'PropertyShape') ||
         this._hasType(shape, this.ns.raml.vocabularies.shapes + 'NilShape') ||

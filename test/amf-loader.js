@@ -1,8 +1,10 @@
 import { LitElement } from 'lit-element';
 import { AmfHelperMixin } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
 
-class TestHelperElement extends AmfHelperMixin(LitElement) {}
-window.customElements.define('demo-element', TestHelperElement);
+class HelperElement extends AmfHelperMixin(LitElement) {}
+window.customElements.define('helper-element', HelperElement);
+
+const helper = new HelperElement();
 
 export const AmfLoader = {};
 AmfLoader.load = async function(compact, modelFile) {
@@ -21,35 +23,50 @@ AmfLoader.load = async function(compact, modelFile) {
 };
 
 AmfLoader.loadType = async function(name, compact, modelFile) {
-  return AmfLoader.load(compact, modelFile)
-  .then((amf) => {
-    const data = amf;
-    if (amf instanceof Array) {
-      amf = amf[0];
-    }
-    const helper = new TestHelperElement();
-    helper.amf = data;
-    const ns = helper.ns;
-    const decKey = helper._getAmfKey(ns.raml.vocabularies.document + 'declares');
-    const nameKey = helper._getAmfKey(ns.w3.shacl.name + 'name');
+  let amf = await AmfLoader.load(compact, modelFile);
+  if (amf instanceof Array) {
+    amf = amf[0];
+  }
+  helper.amf = amf;
+  const ns = helper.ns;
+  const decKey = helper._getAmfKey(ns.raml.vocabularies.document + 'declares');
+  const nameKey = helper._getAmfKey(ns.w3.shacl.name + 'name');
 
-    const defs = amf[decKey];
-    for (let i = 0; i < defs.length; i++) {
-      let type = defs[i];
-      if (type instanceof Array) {
-        type = type[0];
-      }
-      let nameData = type[nameKey];
-      if (!nameData) {
-        continue;
-      }
-      if (nameData instanceof Array) {
-        nameData = nameData[0];
-      }
-      const typeName = nameData['@value'];
-      if (typeName === name) {
-        return [data, type];
-      }
+  const defs = amf[decKey];
+  for (let i = 0; i < defs.length; i++) {
+    let type = defs[i];
+    if (type instanceof Array) {
+      type = type[0];
     }
-  });
+    let nameData = type[nameKey];
+    if (!nameData) {
+      continue;
+    }
+    if (nameData instanceof Array) {
+      nameData = nameData[0];
+    }
+    const typeName = nameData['@value'];
+    if (typeName === name) {
+      return [amf, type];
+    }
+  }
+};
+
+AmfLoader.lookupEndpoint = function(model, endpoint) {
+  helper.amf = model;
+  const webApi = helper._computeWebApi(model);
+  return helper._computeEndpointByPath(webApi, endpoint);
+};
+
+AmfLoader.lookupOperation = function(model, endpoint, operation) {
+  const endPoint = AmfLoader.lookupEndpoint(model, endpoint, operation);
+  const opKey = helper._getAmfKey(helper.ns.w3.hydra.supportedOperation);
+  const ops = helper._ensureArray(endPoint[opKey]);
+  return ops.find((item) => helper._getValue(item, helper.ns.w3.hydra.core + 'method') === operation);
+};
+
+AmfLoader.lookupParameters = function(model, endpoint, operation) {
+  const op = AmfLoader.lookupOperation(model, endpoint, operation);
+  const expects = helper._computeExpects(op);
+  return helper._ensureArray(helper._computeQueryParameters(expects));
 };
