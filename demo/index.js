@@ -190,7 +190,7 @@ class ApiDemo extends ApiDemoPageBase {
         .mediaType="${this.mediaType}"
         .mediaTypes="${this.mediaTypes}"
         ?noexamplesactions="${this.noActions}"
-        graph></api-type-document>` :
+      ></api-type-document>` :
       html`<p>Select type in the navigation to see the demo.</p>`}
     `;
   }

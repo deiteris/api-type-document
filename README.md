@@ -8,9 +8,10 @@
 
 A documentation table for RAML type / OAS schema properties. Works with AMF data model.
 
-```html
-<api-type-document></api-type-document>
-```
+## Version compatibility
+
+This version only works with AMF model version 2 (AMF parser >= 4.0.0).
+For compatibility with previous model version use `3.x.x` version of the component.
 
 ## Styling
 

@@ -16,11 +16,11 @@ describe('<property-shape-document>', function() {
   }
 
   function getPropertyShape(element, type, name) {
-    const propKey = element._getAmfKey(element.ns.w3.shacl.name + 'property');
+    const propKey = element._getAmfKey(element.ns.w3.shacl.property);
     const props = type[propKey];
     for (let i = 0, len = props.length; i < len; i++) {
       const item = props[i];
-      const itemName = element._getValue(item, element.ns.w3.shacl.name + 'name');
+      const itemName = element._getValue(item, element.ns.w3.shacl.name);
       if (itemName === name) {
         return item;
       }
@@ -29,7 +29,7 @@ describe('<property-shape-document>', function() {
 
   function getShapeRange(element, type, propName) {
     const shape = getPropertyShape(element, type, propName);
-    const key = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'range');
+    const key = element._getAmfKey(element.ns.aml.vocabularies.shapes.range);
     const range = element._ensureArray(shape[key])[0];
     return [shape, range];
   }
@@ -58,7 +58,7 @@ describe('<property-shape-document>', function() {
           const shape = getPropertyShape(element, type, 'name');
           element.shape = shape;
           assert.typeOf(element.range, 'object', 'range is an object');
-          const key = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'range');
+          const key = element._getAmfKey(element.ns.aml.vocabularies.shapes.range);
           const range = element._ensureArray(shape[key]);
           assert.deepEqual(element.range, range[0], 'range value is set');
         });
@@ -96,9 +96,9 @@ describe('<property-shape-document>', function() {
           const shape = getPropertyShape(element, type, 'name');
           element.shape = shape;
           assert.typeOf(element.propertyDescription, 'string', 'propertyDescription is a string');
-          const key = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'range');
+          const key = element._getAmfKey(element.ns.aml.vocabularies.shapes.range);
           const range = element._ensureArray(shape[key]);
-          const desc = element._getValue(range[0], element.ns.schema.desc);
+          const desc = element._getValue(range[0], element.ns.aml.vocabularies.core.description);
           assert.deepEqual(element.propertyDescription, desc, 'value is set');
         });
 

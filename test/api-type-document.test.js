@@ -8,15 +8,15 @@ describe('<api-type-document>', function() {
     return (await fixture(`<api-type-document></api-type-document>`));
   }
 
-  function getPatloadType(element, model, path, methodName) {
+  function getPayloadType(element, model, path, methodName) {
     const webApi = element._computeWebApi(model);
     const endpoint = element._computeEndpointByPath(webApi, path);
-    const opKey = element._getAmfKey(element.ns.w3.hydra.supportedOperation);
+    const opKey = element._getAmfKey(element.ns.aml.vocabularies.apiContract.supportedOperation);
     const methods = endpoint[opKey];
     let method;
     for (let j = 0, jLen = methods.length; j < jLen; j++) {
       const m = methods[j];
-      const value = element._getValue(m, element.ns.w3.hydra.core + 'method');
+      const value = element._getValue(m, element.ns.aml.vocabularies.apiContract.method);
       if (value === methodName) {
         method = m;
         break;
@@ -24,8 +24,8 @@ describe('<api-type-document>', function() {
     }
     const expects = element._computeExpects(method);
     const payload = element._computePayload(expects)[0];
-    const mt = element._getValue(payload, element.ns.raml.vocabularies.http + 'mediaType');
-    const key = element._getAmfKey(element.ns.raml.vocabularies.http + 'schema');
+    const mt = element._getValue(payload, element.ns.aml.vocabularies.core.mediaType);
+    const key = element._getAmfKey(element.ns.aml.vocabularies.shapes.schema);
     let schema = payload && payload[key];
     if (!schema) {
       return;
@@ -302,7 +302,7 @@ describe('<api-type-document>', function() {
           .then((data) => {
             element.amf = data[0];
             const result = element._computeUnionProperty(data[1], 0);
-            assert.isTrue(element._hasType(result, element.ns.raml.vocabularies.shapes + 'ScalarShape'));
+            assert.isTrue(element._hasType(result, element.ns.aml.vocabularies.shapes.ScalarShape));
           });
         });
       });
@@ -349,7 +349,7 @@ describe('<api-type-document>', function() {
         beforeEach(async () => {
           element = await basicFixture();
           element.amf = amf;
-          const key = element._getAmfKey(element.ns.w3.shacl.name + 'and');
+          const key = element._getAmfKey(element.ns.w3.shacl.and);
           list = type[key];
         });
 
@@ -569,7 +569,7 @@ describe('<api-type-document>', function() {
         it('Selection change computes properties for the table', () => {
           element.selectedUnion = 1;
           const doc = element.shadowRoot.querySelector('api-type-document.union-document');
-          const key = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'anyOf');
+          const key = element._getAmfKey(element.ns.aml.vocabularies.shapes.anyOf);
           const type = element.type[key][0];
           assert.deepEqual(doc.type, type);
         });
@@ -632,7 +632,7 @@ describe('<api-type-document>', function() {
         it('Computes names in union shape #1', async () => {
           const data = await AmfLoader.load(item[1], 'SE-11155');
           element.amf = data[0];
-          const [schema, mt] = getPatloadType(element, data[0], '/users', 'post');
+          const [schema, mt] = getPayloadType(element, data[0], '/users', 'post');
           element.type = schema;
           element.mediaType = mt;
 
@@ -654,7 +654,7 @@ describe('<api-type-document>', function() {
         it('Computes names in union shape #2', async () => {
           const data = await AmfLoader.load(item[1], 'examples-api');
           element.amf = data[0];
-          const [schema, mt] = getPatloadType(element, data[0], '/union', 'post');
+          const [schema, mt] = getPayloadType(element, data[0], '/union', 'post');
           element.type = schema;
           element.mediaType = mt;
 

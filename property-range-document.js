@@ -23,7 +23,6 @@ import './api-type-document.js';
  * `--arc-font-body2` | Mixin applied to the examples section title | `{}`
  *
  * @customElement
- * @polymer
  * @demo demo/index.html
  * @memberof ApiElements
  * @appliesMixin PropertyDocumentMixin
@@ -67,8 +66,7 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
     }
 
     .examples {
-      border: 1px var(--api-type-document-examples-border-color, transparent) solid;
-      background-color: var(--code-background-color);
+      padding: 1px;
     }
 
     api-annotation-document {
@@ -160,42 +158,8 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
    * @return {Boolean} Curently it always returns `false`
    */
   _computeIsEnum(range) {
-    const key = this._getAmfKey(this.ns.w3.shacl.name + 'in');
+    const key = this._getAmfKey(this.ns.w3.shacl.in);
     return !!(range && (key in range));
-  }
-  /**
-   * Computes value for `isUnion` property.
-   * Union type is identified as a `http://raml.org/vocabularies/shapes#UnionShape`
-   * type.
-   *
-   * @param {Object} range Range object of current shape.
-   * @return {Boolean}
-   */
-  _computeIsUnion(range) {
-    return this._hasType(range, this.ns.raml.vocabularies.shapes + 'UnionShape');
-  }
-  /**
-   * Computes value for `isObject` property.
-   * Object type is identified as a `http://raml.org/vocabularies/shapes#NodeShape`
-   * type.
-   *
-   * @param {Object} range Range object of current shape.
-   * @return {Boolean}
-   */
-  _computeIsObject(range) {
-    return this._hasType(range, this.ns.w3.shacl.name + 'NodeShape');
-  }
-
-  /**
-   * Computes value for `isArray` property.
-   * Array type is identified as a `http://raml.org/vocabularies/shapes#ArrayShape`
-   * type.
-   *
-   * @param {Object} range Range object of current shape.
-   * @return {Boolean}
-   */
-  _computeIsArray(range) {
-    return this._hasType(range, this.ns.raml.vocabularies.shapes + 'ArrayShape');
   }
   /**
    * Computes value for `isFile` property
@@ -204,14 +168,14 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
    * @return {Boolean}
    */
   _computeIsFile(range) {
-    return this._hasType(range, this.ns.raml.vocabularies.shapes + 'FileShape');
+    return this._hasType(range, this.ns.aml.vocabularies.shapes.FileShape);
   }
 
   _computeObjectProperties(range) {
     if (!range) {
       return;
     }
-    const pkey = this._getAmfKey(this.ns.w3.shacl.name + 'property');
+    const pkey = this._getAmfKey(this.ns.w3.shacl.property);
     return range[pkey];
   }
   /**
@@ -224,7 +188,7 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
     if (!range) {
       return;
     }
-    const ikey = this._getAmfKey(this.ns.w3.shacl.name + 'in');
+    const ikey = this._getAmfKey(this.ns.w3.shacl.in);
     let model = range[ikey];
     if (!model) {
       return;
@@ -235,7 +199,7 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
     }
     const results = [];
     Object.keys(model).forEach((key) => {
-      const amfKey = this._getAmfKey('http://www.w3.org/2000/01/rdf-schema#');
+      const amfKey = this._getAmfKey(this.ns.w3.rdfSchema.key);
       if (key.indexOf(amfKey) !== 0) {
         return;
       }
@@ -243,7 +207,7 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
       if (value instanceof Array) {
         value = value[0];
       }
-      let result = this._getValue(value, this.ns.raml.vocabularies.data + 'value');
+      let result = this._getValue(value, this.ns.aml.vocabularies.data.value);
       if (result) {
         if (result['@value']) {
           result = result['@value'];
@@ -325,6 +289,7 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
   render() {
     const range = this.range;
     return html`
+    <api-annotation-document ?compatibility="${this.compatibility}" .amf="${this.amf}" .shape="${range}"></api-annotation-document>
     ${this._hasProperty(range, this.ns.w3.shacl.defaultValueStr) ?
       this._listItemTemplate('Default value', 'This value is used as a default value', this.ns.w3.shacl.defaultValueStr) :
       undefined}
@@ -346,7 +311,6 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
     ${this.isFile ? this._filePropertisTemplate() : this._nonFilePropertisTemplate()}
     ${this.isEnum ? this._enumTemplate() : undefined}
 
-    <api-annotation-document ?compatibility="${this.compatibility}" .amf="${this.amf}" .shape="${this.range}"></api-annotation-document>
     <section class="examples" ?hidden="${!this._hasExamples}">
       <api-resource-example-document
         .amf="${this.amf}"

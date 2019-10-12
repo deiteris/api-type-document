@@ -120,82 +120,82 @@ export const PropertyDocumentMixin = (base) => class extends AmfHelperMixin(base
     if (!range) {
       return;
     }
-    const rs = this.ns.raml.vocabularies.shapes;
-    if (this._hasType(range, rs + 'ScalarShape')) {
+    const rs = this.ns.aml.vocabularies.shapes;
+    if (this._hasType(range, rs.ScalarShape)) {
       const sc = this.ns.w3.xmlSchema;
-      const key = this._getAmfKey(this.ns.w3.shacl.name + 'datatype');
+      const key = this._getAmfKey(this.ns.w3.shacl.datatype);
       const data = this._ensureArray(range[key]);
       const id = (data && data[0]) ? data[0]['@id'] : '';
       switch (id) {
-        case this._getAmfKey(sc + 'string'):
-        case sc + 'string':
+        case this._getAmfKey(sc.string):
+        case sc.string:
           return 'String';
-        case this._getAmfKey(sc + 'integer'):
-        case sc + 'integer':
+        case this._getAmfKey(sc.integer):
+        case sc.integer:
           return 'Integer';
-        case this._getAmfKey(sc + 'long'):
-        case sc + 'long':
+        case this._getAmfKey(sc.long):
+        case sc.long:
           return 'Long';
-        case this._getAmfKey(sc + 'float'):
-        case sc + 'float':
+        case this._getAmfKey(sc.float):
+        case sc.float:
           return 'Float';
-        case this._getAmfKey(sc + 'double'):
-        case sc + 'double':
+        case this._getAmfKey(sc.double):
+        case sc.double:
           return 'Double';
-        case this._getAmfKey(rs + 'number'):
-        case rs + 'number':
+        case this._getAmfKey(rs.number):
+        case rs.number:
           return 'Number';
-        case this._getAmfKey(sc + 'boolean'):
-        case sc + 'boolean':
+        case this._getAmfKey(sc.boolean):
+        case sc.boolean:
           return 'Boolean';
-        case this._getAmfKey(sc + 'dateTime'):
-        case sc + 'dateTime':
+        case this._getAmfKey(sc.dateTime):
+        case sc.dateTime:
           return 'DateTime';
-        case this._getAmfKey(rs + 'dateTimeOnly'):
-        case rs + 'dateTimeOnly':
+        case this._getAmfKey(rs.dateTimeOnly):
+        case rs.dateTimeOnly:
           return 'Time';
-        case this._getAmfKey(sc + 'time'):
-        case sc + 'time':
+        case this._getAmfKey(sc.time):
+        case sc.time:
           return 'Time';
-        case this._getAmfKey(sc + 'date'):
-        case sc + 'date':
+        case this._getAmfKey(sc.date):
+        case sc.date:
           return 'Date';
-        case this._getAmfKey(sc + 'base64Binary'):
-        case sc + 'base64Binary':
+        case this._getAmfKey(sc.base64Binary):
+        case sc.base64Binary:
           return 'Base64 binary';
-        case this._getAmfKey(rs + 'password'):
-        case rs + 'password':
+        case this._getAmfKey(rs.password):
+        case rs.password:
           return 'Password';
       }
     }
-    if (this._hasType(range, rs + 'UnionShape')) {
+    if (this._hasType(range, rs.UnionShape)) {
       return 'Union';
     }
-    if (this._hasType(range, rs + 'ArrayShape')) {
+    if (this._hasType(range, rs.ArrayShape)) {
       return 'Array';
     }
-    if (this._hasType(range, this.ns.w3.shacl.name + 'NodeShape')) {
+    if (this._hasType(range, this.ns.w3.shacl.NodeShape)) {
       return 'Object';
     }
-    if (this._hasType(range, rs + 'FileShape')) {
+    if (this._hasType(range, rs.FileShape)) {
       return 'File';
     }
-    if (this._hasType(range, rs + 'NilShape')) {
+    if (this._hasType(range, rs.NilShape)) {
       return 'Null';
     }
-    if (this._hasType(range, rs + 'AnyShape')) {
+    if (this._hasType(range, rs.AnyShape)) {
       return 'Any';
     }
-    if (this._hasType(range, rs + 'MatrixShape')) {
+    if (this._hasType(range, rs.MatrixShape)) {
       return 'Matrix';
     }
-    if (this._hasType(range, rs + 'TupleShape')) {
+    if (this._hasType(range, rs.TupleShape)) {
       return 'Tuple';
     }
-    if (this._hasType(range, rs + 'UnionShape')) {
+    if (this._hasType(range, rs.UnionShape)) {
       return 'Union';
     }
-    if (this._hasType(range, rs + 'RecursiveShape')) {
+    if (this._hasType(range, rs.RecursiveShape)) {
       return 'Recursive';
     }
     return 'Unknown type';
@@ -210,14 +210,14 @@ export const PropertyDocumentMixin = (base) => class extends AmfHelperMixin(base
       return;
     }
     let data;
-    if (this._hasType(shape, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
+    if (this._hasType(shape, this.ns.aml.vocabularies.shapes.ScalarShape)) {
       data = shape;
-    } else if (this._hasType(shape, this.ns.raml.vocabularies.http + 'Parameter')) {
-      const key = this._getAmfKey(this.ns.raml.vocabularies.http + 'schema');
+    } else if (this._hasType(shape, this.ns.aml.vocabularies.apiContract.Parameter)) {
+      const key = this._getAmfKey(this.ns.aml.vocabularies.shapes.schema);
       data = this._ensureArray(shape[key]);
       data = (data && data.length) ? data[0] : undefined;
     } else {
-      const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'range');
+      const key = this._getAmfKey(this.ns.aml.vocabularies.shapes.range);
       data = this._ensureArray(shape[key]);
       data = (data && data.length) ? data[0] : undefined;
     }
@@ -233,7 +233,7 @@ export const PropertyDocumentMixin = (base) => class extends AmfHelperMixin(base
     if (!range) {
       return;
     }
-    const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'items');
+    const key = this._getAmfKey(this.ns.aml.vocabularies.shapes.items);
     let item = range[key];
     if (!item) {
       return;
@@ -246,16 +246,16 @@ export const PropertyDocumentMixin = (base) => class extends AmfHelperMixin(base
       return;
     }
     switch (true) {
-      case this._hasType(item, this.ns.raml.vocabularies.shapes + 'ScalarShape'):
+      case this._hasType(item, this.ns.aml.vocabularies.shapes.ScalarShape):
         item.isShape = true;
         return this._ensureArray(item);
-      case this._hasType(item, this.ns.raml.vocabularies.shapes + 'UnionShape'):
-      case this._hasType(item, this.ns.raml.vocabularies.shapes + 'ArrayShape'):
+      case this._hasType(item, this.ns.aml.vocabularies.shapes.UnionShape):
+      case this._hasType(item, this.ns.aml.vocabularies.shapes.ArrayShape):
         item.isType = true;
         return [item];
       default:
         {
-          const pkey = this._getAmfKey(this.ns.w3.shacl.name + 'property');
+          const pkey = this._getAmfKey(this.ns.w3.shacl.property);
           const items = this._ensureArray(item[pkey]);
           if (items) {
             items.forEach((item) => item.isShape = true);
@@ -273,7 +273,7 @@ export const PropertyDocumentMixin = (base) => class extends AmfHelperMixin(base
    * @return {Boolean}
    */
   _computeIsUnion(range) {
-    return this._hasType(range, this.ns.raml.vocabularies.shapes + 'UnionShape');
+    return this._hasType(range, this.ns.aml.vocabularies.shapes.UnionShape);
   }
   /**
    * Computes value for `isObject` property.
@@ -284,7 +284,7 @@ export const PropertyDocumentMixin = (base) => class extends AmfHelperMixin(base
    * @return {Boolean}
    */
   _computeIsObject(range) {
-    return this._hasType(range, this.ns.w3.shacl.name + 'NodeShape');
+    return this._hasType(range, this.ns.w3.shacl.NodeShape);
   }
   /**
    * Computes value for `isArray` property.
@@ -295,7 +295,7 @@ export const PropertyDocumentMixin = (base) => class extends AmfHelperMixin(base
    * @return {Boolean}
    */
   _computeIsArray(range) {
-    return this._hasType(range, this.ns.raml.vocabularies.shapes + 'ArrayShape');
+    return this._hasType(range, this.ns.aml.vocabularies.shapes.ArrayShape);
   }
   /**
    * Computes list of union type labels to render.
@@ -308,7 +308,7 @@ export const PropertyDocumentMixin = (base) => class extends AmfHelperMixin(base
     if (!isUnion || !range) {
       return;
     }
-    const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'anyOf');
+    const key = this._getAmfKey(this.ns.aml.vocabularies.shapes.anyOf);
     const list = this._ensureArray(range[key]);
     if (!list) {
       return;
@@ -318,28 +318,28 @@ export const PropertyDocumentMixin = (base) => class extends AmfHelperMixin(base
         item = item[0];
       }
       item = this._resolve(item);
-      let isScalar = this._hasType(item, this.ns.raml.vocabularies.shapes + 'ScalarShape');
-      const isNil = this._hasType(item, this.ns.raml.vocabularies.shapes + 'NilShape');
+      let isScalar = this._hasType(item, this.ns.aml.vocabularies.shapes.ScalarShape);
+      const isNil = this._hasType(item, this.ns.aml.vocabularies.shapes.NilShape);
       if (!isScalar && isNil) {
         isScalar = true;
       }
-      const isArray = this._hasType(item, this.ns.raml.vocabularies.shapes + 'ArrayShape');
+      const isArray = this._hasType(item, this.ns.aml.vocabularies.shapes.ArrayShape);
       const isType = !isScalar && !isArray;
       let label;
       if (isArray) {
-        label = this._getValue(item, this.ns.w3.shacl.name + 'name');
+        label = this._getValue(item, this.ns.w3.shacl.name);
         if (!label) {
-          const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'items');
+          const key = this._getAmfKey(this.ns.aml.vocabularies.shapes.items);
           label = this._computeArrayUnionLabel(item[key]);
         }
       } else if (isNil) {
         label = 'Null';
       } else {
-        label = this._getValue(item, this.ns.schema.schemaName);
+        label = this._getValue(item, this.ns.aml.vocabularies.core.name);
         if (!label) {
-          label = this._getValue(item, this.ns.w3.shacl.name + 'name');
+          label = this._getValue(item, this.ns.w3.shacl.name);
         }
-        if (!label && this._hasType(item, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
+        if (!label && this._hasType(item, this.ns.aml.vocabularies.shapes.ScalarShape)) {
           label = this._computeRangeDataType(item);
         }
       }
@@ -368,7 +368,7 @@ export const PropertyDocumentMixin = (base) => class extends AmfHelperMixin(base
       items = items[0];
     }
     items = this._resolve(items);
-    if (this._hasType(items, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
+    if (this._hasType(items, this.ns.aml.vocabularies.shapes.ScalarShape)) {
       return this._computeRangeDataType(items);
     }
     return this._computeDisplayName(items, items);
@@ -386,15 +386,15 @@ export const PropertyDocumentMixin = (base) => class extends AmfHelperMixin(base
       return;
     }
     // let name;
-    if (this._hasType(shape, this.ns.raml.vocabularies.http + 'Parameter')) {
-      return this._getValue(range, this.ns.schema.schemaName);
+    if (this._hasType(shape, this.ns.aml.vocabularies.apiContract.Parameter)) {
+      return this._getValue(range, this.ns.aml.vocabularies.core.name);
       // if(!name) {
       //   name =  this._getValue(shape, this.ns.raml.vocabularies.http + 'paramName');
       // }
-    } else if (this._hasType(range, this.ns.w3.shacl.name + 'NodeShape')) {
-      return this._getValue(shape, this.ns.w3.shacl.name + 'name');
+    } else if (this._hasType(range, this.ns.w3.shacl.NodeShape)) {
+      return this._getValue(shape, this.ns.w3.shacl.name);
     } else {
-      return this._getValue(range, this.ns.schema.schemaName);
+      return this._getValue(range, this.ns.aml.vocabularies.core.name);
       // if (!name) {
       //   name = this._getValue(range, this.ns.w3.shacl.name + 'name');
       // }

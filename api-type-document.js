@@ -13,7 +13,6 @@ import { PropertyDocumentMixin } from './property-document-mixin.js';
  * Pass AMF's shape type `property` array to render the documentation.
  *
  * @customElement
- * @polymer
  * @demo demo/index.html
  * @memberof ApiElements
  * @appliesMixin PropertyDocumentMixin
@@ -305,18 +304,18 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     let isAnd = false;
     if (type instanceof Array) {
       isObject = true;
-    } else if (this._hasType(type, this.ns.raml.vocabularies.shapes + 'ScalarShape') ||
-      this._hasType(type, this.ns.raml.vocabularies.shapes + 'NilShape')) {
+    } else if (this._hasType(type, this.ns.aml.vocabularies.shapes.ScalarShape) ||
+      this._hasType(type, this.ns.aml.vocabularies.shapes.NilShape)) {
       isScalar = true;
-    } else if (this._hasType(type, this.ns.raml.vocabularies.shapes + 'UnionShape')) {
+    } else if (this._hasType(type, this.ns.aml.vocabularies.shapes.UnionShape)) {
       isUnion = true;
       this.unionTypes = this._computeUnionTypes(true, type);
-    } else if (this._hasType(type, this.ns.raml.vocabularies.shapes + 'ArrayShape')) {
+    } else if (this._hasType(type, this.ns.aml.vocabularies.shapes.ArrayShape)) {
       isArray = true;
-    } else if (this._hasType(type, this.ns.w3.shacl.name + 'NodeShape')) {
+    } else if (this._hasType(type, this.ns.w3.shacl.NodeShape)) {
       isObject = true;
-    } else if (this._hasType(type, this.ns.raml.vocabularies.shapes + 'AnyShape')) {
-      const key = this._getAmfKey(this.ns.w3.shacl.name + 'and');
+    } else if (this._hasType(type, this.ns.aml.vocabularies.shapes.AnyShape)) {
+      const key = this._getAmfKey(this.ns.w3.shacl.and);
       if (key in type) {
         isAnd = true;
         this.andTypes = this._computeAndTypes(type[key]);
@@ -378,7 +377,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     if (!type) {
       return;
     }
-    const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'anyOf');
+    const key = this._getAmfKey(this.ns.aml.vocabularies.shapes.anyOf);
     const data = type[key];
     if (!data) {
       return;
@@ -390,9 +389,9 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     if (item instanceof Array) {
       item = item[0];
     }
-    if (this._hasType(item, this.ns.raml.vocabularies.shapes + 'ArrayShape')) {
+    if (this._hasType(item, this.ns.aml.vocabularies.shapes.ArrayShape)) {
       item = this._resolve(item);
-      const key = this._getAmfKey(this.ns.raml.vocabularies.shapes + 'items');
+      const key = this._getAmfKey(this.ns.aml.vocabularies.shapes.items);
       const items = this._ensureArray(item[key]);
       if (items && items.length === 1) {
         let result = items[0];
@@ -422,7 +421,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     if (item instanceof Array) {
       return item;
     }
-    const key = this._getAmfKey(this.ns.w3.shacl.name + 'property');
+    const key = this._getAmfKey(this.ns.w3.shacl.property);
     return this._ensureArray(item[key]);
   }
   /**
@@ -439,9 +438,9 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
         item = item[0];
       }
       item = this._resolve(item);
-      let label = this._getValue(item, this.ns.schema.schemaName);
+      let label = this._getValue(item, this.ns.aml.vocabularies.core.name);
       if (!label) {
-        label = this._getValue(item, this.ns.w3.shacl.name + 'name');
+        label = this._getValue(item, this.ns.w3.shacl.name);
       }
       if (label && label.indexOf('item') === 0) {
         label = undefined;

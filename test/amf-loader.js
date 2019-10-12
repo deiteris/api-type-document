@@ -29,8 +29,8 @@ AmfLoader.loadType = async function(name, compact, modelFile) {
   }
   helper.amf = amf;
   const ns = helper.ns;
-  const decKey = helper._getAmfKey(ns.raml.vocabularies.document + 'declares');
-  const nameKey = helper._getAmfKey(ns.w3.shacl.name + 'name');
+  const decKey = helper._getAmfKey(ns.aml.vocabularies.document.declares);
+  const nameKey = helper._getAmfKey(ns.w3.shacl.name);
 
   const defs = amf[decKey];
   for (let i = 0; i < defs.length; i++) {
@@ -60,9 +60,9 @@ AmfLoader.lookupEndpoint = function(model, endpoint) {
 
 AmfLoader.lookupOperation = function(model, endpoint, operation) {
   const endPoint = AmfLoader.lookupEndpoint(model, endpoint, operation);
-  const opKey = helper._getAmfKey(helper.ns.w3.hydra.supportedOperation);
+  const opKey = helper._getAmfKey(helper.ns.aml.vocabularies.apiContract.supportedOperation);
   const ops = helper._ensureArray(endPoint[opKey]);
-  return ops.find((item) => helper._getValue(item, helper.ns.w3.hydra.core + 'method') === operation);
+  return ops.find((item) => helper._getValue(item, helper.ns.aml.vocabularies.apiContract.method) === operation);
 };
 
 AmfLoader.lookupParameters = function(model, endpoint, operation) {

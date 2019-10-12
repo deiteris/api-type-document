@@ -14,8 +14,6 @@
 
 import {LitElement, html, css} from 'lit-element';
 
-import {AmfHelperMixin} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
-
 import {PropertyDocumentMixin} from './property-document-mixin.js';
 
 declare namespace ApiElements {
@@ -41,14 +39,8 @@ declare namespace ApiElements {
    */
   class PropertyRangeDocument extends
     PropertyDocumentMixin(
-    AmfHelperMixin(
-    Object)) {
+    Object) {
     range: any;
-
-    /**
-     * When set it removes actions bar from the examples render.
-     */
-    noExamplesActions: boolean|null|undefined;
 
     /**
      * Name of the property that is being described by this definition.
@@ -85,35 +77,13 @@ declare namespace ApiElements {
      * Enums are list of types names.
      */
     enumValues: Array<String|null>|null;
+
+    /**
+     * When set it removes actions bar from the examples render.
+     */
+    noExamplesActions: boolean|null|undefined;
     _hasExamples: boolean|null|undefined;
     exampleSectionTitle: string|null|undefined;
-
-    /**
-     * Computes value for `isUnion` property.
-     * Union type is identified as a `http://raml.org/vocabularies/shapes#UnionShape`
-     * type.
-     *
-     * @param range Range object of current shape.
-     */
-    _computeIsUnion(range: object|null): Boolean|null;
-
-    /**
-     * Computes value for `isObject` property.
-     * Object type is identified as a `http://raml.org/vocabularies/shapes#NodeShape`
-     * type.
-     *
-     * @param range Range object of current shape.
-     */
-    _computeIsObject(range: object|null): Boolean|null;
-
-    /**
-     * Computes value for `isArray` property.
-     * Array type is identified as a `http://raml.org/vocabularies/shapes#ArrayShape`
-     * type.
-     *
-     * @param range Range object of current shape.
-     */
-    _computeIsArray(range: object|null): Boolean|null;
     _rangeChanged(range: any): void;
 
     /**

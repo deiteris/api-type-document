@@ -365,25 +365,25 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     }
     if (shape) {
       shape = this._resolve(shape);
-      if (this._hasType(shape, this.ns.raml.vocabularies.http + 'Parameter')) {
+      if (this._hasType(shape, this.ns.aml.vocabularies.apiContract.Parameter)) {
         // https://www.mulesoft.org/jira/browse/APIC-289
-        let name = this._getValue(shape, this.ns.aml.vocabularies.http + 'paramName');
+        let name = this._getValue(shape, this.ns.aml.vocabularies.apiContract.paramName);
         if (!name) {
-          name = this._getValue(shape, this.ns.schema.schemaName);
+          name = this._getValue(shape, this.ns.aml.vocabularies.core.name);
         }
         return name;
       }
-      if (this._hasType(shape, this.ns.w3.shacl.name + 'PropertyShape') ||
-        this._hasType(shape, this.ns.raml.vocabularies.shapes + 'NilShape') ||
-        this._hasType(shape, this.ns.raml.vocabularies.shapes + 'AnyShape')) {
-        return this._getValue(shape, this.ns.w3.shacl.name + 'name');
+      if (this._hasType(shape, this.ns.w3.shacl.PropertyShape) ||
+        this._hasType(shape, this.ns.aml.vocabularies.shapes.NilShape) ||
+        this._hasType(shape, this.ns.aml.vocabularies.shapes.AnyShape)) {
+        return this._getValue(shape, this.ns.w3.shacl.name);
       }
     }
     if (range) {
       range = this._resolve(range);
-      const name = this._getValue(range, this.ns.w3.shacl.name + 'name');
+      const name = this._getValue(range, this.ns.w3.shacl.name);
       if (name === 'items' &&
-      this._hasType(shape, this.ns.raml.vocabularies.shapes + 'ScalarShape')) {
+      this._hasType(shape, this.ns.aml.vocabularies.shapes.ScalarShape)) {
         return;
       }
       return name;
@@ -421,10 +421,10 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       return false;
     }
     shape = this._resolve(shape);
-    if (this._hasType(shape, this.ns.raml.vocabularies.http + 'Parameter')) {
-      return this._getValue(shape, this.ns.w3.hydra.core + 'required');
+    if (this._hasType(shape, this.ns.aml.vocabularies.http.Parameter)) {
+      return this._getValue(shape, this.ns.aml.vocabularies.apiContract.required);
     }
-    const data = this._getValue(shape, this.ns.w3.shacl.name + 'minCount');
+    const data = this._getValue(shape, this.ns.w3.shacl.minCount);
     return data !== undefined && data !== 0;
   }
   /**
@@ -433,7 +433,7 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
    * @return {Boolean} Curently it always returns `false`
    */
   _computeIsEnum(range) {
-    const ikey = this._getAmfKey(this.ns.w3.shacl.name + 'in');
+    const ikey = this._getAmfKey(this.ns.w3.shacl.in);
     return !!(range && (ikey in range));
   }
   /**
@@ -445,7 +445,7 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     if (!range) {
       return;
     }
-    return this._getValue(range, this.ns.schema.desc);
+    return this._getValue(range, this.ns.aml.vocabularies.core.description);
   }
   /**
    * Computes value for `isComplex` property.
@@ -468,24 +468,24 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     if (!amf || !range) {
       return;
     }
-    const sKey = this._getAmfKey(this.ns.raml.vocabularies.docSourceMaps + 'sources');
+    const sKey = this._getAmfKey(this.ns.aml.vocabularies.docSourceMaps.sources);
     const maps = this._ensureArray(range[sKey]);
     if (!maps) {
       return;
     }
-    const dKey = this._getAmfKey(this.ns.raml.vocabularies.docSourceMaps + 'declared-element');
+    const dKey = this._getAmfKey(this.ns.aml.vocabularies.docSourceMaps.declaredElement);
     const dElm = this._ensureArray(maps[0][dKey]);
     if (!dElm) {
       return;
     }
-    const id = this._getValue(dElm[0], this.ns.raml.vocabularies.docSourceMaps + 'element');
+    const id = this._getValue(dElm[0], this.ns.aml.vocabularies.docSourceMaps.element);
     this._targetTypeId = id;
     const type = this._getType(amf, id);
     if (!type) {
       return;
     }
 
-    this._targetTypeName = this._getValue(type, this.ns.w3.shacl.name + 'name');
+    this._targetTypeName = this._getValue(type, this.ns.w3.shacl.name);
   }
 
   _getType(amf, id) {

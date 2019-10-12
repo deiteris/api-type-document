@@ -12,7 +12,7 @@ describe('<property-range-document>', function() {
     index = index || 0;
     type = element._resolve(type);
     const props = element._computeObjectProperties(type);
-    const key = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'range');
+    const key = element._getAmfKey(element.ns.aml.vocabularies.shapes.range);
     return element._ensureArray(props[0][key])[index];
   }
 

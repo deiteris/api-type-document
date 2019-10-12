@@ -14,8 +14,6 @@
 
 import {LitElement, html, css} from 'lit-element';
 
-import {AmfHelperMixin} from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
-
 import {PropertyDocumentMixin} from './property-document-mixin.js';
 
 declare namespace ApiElements {
@@ -41,16 +39,14 @@ declare namespace ApiElements {
    * `--api-type-document-property-color` | Color of the property name label when display name is used | `#757575`
    * `--api-type-document-child-docs-margin-left` | Margin left of item's description | `0px`
    * `--api-type-document-type-color` | Color of the "type" trait | `white`
-   * `--api-type-document-type-background-color` | Background color of the "type" trait | `#2196F3`
+   * `--api-type-document-type-background-color` | Background color of the "type" trait | `#1473bf`
    * `--api-type-document-trait-background-color` | Background color to main range trait (type name) | `#EEEEEE`,
    * `--api-type-document-trait-border-radius` | Border radious of a main property traits | `3px`
    * `--api-type-document-property-name-width` | Width of the left hand side column with property name | `240px`
    */
   class PropertyShapeDocument extends
     PropertyDocumentMixin(
-    AmfHelperMixin(
-    Object)) {
-    amf: any;
+    Object) {
     shape: any;
 
     /**
@@ -59,15 +55,11 @@ declare namespace ApiElements {
     range: object|null;
 
     /**
-     * When set it removes actions bar from the examples render.
-     */
-    noExamplesActions: boolean|null|undefined;
-
-    /**
      * Should be set if described properties has a parent type.
      * This is used when recursively iterating over properties.
      */
     parentTypeName: string|null|undefined;
+    readonly complexToggleLabel: any;
 
     /**
      * Computed value of "display name" of the property
@@ -147,16 +139,21 @@ declare namespace ApiElements {
     narrow: boolean|null|undefined;
 
     /**
-     * Computes value for `propertyDescription`.
-     *
-     * @param range Range model
-     * @returns Description to render.
+     * When set it removes actions bar from the examples render.
      */
-    _computeDescription(range: object|null): String|null;
-    _computeType(range: any, shape: any): any;
+    noExamplesActions: boolean|null|undefined;
+    _targetTypeId: string|null|undefined;
+    _targetTypeName: string|null|undefined;
+
+    /**
+     * When `isComplex` is true this determines if ther complex structure
+     * is currently rendered.
+     */
+    opened: boolean|null|undefined;
     _shapeChanged(shape: any): void;
     _rangeChanged(range: any): void;
     _shapeRangeChanged(shape: any, range: any): void;
+    _computeObjectDataType(range: any, shape: any): any;
 
     /**
      * Computes name of the property. This may be different from the
@@ -197,10 +194,27 @@ declare namespace ApiElements {
     _computeIsEnum(range: object|null): Boolean|null;
 
     /**
+     * Computes value for `propertyDescription`.
+     *
+     * @param range Range model
+     * @returns Description to render.
+     */
+    _computeDescription(range: object|null): String|null;
+
+    /**
      * Computes value for `isComplex` property.
      */
     _computeIsComplex(isUnion: Boolean|null, isObject: Boolean|null, isArray: Boolean|null): Boolean|null;
+    _evaluateGraph(): void;
+    _getType(amf: any, id: any): any;
+    _navigateType(): void;
+    _linkKeydown(e: any): void;
+    toggle(): void;
     _complexTemplate(): any;
+    _getTypeNameTemplate(): any;
+    _descriptionTemplate(): any;
+    _headerTemplate(): any;
+    _headerNameTemplate(): any;
     render(): any;
   }
 }

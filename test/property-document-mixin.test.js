@@ -205,11 +205,11 @@ describe('PropertyDocumentMixin', function() {
       }]
     };
     const ParameterShape = {
-      '@type': ['http://a.ml/vocabularies/http#Parameter'],
-      'http://a.ml/vocabularies/http#schema': ['TEST-PARAMETER']
+      '@type': ['http://a.ml/vocabularies/apiContract#Parameter'],
+      'http://a.ml/vocabularies/shapes#schema': ['TEST-PARAMETER']
     };
     const NodeShape = {
-      '@type': ['http://a.ml/vocabularies/http#NodeShape'],
+      '@type': ['http://a.ml/vocabularies/apiContract#NodeShape'],
       'http://a.ml/vocabularies/shapes#range': ['TEST-RANGE']
     };
 
@@ -262,7 +262,7 @@ describe('PropertyDocumentMixin', function() {
         });
 
         it('Returnms undefined when "items" is empty array', () => {
-          const iKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'items');
+          const iKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.items);
           const model = {};
           model[iKey] = [];
           const result = element._computeArrayProperties(model);
@@ -270,8 +270,8 @@ describe('PropertyDocumentMixin', function() {
         });
 
         it('Handles scalar shape', () => {
-          const iKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'items');
-          const sKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'ScalarShape');
+          const iKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.items);
+          const sKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.ScalarShape);
           const model = {};
           const item = {
             '@type': [sKey]
@@ -284,8 +284,8 @@ describe('PropertyDocumentMixin', function() {
         });
 
         it('Handles UnionShape shape', () => {
-          const iKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'items');
-          const sKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'UnionShape');
+          const iKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.items);
+          const sKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.UnionShape);
           const model = {};
           const item = {
             '@type': [sKey]
@@ -298,8 +298,8 @@ describe('PropertyDocumentMixin', function() {
         });
 
         it('Handles ArrayShape shape', () => {
-          const iKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'items');
-          const sKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'ArrayShape');
+          const iKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.items);
+          const sKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.ArrayShape);
           const model = {};
           const item = {
             '@type': [sKey]
@@ -312,9 +312,9 @@ describe('PropertyDocumentMixin', function() {
         });
 
         it('Handles NodeShape shape', () => {
-          const iKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'items');
-          const sKey = element._getAmfKey(element.ns.raml.vocabularies.shapes + 'NodeShape');
-          const pKey = element._getAmfKey(element.ns.w3.shacl.name + 'property');
+          const iKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.items);
+          const sKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.NodeShape);
+          const pKey = element._getAmfKey(element.ns.w3.shacl.property);
           const model = {};
           const item = {
             '@type': [sKey]
