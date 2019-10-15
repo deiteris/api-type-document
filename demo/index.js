@@ -92,8 +92,8 @@ class ApiDemo extends ApiDemoPageBase {
     const method = helper._computeMethodModel(webApi, id);
     const expects = helper._computeExpects(method);
     const payload = helper._computePayload(expects)[0];
-    const mt = helper._getValue(payload, helper.ns.raml.vocabularies.http + 'mediaType');
-    const key = helper._getAmfKey(helper.ns.raml.vocabularies.http + 'schema');
+    const mt = helper._getValue(payload, helper.ns.aml.vocabularies.core.mediaType);
+    const key = helper._getAmfKey(helper.ns.aml.vocabularies.shapes.schema);
     let schema = payload && payload[key];
     if (!schema) {
       return;
@@ -139,7 +139,7 @@ class ApiDemo extends ApiDemoPageBase {
     if (webApi instanceof Array) {
       webApi = webApi[0];
     }
-    const key = helper._getAmfKey(helper.ns.raml.vocabularies.http + 'accepts');
+    const key = helper._getAmfKey(helper.ns.aml.vocabularies.apiContract.accepts);
     const value = helper._ensureArray(webApi[key]);
     if (value) {
       this.mediaTypes = value.map((item) => item['@value']);
@@ -173,6 +173,7 @@ class ApiDemo extends ApiDemoPageBase {
       ['SE-10469', 'SE-1046'],
       ['SE-11155', 'SE-11155'],
       ['demo-api-v4', 'Demo Api - AMF v4'],
+      ['APIC-282', 'APIC-282'],
     ].map(([file, label]) => html`
     <paper-item data-src="${file}-compact.json">${label} - compact model</paper-item>
     <paper-item data-src="${file}.json">${label}</paper-item>`);

@@ -534,7 +534,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       class="array-document"
       .amf="${this.amf}"
       .shape="${this._resolvedType}"
-      parentTypeName="Array test"
+      .parentTypeName="${this.parentTypeName}"
       ?narrow="${this.narrow}"
       ?noexamplesactions="${this.noExamplesActions}"
       ?compatibility="${this.compatibility}"

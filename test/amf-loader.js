@@ -70,3 +70,16 @@ AmfLoader.lookupParameters = function(model, endpoint, operation) {
   const expects = helper._computeExpects(op);
   return helper._ensureArray(helper._computeQueryParameters(expects));
 };
+
+AmfLoader.lookupPropertyShape = function(model, type, property) {
+  helper.amf = model;
+  const propKey = helper._getAmfKey(helper.ns.w3.shacl.property);
+  const props = type[propKey];
+  for (let i = 0, len = props.length; i < len; i++) {
+    const item = props[i];
+    const itemName = helper._getValue(item, helper.ns.w3.shacl.name);
+    if (itemName === property) {
+      return item;
+    }
+  }
+};

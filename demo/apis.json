@@ -5,5 +5,6 @@
   "examples-api/examples-api.raml": "RAML 1.0",
   "SE-10469/SE-10469.raml": "RAML 1.0",
   "SE-11155/SE-11155.raml": "RAML 1.0",
-  "APIC-289/APIC-289.yaml": "OAS 2.0"
+  "APIC-289/APIC-289.yaml": "OAS 2.0",
+  "APIC-282/APIC-282.raml": "RAML 1.0"
 }

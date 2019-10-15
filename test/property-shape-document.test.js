@@ -15,6 +15,13 @@ describe('<property-shape-document>', function() {
       graph></property-shape-document>`));
   }
 
+  async function modelFixture(amf, shape) {
+    return (await fixture(html`<property-shape-document
+      .amf="${amf}"
+      .shape="${shape}"
+    ></property-shape-document>`));
+  }
+
   function getPropertyShape(element, type, name) {
     const propKey = element._getAmfKey(element.ns.w3.shacl.property);
     const props = type[propKey];
@@ -463,6 +470,67 @@ describe('<property-shape-document>', function() {
         it('sets "opened" via toggle()', () => {
           element.toggle();
           assert.isTrue(element.opened);
+        });
+      });
+    });
+  });
+
+  describe('Array of scalar property', () => {
+    [
+      ['Regular model', false],
+      ['Compact model', true]
+    ].forEach(([label, compact]) => {
+      describe(label, () => {
+        let amf;
+        let type;
+        before(async () => {
+          [amf, type] = await AmfLoader.loadType('Arrays', compact, 'APIC-282');
+        });
+
+        it('sets isScalarArray for scalar item', async () => {
+          const shape = AmfLoader.lookupPropertyShape(amf, type, 'testRepeatable');
+          const element = await modelFixture(amf, shape);
+          assert.isTrue(element.isScalarArray);
+        });
+
+        it('sets isScalarArray for complex item', async () => {
+          const shape = AmfLoader.lookupPropertyShape(amf, type, 'multiArray');
+          const element = await modelFixture(amf, shape);
+          assert.isFalse(element.isScalarArray);
+        });
+
+        it('does not render toggle view button for scalar array', async () => {
+          const shape = AmfLoader.lookupPropertyShape(amf, type, 'testRepeatable');
+          const element = await modelFixture(amf, shape);
+          assert.isFalse(element._renderToggleButton, '_renderToggleButton is set');
+          const node = element.shadowRoot.querySelector('.complex-toggle');
+          assert.notOk(node);
+        });
+
+        it('renders toggle view button for complex array', async () => {
+          const shape = AmfLoader.lookupPropertyShape(amf, type, 'multiArray');
+          const element = await modelFixture(amf, shape);
+          assert.isTrue(element._renderToggleButton, '_renderToggleButton is set');
+          const node = element.shadowRoot.querySelector('.complex-toggle');
+          assert.ok(node);
+        });
+
+        it('uses scalar type in type name', async () => {
+          const shape = AmfLoader.lookupPropertyShape(amf, type, 'testRepeatable');
+          const element = await modelFixture(amf, shape);
+          const typeName = element.arrayScalarTypeName;
+          assert.equal(typeName, 'String', 'Computes scalar type name');
+          const node = element.shadowRoot.querySelector('.data-type');
+          assert.equal(node.textContent.trim(), 'Array of String', 'Renders full type');
+        });
+
+        it('renders "array" only when complex array', async () => {
+          const shape = AmfLoader.lookupPropertyShape(amf, type, 'multiArray');
+          const element = await modelFixture(amf, shape);
+          const typeName = element.arrayScalarTypeName;
+          assert.equal(typeName, 'Unknown', 'Scalar type name is unknown');
+          const node = element.shadowRoot.querySelector('.data-type');
+          assert.equal(node.textContent.trim(), 'Array', 'Renders array type');
         });
       });
     });

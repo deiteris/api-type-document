@@ -106,7 +106,7 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       }
 
       :host([isarray]) api-type-document,
-      :host([isarray]) property-range-document {
+      :host([isarray]):not([isscalararray]) property-range-document {
         border-left: 2px var(--property-shape-document-array-color, #8BC34A) solid;
         padding-left: 12px;
       }
@@ -209,6 +209,11 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
         reflect: true
       },
       /**
+       * Computed value, true if current property is an array and the item
+       * is a scalar.
+       */
+      isScalarArray: { type: Boolean, reflect: true },
+      /**
        * Computed value, true if this propery contains a complex
        * structure. It is computed when the property is and array,
        * object, or union.
@@ -304,6 +309,28 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     return this.opened ? 'Hide' : 'Show';
   }
 
+  get _renderToggleButton() {
+    const { isComplex, isScalarArray } = this;
+    return isComplex && !isScalarArray;
+  }
+
+  get arrayScalarTypeName() {
+    const { range } = this;
+    try {
+      const key = this._getAmfKey(this.ns.aml.vocabularies.shapes.items);
+      const items = this._ensureArray(range[key]);
+      const item = items[0];
+      const dkey = this._getAmfKey(this.ns.w3.shacl.datatype);
+      let type = this._ensureArray(item[dkey]);
+      type = type[0]['@id'];
+      type = type.replace(this.ns.w3.xmlSchema.key, '');
+      const stLetter = type[0].toUpperCase();
+      return `${stLetter}${type.substr(1)}`;
+    } catch (_) {
+      return 'Unknown';
+    }
+  }
+
   constructor() {
     super();
     this.hasDisplayName = false;
@@ -331,9 +358,9 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     this.isEnum = this._computeIsEnum(range);
     this.isUnion = this._computeIsUnion(range);
     this.isObject = this._computeIsObject(range);
-    this.isArray = this._computeIsArray(range);
+    const isArray = this.isArray = this._computeIsArray(range);
     this.isComplex = this._computeIsComplex(this.isUnion, this.isObject, this.isArray);
-
+    this.isScalarArray = isArray ? this._computeIsScalarArray(range) : false;
     this._evaluateGraph();
   }
 
@@ -515,9 +542,23 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
   toggle() {
     this.opened = !this.opened;
   }
+  /**
+   * @param {Object} range The range definition.
+   * @return {Boolean} True when the proeprty type is Array and the items on the
+   * array are scalars only.
+   */
+  _computeIsScalarArray(range) {
+    const key = this._getAmfKey(this.ns.aml.vocabularies.shapes.items);
+    const items = this._ensureArray(range[key]);
+    if (!items) {
+      return false;
+    }
+    const item = items[0];
+    return this._hasType(item, this.ns.aml.vocabularies.shapes.ScalarShape);
+  }
 
   _complexTemplate() {
-    if (!this.isComplex || !this.opened) {
+    if (!this.isComplex || !this.opened || this.isScalarArray) {
       return;
     }
     const range = this._resolve(this.range);
@@ -537,8 +578,9 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
   }
 
   _getTypeNameTemplate() {
-    const dataType = this.propertyDataType;
+    let dataType = this.propertyDataType;
     const id = this._targetTypeId;
+    const { isScalarArray } = this;
     if (id) {
       const label = this._targetTypeName;
       return html`
@@ -550,6 +592,10 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
           @keydown="${this._linkKeydown}">${label}</span>
         <span class="type-data-type">${dataType}</span>
       `;
+    }
+    if (isScalarArray) {
+      const itemType = this.arrayScalarTypeName;
+      dataType = `${dataType} of ${itemType}`
     }
     return html`<span class="data-type">${dataType}</span>`;
   }
@@ -567,13 +613,14 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
 
   _headerTemplate() {
     const {
-      isComplex
+      isComplex,
+      _renderToggleButton
     } = this;
     return isComplex ? html`<div class="shape-header">
       <div class="name-area">
         ${this._headerNameTemplate()}
       </div>
-      ${isComplex ? html`<anypoint-button
+      ${_renderToggleButton ? html`<anypoint-button
         class="complex-toggle"
         @click="${this.toggle}"
         ?compatibility="${this.compatibility}"
