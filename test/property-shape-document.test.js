@@ -535,4 +535,26 @@ describe('<property-shape-document>', function() {
       });
     });
   });
+
+  describe('APIC-282', () => {
+    [
+      ['Regular model', false],
+      ['Compact model', true]
+    ].forEach(([label, compact]) => {
+      describe(label, () => {
+        let amf;
+        before(async () => {
+          amf = await AmfLoader.load(compact, 'APIC-282');
+        });
+
+        it('Ignores name that has "amf_inline_type"', async () => {
+          const payload = AmfLoader.lookupPayload(amf, '/endpoint', 'post');
+          const shape = AmfLoader.lookupPayloadProperty(amf, payload[0], 'numericRepeatable');
+          const range = AmfLoader.lookupArrayItemRange(amf, shape);
+          const element = await modelFixture(amf, range);
+          assert.isUndefined(element.propertyName);
+        });
+      });
+    });
+  });
 });

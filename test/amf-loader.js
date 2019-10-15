@@ -71,6 +71,36 @@ AmfLoader.lookupParameters = function(model, endpoint, operation) {
   return helper._ensureArray(helper._computeQueryParameters(expects));
 };
 
+AmfLoader.lookupPayload = function(model, endpoint, operation) {
+  const op = AmfLoader.lookupOperation(model, endpoint, operation);
+  const expects = helper._computeExpects(op);
+  return helper._ensureArray(helper._computePayload(expects));
+};
+
+AmfLoader.lookupPayloadProperty = function(model, payload, property) {
+  helper.amf = model;
+  const shape = payload[helper._getAmfKey(helper.ns.aml.vocabularies.shapes.schema)][0];
+  const properties = shape[helper._getAmfKey(helper.ns.w3.shacl.property)];
+  for (let i = 0; i < properties.length; i++) {
+    const item = properties[i];
+    const itemName = helper._getValue(item, helper.ns.w3.shacl.name);
+    if (itemName === property) {
+      return item;
+    }
+  }
+};
+
+AmfLoader.lookupArrayItemRange = function(model, array) {
+  helper.amf = model;
+  const range = array[helper._getAmfKey(helper.ns.aml.vocabularies.shapes.range)][0];
+  helper._resolve(range);
+  return range;
+  // const key = helper._getAmfKey(helper.ns.aml.vocabularies.shapes.items);
+  // const items = helper._ensureArray(range[key]);
+  // const item = items[0];
+  // console.log(range);
+};
+
 AmfLoader.lookupPropertyShape = function(model, type, property) {
   helper.amf = model;
   const propKey = helper._getAmfKey(helper.ns.w3.shacl.property);

@@ -403,7 +403,11 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       if (this._hasType(shape, this.ns.w3.shacl.PropertyShape) ||
         this._hasType(shape, this.ns.aml.vocabularies.shapes.NilShape) ||
         this._hasType(shape, this.ns.aml.vocabularies.shapes.AnyShape)) {
-        return this._getValue(shape, this.ns.w3.shacl.name);
+        const name = this._getValue(shape, this.ns.w3.shacl.name);
+        if (name && name.indexOf('amf_inline_type') === 0) {
+          return;
+        }
+        return name;
       }
     }
     if (range) {
