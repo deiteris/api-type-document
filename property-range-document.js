@@ -38,8 +38,11 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
     }
 
     .property-attribute {
+      display: -ms-flexbox;
       display: flex;
+      -ms-flex-direction: row;
       flex-direction: row;
+      -ms-flex-align: start;
       align-items: flex-start;
       margin: 4px 0;
       padding: 0;
@@ -56,6 +59,7 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
     }
 
     .attribute-value {
+      -ms-flex: 1 1 0.000000001px;
       flex: 1;
       flex-basis: 0.000000001px;
     }
@@ -140,6 +144,15 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
   set range(value) {
     if (this._setObservableProperty('range', value)) {
       this._rangeChanged(value);
+    }
+  }
+
+  connectedCallback() {
+    if (super.connectedCallback) {
+      super.connectedCallback();
+    }
+    if (window.ShadyCSS) {
+      window.ShadyCSS.styleElement(this);
     }
   }
 

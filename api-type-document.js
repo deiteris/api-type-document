@@ -269,6 +269,15 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     this.hasParentType = false;
   }
 
+  connectedCallback() {
+    if (super.connectedCallback) {
+      super.connectedCallback();
+    }
+    if (window.ShadyCSS) {
+      window.ShadyCSS.styleElement(this);
+    }
+  }
+
   _computeRenderMainExample(noMainExample, hasExamples) {
     return !!(!noMainExample && hasExamples);
   }

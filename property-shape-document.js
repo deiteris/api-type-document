@@ -118,9 +118,12 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       }
 
       .property-traits {
+        display: -ms-flexbox;
         display: flex;
         flex-direction: row;
+        -ms-flex-direction: row;
         flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
         margin-bottom: 8px;
       }
 
@@ -154,12 +157,16 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       }
 
       .shape-header {
+        display: -ms-flexbox;
         display: flex;
+        -ms-flex-direction: row;
         flex-direction: row;
+        -ms-flex-align: center;
         align-items: start;
       }
 
       .name-area {
+        -ms-flex: 1;
         flex: 1;
       }`
     ];
@@ -336,6 +343,15 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     this.hasDisplayName = false;
     this.hasParentTypeName = false;
     this.hasPropertyDescription = false;
+  }
+
+  connectedCallback() {
+    if (super.connectedCallback) {
+      super.connectedCallback();
+    }
+    if (window.ShadyCSS) {
+      window.ShadyCSS.styleElement(this);
+    }
   }
 
   __amfChanged() {
