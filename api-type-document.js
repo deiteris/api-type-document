@@ -548,7 +548,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       ?noexamplesactions="${this.noExamplesActions}"
       ?compatibility="${this.compatibility}"
       .mediaType="${this.mediaType}"
-      ?graph="${this.graph}"></property-shape-document>` : undefined}
+      ?graph="${this.graph}"></property-shape-document>` : ''}
 
       <div class="array-children">
       ${items.map((item) => html`
@@ -561,7 +561,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
           ?noexamplesactions="${this.noExamplesActions}"
           ?compatibility="${this.compatibility}"
           .mediaType="${this.mediaType}"
-          ?graph="${this.graph}"></property-shape-document>` : undefined}
+          ?graph="${this.graph}"></property-shape-document>` : ''}
         ${item.isType ? html`<api-type-document
           class="union-document"
           .amf="${this.amf}"
@@ -572,7 +572,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
           ?nomainexample="${this._renderMainExample}"
           ?compatibility="${this.compatibility}"
           .mediaType="${this.mediaType}"
-          ?graph="${this.graph}"></api-type-document>` : undefined}
+          ?graph="${this.graph}"></api-type-document>` : ''}
       `)}
       </div>
     `;
@@ -635,7 +635,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     const mediaTypes = this.mediaTypes || [];
     return html`<style>${this.styles}</style>
     ${this.aware ?
-      html`<raml-aware @api-changed="${this._apiChangedHandler}" scope="${this.aware}"></raml-aware>` : undefined}
+      html`<raml-aware @api-changed="${this._apiChangedHandler}" scope="${this.aware}"></raml-aware>` : ''}
     <section class="examples" ?hidden="${!this._renderMainExample}">
       ${this.renderMediaSelector ? html`<div class="media-type-selector">
         <span>Media type:</span>
@@ -652,7 +652,7 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
             ?compatibility="${this.compatibility}"
             title="Select ${item} media type">${item}</anypoint-button>`;
         })}
-      </div>` : undefined}
+      </div>` : ''}
 
       <api-resource-example-document
         .amf="${this.amf}"
@@ -668,8 +668,8 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
         exportparts="${parts}"></api-resource-example-document>
     </section>
 
-    ${this.isObject ? this._objectTemplate() : undefined}
-    ${this.isArray ? this._arrayTemplate() : undefined}
+    ${this.isObject ? this._objectTemplate() : ''}
+    ${this.isArray ? this._arrayTemplate() : ''}
     ${this.isScalar ? html`<property-shape-document
       class="shape-document"
       .amf="${this.amf}"
@@ -679,9 +679,9 @@ class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       ?noexamplesactions="${this.noExamplesActions}"
       ?compatibility="${this.compatibility}"
       .mediaType="${this.mediaType}"
-      ?graph="${this.graph}"></property-shape-document>` : undefined}
-    ${this.isUnion ? this._unionTemplate() : undefined}
-    ${this.isAnd ? this._anyTemplate() : undefined}`;
+      ?graph="${this.graph}"></property-shape-document>` : ''}
+    ${this.isUnion ? this._unionTemplate() : ''}
+    ${this.isAnd ? this._anyTemplate() : ''}`;
   }
 }
 window.customElements.define('api-type-document', ApiTypeDocument);

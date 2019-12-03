@@ -256,10 +256,10 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
     return html`
     ${this._hasProperty(range, this.ns.w3.shacl.minLength) ?
       this._listItemTemplate('Minimum characters', 'Minimum number of characters in the value', this.ns.w3.shacl.minLength) :
-      undefined}
+      ''}
     ${this._hasProperty(range, this.ns.w3.shacl.maxLength) ?
       this._listItemTemplate('Maximum characters', 'Maximum number of characters in the value', this.ns.w3.shacl.maxLength) :
-      undefined}`;
+      ''}`;
   }
 
   _filePropertisTemplate() {
@@ -268,19 +268,19 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
     <section class="file-properties">
     ${this._hasProperty(range, this.ns.w3.shacl.fileType) ?
       this._listItemTemplate('File types', 'File mime types accepted by the endpoint', this.ns.w3.shacl.fileType, true) :
-      undefined}
+      ''}
     ${this._hasProperty(range, this.ns.aml.vocabularies.shapes + 'fileType') ?
       this._listItemTemplate('File types', 'File mime types accepted by the endpoint',
         this.ns.aml.vocabularies.shapes + 'fileType', true) :
-      undefined}
+      ''}
     ${this._hasProperty(range, this.ns.w3.shacl.minLength) ?
       this._listItemTemplate('File minimum size', 'Minimum size of the file accepted by this endpoint',
         this.ns.w3.shacl.minLength) :
-      undefined}
+      ''}
     ${this._hasProperty(range, this.ns.w3.shacl.maxLength) ?
       this._listItemTemplate('File maximum size', 'Maximum size of the file accepted by this endpoint',
         this.ns.w3.shacl.maxLength) :
-      undefined}
+      ''}
     </section>`;
   }
 
@@ -305,24 +305,24 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
     <api-annotation-document ?compatibility="${this.compatibility}" .amf="${this.amf}" .shape="${range}"></api-annotation-document>
     ${this._hasProperty(range, this.ns.w3.shacl.defaultValueStr) ?
       this._listItemTemplate('Default value', 'This value is used as a default value', this.ns.w3.shacl.defaultValueStr) :
-      undefined}
+      ''}
     ${this._hasProperty(range, this.ns.w3.shacl.pattern) ?
       this._listItemTemplate('Pattern', 'Regular expression value for this property', this.ns.w3.shacl.pattern) :
-      undefined}
+      ''}
     ${this._hasProperty(range, this.ns.w3.shacl.minInclusive) ?
       this._listItemTemplate('Min value', 'Minimum numeric value possible to set on this property',
         this.ns.w3.shacl.minInclusive) :
-      undefined}
+      ''}
     ${this._hasProperty(range, this.ns.w3.shacl.maxInclusive) ?
       this._listItemTemplate('Max value', 'Maximum numeric value possible to set on this property',
         this.ns.w3.shacl.maxInclusive) :
-      undefined}
+      ''}
     ${this._hasProperty(range, this.ns.w3.shacl.multipleOf) ?
       this._listItemTemplate('Multiple of', 'The numeric value has to be multiplicable by this value',
         this.ns.w3.shacl.multipleOf) :
-      undefined}
+      ''}
     ${this.isFile ? this._filePropertisTemplate() : this._nonFilePropertisTemplate()}
-    ${this.isEnum ? this._enumTemplate() : undefined}
+    ${this.isEnum ? this._enumTemplate() : ''}
 
     <section class="examples" ?hidden="${!this._hasExamples}">
       <api-resource-example-document

@@ -662,7 +662,7 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     ${propertyName ? html`<div class="property-title" ?secondary="${hasDisplayName}">
       <span class="parent-label" ?hidden="${!hasParentTypeName}">${parentTypeName}.</span>
       <span class="property-name">${propertyName}</span>
-    </div>` : undefined}`;
+    </div>` : ''}`;
   }
 
   render() {
@@ -671,9 +671,9 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     <div class="property-traits">
       ${this._getTypeNameTemplate()}
       ${this.isRequired ?
-        html`<span class="required-type" title="This property is required by the API">Required</span>` : undefined}
+        html`<span class="required-type" title="This property is required by the API">Required</span>` : ''}
       ${this.isEnum ?
-        html`<span class="enum-type" title="This property represent enumerable value">Enum</span>` : undefined}
+        html`<span class="enum-type" title="This property represent enumerable value">Enum</span>` : ''}
     </div>
     ${this._descriptionTemplate()}
     <property-range-document
