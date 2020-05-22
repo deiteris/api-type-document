@@ -371,10 +371,10 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
   _rangeChanged(range) {
     this.propertyDescription = this._computeDescription(range);
     this.hasPropertyDescription = this._computeHasStringValue(this.propertyDescription);
-    this.isEnum = this._computeIsEnum(range);
     this.isUnion = this._computeIsUnion(range);
     this.isObject = this._computeIsObject(range);
     const isArray = this.isArray = this._computeIsArray(range);
+    this.isEnum = this._computeIsEnum(range, this.isArray);
     this.isComplex = this._computeIsComplex(this.isUnion, this.isObject, this.isArray);
     this.isScalarArray = isArray ? this._computeIsScalarArray(range) : false;
     this._evaluateGraph();
@@ -476,13 +476,37 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
   }
   /**
    * Computes value `isEnum` property.
-   * @param {Object} range Current `range` object.
-   * @return {Boolean} Curently it always returns `false`
+   * @param {Object} range Current `range` object
+   * @param {Boolean} isArray
+   * @return {Boolean}
    */
-  _computeIsEnum(range) {
+  _computeIsEnum(range, isArray) {
+    if (!range) {
+      return false;
+    }
+    if (isArray) {
+      return this._computeIsEnumArray(range)
+    }
+
     const ikey = this._getAmfKey(this.ns.w3.shacl.in);
-    return !!(range && (ikey in range));
+    return ikey in range;
   }
+
+  /**
+   * @param {Object} range Current `range` object
+   * @return {Boolean}
+   */
+  _computeIsEnumArray(range) {
+    const key = this._getAmfKey(this.ns.aml.vocabularies.shapes.items);
+    const items = this._ensureArray(range[key]);
+    if (!items) {
+      return false;
+    }
+    const item = items[0];
+    const ikey = this._getAmfKey(this.ns.w3.shacl.in)
+    return ikey in item;
+  }
+
   /**
    * Computes value for `propertyDescription`.
    * @param {Object} range Range model
@@ -564,7 +588,7 @@ class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
   }
   /**
    * @param {Object} range The range definition.
-   * @return {Boolean} True when the proeprty type is Array and the items on the
+   * @return {Boolean} True when the property type is Array and the items on the
    * array are scalars only.
    */
   _computeIsScalarArray(range) {

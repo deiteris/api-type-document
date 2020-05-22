@@ -1,7 +1,7 @@
-import { fixture, assert, nextFrame, aTimeout } from '@open-wc/testing';
-import { AmfLoader } from './amf-loader.js';
-import * as sinon from 'sinon/pkg/sinon-esm.js';
-import './test-document-mixin.js';
+import { assert, aTimeout, fixture, nextFrame } from '@open-wc/testing'
+import { AmfLoader } from './amf-loader.js'
+import * as sinon from 'sinon/pkg/sinon-esm.js'
+import './test-document-mixin.js'
 
 describe('<property-range-document>', function() {
   async function basicFixture() {
@@ -16,8 +16,8 @@ describe('<property-range-document>', function() {
     return element._ensureArray(props[0][key])[index];
   }
 
-  async function getTypePropertyRange(element, typeName, compact, index) {
-    const data = await AmfLoader.loadType(typeName, compact);
+  async function getTypePropertyRange(element, typeName, compact, index, modelFile) {
+    const data = await AmfLoader.loadType(typeName, compact, modelFile);
     element.amf = data[0];
     return findTypePropertyRange(element, data[1], index);
   }
@@ -218,6 +218,25 @@ describe('<property-range-document>', function() {
       element.range = data[1];
       await aTimeout();
       await assert.isAccessible(element);
+    });
+  });
+
+  describe('Properties with enum values', () => {
+    let element;
+
+    beforeEach(async () => {
+      element = await basicFixture();
+    });
+
+    it('Returns false when no in property in range', () => {
+      element.range = {};
+      assert.isFalse(element.isEnum);
+    });
+
+    it('Sets isEnum property to true when string array with enum', async () => {
+      element.range = await getTypePropertyRange(element, 'ApiQuickSearchFilters', false, 0, 'APIC-405');
+      assert.isTrue(element.isEnum);
+      assert.deepEqual(element.enumValues, ['WORD', 'NAME', 'NUMBER', 'IR_NUMBER']);
     });
   });
 });

@@ -557,4 +557,62 @@ describe('<property-shape-document>', function() {
       });
     });
   });
+
+  describe('_computeIsEnum()', () => {
+    let element; let amf; let type;
+
+    before(async () => {
+      const data = await AmfLoader.loadType('ApiQuickSearchFilters', false, 'APIC-405');
+      amf = data[0];
+      type = data[1];
+    });
+
+    beforeEach(async () => {
+      element = await basicFixture();
+      element.amf = amf;
+    });
+
+    it('Returns false when no range', () => {
+      const result = element._computeIsEnum();
+      assert.isFalse(result);
+    });
+
+    it('Returns true for string array property with enum', () => {
+      const [, range] = getShapeRange(element, type, 'quickSearchType');
+      const result = element._computeIsEnum(range, true);
+      assert.isTrue(result);
+    });
+
+    it('Returns true for string property with enum', () => {
+      const [, range] = getShapeRange(element, type, 'status');
+      const result = element._computeIsEnum(range);
+      assert.isTrue(result);
+    });
+  });
+
+  describe('_computeIsEnumArray()', () => {
+    let element; let amf; let type;
+
+    before(async () => {
+      const data = await AmfLoader.loadType('ApiQuickSearchFilters', false, 'APIC-405');
+      amf = data[0];
+      type = data[1];
+    });
+
+    beforeEach(async () => {
+      element = await basicFixture();
+      element.amf = amf;
+    });
+
+    it('Returns false when empty range', () => {
+      const result = element._computeIsEnumArray({});
+      assert.isFalse(result);
+    });
+
+    it('Returns true for string array property with enum', () => {
+      const [, range] = getShapeRange(element, type, 'quickSearchType');
+      const result = element._computeIsEnumArray(range);
+      assert.isTrue(result);
+    });
+  });
 });

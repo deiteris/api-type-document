@@ -14,7 +14,7 @@ import './api-type-document.js';
  *
  * Custom property | Description | Default
  * ----------------|-------------|----------
- * `--property-range-document` | Mixin applied to this elment | `{}`
+ * `--property-range-document` | Mixin applied to this element | `{}`
  * `--api-type-document-type-attribute-color` | Color of each attribute that describes a property | `#616161`
  * `--api-type-document-examples-title-color` | Color of examples section title | ``
  * `--api-type-document-examples-border-color` | Example section border color | `transparent`
@@ -158,22 +158,46 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
 
   _rangeChanged(range) {
     this._hasExamples = false;
-    const isEnum = this.isEnum = this._computeIsEnum(range);
     this.isUnion = this._computeIsUnion(range);
     this.isObject = this._computeIsObject(range);
     this.isArray = this._computeIsArray(range);
+    const isEnum = this.isEnum = this._computeIsEnum(range, this.isArray);
     this.isFile = this._computeIsFile(range);
-    this.enumValues = isEnum ? this._computeEnumValues(range) : false;
+    this.enumValues = isEnum ? this._computeEnumValues(range, this.isArray) : false;
   }
   /**
    * Computes value `isEnum` property.
-   * @param {Object} range Current `range` object.
-   * @return {Boolean} Curently it always returns `false`
+   * @param {Object} range Current `range` object
+   * @param {Boolean} isArray
+   * @return {Boolean}
    */
-  _computeIsEnum(range) {
-    const key = this._getAmfKey(this.ns.w3.shacl.in);
-    return !!(range && (key in range));
+  _computeIsEnum(range, isArray) {
+    if (!range) {
+      return false;
+    }
+    if (isArray) {
+      return this._computeIsEnumArray(range)
+    }
+
+    const ikey = this._getAmfKey(this.ns.w3.shacl.in);
+    return ikey in range;
   }
+
+  /**
+   * @param {Object} range Current `range` object
+   * @return {Boolean}
+   */
+  _computeIsEnumArray(range) {
+    const key = this._getAmfKey(this.ns.aml.vocabularies.shapes.items);
+    const items = this._ensureArray(range[key]);
+    if (!items) {
+      return false;
+    }
+    const item = items[0];
+    const ikey = this._getAmfKey(this.ns.w3.shacl.in)
+    return ikey in item;
+  }
+
   /**
    * Computes value for `isFile` property
    *
@@ -195,20 +219,26 @@ class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
    * Computes value for `enumValues` property.
    *
    * @param {Object} range Range object of current shape.
+   * @param {Boolean} isArray
    * @return {Array<String>|undefined} List of enum types.
    */
-  _computeEnumValues(range) {
+  _computeEnumValues(range, isArray) {
     if (!range) {
       return;
     }
-    const ikey = this._getAmfKey(this.ns.w3.shacl.in);
-    let model = range[ikey];
+    const itemsKey = this._getAmfKey(this.ns.aml.vocabularies.shapes.items)
+    const ikey = this._getAmfKey(this.ns.w3.shacl.in)
+
+    let model = range[isArray ? itemsKey : ikey];
     if (!model) {
       return;
     }
     model = this._ensureArray(model);
     if (model instanceof Array) {
       model = model[0];
+    }
+    if (isArray) {
+      model = model[ikey][0];
     }
     const results = [];
     Object.keys(model).forEach((key) => {
