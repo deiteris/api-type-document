@@ -1,6 +1,6 @@
 [![Published on NPM](https://img.shields.io/npm/v/@api-components/api-type-document.svg)](https://www.npmjs.com/package/@api-components/api-type-document)
 
-[![Build Status](https://travis-ci.org/advanced-rest-client/api-type-document.svg?branch=stage)](https://travis-ci.org/advanced-rest-client/api-type-document)
+[![Build Status](https://travis-ci.com/advanced-rest-client/api-type-document.svg)](https://travis-ci.com/advanced-rest-client/api-type-document)
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/advanced-rest-client/api-type-document)
 
@@ -55,10 +55,6 @@ Custom property | Description | Default
 `--arc-font-body1` | Mixin applied to an example name label | `{}`
 `--arc-font-body2` | Mixin applied to the examples section title | `{}`
 
-### API components
-
-This components is a part of [API components ecosystem](https://elements.advancedrestclient.com/)
-
 ## Usage
 
 ### Installation
@@ -97,7 +93,7 @@ class SampleElement extends PolymerElement {
 customElements.define('sample-element', SampleElement);
 ```
 
-### Installation
+## Development
 
 ```sh
 git clone https://github.com/advanced-rest-client/api-type-document
