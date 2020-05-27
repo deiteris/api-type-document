@@ -636,7 +636,8 @@ describe('<property-shape-document>', () => {
     });
   });
 
-  describe('_computeIsEnum()', () => {
+  // this api does not exists anymore....
+  describe.skip('_computeIsEnum()', () => {
     let element;
     let amf;
     let type;
@@ -674,7 +675,8 @@ describe('<property-shape-document>', () => {
     });
   });
 
-  describe('_computeIsEnumArray()', () => {
+  // This API does not exists anymore
+  describe.skip('_computeIsEnumArray()', () => {
     let element;
     let amf;
     let type;
