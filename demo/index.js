@@ -1,77 +1,26 @@
 import { html } from 'lit-html';
-import { LitElement } from 'lit-element';
-import { ApiDemoPageBase } from '@advanced-rest-client/arc-demo-helper/ApiDemoPage.js';
-import '@api-components/raml-aware/raml-aware.js';
+import { ApiDemoPage } from '@advanced-rest-client/arc-demo-helper';
 import '@api-components/api-navigation/api-navigation.js';
-import '@polymer/paper-toggle-button/paper-toggle-button.js';
 import '@anypoint-web-components/anypoint-styles/colors.js';
 import '../api-type-document.js';
 
-import { AmfHelperMixin } from '@api-components/amf-helper-mixin/amf-helper-mixin.js';
-class DemoElement extends AmfHelperMixin(LitElement) {}
+/* eslint-disable no-continue */
 
-window.customElements.define('demo-element', DemoElement);
-class ApiDemo extends ApiDemoPageBase {
+class ApiDemo extends ApiDemoPage {
   constructor() {
     super();
     this.endpointsOpened = false;
     this.typesOpened = true;
     this.hasType = false;
+    this.noActions = false;
     this.componentName = 'api-type-document';
-    // this._optionChanged = this._optionChanged.bind(this);
+    this.initObservableProperties([
+      'noActions',
+      'dataProperties',
+      'mediaType',
+      'mediaTypes',
+    ]);
   }
-
-  get narrow() {
-    return this._narrow;
-  }
-
-  set narrow(value) {
-    this._setObservableProperty('narrow', value);
-  }
-
-  get noActions() {
-    return this._noActions;
-  }
-
-  set noActions(value) {
-    this._setObservableProperty('noActions', value);
-  }
-
-  get dataProperties() {
-    return this._dataProperties;
-  }
-
-  set dataProperties(value) {
-    this._setObservableProperty('dataProperties', value);
-  }
-
-  get mediaType() {
-    return this._mediaType;
-  }
-
-  set mediaType(value) {
-    this._setObservableProperty('mediaType', value);
-  }
-
-  get mediaTypes() {
-    return this._mediaTypes;
-  }
-
-  set mediaTypes(value) {
-    this._setObservableProperty('mediaTypes', value);
-  }
-
-  get helper() {
-    return document.getElementById('helper');
-  }
-
-  // _optionChanged(e) {
-  //   const prop = e.target.id;
-  //   const value = e.detail.value;
-  //   setTimeout(() => {
-  //     this[prop] = value;
-  //   });
-  // }
 
   _navChanged(e) {
     const { selected, type } = e.detail;
@@ -87,13 +36,12 @@ class ApiDemo extends ApiDemoPageBase {
   }
 
   setBodyData(id) {
-    const helper = this.helper;
-    const webApi = helper._computeWebApi(this.amf);
-    const method = helper._computeMethodModel(webApi, id);
-    const expects = helper._computeExpects(method);
-    const payload = helper._computePayload(expects)[0];
-    const mt = helper._getValue(payload, helper.ns.aml.vocabularies.core.mediaType);
-    const key = helper._getAmfKey(helper.ns.aml.vocabularies.shapes.schema);
+    const webApi = this._computeWebApi(this.amf);
+    const method = this._computeMethodModel(webApi, id);
+    const expects = this._computeExpects(method);
+    const payload = this._computePayload(expects)[0];
+    const mt = this._getValue(payload, this.ns.aml.vocabularies.core.mediaType);
+    const key = this._getAmfKey(this.ns.aml.vocabularies.shapes.schema);
     let schema = payload && payload[key];
     if (!schema) {
       return;
@@ -105,14 +53,13 @@ class ApiDemo extends ApiDemoPageBase {
   }
 
   setTypeData(id) {
-    const helper = this.helper;
-    const declares = helper._computeDeclares(this.amf);
+    const declares = this._computeDeclares(this.amf);
     let type = declares.find((item) => item['@id'] === id);
     if (!type) {
-      const refs = helper._computeReferences(this.amf);
+      const refs = this._computeReferences(this.amf);
       if (refs) {
         for (let i = 0; i < refs.length; i++) {
-          const rd = helper._computeDeclares(refs[i]);
+          const rd = this._computeDeclares(refs[i]);
           if (!rd) {
             continue;
           }
@@ -135,12 +82,12 @@ class ApiDemo extends ApiDemoPageBase {
     this.dataProperties = type;
     this.hasType = true;
 
-    let webApi = helper._computeWebApi(this.amf);
+    let webApi = this._computeWebApi(this.amf);
     if (webApi instanceof Array) {
-      webApi = webApi[0];
+      [webApi] = webApi;
     }
-    const key = helper._getAmfKey(helper.ns.aml.vocabularies.apiContract.accepts);
-    const value = helper._ensureArray(webApi[key]);
+    const key = this._getAmfKey(this.ns.aml.vocabularies.apiContract.accepts);
+    const value = this._ensureArray(webApi[key]);
     if (value) {
       this.mediaTypes = value.map((item) => item['@value']);
     }
@@ -174,25 +121,26 @@ class ApiDemo extends ApiDemoPageBase {
       ['SE-11155', 'SE-11155'],
       ['demo-api-v4', 'Demo Api - AMF v4'],
       ['APIC-282', 'APIC-282'],
-    ].map(([file, label]) => html`
-    <paper-item data-src="${file}-compact.json">${label} - compact model</paper-item>
-    <paper-item data-src="${file}.json">${label}</paper-item>`);
+    ].map(
+      ([file, label]) => html` <paper-item data-src="${file}-compact.json"
+          >${label} - compact model</paper-item
+        >
+        <paper-item data-src="${file}.json">${label}</paper-item>`
+    );
   }
 
   contentTemplate() {
     return html`
-    <demo-element id="helper" .amf="${this.amf}"></demo-element>
-    <raml-aware .api="${this.amf}" scope="model"></raml-aware>
-    ${this.hasType ?
-      html`<api-type-document
-        ?narrow="${this.narrow}"
-        aware="model"
-        .type="${this.dataProperties}"
-        .mediaType="${this.mediaType}"
-        .mediaTypes="${this.mediaTypes}"
-        ?noexamplesactions="${this.noActions}"
-      ></api-type-document>` :
-      html`<p>Select type in the navigation to see the demo.</p>`}
+      ${this.hasType
+        ? html`<api-type-document
+            ?narrow="${this.narrow}"
+            .amf="${this.amf}"
+            .type="${this.dataProperties}"
+            .mediaType="${this.mediaType}"
+            .mediaTypes="${this.mediaTypes}"
+            ?noexamplesactions="${this.noActions}"
+          ></api-type-document>`
+        : html`<p>Select type in the navigation to see the demo.</p>`}
     `;
   }
 }
