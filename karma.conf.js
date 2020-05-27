@@ -23,6 +23,12 @@ module.exports = (config) => {
         nodeResolve: true,
       },
 
+      client: {
+        mocha: {
+          timeout: 20000,
+        },
+      },
+
       coverageIstanbulReporter: {
         thresholds: {
           global: {
