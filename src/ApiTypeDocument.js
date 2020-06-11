@@ -298,6 +298,17 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       this._hasType(type, this.ns.aml.vocabularies.shapes.ArrayShape)
     ) {
       isArray = true;
+
+      const iKey = this._getAmfKey(this.ns.aml.vocabularies.shapes.items);
+      let items = this._ensureArray(type[iKey]);
+      if (items) {
+        items = items[0];
+        const key = this._getAmfKey(this.ns.w3.shacl.and);
+        if (key in items) {
+          isAnd = true;
+          this.andTypes = this._computeAndTypes(items[key]);
+        }
+      }
     } else if (this._hasType(type, this.ns.w3.shacl.NodeShape)) {
       isObject = true;
     } else if (this._hasType(type, this.ns.aml.vocabularies.shapes.AnyShape)) {

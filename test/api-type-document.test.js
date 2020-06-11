@@ -3,20 +3,25 @@ import { AmfLoader } from './amf-loader.js';
 import { tap } from '@polymer/iron-test-helpers/mock-interactions.js';
 import '../api-type-document.js';
 
-describe('<api-type-document>', function() {
+describe('<api-type-document>', function () {
   async function basicFixture() {
-    return (await fixture(`<api-type-document></api-type-document>`));
+    return await fixture(`<api-type-document></api-type-document>`);
   }
 
   function getPayloadType(element, model, path, methodName) {
     const webApi = element._computeWebApi(model);
     const endpoint = element._computeEndpointByPath(webApi, path);
-    const opKey = element._getAmfKey(element.ns.aml.vocabularies.apiContract.supportedOperation);
+    const opKey = element._getAmfKey(
+      element.ns.aml.vocabularies.apiContract.supportedOperation
+    );
     const methods = endpoint[opKey];
     let method;
     for (let j = 0, jLen = methods.length; j < jLen; j++) {
       const m = methods[j];
-      const value = element._getValue(m, element.ns.aml.vocabularies.apiContract.method);
+      const value = element._getValue(
+        m,
+        element.ns.aml.vocabularies.apiContract.method
+      );
       if (value === methodName) {
         method = m;
         break;
@@ -24,7 +29,10 @@ describe('<api-type-document>', function() {
     }
     const expects = element._computeExpects(method);
     const payload = element._computePayload(expects)[0];
-    const mt = element._getValue(payload, element.ns.aml.vocabularies.core.mediaType);
+    const mt = element._getValue(
+      payload,
+      element.ns.aml.vocabularies.core.mediaType
+    );
     const key = element._getAmfKey(element.ns.aml.vocabularies.shapes.schema);
     let schema = payload && payload[key];
     if (!schema) {
@@ -32,6 +40,54 @@ describe('<api-type-document>', function() {
     }
     schema = schema instanceof Array ? schema[0] : schema;
     return [schema, mt];
+  }
+
+  function getResponseSchema(element, model, path, methodName, statusCode) {
+    const webApi = element._computeWebApi(model);
+    const endpoint = element._computeEndpointByPath(webApi, path);
+    const opKey = element._getAmfKey(
+      element.ns.aml.vocabularies.apiContract.supportedOperation
+    );
+    const methods = endpoint[opKey];
+
+    let method;
+    for (let j = 0, jLen = methods.length; j < jLen; j++) {
+      const m = methods[j];
+      const value = element._getValue(
+        m,
+        element.ns.aml.vocabularies.apiContract.method
+      );
+      if (value === methodName) {
+        method = m;
+        break;
+      }
+    }
+
+    const rKey = element._getAmfKey(
+      element.ns.aml.vocabularies.apiContract.returns
+    );
+    const responses = method[rKey];
+
+    let status;
+    for (let j = 0, jLen = responses.length; j < jLen; j++) {
+      const s = responses[j];
+      const value = element._getValue(
+        s,
+        element.ns.aml.vocabularies.apiContract.statusCode
+      );
+      if (value === statusCode) {
+        status = s;
+        break;
+      }
+    }
+
+    const sKey = element._getAmfKey(
+      element.ns.aml.vocabularies.apiContract.payload
+    );
+    const schemaKey = element._getAmfKey(
+      element.ns.aml.vocabularies.shapes.schema
+    );
+    return status ? status[sKey][0][schemaKey] : status;
   }
 
   describe('Model independent', () => {
@@ -106,8 +162,8 @@ describe('<api-type-document>', function() {
   });
 
   [
-    ['Regulatr model', false],
-    ['Compact model', true]
+    ['Regular model', false],
+    ['Compact model', true],
   ].forEach((item) => {
     describe(item[0], () => {
       describe('a11y', () => {
@@ -229,6 +285,22 @@ describe('<api-type-document>', function() {
           assert.typeOf(element.andTypes, 'array');
           assert.lengthOf(element.andTypes, 3);
         });
+
+        it('Sets andTypes for ArrayShape with "and" property', async () => {
+          const data = await AmfLoader.load(item[1], 'APIC-429');
+          element.amf = data[0];
+          const payload = getResponseSchema(
+            element,
+            data[0],
+            '/pets',
+            'get',
+            '200'
+          );
+          element._typeChanged(element._resolve(payload[0]));
+          assert.isTrue(element.isArray);
+          assert.typeOf(element.andTypes, 'array');
+          assert.lengthOf(element.andTypes, 2);
+        });
       });
 
       describe('_selectUnion()', () => {
@@ -258,7 +330,9 @@ describe('<api-type-document>', function() {
 
         it('Sets event target as active when selecting current selection', async () => {
           await nextFrame();
-          const nodes = element.shadowRoot.querySelectorAll('.union-type-selector .union-toggle');
+          const nodes = element.shadowRoot.querySelectorAll(
+            '.union-type-selector .union-toggle'
+          );
           tap(nodes[1]);
           await nextFrame();
           assert.isTrue(nodes[1].hasAttribute('activated'));
@@ -266,7 +340,9 @@ describe('<api-type-document>', function() {
 
         it('Changes the selection', async () => {
           await nextFrame();
-          const nodes = element.shadowRoot.querySelectorAll('.union-type-selector .union-toggle');
+          const nodes = element.shadowRoot.querySelectorAll(
+            '.union-type-selector .union-toggle'
+          );
           tap(nodes[1]);
           assert.equal(element.selectedUnion, 1);
         });
@@ -279,8 +355,7 @@ describe('<api-type-document>', function() {
         });
 
         it('Computes union type', () => {
-          return AmfLoader.loadType('Unionable', item[1])
-          .then((data) => {
+          return AmfLoader.loadType('Unionable', item[1]).then((data) => {
             element.amf = data[0];
             const result = element._computeUnionProperty(data[1], 0);
             assert.typeOf(result, 'object');
@@ -298,11 +373,15 @@ describe('<api-type-document>', function() {
         });
 
         it('Computes union type for an array item', () => {
-          return AmfLoader.loadType('UnionArray', item[1])
-          .then((data) => {
+          return AmfLoader.loadType('UnionArray', item[1]).then((data) => {
             element.amf = data[0];
             const result = element._computeUnionProperty(data[1], 0);
-            assert.isTrue(element._hasType(result, element.ns.aml.vocabularies.shapes.ScalarShape));
+            assert.isTrue(
+              element._hasType(
+                result,
+                element.ns.aml.vocabularies.shapes.ScalarShape
+              )
+            );
           });
         });
       });
@@ -325,8 +404,7 @@ describe('<api-type-document>', function() {
         });
 
         it('Computes object properties', () => {
-          return AmfLoader.loadType('Image', item[1])
-          .then((data) => {
+          return AmfLoader.loadType('Image', item[1]).then((data) => {
             element.amf = data[0];
             const result = element._computeProperties(data[1]);
             assert.typeOf(result, 'array');
@@ -389,27 +467,37 @@ describe('<api-type-document>', function() {
         });
 
         it('Renders object document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.object-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.object-document'
+          );
           assert.ok(doc);
         });
 
         it('Does not render array document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.array-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.array-document'
+          );
           assert.notOk(doc);
         });
 
         it('Does not render scalar document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.shape-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.shape-document'
+          );
           assert.notOk(doc);
         });
 
         it('Does not render union selector', () => {
-          const selector = element.shadowRoot.querySelector('.union-type-selector');
+          const selector = element.shadowRoot.querySelector(
+            '.union-type-selector'
+          );
           assert.notOk(selector);
         });
 
         it('Does not render union document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.union-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.union-document'
+          );
           assert.notOk(doc);
         });
       });
@@ -429,27 +517,37 @@ describe('<api-type-document>', function() {
         });
 
         it('Does not render object document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.object-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.object-document'
+          );
           assert.notOk(doc);
         });
 
         it('Renders array document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.array-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.array-document'
+          );
           assert.ok(doc);
         });
 
         it('Does not render scalar document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.shape-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.shape-document'
+          );
           assert.notOk(doc);
         });
 
         it('Does not render union selector', () => {
-          const selector = element.shadowRoot.querySelector('.union-type-selector');
+          const selector = element.shadowRoot.querySelector(
+            '.union-type-selector'
+          );
           assert.notOk(selector);
         });
 
         it('Does not render union document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.union-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.union-document'
+          );
           assert.notOk(doc);
         });
       });
@@ -470,27 +568,37 @@ describe('<api-type-document>', function() {
         });
 
         it('Does not render object document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.object-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.object-document'
+          );
           assert.notOk(doc);
         });
 
         it('Does not render array document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.array-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.array-document'
+          );
           assert.notOk(doc);
         });
 
         it('Renders scalar document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.shape-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.shape-document'
+          );
           assert.ok(doc);
         });
 
         it('Does not render union selector', () => {
-          const selector = element.shadowRoot.querySelector('.union-type-selector');
+          const selector = element.shadowRoot.querySelector(
+            '.union-type-selector'
+          );
           assert.notOk(selector);
         });
 
         it('Does not render union document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.union-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.union-document'
+          );
           assert.notOk(doc);
         });
       });
@@ -527,22 +635,30 @@ describe('<api-type-document>', function() {
         });
 
         it('Does not render object document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.object-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.object-document'
+          );
           assert.notOk(doc);
         });
 
         it('Does not render array document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.array-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.array-document'
+          );
           assert.notOk(doc);
         });
 
         it('Does not render scalar document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.shape-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.shape-document'
+          );
           assert.notOk(doc);
         });
 
         it('Renders union selector', () => {
-          const selector = element.shadowRoot.querySelector('.union-type-selector');
+          const selector = element.shadowRoot.querySelector(
+            '.union-type-selector'
+          );
           assert.ok(selector);
         });
 
@@ -551,7 +667,9 @@ describe('<api-type-document>', function() {
         });
 
         it('Renders union document', () => {
-          const doc = element.shadowRoot.querySelector('api-type-document.union-document');
+          const doc = element.shadowRoot.querySelector(
+            'api-type-document.union-document'
+          );
           assert.ok(doc);
         });
 
@@ -568,8 +686,12 @@ describe('<api-type-document>', function() {
 
         it('Selection change computes properties for the table', () => {
           element.selectedUnion = 1;
-          const doc = element.shadowRoot.querySelector('api-type-document.union-document');
-          const key = element._getAmfKey(element.ns.aml.vocabularies.shapes.anyOf);
+          const doc = element.shadowRoot.querySelector(
+            'api-type-document.union-document'
+          );
+          const key = element._getAmfKey(
+            element.ns.aml.vocabularies.shapes.anyOf
+          );
           const type = element.type[key][0];
           assert.deepEqual(doc.type, type);
         });
@@ -591,27 +713,37 @@ describe('<api-type-document>', function() {
         });
 
         it('Does not render object document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.object-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.object-document'
+          );
           assert.notOk(doc);
         });
 
         it('Does not render array document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.array-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.array-document'
+          );
           assert.notOk(doc);
         });
 
         it('Does not render scalar document', () => {
-          const doc = element.shadowRoot.querySelector('property-shape-document.shape-document');
+          const doc = element.shadowRoot.querySelector(
+            'property-shape-document.shape-document'
+          );
           assert.notOk(doc);
         });
 
         it('"And" documents are in the DOM', () => {
-          const docs = element.shadowRoot.querySelectorAll('api-type-document.and-document');
+          const docs = element.shadowRoot.querySelectorAll(
+            'api-type-document.and-document'
+          );
           assert.lengthOf(docs, 3);
         });
 
         it('Inheritance labels are rendered', () => {
-          const docs = element.shadowRoot.querySelectorAll('.inheritance-label');
+          const docs = element.shadowRoot.querySelectorAll(
+            '.inheritance-label'
+          );
           assert.lengthOf(docs, 3);
         });
       });
@@ -620,7 +752,7 @@ describe('<api-type-document>', function() {
 
   [
     ['Regular model - Union types', false],
-    ['Compact model - Union types', true]
+    ['Compact model - Union types', true],
   ].forEach((item) => {
     describe(item[0], () => {
       describe('_typeChanged()', () => {
@@ -632,7 +764,12 @@ describe('<api-type-document>', function() {
         it('Computes names in union shape #1', async () => {
           const data = await AmfLoader.load(item[1], 'SE-11155');
           element.amf = data[0];
-          const [schema, mt] = getPayloadType(element, data[0], '/users', 'post');
+          const [schema, mt] = getPayloadType(
+            element,
+            data[0],
+            '/users',
+            'post'
+          );
           element.type = schema;
           element.mediaType = mt;
 
@@ -654,7 +791,12 @@ describe('<api-type-document>', function() {
         it('Computes names in union shape #2', async () => {
           const data = await AmfLoader.load(item[1], 'examples-api');
           element.amf = data[0];
-          const [schema, mt] = getPayloadType(element, data[0], '/union', 'post');
+          const [schema, mt] = getPayloadType(
+            element,
+            data[0],
+            '/union',
+            'post'
+          );
           element.type = schema;
           element.mediaType = mt;
 
@@ -748,7 +890,7 @@ describe('<api-type-document>', function() {
 
     it('Sets selectedMediaType', () => {
       const e = {
-        target
+        target,
       };
       element.mediaTypes = ['invalid', 'valid'];
       element._selectMediaType(e);
@@ -757,7 +899,7 @@ describe('<api-type-document>', function() {
 
     it('Sets mediaType', () => {
       const e = {
-        target
+        target,
       };
       element.mediaTypes = ['invalid', 'valid'];
       element._selectMediaType(e);
@@ -766,7 +908,7 @@ describe('<api-type-document>', function() {
 
     it('Sets event target active', () => {
       const e = {
-        target
+        target,
       };
       element.mediaTypes = ['invalid', 'valid'];
       element.selectedMediaType = 1;
@@ -777,7 +919,7 @@ describe('<api-type-document>', function() {
     it('Ignores invalid index', () => {
       target.dataset.index = 'test';
       const e = {
-        target
+        target,
       };
       element.mediaTypes = ['invalid', 'valid'];
       element.selectedMediaType = undefined;
