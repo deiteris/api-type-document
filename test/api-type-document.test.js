@@ -42,54 +42,6 @@ describe('<api-type-document>', function () {
     return [schema, mt];
   }
 
-  function getResponseSchema(element, model, path, methodName, statusCode) {
-    const webApi = element._computeWebApi(model);
-    const endpoint = element._computeEndpointByPath(webApi, path);
-    const opKey = element._getAmfKey(
-      element.ns.aml.vocabularies.apiContract.supportedOperation
-    );
-    const methods = endpoint[opKey];
-
-    let method;
-    for (let j = 0, jLen = methods.length; j < jLen; j++) {
-      const m = methods[j];
-      const value = element._getValue(
-        m,
-        element.ns.aml.vocabularies.apiContract.method
-      );
-      if (value === methodName) {
-        method = m;
-        break;
-      }
-    }
-
-    const rKey = element._getAmfKey(
-      element.ns.aml.vocabularies.apiContract.returns
-    );
-    const responses = method[rKey];
-
-    let status;
-    for (let j = 0, jLen = responses.length; j < jLen; j++) {
-      const s = responses[j];
-      const value = element._getValue(
-        s,
-        element.ns.aml.vocabularies.apiContract.statusCode
-      );
-      if (value === statusCode) {
-        status = s;
-        break;
-      }
-    }
-
-    const sKey = element._getAmfKey(
-      element.ns.aml.vocabularies.apiContract.payload
-    );
-    const schemaKey = element._getAmfKey(
-      element.ns.aml.vocabularies.shapes.schema
-    );
-    return status ? status[sKey][0][schemaKey] : status;
-  }
-
   describe('Model independent', () => {
     describe('Basic', () => {
       it('Renders no params table without data', async () => {
@@ -289,7 +241,7 @@ describe('<api-type-document>', function () {
         it('Sets andTypes for ArrayShape with "and" property', async () => {
           const data = await AmfLoader.load(item[1], 'APIC-429');
           element.amf = data[0];
-          const payload = getResponseSchema(
+          const payload = AmfLoader.getResponseSchema(
             element,
             data[0],
             '/pets',
@@ -297,7 +249,8 @@ describe('<api-type-document>', function () {
             '200'
           );
           element._typeChanged(element._resolve(payload[0]));
-          assert.isTrue(element.isArray);
+          assert.isFalse(element.isArray);
+          assert.isTrue(element.isAnd);
           assert.typeOf(element.andTypes, 'array');
           assert.lengthOf(element.andTypes, 2);
         });
