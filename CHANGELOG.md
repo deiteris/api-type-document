@@ -2490,3 +2490,17 @@
  [217dd09](https://github.com/advanced-rest-client/api-type-document/commit/217dd0945050383a70dd9118a3a6c9e2a19639cf) by Pawel Psztyc
 
 
+<a name="4.1.1"></a>
+## [4.1.1](https://github.com/advanced-rest-client/api-type-document/compare/4.0.6...4.1.1) (2020-06-12)
+
+### Update
+
+* [ci skip] automated merge master->stage. syncing main branches [810bb60](https://github.com/advanced-rest-client/api-type-document/commit/810bb6092fdcb4daa421fbd69f516b64a5912912) by Ci agent
+
+
+### Bug Fixes
+
+* APIC-429 [bump version] [cd97d31](https://github.com/advanced-rest-client/api-type-document/commit/cd97d314e25242b8108a3f27a8ca17d90e80270a) by Carolina Wright
+* apic-405 missing list of enum values for array (#4) [ad38898](https://github.com/advanced-rest-client/api-type-document/commit/ad388984dca232272ebe071996fc0570c00cc5bb) by Carolina Wright
+
+
