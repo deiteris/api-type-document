@@ -163,6 +163,8 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       _hasExamples: { type: Boolean },
 
       _renderMainExample: { type: Boolean },
+
+      renderReadOnly: { type: Boolean },
     };
   }
 
@@ -291,6 +293,8 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     this.narrow = false;
     this.selectedBodyId = undefined;
     this.aware = undefined;
+
+    this._isPropertyReadOnly = this._isPropertyReadOnly.bind(this);
   }
 
   connectedCallback() {
@@ -366,7 +370,6 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       this._hasType(type, this.ns.aml.vocabularies.shapes.ArrayShape)
     ) {
       isArray = true;
-
       const iKey = this._getAmfKey(this.ns.aml.vocabularies.shapes.items);
       let items = this._ensureArray(type[iKey]);
       if (items) {
@@ -502,7 +505,7 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       return item;
     }
     const key = this._getAmfKey(this.ns.w3.shacl.property);
-    return this._ensureArray(item[key]);
+    return this._filterReadOnlyProperties(this._ensureArray(item[key]));
   }
 
   /**
@@ -618,6 +621,7 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
         ?compatibility="${this.compatibility}"
         ?graph="${this.graph}"
         .mediaType="${this.mediaType}"
+        ?renderReadOnly="${this.renderReadOnly}"
       ></property-shape-document>`
     );
   }
@@ -850,6 +854,7 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
           ?rawOnly="${!this.mediaType}"
           ?compatibility="${this.compatibility}"
           exportparts="${parts}"
+          ?renderReadOnly="${this.renderReadOnly}"
         ></api-resource-example-document>
       </section>
 
@@ -872,5 +877,15 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       ${this.isAnd ? this._anyTemplate() : ''}
       ${this.isAnyOf ? this._anyOfTemplate() : ''}
       ${this.isOneOf ? this._oneOfTemplate() : ''}`;
+  }
+
+  _filterReadOnlyProperties(properties) {
+    if (this.renderReadOnly) {
+      return properties;
+    }
+    if (!properties) {
+      return undefined;
+    }
+    return properties.filter((p) => !this._isPropertyReadOnly(p));
   }
 }

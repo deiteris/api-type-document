@@ -93,6 +93,10 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
        */
       isEnum: { type: Boolean },
       /**
+       * Computed value form the shape. True if the property is read only.
+       */
+      isReadOnly: { type: Boolean },
+      /**
        * A description of the property to render.
        */
       propertyDescription: { type: String },
@@ -121,6 +125,7 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
        * is currently rendered.
        */
       opened: { type: Boolean },
+      renderReadOnly: { type: Boolean },
     };
   }
 
@@ -237,6 +242,7 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     this.isObject = this._computeIsObject(range);
     this.isArray = this._computeIsArray(range);
     this.isEnum = this._computeIsEnum(range, this.isArray);
+    this.isReadOnly = this._isReadOnly(range);
     this.isComplex = this._computeIsComplex(
       this.isUnion,
       this.isObject,
@@ -517,6 +523,7 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     return html`<api-type-document
       class="children complex"
       .amf="${this.amf}"
+      ?renderReadOnly="${this.renderReadOnly}"
       .type="${range}"
       .parentTypeName="${parentTypeName}"
       ?narrow="${this.narrow}"
@@ -639,6 +646,13 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
               class="enum-type"
               title="This property represent enumerable value"
               >Enum</span
+            >`
+          : ''}
+        ${this.isReadOnly
+          ? html`<span
+              class="readonly-type"
+              title="This property represents a read only value"
+              >Read only</span
             >`
           : ''}
       </div>

@@ -2,6 +2,7 @@ import { html } from 'lit-html';
 import { ApiDemoPage } from '@advanced-rest-client/arc-demo-helper';
 import '@api-components/api-navigation/api-navigation.js';
 import '@anypoint-web-components/anypoint-styles/colors.js';
+import '@anypoint-web-components/anypoint-checkbox/anypoint-checkbox.js';
 import '../api-type-document.js';
 
 /* eslint-disable no-continue */
@@ -14,12 +15,15 @@ class ApiDemo extends ApiDemoPage {
     this.hasType = false;
     this.noActions = false;
     this.componentName = 'api-type-document';
+    this.renderReadOnly = true;
     this.initObservableProperties([
       'noActions',
       'dataProperties',
       'mediaType',
       'mediaTypes',
+      'renderReadOnly',
     ]);
+    this._toggleRenderReadOnly = this._toggleRenderReadOnly.bind(this);
   }
 
   _navChanged(e) {
@@ -39,7 +43,7 @@ class ApiDemo extends ApiDemoPage {
     const webApi = this._computeWebApi(this.amf);
     const method = this._computeMethodModel(webApi, id);
     const expects = this._computeExpects(method);
-    const payload = this._computePayload(expects)[0];
+    const payload = expects ? this._computePayload(expects)[0] : {};
     const mt = this._getValue(payload, this.ns.aml.vocabularies.core.mediaType);
     const key = this._getAmfKey(this.ns.aml.vocabularies.shapes.schema);
     let schema = payload && payload[key];
@@ -113,7 +117,9 @@ class ApiDemo extends ApiDemoPage {
 
   _apiListTemplate() {
     return [
+      ['APIC-429', 'APIC 429'],
       ['demo-api', 'Demo API'],
+      ['read-only-properties', 'Read Only Properties API'],
       ['examples-api', 'Examples render demo'],
       ['Petstore', 'OAS: Petstore'],
       ['apic-83', 'APIC-83'],
@@ -130,20 +136,34 @@ class ApiDemo extends ApiDemoPage {
     );
   }
 
+  _toggleRenderReadOnly() {
+    this.renderReadOnly = !this.renderReadOnly;
+  }
+
   contentTemplate() {
     return html`
       ${this.hasType
-        ? html`<api-type-document
-            ?narrow="${this.narrow}"
-            .amf="${this.amf}"
-            .type="${this.dataProperties}"
-            .mediaType="${this.mediaType}"
-            .mediaTypes="${this.mediaTypes}"
-            ?noexamplesactions="${this.noActions}"
-          ></api-type-document>`
+        ? html`<div>
+              <anypoint-checkbox
+                @change="${this._toggleRenderReadOnly}"
+                ?checked="${this.renderReadOnly}"
+              >
+                Render read-only
+              </anypoint-checkbox>
+            </div>
+            <api-type-document
+              ?narrow="${this.narrow}"
+              .amf="${this.amf}"
+              .type="${this.dataProperties}"
+              .mediaType="${this.mediaType}"
+              .mediaTypes="${this.mediaTypes}"
+              ?noexamplesactions="${this.noActions}"
+              ?renderReadOnly="${this.renderReadOnly}"
+            ></api-type-document>`
         : html`<p>Select type in the navigation to see the demo.</p>`}
     `;
   }
 }
+
 const instance = new ApiDemo();
 instance.render();
