@@ -58,27 +58,9 @@ class ApiDemo extends ApiDemoPage {
 
   setTypeData(id) {
     const declares = this._computeDeclares(this.amf);
-    let type = declares.find((item) => item['@id'] === id);
-    if (!type) {
-      const refs = this._computeReferences(this.amf);
-      if (refs) {
-        for (let i = 0; i < refs.length; i++) {
-          const rd = this._computeDeclares(refs[i]);
-          if (!rd) {
-            continue;
-          }
-          for (let j = 0; j < rd.length; j++) {
-            if (rd[j]['@id'] === id) {
-              type = rd[j];
-              break;
-            }
-          }
-          if (type) {
-            break;
-          }
-        }
-      }
-    }
+    const refs = this._computeReferences(this.amf);
+    const type = this._computeType(declares, refs, id);
+
     if (!type) {
       console.error('Type not found');
       return;
