@@ -15,6 +15,8 @@ import { dedupeMixin } from '@open-wc/dedupe-mixin';
 import { AmfHelperMixin } from '@api-components/amf-helper-mixin';
 
 /* eslint-disable class-methods-use-this */
+/* eslint-disable no-param-reassign */
+/* eslint-disable prefer-destructuring */
 
 /**
  * @typedef {Object} ArrayPropertyItem
@@ -280,7 +282,20 @@ const mxFunction = (base) => {
           return [item];
         default: {
           const pkey = this._getAmfKey(this.ns.w3.shacl.property);
-          const items = this._ensureArray(item[pkey]);
+          let items = this._ensureArray(item[pkey]);
+
+          if (!items) {
+            const skey = this._getAmfKey(this.ns.w3.rdfSchema.Seq);
+            if (this._hasType(item, skey)) {
+              const rkey = `${this._getAmfKey(this.ns.w3.rdfSchema.key)}_1`;
+              const schema = this._ensureArray(item[rkey]);
+
+              if (schema && schema.length > 0) {
+                items = this._ensureArray(schema[0][pkey]);
+              }
+            }
+          }
+
           if (items) {
             items.forEach((i) => {
               /* eslint-disable-next-line no-param-reassign */
@@ -456,21 +471,21 @@ const mxFunction = (base) => {
 
     _isPropertyReadOnly(property) {
       if (Array.isArray(property)) {
-        property = property[0]
+        property = property[0];
       }
-      const rKey = this._getAmfKey(this.ns.aml.vocabularies.shapes.range)
-      const range = property[rKey]
-      return this._isReadOnly(range)
+      const rKey = this._getAmfKey(this.ns.aml.vocabularies.shapes.range);
+      const range = property[rKey];
+      return this._isReadOnly(range);
     }
 
     _isReadOnly(node) {
       if (Array.isArray(node)) {
-        node = node[0]
+        node = node[0];
       }
       if (!node) {
-        return false
+        return false;
       }
-      const roKey = this._getAmfKey(this.ns.aml.vocabularies.shapes.readOnly)
+      const roKey = this._getAmfKey(this.ns.aml.vocabularies.shapes.readOnly);
       return this._getValue(node, roKey);
     }
   }
