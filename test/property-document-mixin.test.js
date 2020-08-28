@@ -1,16 +1,18 @@
-import { fixture, assert } from '@open-wc/testing';
+import { assert, fixture } from '@open-wc/testing';
 import { AmfLoader } from './amf-loader.js';
 import './test-document-mixin.js';
 
-describe('PropertyDocumentMixin', function() {
+/* eslint-disable prefer-destructuring */
+
+describe('PropertyDocumentMixin', () => {
   async function basicFixture() {
-    return (await fixture(`<test-document-mixin></test-document-mixin>`));
+    return fixture(`<test-document-mixin></test-document-mixin>`);
   }
 
   describe('_computeRangeDataType()', () => {
     [
       ['Regulat model', false],
-      ['Compact model', true]
+      ['Compact model', true],
     ].forEach((item) => {
       describe(item[0], () => {
         let element;
@@ -26,73 +28,91 @@ describe('PropertyDocumentMixin', function() {
         });
 
         it('Computes UnionShape', () => {
-          const type = element._getAmfKey('http://a.ml/vocabularies/shapes#UnionShape');
+          const type = element._getAmfKey(
+            'http://a.ml/vocabularies/shapes#UnionShape'
+          );
           const result = element._computeRangeDataType({
-            '@type': [type]
+            '@type': [type],
           });
           assert.equal(result, 'Union');
         });
 
         it('Computes ArrayShape', () => {
-          const type = element._getAmfKey('http://a.ml/vocabularies/shapes#ArrayShape');
+          const type = element._getAmfKey(
+            'http://a.ml/vocabularies/shapes#ArrayShape'
+          );
           const result = element._computeRangeDataType({
-            '@type': [type]
+            '@type': [type],
           });
           assert.equal(result, 'Array');
         });
 
         it('Computes NodeShape', () => {
-          const type = element._getAmfKey('http://www.w3.org/ns/shacl#NodeShape');
+          const type = element._getAmfKey(
+            'http://www.w3.org/ns/shacl#NodeShape'
+          );
           const result = element._computeRangeDataType({
-            '@type': [type]
+            '@type': [type],
           });
           assert.equal(result, 'Object');
         });
 
         it('Computes FileShape', () => {
-          const type = element._getAmfKey('http://a.ml/vocabularies/shapes#FileShape');
+          const type = element._getAmfKey(
+            'http://a.ml/vocabularies/shapes#FileShape'
+          );
           const result = element._computeRangeDataType({
-            '@type': [type]
+            '@type': [type],
           });
           assert.equal(result, 'File');
         });
 
         it('Computes NilShape', () => {
-          const type = element._getAmfKey('http://a.ml/vocabularies/shapes#NilShape');
+          const type = element._getAmfKey(
+            'http://a.ml/vocabularies/shapes#NilShape'
+          );
           const result = element._computeRangeDataType({
-            '@type': [type]
+            '@type': [type],
           });
           assert.equal(result, 'Null');
         });
 
         it('Computes AnyShape', () => {
-          const type = element._getAmfKey('http://a.ml/vocabularies/shapes#AnyShape');
+          const type = element._getAmfKey(
+            'http://a.ml/vocabularies/shapes#AnyShape'
+          );
           const result = element._computeRangeDataType({
-            '@type': [type]
+            '@type': [type],
           });
           assert.equal(result, 'Any');
         });
 
         it('Computes MatrixShape', () => {
-          const type = element._getAmfKey('http://a.ml/vocabularies/shapes#MatrixShape');
+          const type = element._getAmfKey(
+            'http://a.ml/vocabularies/shapes#MatrixShape'
+          );
           const result = element._computeRangeDataType({
-            '@type': [type]
+            '@type': [type],
           });
           assert.equal(result, 'Matrix');
         });
 
         it('Computes TupleShape', () => {
-          const type = element._getAmfKey('http://a.ml/vocabularies/shapes#TupleShape');
+          const type = element._getAmfKey(
+            'http://a.ml/vocabularies/shapes#TupleShape'
+          );
           const result = element._computeRangeDataType({
-            '@type': [type]
+            '@type': [type],
           });
           assert.equal(result, 'Tuple');
         });
 
         it('Computes RecursiveShape', () => {
-          const type = element._getAmfKey('http://a.ml/vocabularies/shapes#RecursiveShape');
+          const type = element._getAmfKey(
+            'http://a.ml/vocabularies/shapes#RecursiveShape'
+          );
           const result = element._computeRangeDataType({
-            '@type': [type]
+            '@type': [type],
           });
           assert.equal(result, 'Recursive');
         });
@@ -100,7 +120,7 @@ describe('PropertyDocumentMixin', function() {
         it('Computes Unknown type', () => {
           const type = 'unknown';
           const result = element._computeRangeDataType({
-            '@type': [type]
+            '@type': [type],
           });
           assert.equal(result, 'Unknown type');
         });
@@ -117,9 +137,11 @@ describe('PropertyDocumentMixin', function() {
     let element;
     const shape = {
       '@type': ['http://a.ml/vocabularies/shapes#ScalarShape'],
-      'http://www.w3.org/ns/shacl#datatype': [{
-        '@id': ''
-      }]
+      'http://www.w3.org/ns/shacl#datatype': [
+        {
+          '@id': '',
+        },
+      ],
     };
     before(async () => {
       element = await basicFixture();
@@ -143,9 +165,9 @@ describe('PropertyDocumentMixin', function() {
       ['http://www.w3.org/2001/XMLSchema#double', 'Double'],
       ['http://www.w3.org/2001/XMLSchema#base64Binary', 'Base64 binary'],
       ['http://a.ml/vocabularies/shapes#password', 'Password'],
-      ['UNKNOWN', 'Unknown type']
+      ['UNKNOWN', 'Unknown type'],
     ].forEach((item) => {
-      it('Computes ' + item[0], () => {
+      it(`Computes ${item[0]}`, () => {
         setType(item[0]);
         const result = element._computeRangeDataType(shape);
         assert.equal(result, item[1]);
@@ -157,9 +179,11 @@ describe('PropertyDocumentMixin', function() {
     let element;
     const shape = {
       '@type': ['raml-shapes:ScalarShape'],
-      'shacl:datatype': [{
-        '@id': ''
-      }]
+      'shacl:datatype': [
+        {
+          '@id': '',
+        },
+      ],
     };
 
     before(async () => {
@@ -186,9 +210,9 @@ describe('PropertyDocumentMixin', function() {
       ['http://www.w3.org/2001/XMLSchema#double', 'Double'],
       ['http://www.w3.org/2001/XMLSchema#base64Binary', 'Base64 binary'],
       ['http://a.ml/vocabularies/shapes#password', 'Password'],
-      ['UNKNOWN', 'Unknown type']
+      ['UNKNOWN', 'Unknown type'],
     ].forEach((item) => {
-      it('Computes ' + item[0], () => {
+      it(`Computes ${item[0]}`, () => {
         setType(item[0]);
         const result = element._computeRangeDataType(shape);
         assert.equal(result, item[1]);
@@ -200,17 +224,19 @@ describe('PropertyDocumentMixin', function() {
     let element;
     const ScalarShape = {
       '@type': ['http://a.ml/vocabularies/shapes#ScalarShape'],
-      'http://www.w3.org/ns/shacl#datatype': [{
-        '@id': 'http://a.ml/vocabularies/shapes#number'
-      }]
+      'http://www.w3.org/ns/shacl#datatype': [
+        {
+          '@id': 'http://a.ml/vocabularies/shapes#number',
+        },
+      ],
     };
     const ParameterShape = {
       '@type': ['http://a.ml/vocabularies/apiContract#Parameter'],
-      'http://a.ml/vocabularies/shapes#schema': ['TEST-PARAMETER']
+      'http://a.ml/vocabularies/shapes#schema': ['TEST-PARAMETER'],
     };
     const NodeShape = {
       '@type': ['http://a.ml/vocabularies/apiContract#NodeShape'],
-      'http://a.ml/vocabularies/shapes#range': ['TEST-RANGE']
+      'http://a.ml/vocabularies/shapes#range': ['TEST-RANGE'],
     };
 
     before(async () => {
@@ -236,7 +262,7 @@ describe('PropertyDocumentMixin', function() {
   describe('_computeArrayProperties()', () => {
     [
       ['Regulat model', false],
-      ['Compact model', true]
+      ['Compact model', true],
     ].forEach((item) => {
       describe(item[0], () => {
         let element;
@@ -262,21 +288,27 @@ describe('PropertyDocumentMixin', function() {
         });
 
         it('Returnms undefined when "items" is empty array', () => {
-          const iKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.items);
-          const model = {};
+          const iKey = element._getAmfKey(
+            element.ns.aml.vocabularies.shapes.items
+          );
+          model = {};
           model[iKey] = [];
           const result = element._computeArrayProperties(model);
           assert.isUndefined(result);
         });
 
         it('Handles scalar shape', () => {
-          const iKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.items);
-          const sKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.ScalarShape);
-          const model = {};
-          const item = {
-            '@type': [sKey]
+          const iKey = element._getAmfKey(
+            element.ns.aml.vocabularies.shapes.items
+          );
+          const sKey = element._getAmfKey(
+            element.ns.aml.vocabularies.shapes.ScalarShape
+          );
+          model = {};
+          const modelItem = {
+            '@type': [sKey],
           };
-          model[iKey] = [item];
+          model[iKey] = [modelItem];
           const result = element._computeArrayProperties(model);
           assert.typeOf(result, 'array');
           assert.lengthOf(result, 1);
@@ -284,13 +316,17 @@ describe('PropertyDocumentMixin', function() {
         });
 
         it('Handles UnionShape shape', () => {
-          const iKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.items);
-          const sKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.UnionShape);
-          const model = {};
-          const item = {
-            '@type': [sKey]
+          const iKey = element._getAmfKey(
+            element.ns.aml.vocabularies.shapes.items
+          );
+          const sKey = element._getAmfKey(
+            element.ns.aml.vocabularies.shapes.UnionShape
+          );
+          model = {};
+          const modelItem = {
+            '@type': [sKey],
           };
-          model[iKey] = [item];
+          model[iKey] = [modelItem];
           const result = element._computeArrayProperties(model);
           assert.typeOf(result, 'array');
           assert.lengthOf(result, 1);
@@ -298,13 +334,17 @@ describe('PropertyDocumentMixin', function() {
         });
 
         it('Handles ArrayShape shape', () => {
-          const iKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.items);
-          const sKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.ArrayShape);
-          const model = {};
-          const item = {
-            '@type': [sKey]
+          const iKey = element._getAmfKey(
+            element.ns.aml.vocabularies.shapes.items
+          );
+          const sKey = element._getAmfKey(
+            element.ns.aml.vocabularies.shapes.ArrayShape
+          );
+          model = {};
+          const modelItem = {
+            '@type': [sKey],
           };
-          model[iKey] = [item];
+          model[iKey] = [modelItem];
           const result = element._computeArrayProperties(model);
           assert.typeOf(result, 'array');
           assert.lengthOf(result, 1);
@@ -312,20 +352,48 @@ describe('PropertyDocumentMixin', function() {
         });
 
         it('Handles NodeShape shape', () => {
-          const iKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.items);
-          const sKey = element._getAmfKey(element.ns.aml.vocabularies.shapes.NodeShape);
+          const iKey = element._getAmfKey(
+            element.ns.aml.vocabularies.shapes.items
+          );
+          const sKey = element._getAmfKey(
+            element.ns.aml.vocabularies.shapes.NodeShape
+          );
           const pKey = element._getAmfKey(element.ns.w3.shacl.property);
-          const model = {};
-          const item = {
-            '@type': [sKey]
+          model = {};
+          const modelItem = {
+            '@type': [sKey],
           };
           const properties = [{}];
-          item[pKey] = properties;
-          model[iKey] = [item];
+          modelItem[pKey] = properties;
+          model[iKey] = [modelItem];
           const result = element._computeArrayProperties(model);
           assert.typeOf(result, 'array');
           assert.lengthOf(result, 1);
           assert.isTrue(result[0].isShape);
+        });
+
+        it('Handles Schemas in shape', () => {
+          const iKey = element._getAmfKey(
+            element.ns.aml.vocabularies.shapes.items
+          );
+          const rkey = element._getAmfKey(element.ns.w3.rdfSchema.Seq);
+          const skey = element._getAmfKey(element.ns.w3.rdfSchema.key);
+          const pKey = element._getAmfKey(element.ns.w3.shacl.property);
+
+          model = {};
+          const modelItem = {};
+          modelItem[pKey] = [{}];
+
+          model[iKey] = [
+            {
+              '@type': rkey,
+              [`${skey}_1`]: [modelItem],
+            },
+          ];
+
+          const result = element._computeArrayProperties(model);
+          assert.typeOf(result, 'array');
+          assert.lengthOf(result, 1);
         });
       });
     });
