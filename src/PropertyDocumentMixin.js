@@ -287,12 +287,17 @@ const mxFunction = (base) => {
           if (!items) {
             const skey = this._getAmfKey(this.ns.w3.rdfSchema.Seq);
             if (this._hasType(item, skey)) {
-              const rkey = `${this._getAmfKey(this.ns.w3.rdfSchema.key)}_1`;
-              const schema = this._ensureArray(item[rkey]);
-
-              if (schema && schema.length > 0) {
-                items = this._ensureArray(schema[0][pkey]);
-              }
+              const rkey = this._getAmfKey(this.ns.w3.rdfSchema.key);
+              const schemas = Object.keys(item).filter((k) =>
+                k.startsWith(`${rkey}_`)
+              );
+              schemas.forEach((s) => {
+                const schema = this._ensureArray(item[s]);
+                const properties = schema && schema[0][pkey];
+                if (properties) {
+                  items = (items || []).concat(properties);
+                }
+              });
             }
           }
 
