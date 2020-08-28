@@ -8,11 +8,9 @@ baseUri: api/bank/prc/{version}
 version: v1
 
 /banks:
-  get:
+  post:
     displayName: Retrieve Bank Paynet
-    responses:
-      200:
-        body:
-          application/json:
-            type: !include schema/response-retrieve-list-bank.json
-            example: !include example/list-of-bank-succ.json
+    body:
+      application/json:
+        type: !include schema/response-retrieve-list-bank.json
+        example: !include example/list-of-bank-succ.json
