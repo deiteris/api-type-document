@@ -17,6 +17,7 @@ import { AmfHelperMixin } from '@api-components/amf-helper-mixin';
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-param-reassign */
 /* eslint-disable prefer-destructuring */
+/* eslint-disable valid-jsdoc */
 
 /**
  * @typedef {Object} ArrayPropertyItem
@@ -289,7 +290,7 @@ const mxFunction = (base) => {
             if (this._hasType(item, skey)) {
               const rkey = this._getAmfKey(this.ns.w3.rdfSchema.key);
               const schemas = Object.keys(item).filter((k) =>
-                k.startsWith(`${rkey}_`)
+                k.startsWith(rkey)
               );
               schemas.forEach((s) => {
                 const schema = this._ensureArray(item[s]);
