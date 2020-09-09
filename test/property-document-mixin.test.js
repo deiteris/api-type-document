@@ -388,12 +388,14 @@ describe('PropertyDocumentMixin', () => {
             {
               '@type': rkey,
               [`${skey}_1`]: [modelItem],
+              [`${skey}_2`]: [modelItem],
+              [`${skey}:_1`]: [modelItem],
             },
           ];
 
           const result = element._computeArrayProperties(model);
           assert.typeOf(result, 'array');
-          assert.lengthOf(result, 1);
+          assert.lengthOf(result, 3);
         });
       });
     });
