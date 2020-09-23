@@ -1,7 +1,7 @@
 {
   "name": "@api-components/api-type-document",
   "description": "A documentation table for type (resource) properties. Works with AMF data model",
-  "version": "4.2.2",
+  "version": "4.2.3",
   "license": "Apache-2.0",
   "main": "index.js",
   "module": "index.js",
@@ -91,7 +91,12 @@
           "import/no-extraneous-dependencies": "off"
         }
       }
-    ]
+    ],
+    "rules": {
+      "prefer-destructuring": "off",
+      "no-plusplus": "off",
+      "consistent-return": "off"
+    }
   },
   "prettier": {
     "singleQuote": true,
