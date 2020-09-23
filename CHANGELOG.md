@@ -2542,3 +2542,27 @@
 * all possible properties schema [283e50b](https://github.com/advanced-rest-client/api-type-document/commit/283e50b2ce90af60e82f2831b85c1805328938e4) by Carolina Wright
 
 
+<a name="4.2.3"></a>
+## [4.2.3](https://github.com/advanced-rest-client/api-type-document/compare/4.2.1...4.2.3) (2020-09-23)
+
+### Build
+
+* bump version [58be54d](https://github.com/advanced-rest-client/api-type-document/commit/58be54dfdfad3c7de4f231fcea43bdbb1082a85d) by Carolina Wright
+
+
+### Update
+
+* [ci skip] automated merge master->stage. syncing main branches [65823ca](https://github.com/advanced-rest-client/api-type-document/commit/65823ca69e69f896e6f5503d78d022c94aa020ae) by Ci agent
+* [ci skip] automated merge master->stage. syncing main branches [8bd2ea8](https://github.com/advanced-rest-client/api-type-document/commit/8bd2ea81dea76d307963a554031dfaffe27be63a) by Ci agent
+
+
+### Bug Fixes
+
+* search for properties in schema amf key fix [937ea3b](https://github.com/advanced-rest-client/api-type-document/commit/937ea3bdf01a170e87e58c5df6be538a9d3621f0) by Carolina Wright
+
+
+### Testing
+
+* all possible properties schema [283e50b](https://github.com/advanced-rest-client/api-type-document/commit/283e50b2ce90af60e82f2831b85c1805328938e4) by Carolina Wright
+
+
