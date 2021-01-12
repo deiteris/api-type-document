@@ -2566,3 +2566,14 @@
 * all possible properties schema [283e50b](https://github.com/advanced-rest-client/api-type-document/commit/283e50b2ce90af60e82f2831b85c1805328938e4) by Carolina Wright
 
 
+<a name="4.2.4"></a>
+## [4.2.4](https://github.com/advanced-rest-client/api-type-document/compare/4.2.2...4.2.4) (2021-01-12)
+
+### Update
+
+* updating package meta [0610919](https://github.com/advanced-rest-client/api-type-document/commit/06109191ad6dde7aab45cf3491c3002895e6243c) by Pawel Psztyc
+* upgrading dependencies and types [2b508b9](https://github.com/advanced-rest-client/api-type-document/commit/2b508b9f369cb2f7292ef9d3f5e6a077a69e1e70) by Pawel Psztyc
+* [ci skip] automated merge master->stage. syncing main branches [00d6a70](https://github.com/advanced-rest-client/api-type-document/commit/00d6a701c7a6f59952c6b3b6ec244282a17365bb) by Ci agent
+* [ci skip] automated merge master->stage. syncing main branches [65823ca](https://github.com/advanced-rest-client/api-type-document/commit/65823ca69e69f896e6f5503d78d022c94aa020ae) by Ci agent
+
+
