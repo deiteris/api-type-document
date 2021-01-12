@@ -1,22 +1,17 @@
 import { LitElement, CSSResult, TemplateResult } from 'lit-element';
 import { PropertyDocumentMixin } from './PropertyDocumentMixin';
-import { AmfHelperMixin } from '@api-components/amf-helper-mixin';
 
 /**
  * `api-type-document`
  *
- * An element that recuresively renders a documentation for a data type
+ * An element that recursively renders a documentation for a data type
  * using from model.
  *
  * Pass AMF's shape type `property` array to render the documentation.
  */
 export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
-  readonly styles: CSSResult;
+  get styles(): CSSResult;
 
-  /**
-   * `raml-aware` scope property to use.
-   */
-  aware: string;
   /**
    * A type definition to render.
    * This should be a one of the following AMF types:
@@ -33,12 +28,13 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
   /**
    * Media type to use to render examples.
    * If not set a "raw" version of the example from API spec file is used.
+   * @attribute
    */
   mediaType: string;
   /**
    * A list of supported media types for the type.
    * This is used by `api-resource-example-document` to compute examples.
-   * In practive it should be value of raml's `mediaType`.
+   * In practice it should be value of raml's `mediaType`.
    *
    * Each item in the array is just a name of thr media type.
    *
@@ -53,6 +49,7 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
    * Currently selected media type.
    * It is an index of a media type in `mediaTypes` array.
    * It is set to `0` each time the body changes.
+   * @attribute
    */
   selectedMediaType: number;
   // The type after it has been resolved.
@@ -60,66 +57,114 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
   /**
    * Should be set if described properties has a parent type.
    * This is used when recursively iterating over properties.
+   * @attribute
    */
   parentTypeName: string;
   /**
    * Computed value, true if the shape has parent type.
+   * @attribute
    */
   hasParentType: boolean;
   /**
    * True if given `type` is a scalar property
+   * @attribute
    */
   isScalar: boolean;
   /**
    * True if given `type` is an array property
+   * @attribute
    */
   isArray: boolean;
   /**
    * True if given `type` is an object property
+   * @attribute
    */
   isObject: boolean;
   /**
    * True if given `type` is an union property
+   * @attribute
    */
   isUnion: boolean;
   /**
    * True if given `type` is OAS "and" type.
+   * @attribute
    */
   isAnd: boolean;
+  /**
+   * True if given `type` is OAS "oneOf" type.
+   * @attribute
+   */
+  isOneOf: boolean;
+  /**
+   * True if given `type` is OAS "anyOf" type.
+   * @attribute
+   */
+  isAnyOf: boolean;
   /**
    * Computed list of union type types to render in union type
    * selector.
    * Each item has `label` and `isScalar` property.
    */
-  unionTypes: Object[];
+  unionTypes: object[];
+  /**
+   * Computed list of oneOf type types to render in oneOf type
+   * selector.
+   * Each item has `label` and `isScalar` property.
+   */
+  oneOfTypes: object[];
+  /**
+   * Computed list of anyOf type types to render in anyOf type
+   * selector.
+   * Each item has `label` and `isScalar` property.
+   */
+  anyOfTypes: object[];
   /**
    * List of types definition and name for OAS' "and" type
    */
   andTypes: Object[];
   /**
    * Selected index of union type in `unionTypes` array.
+   * @attribute
    */
   selectedUnion: number;
+  /**
+   * Selected index of oneOf type in `oneOfTypes` array.
+   * @attribute
+   */
+  selectedOneOf: number;
+  /**
+   * Selected index of anyOf type in `anyOfTypes` array.
+   * @attribute
+   */
+  selectedAnyOf: number;
   /**
    * A property to set when the component is rendered in the narrow
    * view. To be used with mobile rendering or when the
    * components occupies only small part of the screen.
+   * @attribute
    */
   narrow: boolean;
   /**
    * When set an example in this `type` object won't be rendered even if set.
+   * @attribute
    */
   noMainExample: boolean;
   /**
    * When rendering schema for a payload set this to the payload ID
    * so the examples can be correctly rendered.
+   * @attribute
    */
   selectedBodyId: string;
 
   _hasExamples: boolean;
 
   _renderMainExample: boolean;
+  renderMediaSelector: boolean;
 
+  /**
+   * @attribute
+   */
+  renderReadOnly?: boolean;
 
   constructor();
 
@@ -145,7 +190,7 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
    * Computes parent name for the array type table.
    *
    * @param parent `parentTypeName` if available
-   * @returns Parent type name of refault value for array type.
+   * @returns Parent type name of default value for array type.
    */
   _computeArrayParentName(parent?: string): string;
 
@@ -158,10 +203,13 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
   _multiTypesChanged(property: string, types: object[]): void;
 
   /**
-   * Handler for union type button click.
-   * Sets `selectedUnion` property.
+   * Handler for button click when changing selected type
+   * in multi type template.
+   * Sets given property to the index returned from button.
+   *
+   * @param property Property name where selected index is kept
    */
-  _selectUnion(e: MouseEvent): void;
+  _selectType(property: string, e: MouseEvent): void;
 
   /**
    * Computes properties for union type.
@@ -171,7 +219,7 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
    * @param key Key of the property to look in
    * @returns Properties for union type.
    */
-  _computeProperty(type: Object, key: string, selected: number): Object[]|undefined;
+  _computeProperty(type: any, key: string, selected: number): any|undefined;
 
   /**
    * Helper function for the view. Extracts `http://www.w3.org/ns/shacl#property`
@@ -180,14 +228,14 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
    * @param item Range object
    * @returns Shape object
    */
-  _computeProperties(item: Object): Object[]|undefined;
+  _computeProperties(item: any): any[]|undefined;
 
   /**
    * Computes list values for `andTypes` property.
    * @param items List of OAS' "and" properties
    * @returns An array of type definitions and label to render
    */
-  _computeAndTypes(items: Object[]): Object[]|undefined;
+  _computeAndTypes(items: any[]): any[]|undefined;
 
   /**
    * Observer for `mediaTypes` property.
@@ -205,12 +253,8 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
   /**
    * Handler for media type type button click.
    * Sets `selected` property.
-   *
-   * @param {MouseEvent} e
    */
   _selectMediaType(e: MouseEvent): void;
-
-  _apiChangedHandler(e: CustomEvent): void;
 
   _hasExamplesHandler(e: CustomEvent): void;
 
@@ -235,9 +279,24 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
   _anyTemplate(): TemplateResult|string;
 
   /**
+   * @return The template for a oneOf type
+   */
+  _oneOfTemplate(): TemplateResult;
+
+  /**
+   * @return Template for an anyOf type
+   */
+  _anyOfTemplate(): TemplateResult;
+
+  /**
+  * @returns Template for Any type
+  */
+ _anyTemplate(): TemplateResult|string;
+
+  /**
    * @returns Template for the element
    */
   render(): TemplateResult;
-}
-export interface ApiTypeDocument extends PropertyDocumentMixin, AmfHelperMixin, LitElement {
+
+  _filterReadOnlyProperties(properties: any[]): any[]|undefined;
 }

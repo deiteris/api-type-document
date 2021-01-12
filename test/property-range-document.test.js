@@ -1,14 +1,14 @@
 import { assert, aTimeout, fixture, nextFrame } from '@open-wc/testing';
 import * as sinon from 'sinon';
 import { AmfLoader } from './amf-loader.js';
-import './test-document-mixin.js';
+import '../property-range-document.js';
 
-/** @typedef {import('../src/PropertyRangeDocument.js').PropertyRangeDocument} PropertyRangeDocument */
+/** @typedef {import('..').PropertyRangeDocument} PropertyRangeDocument */
 
 /* eslint-disable no-param-reassign */
 /* eslint-disable prefer-destructuring */
 
-describe('<property-range-document>', () => {
+describe('PropertyRangeDocument', () => {
   async function basicFixture() {
     const elm = await fixture(
       `<property-range-document></property-range-document>`

@@ -1,16 +1,15 @@
 import { assert, fixture, html, nextFrame } from '@open-wc/testing';
-import * as sinon from 'sinon';
-import * as MockInteractions from '@polymer/iron-test-helpers/mock-interactions.js';
+import sinon from 'sinon';
 import { AmfLoader } from './amf-loader.js';
-import './test-document-mixin.js';
+import '../property-shape-document.js';
 
-/** @typedef {import('../index.js').PropertyShapeDocument} PropertyShapeDocument */
+/** @typedef {import('../').PropertyShapeDocument} PropertyShapeDocument */
 
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
 /* eslint-disable prefer-destructuring */
 
-describe('<property-shape-document>', () => {
+describe('PropertyShapeDocument', () => {
   async function basicFixture() {
     const elm = await fixture(
       `<property-shape-document></property-shape-document>`
@@ -60,7 +59,7 @@ describe('<property-shape-document>', () => {
       ['Compact model', true],
     ].forEach((item) => {
       describe(String(item[0]), () => {
-        let element;
+        let element = /** @type PropertyShapeDocument */ (null);
         let amf;
         let type;
         before(async () => {
@@ -128,7 +127,7 @@ describe('<property-shape-document>', () => {
       ['Compact model', true],
     ].forEach((item) => {
       describe(String(item[0]), () => {
-        let element;
+        let element = /** @type PropertyShapeDocument */ (null);
         let amf;
         let type;
         before(async () => {
@@ -250,7 +249,7 @@ describe('<property-shape-document>', () => {
       ['Compact model', true],
     ].forEach((item) => {
       describe(String(item[0]), () => {
-        let element;
+        let element = /** @type PropertyShapeDocument */ (null);
         let amf;
         let type;
         before(async () => {
@@ -325,7 +324,7 @@ describe('<property-shape-document>', () => {
       ['Compact model', true],
     ].forEach((item) => {
       describe(String(item[0]), () => {
-        let element;
+        let element = /** @type PropertyShapeDocument */ (null);
         let amf;
         let type;
         before(async () => {
@@ -340,7 +339,7 @@ describe('<property-shape-document>', () => {
         });
 
         it('returns undefined when no shape and no range', async () => {
-          const result = element._computePropertyName();
+          const result = element._computePropertyName(undefined, undefined);
           assert.isUndefined(result);
         });
 
@@ -359,7 +358,7 @@ describe('<property-shape-document>', () => {
       ['Compact model', true],
     ].forEach(([label, compact]) => {
       describe(String(label), () => {
-        let element;
+        let element = /** @type PropertyShapeDocument */ (null);
         let amf;
         let type;
         before(async () => {
@@ -372,7 +371,7 @@ describe('<property-shape-document>', () => {
           element = await graphFixture(amf);
         });
 
-        // soething is not right with the AMF model.
+        // something is not right with the AMF model.
         // The _targetTypeName property is not properly computed.
         it.skip('computes name and id of declared type', async () => {
           const shape = getPropertyShape(element, type, 'imageProperty');
@@ -401,7 +400,7 @@ describe('<property-shape-document>', () => {
           );
           const spy = sinon.spy();
           element.addEventListener('api-navigation-selection-changed', spy);
-          MockInteractions.tap(node);
+          /** @type HTMLElement */ (node).click();
           assert.isTrue(spy.called, 'the event is called');
           const { detail } = spy.args[0][0];
           assert.equal(detail.type, 'type', 'type is set');
@@ -421,7 +420,11 @@ describe('<property-shape-document>', () => {
           );
           const spy = sinon.spy();
           element.addEventListener('api-navigation-selection-changed', spy);
-          MockInteractions.keyDownOn(node, 13, [], 'Enter');
+          const keyEvent = new KeyboardEvent('keydown', {
+            key: 'Enter',
+            keyCode: 13,
+          });
+          node.dispatchEvent(keyEvent);
           assert.isTrue(spy.called, 'the event is called');
         });
       });
@@ -429,7 +432,7 @@ describe('<property-shape-document>', () => {
   });
 
   describe('a11y', () => {
-    let element;
+    let element = /** @type PropertyShapeDocument */ (null);
     let amf;
     let type;
     before(async () => {
@@ -495,7 +498,7 @@ describe('<property-shape-document>', () => {
       ['Compact model', true],
     ].forEach((item) => {
       describe(String(item[0]), () => {
-        let element;
+        let element = /** @type PropertyShapeDocument */ (null);
         let amf;
         let type;
         before(async () => {
@@ -539,7 +542,7 @@ describe('<property-shape-document>', () => {
           element.shape = shape;
           await nextFrame();
           const node = element.shadowRoot.querySelector('.complex-toggle');
-          MockInteractions.tap(node);
+          /** @type HTMLElement */ (node).click();
           await nextFrame();
           const typeDoc = element.shadowRoot.querySelector('api-type-document');
           assert.ok(typeDoc);
@@ -666,7 +669,7 @@ describe('<property-shape-document>', () => {
 
   // this api does not exists anymore....
   describe.skip('_computeIsEnum()', () => {
-    let element;
+    let element = /** @type PropertyShapeDocument */ (null);
     let amf;
     let type;
 
@@ -686,7 +689,7 @@ describe('<property-shape-document>', () => {
     });
 
     it('Returns false when no range', () => {
-      const result = element._computeIsEnum();
+      const result = element._computeIsEnum(undefined, undefined);
       assert.isFalse(result);
     });
 
@@ -698,14 +701,14 @@ describe('<property-shape-document>', () => {
 
     it('Returns true for string property with enum', () => {
       const [, range] = getShapeRange(element, type, 'status');
-      const result = element._computeIsEnum(range);
+      const result = element._computeIsEnum(range, undefined);
       assert.isTrue(result);
     });
   });
 
   // This API does not exists anymore
   describe.skip('_computeIsEnumArray()', () => {
-    let element;
+    let element = /** @type PropertyShapeDocument */ (null);
     let amf;
     let type;
 

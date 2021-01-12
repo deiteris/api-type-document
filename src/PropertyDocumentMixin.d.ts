@@ -1,33 +1,37 @@
-import { AmfHelperMixinConstructor } from '@api-components/amf-helper-mixin/src/AmfHelperMixin';
-declare function PropertyDocumentMixin<T extends new (...args: any[]) => {}>(base: T): T & AmfHelperMixinConstructor & PropertyDocumentMixinConstructor;
+import { AmfHelperMixin } from '@api-components/amf-helper-mixin';
+
+declare function PropertyDocumentMixin<T extends new (...args: any[]) => {}>(base: T): T & PropertyDocumentMixinConstructor;
 interface PropertyDocumentMixinConstructor {
   new(...args: any[]): PropertyDocumentMixin;
 }
 
-declare interface ArrayPropertyItem {
+export declare interface ArrayPropertyItem {
   isShape: boolean;
   isType: boolean;
 }
 
 
-interface PropertyDocumentMixin {
+interface PropertyDocumentMixin extends AmfHelperMixin {
   /**
    * A property shape definition of AMF.
    */
-  shape: Object;
+  shape: any;
   /**
    * Computes value of shape's http://raml.org/vocabularies/shapes#range
    */
-  range: Object;
+  range: any;
   /**
    * Type's current media type.
    * This is used to select/generate examples according to current body
    * media type. When not set it only renders examples that were defined
-   * in API specfile in a form as they were written.
+   * in API spec file in a form as they were written.
+   * 
+   * @attribute
    */
   mediaType: string;
   /**
    * When set it removes actions bar from the examples render.
+   * @attribute
    */
   noExamplesActions: boolean;
 
@@ -35,15 +39,13 @@ interface PropertyDocumentMixin {
 
   /**
    * Enables compatibility with Anypoint components.
+   * @attribute
    */
   compatibility: boolean;
   /**
-   * @deprecated Use `compatibility` instead
-   */
-  legacy: boolean;
-  /**
    * When enabled it renders external types as links and dispatches
    * `api-navigation-selection-changed` when clicked.
+   * @attribute
    */
   graph: boolean;
 
@@ -134,6 +136,9 @@ interface PropertyDocumentMixin {
   _computeHasMediaType(mediaType: string): boolean;
 
   _evaluateGraph(): void;
+
+  _isPropertyReadOnly(property: any): boolean;
+  _isReadOnly(property: any): boolean;
 }
 export {PropertyDocumentMixinConstructor};
 export {PropertyDocumentMixin};

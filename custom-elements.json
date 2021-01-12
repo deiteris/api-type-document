@@ -1,0 +1,741 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "api-type-document",
+      "path": "./api-type-document.js",
+      "description": "`api-type-document`\n\nAn element that recursively renders a documentation for a data type\nusing from model.\n\nPass AMF's shape type `property` array to render the documentation.",
+      "attributes": [
+        {
+          "name": "selectedMediaType",
+          "description": "Currently selected media type.\nIt is an index of a media type in `mediaTypes` array.\nIt is set to `0` each time the body changes.",
+          "type": "number"
+        },
+        {
+          "name": "parentTypeName",
+          "description": "Should be set if described properties has a parent type.\nThis is used when recursively iterating over properties.",
+          "type": "string"
+        },
+        {
+          "name": "hasParentType",
+          "description": "Computed value, true if the shape has parent type.",
+          "type": "boolean"
+        },
+        {
+          "name": "isScalar",
+          "description": "True if given `type` is a scalar property",
+          "type": "boolean"
+        },
+        {
+          "name": "isArray",
+          "description": "True if given `type` is an array property",
+          "type": "boolean"
+        },
+        {
+          "name": "isObject",
+          "description": "True if given `type` is an object property",
+          "type": "boolean"
+        },
+        {
+          "name": "isUnion",
+          "description": "True if given `type` is an union property",
+          "type": "boolean"
+        },
+        {
+          "name": "isAnd",
+          "description": "True if given `type` is OAS \"and\" type.",
+          "type": "boolean"
+        },
+        {
+          "name": "isOneOf",
+          "description": "True if given `type` is OAS \"oneOf\" type.",
+          "type": "boolean"
+        },
+        {
+          "name": "isAnyOf",
+          "description": "True if given `type` is OAS \"anyOf\" type.",
+          "type": "boolean"
+        },
+        {
+          "name": "selectedUnion",
+          "description": "Selected index of union type in `unionTypes` array.",
+          "type": "number"
+        },
+        {
+          "name": "selectedOneOf",
+          "description": "Selected index of oneOf type in `oneOfTypes` array.",
+          "type": "number"
+        },
+        {
+          "name": "selectedAnyOf",
+          "description": "Selected index of anyOf type in `anyOfTypes` array.",
+          "type": "number"
+        },
+        {
+          "name": "narrow",
+          "description": "A property to set when the component is rendered in the narrow\nview. To be used with mobile rendering or when the\ncomponents occupies only small part of the screen.",
+          "type": "boolean"
+        },
+        {
+          "name": "noMainExample",
+          "description": "When set an example in this `type` object won't be rendered even if set.",
+          "type": "boolean"
+        },
+        {
+          "name": "selectedBodyId",
+          "description": "When rendering schema for a payload set this to the payload ID\nso the examples can be correctly rendered.",
+          "type": "string"
+        },
+        {
+          "name": "renderReadOnly",
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "mediaType",
+          "description": "Media type to use to render examples.\nIf not set a \"raw\" version of the example from API spec file is used.",
+          "type": "string"
+        },
+        {
+          "name": "noExamplesActions",
+          "description": "When set it removes actions bar from the examples render.",
+          "type": "boolean"
+        },
+        {
+          "name": "compatibility",
+          "description": "Enables compatibility with Anypoint components.",
+          "type": "boolean"
+        },
+        {
+          "name": "graph",
+          "description": "When enabled it renders external types as links and dispatches\n`api-navigation-selection-changed` when clicked.",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "styles",
+          "type": "CSSResult"
+        },
+        {
+          "name": "type",
+          "description": "A type definition to render.\nThis should be a one of the following AMF types:\n\n- `http://www.w3.org/ns/shacl#NodeShape` (Object)\n- `http://raml.org/vocabularies/shapes#UnionShape` (Union)\n- `http://raml.org/vocabularies/shapes#ArrayShape` (Array)\n- `http://raml.org/vocabularies/shapes#ScalarShape` (single property)\n\nIt also accepts array of properties like list of headers or\nparameters.",
+          "type": "Object"
+        },
+        {
+          "name": "mediaTypes",
+          "description": "A list of supported media types for the type.\nThis is used by `api-resource-example-document` to compute examples.\nIn practice it should be value of raml's `mediaType`.\n\nEach item in the array is just a name of thr media type.\n\nExample:\n\n```json\n[\"application/json\", \"application/xml\"]\n```",
+          "type": "string[]"
+        },
+        {
+          "name": "selectedMediaType",
+          "attribute": "selectedMediaType",
+          "description": "Currently selected media type.\nIt is an index of a media type in `mediaTypes` array.\nIt is set to `0` each time the body changes.",
+          "type": "number"
+        },
+        {
+          "name": "parentTypeName",
+          "attribute": "parentTypeName",
+          "description": "Should be set if described properties has a parent type.\nThis is used when recursively iterating over properties.",
+          "type": "string"
+        },
+        {
+          "name": "hasParentType",
+          "attribute": "hasParentType",
+          "description": "Computed value, true if the shape has parent type.",
+          "type": "boolean"
+        },
+        {
+          "name": "isScalar",
+          "attribute": "isScalar",
+          "description": "True if given `type` is a scalar property",
+          "type": "boolean"
+        },
+        {
+          "name": "isArray",
+          "attribute": "isArray",
+          "description": "True if given `type` is an array property",
+          "type": "boolean"
+        },
+        {
+          "name": "isObject",
+          "attribute": "isObject",
+          "description": "True if given `type` is an object property",
+          "type": "boolean"
+        },
+        {
+          "name": "isUnion",
+          "attribute": "isUnion",
+          "description": "True if given `type` is an union property",
+          "type": "boolean"
+        },
+        {
+          "name": "isAnd",
+          "attribute": "isAnd",
+          "description": "True if given `type` is OAS \"and\" type.",
+          "type": "boolean"
+        },
+        {
+          "name": "isOneOf",
+          "attribute": "isOneOf",
+          "description": "True if given `type` is OAS \"oneOf\" type.",
+          "type": "boolean"
+        },
+        {
+          "name": "isAnyOf",
+          "attribute": "isAnyOf",
+          "description": "True if given `type` is OAS \"anyOf\" type.",
+          "type": "boolean"
+        },
+        {
+          "name": "unionTypes",
+          "description": "Computed list of union type types to render in union type\nselector.\nEach item has `label` and `isScalar` property.",
+          "type": "object[]"
+        },
+        {
+          "name": "oneOfTypes",
+          "description": "Computed list of oneOf type types to render in oneOf type\nselector.\nEach item has `label` and `isScalar` property.",
+          "type": "object[]"
+        },
+        {
+          "name": "anyOfTypes",
+          "description": "Computed list of anyOf type types to render in anyOf type\nselector.\nEach item has `label` and `isScalar` property.",
+          "type": "object[]"
+        },
+        {
+          "name": "andTypes",
+          "description": "List of types definition and name for OAS' \"and\" type",
+          "type": "Object[]"
+        },
+        {
+          "name": "selectedUnion",
+          "attribute": "selectedUnion",
+          "description": "Selected index of union type in `unionTypes` array.",
+          "type": "number"
+        },
+        {
+          "name": "selectedOneOf",
+          "attribute": "selectedOneOf",
+          "description": "Selected index of oneOf type in `oneOfTypes` array.",
+          "type": "number"
+        },
+        {
+          "name": "selectedAnyOf",
+          "attribute": "selectedAnyOf",
+          "description": "Selected index of anyOf type in `anyOfTypes` array.",
+          "type": "number"
+        },
+        {
+          "name": "narrow",
+          "attribute": "narrow",
+          "description": "A property to set when the component is rendered in the narrow\nview. To be used with mobile rendering or when the\ncomponents occupies only small part of the screen.",
+          "type": "boolean"
+        },
+        {
+          "name": "noMainExample",
+          "attribute": "noMainExample",
+          "description": "When set an example in this `type` object won't be rendered even if set.",
+          "type": "boolean"
+        },
+        {
+          "name": "selectedBodyId",
+          "attribute": "selectedBodyId",
+          "description": "When rendering schema for a payload set this to the payload ID\nso the examples can be correctly rendered.",
+          "type": "string"
+        },
+        {
+          "name": "renderReadOnly",
+          "attribute": "renderReadOnly",
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "shape",
+          "description": "A property shape definition of AMF."
+        },
+        {
+          "name": "range",
+          "description": "Computes value of shape's http://raml.org/vocabularies/shapes#range"
+        },
+        {
+          "name": "mediaType",
+          "attribute": "mediaType",
+          "description": "Media type to use to render examples.\nIf not set a \"raw\" version of the example from API spec file is used.",
+          "type": "string"
+        },
+        {
+          "name": "noExamplesActions",
+          "attribute": "noExamplesActions",
+          "description": "When set it removes actions bar from the examples render.",
+          "type": "boolean"
+        },
+        {
+          "name": "compatibility",
+          "attribute": "compatibility",
+          "description": "Enables compatibility with Anypoint components.",
+          "type": "boolean"
+        },
+        {
+          "name": "graph",
+          "attribute": "graph",
+          "description": "When enabled it renders external types as links and dispatches\n`api-navigation-selection-changed` when clicked.",
+          "type": "boolean"
+        },
+        {
+          "name": "ns",
+          "description": "A namespace for AMF model.",
+          "type": "Namespace"
+        },
+        {
+          "name": "amf",
+          "description": "Generated AMF json/ld model form the API spec.\nThe element assumes the object of the first array item to be a\ntype of `\"http://raml.org/vocabularies/document#Document`\non AMF vocabulary.\n\nIt is only useful for the element to resolve references.",
+          "type": "object | object[] | undefined"
+        }
+      ]
+    },
+    {
+      "name": "property-range-document",
+      "path": "./property-range-document.js",
+      "description": "Renders a documentation for a shape property of AMF model.",
+      "attributes": [
+        {
+          "name": "propertyName",
+          "description": "Name of the property that is being described by this definition.",
+          "type": "string"
+        },
+        {
+          "name": "isEnum",
+          "description": "Computed value form the shape. True if the property is ENUM.",
+          "type": "boolean"
+        },
+        {
+          "name": "isUnion",
+          "description": "Computed value, true if current property is an union.",
+          "type": "boolean"
+        },
+        {
+          "name": "isObject",
+          "description": "Computed value, true if current property is an object.",
+          "type": "boolean"
+        },
+        {
+          "name": "isArray",
+          "description": "Computed value, true if current property is an array.",
+          "type": "boolean"
+        },
+        {
+          "name": "isFile",
+          "description": "Computed value, true if current property is a File.",
+          "type": "boolean"
+        },
+        {
+          "name": "exampleSectionTitle",
+          "type": "string"
+        },
+        {
+          "name": "mediaType",
+          "description": "Type's current media type.\nThis is used to select/generate examples according to current body\nmedia type. When not set it only renders examples that were defined\nin API spec file in a form as they were written.",
+          "type": "string"
+        },
+        {
+          "name": "noExamplesActions",
+          "description": "When set it removes actions bar from the examples render.",
+          "type": "boolean"
+        },
+        {
+          "name": "compatibility",
+          "description": "Enables compatibility with Anypoint components.",
+          "type": "boolean"
+        },
+        {
+          "name": "graph",
+          "description": "When enabled it renders external types as links and dispatches\n`api-navigation-selection-changed` when clicked.",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "styles",
+          "type": "CSSResult"
+        },
+        {
+          "name": "propertyName",
+          "attribute": "propertyName",
+          "description": "Name of the property that is being described by this definition.",
+          "type": "string"
+        },
+        {
+          "name": "isEnum",
+          "attribute": "isEnum",
+          "description": "Computed value form the shape. True if the property is ENUM.",
+          "type": "boolean"
+        },
+        {
+          "name": "isUnion",
+          "attribute": "isUnion",
+          "description": "Computed value, true if current property is an union.",
+          "type": "boolean"
+        },
+        {
+          "name": "isObject",
+          "attribute": "isObject",
+          "description": "Computed value, true if current property is an object.",
+          "type": "boolean"
+        },
+        {
+          "name": "isArray",
+          "attribute": "isArray",
+          "description": "Computed value, true if current property is an array.",
+          "type": "boolean"
+        },
+        {
+          "name": "isFile",
+          "attribute": "isFile",
+          "description": "Computed value, true if current property is a File.",
+          "type": "boolean"
+        },
+        {
+          "name": "enumValues",
+          "description": "Computed values for list of enums.\nEnums are list of types names.",
+          "type": "string[]"
+        },
+        {
+          "name": "exampleSectionTitle",
+          "attribute": "exampleSectionTitle",
+          "type": "string"
+        },
+        {
+          "name": "shape",
+          "description": "A property shape definition of AMF."
+        },
+        {
+          "name": "range",
+          "description": "Computes value of shape's http://raml.org/vocabularies/shapes#range",
+          "type": "object"
+        },
+        {
+          "name": "mediaType",
+          "attribute": "mediaType",
+          "description": "Type's current media type.\nThis is used to select/generate examples according to current body\nmedia type. When not set it only renders examples that were defined\nin API spec file in a form as they were written.",
+          "type": "string"
+        },
+        {
+          "name": "noExamplesActions",
+          "attribute": "noExamplesActions",
+          "description": "When set it removes actions bar from the examples render.",
+          "type": "boolean"
+        },
+        {
+          "name": "compatibility",
+          "attribute": "compatibility",
+          "description": "Enables compatibility with Anypoint components.",
+          "type": "boolean"
+        },
+        {
+          "name": "graph",
+          "attribute": "graph",
+          "description": "When enabled it renders external types as links and dispatches\n`api-navigation-selection-changed` when clicked.",
+          "type": "boolean"
+        },
+        {
+          "name": "ns",
+          "description": "A namespace for AMF model.",
+          "type": "Namespace"
+        },
+        {
+          "name": "amf",
+          "description": "Generated AMF json/ld model form the API spec.\nThe element assumes the object of the first array item to be a\ntype of `\"http://raml.org/vocabularies/document#Document`\non AMF vocabulary.\n\nIt is only useful for the element to resolve references.",
+          "type": "object | object[] | undefined"
+        }
+      ]
+    },
+    {
+      "name": "property-shape-document",
+      "path": "./property-shape-document.js",
+      "description": "Renders a documentation for a shape property of AMF model.",
+      "attributes": [
+        {
+          "name": "displayName",
+          "description": "Computed value of \"display name\" of the property",
+          "type": "string"
+        },
+        {
+          "name": "propertyName",
+          "description": "A type property name.\nThis may be different from `displayName` property if\n`displayName` was specified in the API spec for this property.",
+          "type": "string"
+        },
+        {
+          "name": "hasDisplayName",
+          "description": "Computed value, true if `displayName` has been defined for this\nproperty.",
+          "type": "boolean"
+        },
+        {
+          "name": "isUnion",
+          "description": "Computed value, true if current property is an union.",
+          "type": "boolean"
+        },
+        {
+          "name": "isObject",
+          "description": "Computed value, true if current property is an object.",
+          "type": "boolean"
+        },
+        {
+          "name": "isArray",
+          "description": "Computed value, true if current property is an array.",
+          "type": "boolean"
+        },
+        {
+          "name": "isScalarArray",
+          "description": "Computed value, true if current property is an array and the item\nis a scalar.",
+          "type": "boolean"
+        },
+        {
+          "name": "isComplex",
+          "description": "Computed value, true if this property contains a complex\nstructure. It is computed when the property is and array,\nobject, or union.",
+          "type": "boolean"
+        },
+        {
+          "name": "parentTypeName",
+          "description": "Should be set if described properties has a parent type.\nThis is used when recursively iterating over properties.",
+          "type": "string"
+        },
+        {
+          "name": "hasParentTypeName",
+          "description": "Computed value, true if `parentTypeName` has a value.",
+          "type": "boolean"
+        },
+        {
+          "name": "propertyDataType",
+          "description": "Computed value of shape data type",
+          "type": "string"
+        },
+        {
+          "name": "isRequired",
+          "description": "Computed value form the shape. True if the property is required.",
+          "type": "boolean"
+        },
+        {
+          "name": "isEnum",
+          "description": "Computed value form the shape. True if the property is ENUM.",
+          "type": "boolean"
+        },
+        {
+          "name": "isReadOnly",
+          "description": "Computed value form the shape. True if the property is read only.",
+          "type": "boolean"
+        },
+        {
+          "name": "propertyDescription",
+          "description": "A description of the property to render.",
+          "type": "string"
+        },
+        {
+          "name": "hasPropertyDescription",
+          "description": "Computed value, true if description is set.",
+          "type": "boolean"
+        },
+        {
+          "name": "narrow",
+          "description": "A property to set when the component is rendered in the narrow\nview. To be used with mobile rendering or when the\ncomponents occupies only small part of the screen.",
+          "type": "boolean"
+        },
+        {
+          "name": "opened",
+          "description": "When `isComplex` is true this determines if the complex structure\nis currently rendered.",
+          "type": "boolean"
+        },
+        {
+          "name": "renderReadOnly",
+          "type": "boolean"
+        },
+        {
+          "name": "mediaType",
+          "description": "Type's current media type.\nThis is used to select/generate examples according to current body\nmedia type. When not set it only renders examples that were defined\nin API spec file in a form as they were written.",
+          "type": "string"
+        },
+        {
+          "name": "noExamplesActions",
+          "description": "When set it removes actions bar from the examples render.",
+          "type": "boolean"
+        },
+        {
+          "name": "compatibility",
+          "description": "Enables compatibility with Anypoint components.",
+          "type": "boolean"
+        },
+        {
+          "name": "graph",
+          "description": "When enabled it renders external types as links and dispatches\n`api-navigation-selection-changed` when clicked.",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "styles",
+          "type": "CSSResult[]"
+        },
+        {
+          "name": "displayName",
+          "attribute": "displayName",
+          "description": "Computed value of \"display name\" of the property",
+          "type": "string"
+        },
+        {
+          "name": "propertyName",
+          "attribute": "propertyName",
+          "description": "A type property name.\nThis may be different from `displayName` property if\n`displayName` was specified in the API spec for this property.",
+          "type": "string"
+        },
+        {
+          "name": "hasDisplayName",
+          "attribute": "hasDisplayName",
+          "description": "Computed value, true if `displayName` has been defined for this\nproperty.",
+          "type": "boolean"
+        },
+        {
+          "name": "isUnion",
+          "attribute": "isUnion",
+          "description": "Computed value, true if current property is an union.",
+          "type": "boolean"
+        },
+        {
+          "name": "isObject",
+          "attribute": "isObject",
+          "description": "Computed value, true if current property is an object.",
+          "type": "boolean"
+        },
+        {
+          "name": "isArray",
+          "attribute": "isArray",
+          "description": "Computed value, true if current property is an array.",
+          "type": "boolean"
+        },
+        {
+          "name": "isScalarArray",
+          "attribute": "isScalarArray",
+          "description": "Computed value, true if current property is an array and the item\nis a scalar.",
+          "type": "boolean"
+        },
+        {
+          "name": "isComplex",
+          "attribute": "isComplex",
+          "description": "Computed value, true if this property contains a complex\nstructure. It is computed when the property is and array,\nobject, or union.",
+          "type": "boolean"
+        },
+        {
+          "name": "parentTypeName",
+          "attribute": "parentTypeName",
+          "description": "Should be set if described properties has a parent type.\nThis is used when recursively iterating over properties.",
+          "type": "string"
+        },
+        {
+          "name": "hasParentTypeName",
+          "attribute": "hasParentTypeName",
+          "description": "Computed value, true if `parentTypeName` has a value.",
+          "type": "boolean"
+        },
+        {
+          "name": "propertyDataType",
+          "attribute": "propertyDataType",
+          "description": "Computed value of shape data type",
+          "type": "string"
+        },
+        {
+          "name": "isRequired",
+          "attribute": "isRequired",
+          "description": "Computed value form the shape. True if the property is required.",
+          "type": "boolean"
+        },
+        {
+          "name": "isEnum",
+          "attribute": "isEnum",
+          "description": "Computed value form the shape. True if the property is ENUM.",
+          "type": "boolean"
+        },
+        {
+          "name": "isReadOnly",
+          "attribute": "isReadOnly",
+          "description": "Computed value form the shape. True if the property is read only.",
+          "type": "boolean"
+        },
+        {
+          "name": "propertyDescription",
+          "attribute": "propertyDescription",
+          "description": "A description of the property to render.",
+          "type": "string"
+        },
+        {
+          "name": "hasPropertyDescription",
+          "attribute": "hasPropertyDescription",
+          "description": "Computed value, true if description is set.",
+          "type": "boolean"
+        },
+        {
+          "name": "narrow",
+          "attribute": "narrow",
+          "description": "A property to set when the component is rendered in the narrow\nview. To be used with mobile rendering or when the\ncomponents occupies only small part of the screen.",
+          "type": "boolean"
+        },
+        {
+          "name": "opened",
+          "attribute": "opened",
+          "description": "When `isComplex` is true this determines if the complex structure\nis currently rendered.",
+          "type": "boolean"
+        },
+        {
+          "name": "renderReadOnly",
+          "attribute": "renderReadOnly",
+          "type": "boolean"
+        },
+        {
+          "name": "complexToggleLabel",
+          "type": "string"
+        },
+        {
+          "name": "arrayScalarTypeName",
+          "type": "string"
+        },
+        {
+          "name": "shape",
+          "description": "A property shape definition of AMF."
+        },
+        {
+          "name": "range",
+          "description": "Computes value of shape's http://raml.org/vocabularies/shapes#range"
+        },
+        {
+          "name": "mediaType",
+          "attribute": "mediaType",
+          "description": "Type's current media type.\nThis is used to select/generate examples according to current body\nmedia type. When not set it only renders examples that were defined\nin API spec file in a form as they were written.",
+          "type": "string"
+        },
+        {
+          "name": "noExamplesActions",
+          "attribute": "noExamplesActions",
+          "description": "When set it removes actions bar from the examples render.",
+          "type": "boolean"
+        },
+        {
+          "name": "compatibility",
+          "attribute": "compatibility",
+          "description": "Enables compatibility with Anypoint components.",
+          "type": "boolean"
+        },
+        {
+          "name": "graph",
+          "attribute": "graph",
+          "description": "When enabled it renders external types as links and dispatches\n`api-navigation-selection-changed` when clicked.",
+          "type": "boolean"
+        },
+        {
+          "name": "ns",
+          "description": "A namespace for AMF model.",
+          "type": "Namespace"
+        },
+        {
+          "name": "amf",
+          "description": "Generated AMF json/ld model form the API spec.\nThe element assumes the object of the first array item to be a\ntype of `\"http://raml.org/vocabularies/document#Document`\non AMF vocabulary.\n\nIt is only useful for the element to resolve references.",
+          "type": "object | object[] | undefined"
+        }
+      ]
+    }
+  ]
+}

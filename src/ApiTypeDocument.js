@@ -1,5 +1,4 @@
 import { LitElement, html } from 'lit-element';
-import '@api-components/raml-aware/raml-aware.js';
 import '@anypoint-web-components/anypoint-button/anypoint-button.js';
 import '@api-components/api-resource-example-document/api-resource-example-document.js';
 import '../property-shape-document.js';
@@ -17,7 +16,7 @@ import typeStyles from './TypeStyles.js';
 /**
  * `api-type-document`
  *
- * An element that recuresively renders a documentation for a data type
+ * An element that recursively renders a documentation for a data type
  * using from model.
  *
  * Pass AMF's shape type `property` array to render the documentation.
@@ -29,10 +28,6 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
 
   static get properties() {
     return {
-      /**
-       * `raml-aware` scope property to use.
-       */
-      aware: { type: String },
       /**
        * A type definition to render.
        * This should be a one of the following AMF types:
@@ -54,7 +49,7 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       /**
        * A list of supported media types for the type.
        * This is used by `api-resource-example-document` to compute examples.
-       * In practive it should be value of raml's `mediaType`.
+       * In practice it should be value of RAML's `mediaType`.
        *
        * Each item in the array is just a name of thr media type.
        *
@@ -179,14 +174,20 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     }
     this._type = value;
     this.requestUpdate('type', old);
-    this._resolvedType = this._resolve(value);
+    this._resolvedType = /** @type any[] */ (this._resolve(value));
     this.__typeChanged();
   }
 
+  /**
+   * @returns {string[]|undefined}
+   */
   get mediaTypes() {
     return this._mediaTypes;
   }
 
+  /**
+   * @param {string[]} value
+   */
   set mediaTypes(value) {
     const old = this._mediaTypes;
     if (old === value) {
@@ -292,7 +293,19 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     this.hasParentType = false;
     this.narrow = false;
     this.selectedBodyId = undefined;
-    this.aware = undefined;
+    /** 
+     * @type {number}
+     */
+    this.selectedUnion = undefined;
+    /** 
+     * @type {number}
+     */
+    this.selectedOneOf = undefined;
+    /** 
+     * @type {number}
+     */
+    this.selectedAnyOf = undefined;
+    this.renderReadOnly = false;
 
     this._isPropertyReadOnly = this._isPropertyReadOnly.bind(this);
   }
@@ -374,20 +387,20 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       let items = this._ensureArray(type[iKey]);
       if (items) {
         items = items[0];
-        const key = this._getAmfKey(this.ns.w3.shacl.and);
-        if (key in items) {
+        const andKey = this._getAmfKey(this.ns.w3.shacl.and);
+        if (andKey in items) {
           isArray = false;
           isAnd = true;
-          this.andTypes = this._computeAndTypes(items[key]);
+          this.andTypes = this._computeAndTypes(items[andKey]);
         }
       }
     } else if (this._hasType(type, this.ns.w3.shacl.NodeShape)) {
       isObject = true;
     } else if (this._hasType(type, this.ns.aml.vocabularies.shapes.AnyShape)) {
-      const key = this._getAmfKey(this.ns.w3.shacl.and);
-      if (key in type) {
+      const andKey = this._getAmfKey(this.ns.w3.shacl.and);
+      if (andKey in type) {
         isAnd = true;
-        this.andTypes = this._computeAndTypes(type[key]);
+        this.andTypes = this._computeAndTypes(type[andKey]);
       } else {
         isScalar = true;
       }
@@ -404,8 +417,8 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
   /**
    * Computes parent name for the array type table.
    *
-   * @param {String=} parent `parentTypeName` if available
-   * @return {String} Parent type name of refault value for array type.
+   * @param {string=} parent `parentTypeName` if available
+   * @return {string} Parent type name of default value for array type.
    */
   _computeArrayParentName(parent) {
     return parent || '';
@@ -413,8 +426,8 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
 
   /**
    * Resets type selection for property.
-   * @param {Array=} types List of current anyOf types.
-   * @param {String} property Name of the property to be reset
+   * @param {string} property Name of the property to be reset
+   * @param {any[]=} types List of current anyOf types.
    * @private
    */
   _multiTypesChanged(property, types) {
@@ -429,7 +442,7 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
    * in multi type template.
    * Sets given property to the index returned from button.
    *
-   * @param {String} property Property name where selected index is kept
+   * @param {string} property Property name where selected index is kept
    * @param {MouseEvent} e
    * @private
    */
@@ -449,8 +462,8 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
   /**
    * Computes properties for type
    *
-   * @param {Object} type Type object
-   * @param {String} key Key of property to search in the `type` object
+   * @param {any} type Type object
+   * @param {string} key Key of property to search in the `type` object
    * @param {number} selected Index of the currently selected type
    * @returns {object|undefined} Properties for type
    * @private
@@ -472,8 +485,8 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     }
     if (this._hasType(item, this.ns.aml.vocabularies.shapes.ArrayShape)) {
       item = this._resolve(item);
-      const ikey = this._getAmfKey(this.ns.aml.vocabularies.shapes.items);
-      const items = this._ensureArray(item[ikey]);
+      const itemsKey = this._getAmfKey(this.ns.aml.vocabularies.shapes.items);
+      const items = this._ensureArray(item[itemsKey]);
       if (items && items.length === 1) {
         let result = items[0];
         if (Array.isArray(result)) {
@@ -592,11 +605,6 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     }
   }
 
-  _apiChangedHandler(e) {
-    const { value } = e.detail;
-    this.amf = value;
-  }
-
   _hasExamplesHandler(e) {
     const { value } = e.detail;
     this._hasExamples = value;
@@ -617,7 +625,7 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
         .amf="${this.amf}"
         .parentTypeName="${this.parentTypeName}"
         ?narrow="${this.narrow}"
-        ?noexamplesactions="${this.noExamplesActions}"
+        ?noExamplesActions="${this.noExamplesActions}"
         ?compatibility="${this.compatibility}"
         ?graph="${this.graph}"
         .mediaType="${this.mediaType}"
@@ -639,7 +647,7 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
             .shape="${this._resolvedType}"
             .parentTypeName="${this.parentTypeName}"
             ?narrow="${this.narrow}"
-            ?noexamplesactions="${this.noExamplesActions}"
+            ?noExamplesActions="${this.noExamplesActions}"
             ?compatibility="${this.compatibility}"
             .mediaType="${this.mediaType}"
             ?graph="${this.graph}"
@@ -654,11 +662,9 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
                   class="array-document"
                   .amf="${this.amf}"
                   .shape="${item}"
-                  parentTypeName="${this._computeArrayParentName(
-                    this.parentTypeName
-                  )}"
+                  parentTypeName="${this._computeArrayParentName(this.parentTypeName)}"
                   ?narrow="${this.narrow}"
-                  ?noexamplesactions="${this.noExamplesActions}"
+                  ?noExamplesActions="${this.noExamplesActions}"
                   ?compatibility="${this.compatibility}"
                   .mediaType="${this.mediaType}"
                   ?graph="${this.graph}"
@@ -671,8 +677,8 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
                   .parentTypeName="${this.parentTypeName}"
                   .type="${item}"
                   ?narrow="${this.narrow}"
-                  ?noexamplesactions="${this.noExamplesActions}"
-                  ?nomainexample="${this._renderMainExample}"
+                  ?noExamplesActions="${this.noExamplesActions}"
+                  ?noMainExample="${this._renderMainExample}"
                   ?compatibility="${this.compatibility}"
                   .mediaType="${this.mediaType}"
                   ?graph="${this.graph}"
@@ -763,8 +769,8 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
         .parentTypeName="${this.parentTypeName}"
         .type="${type}"
         ?narrow="${this.narrow}"
-        ?noexamplesactions="${this.noExamplesActions}"
-        ?nomainexample="${this._renderMainExample}"
+        ?noExamplesActions="${this.noExamplesActions}"
+        ?noMainExample="${this._renderMainExample}"
         ?compatibility="${this.compatibility}"
         .mediaType="${this.mediaType}"
         ?graph="${this.graph}"
@@ -791,8 +797,8 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
           .amf="${this.amf}"
           .type="${item.type}"
           ?narrow="${this.narrow}"
-          ?noexamplesactions="${this.noExamplesActions}"
-          ?nomainexample="${this._renderMainExample}"
+          ?noExamplesActions="${this.noExamplesActions}"
+          ?noMainExample="${this._renderMainExample}"
           ?compatibility="${this.compatibility}"
           .mediaType="${this.mediaType}"
           ?graph="${this.graph}"
@@ -810,16 +816,8 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
       'code-content-action-button-disabled content-action-button-active, ';
     parts +=
       'code-content-action-button-active, code-wrapper, example-code-wrapper, markdown-html';
-    const mediaTypes = this.mediaTypes || [];
-    return html`<style>
-        ${this.styles}
-      </style>
-      ${this.aware
-        ? html`<raml-aware
-            @api-changed="${this._apiChangedHandler}"
-            scope="${this.aware}"
-          ></raml-aware>`
-        : ''}
+    const mediaTypes = (this.mediaTypes || []);
+    return html`<style>${this.styles}</style>
       <section class="examples" ?hidden="${!this._renderMainExample}">
         ${this.renderMediaSelector
           ? html`<div class="media-type-selector">
@@ -853,7 +851,7 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
           ?noactions="${this.noExamplesActions}"
           ?rawOnly="${!this.mediaType}"
           ?compatibility="${this.compatibility}"
-          exportparts="${parts}"
+          exportParts="${parts}"
           ?renderReadOnly="${this.renderReadOnly}"
         ></api-resource-example-document>
       </section>
@@ -867,7 +865,7 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
             .shape="${this._resolvedType}"
             .parentTypeName="${this.parentTypeName}"
             ?narrow="${this.narrow}"
-            ?noexamplesactions="${this.noExamplesActions}"
+            ?noExamplesActions="${this.noExamplesActions}"
             ?compatibility="${this.compatibility}"
             .mediaType="${this.mediaType}"
             ?graph="${this.graph}"

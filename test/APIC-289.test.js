@@ -1,10 +1,10 @@
 import { fixture, assert, html } from '@open-wc/testing';
 import { AmfLoader } from './amf-loader.js';
-import './test-document-mixin.js';
+import '../property-shape-document.js';
 
-describe('<property-shape-document>', function() {
+describe('<property-shape-document>', () => {
   async function basicFixture(amf, shape) {
-    return (await fixture(html`<property-shape-document
+    return (fixture(html`<property-shape-document
       .amf="${amf}"
       .shape="${shape}"
       ></property-shape-document>`));
@@ -15,7 +15,7 @@ describe('<property-shape-document>', function() {
       ['Regular model', false],
       ['Compact model', true]
     ].forEach(([label, compact]) => {
-      describe(label, () => {
+      describe(String(label), () => {
         let element;
         let amf;
         before(async () => {

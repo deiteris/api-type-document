@@ -11,10 +11,10 @@ describe('PropertyDocumentMixin', () => {
 
   describe('_computeRangeDataType()', () => {
     [
-      ['Regulat model', false],
+      ['Regular model', false],
       ['Compact model', true],
     ].forEach((item) => {
-      describe(item[0], () => {
+      describe(String(item[0]), () => {
         let element;
         let model;
         before(async () => {

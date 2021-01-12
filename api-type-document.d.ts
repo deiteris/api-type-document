@@ -1,4 +1,4 @@
-import { ApiTypeDocument } from './src/ApiTypeDocument.js';
+import { ApiTypeDocument } from './src/ApiTypeDocument';
 
 declare global {
   interface HTMLElementTagNameMap {

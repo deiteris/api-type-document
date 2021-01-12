@@ -42,31 +42,22 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       /**
        * Computed value, true if current property is an union.
        */
-      isUnion: {
-        type: Boolean,
-        reflect: true,
-      },
+      isUnion: { type: Boolean, reflect: true, },
       /**
        * Computed value, true if current property is an object.
        */
-      isObject: {
-        type: Boolean,
-        reflect: true,
-      },
+      isObject: { type: Boolean, reflect: true, },
       /**
        * Computed value, true if current property is an array.
        */
-      isArray: {
-        type: Boolean,
-        reflect: true,
-      },
+      isArray: { type: Boolean, reflect: true, },
       /**
        * Computed value, true if current property is an array and the item
        * is a scalar.
        */
       isScalarArray: { type: Boolean, reflect: true },
       /**
-       * Computed value, true if this propery contains a complex
+       * Computed value, true if this property contains a complex
        * structure. It is computed when the property is and array,
        * object, or union.
        */
@@ -101,7 +92,7 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
        */
       propertyDescription: { type: String },
       /**
-       * Computed value, true if desceription is set.
+       * Computed value, true if description is set.
        */
       hasPropertyDescription: { type: Boolean },
       /**
@@ -109,10 +100,7 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
        * view. To be used with mobile rendering or when the
        * components occupies only small part of the screen.
        */
-      narrow: {
-        type: Boolean,
-        reflect: true,
-      },
+      narrow: { type: Boolean, reflect: true, },
       /**
        * When set it removes actions bar from the examples render.
        */
@@ -121,7 +109,7 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       _targetTypeId: { type: String },
       _targetTypeName: { type: String },
       /**
-       * When `isComplex` is true this determines if ther complex structure
+       * When `isComplex` is true this determines if the complex structure
        * is currently rendered.
        */
       opened: { type: Boolean },
@@ -188,8 +176,8 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       const key = this._getAmfKey(this.ns.aml.vocabularies.shapes.items);
       const items = this._ensureArray(range[key]);
       const item = items[0];
-      const dkey = this._getAmfKey(this.ns.w3.shacl.datatype);
-      let type = this._ensureArray(item[dkey]);
+      const dataKey = this._getAmfKey(this.ns.w3.shacl.datatype);
+      let type = this._ensureArray(item[dataKey]);
       [type] = type;
       let typed = String(type['@id']);
       typed = typed.replace(this.ns.w3.xmlSchema.key, '');
@@ -206,12 +194,11 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     this.hasParentTypeName = false;
     this.hasPropertyDescription = false;
     this.narrow = false;
+    this.renderReadOnly = false;
   }
 
   connectedCallback() {
-    if (super.connectedCallback) {
-      super.connectedCallback();
-    }
+    super.connectedCallback();
     // @ts-ignore
     if (window.ShadyCSS) {
       // @ts-ignore
@@ -386,8 +373,8 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       return this._computeIsEnumArray(range);
     }
 
-    const ikey = this._getAmfKey(this.ns.w3.shacl.in);
-    return ikey in range;
+    const inKey = this._getAmfKey(this.ns.w3.shacl.in);
+    return inKey in range;
   }
 
   /**
@@ -401,8 +388,8 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       return false;
     }
     const item = items[0];
-    const ikey = this._getAmfKey(this.ns.w3.shacl.in);
-    return ikey in item;
+    const inKey = this._getAmfKey(this.ns.w3.shacl.in);
+    return inKey in item;
   }
 
   /**
@@ -422,10 +409,10 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
 
   /**
    * Computes value for `isComplex` property.
-   * @param {Boolean} isUnion
-   * @param {Boolean} isObject
-   * @param {Boolean} isArray
-   * @return {Boolean}
+   * @param {boolean} isUnion
+   * @param {boolean} isObject
+   * @param {boolean} isArray
+   * @return {boolean}
    */
   _computeIsComplex(isUnion, isObject, isArray) {
     return isUnion || isObject || isArray;
@@ -528,8 +515,8 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       .parentTypeName="${parentTypeName}"
       ?narrow="${this.narrow}"
       ?compatibility="${this.compatibility}"
-      ?noexamplesactions="${this.noExamplesActions}"
-      nomainexample
+      ?noExamplesActions="${this.noExamplesActions}"
+      noMainExample
       .mediaType="${this.mediaType}"
       ?graph="${this.graph}"
     ></api-type-document>`;
@@ -592,7 +579,7 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
                 class="complex-toggle"
                 @click="${this.toggle}"
                 ?compatibility="${this.compatibility}"
-                title="Toggles complex propery documentation"
+                title="Toggles complex property documentation"
                 >${this.complexToggleLabel}</anypoint-button
               >`
             : ''}
@@ -662,7 +649,7 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
         .shape="${this.shape}"
         .range="${this.range}"
         ?compatibility="${this.compatibility}"
-        ?noexamplesactions="${this.noExamplesActions}"
+        ?noExamplesActions="${this.noExamplesActions}"
         .mediaType="${this.mediaType}"
         .propertyName="${this.propertyName}"
         ?graph="${this.graph}"

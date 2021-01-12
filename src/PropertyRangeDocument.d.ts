@@ -1,36 +1,41 @@
 import { LitElement, CSSResult, TemplateResult } from 'lit-element';
 import { PropertyDocumentMixin } from './PropertyDocumentMixin';
-import { AmfHelperMixin } from '@api-components/amf-helper-mixin';
 
 /* eslint-disable class-methods-use-this */
 
 /**
  * Renders a documentation for a shape property of AMF model.
  */
-export class PropertyRangeDocument {
+export class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
   readonly styles: CSSResult;
   /**
    * Name of the property that is being described by this definition.
+   * @attribute
    */
   propertyName: string;
   /**
    * Computed value form the shape. True if the property is ENUM.
+   * @attribute
    */
   isEnum: boolean;
   /**
    * Computed value, true if current property is an union.
+   * @attribute
    */
   isUnion: boolean;
   /**
    * Computed value, true if current property is an object.
+   * @attribute
    */
   isObject: boolean;
   /**
    * Computed value, true if current property is an array.
+   * @attribute
    */
   isArray: boolean;
   /**
    * Computed value, true if current property is a File.
+   * @attribute
    */
   isFile: boolean;
   /**
@@ -40,12 +45,18 @@ export class PropertyRangeDocument {
   enumValues: string[];
   /**
    * When set it removes actions bar from the examples render.
+   * @attribute
    */
   noExamplesActions: boolean;
   _hasExamples: boolean;
+  /**
+   * @attribute
+   */
   exampleSectionTitle: string;
 
   range: object;
+
+  constructor();
 
   connectedCallback(): void;
 
@@ -89,7 +100,8 @@ export class PropertyRangeDocument {
 
   _listItemTemplate(label: string, title: string, key: string, isArray: boolean): TemplateResult;
 
-  _nonFilePropertisTemplate(): TemplateResult;
+  _nonFilePropertiesTemplate(): TemplateResult;
+  _filePropertiesTemplate(): TemplateResult;
 
   /**
    * @return {TemplateResult|string} Template for enum values.
@@ -100,7 +112,4 @@ export class PropertyRangeDocument {
    * @return {TemplateResult|string} Template for the element.
    */
   render(): TemplateResult;
-}
-
-export interface PropertyRangeDocument extends PropertyDocumentMixin, AmfHelperMixin, LitElement {
 }

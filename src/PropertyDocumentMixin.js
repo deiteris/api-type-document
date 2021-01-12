@@ -13,6 +13,8 @@ the License.
 */
 import { dedupeMixin } from '@open-wc/dedupe-mixin';
 import { AmfHelperMixin } from '@api-components/amf-helper-mixin';
+// eslint-disable-next-line no-unused-vars
+import { LitElement } from 'lit-element';
 
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-param-reassign */
@@ -20,14 +22,11 @@ import { AmfHelperMixin } from '@api-components/amf-helper-mixin';
 /* eslint-disable valid-jsdoc */
 
 /**
- * @typedef {Object} ArrayPropertyItem
- * @property {boolean} isShape
- * @property {boolean} isType
+ * @typedef {import('./PropertyDocumentMixin').ArrayPropertyItem} ArrayPropertyItem
  */
 
 /**
- * @param {typeof HTMLElement} base
- * @mixes MultiSelectableMixin
+ * @param {typeof LitElement} base
  */
 const mxFunction = (base) => {
   class PropertyDocumentMixinImpl extends AmfHelperMixin(base) {
@@ -45,7 +44,7 @@ const mxFunction = (base) => {
          * Type's current media type.
          * This is used to select/generate examples according to current body
          * media type. When not set it only renders examples that were defined
-         * in API specfile in a form as they were written.
+         * in API spec file in a form as they were written.
          */
         mediaType: { type: String },
         /**
@@ -60,23 +59,11 @@ const mxFunction = (base) => {
          */
         compatibility: { type: Boolean },
         /**
-         * @deprecated Use `compatibility` instead
-         */
-        legacy: { type: Boolean },
-        /**
          * When enabled it renders external types as links and dispatches
          * `api-navigation-selection-changed` when clicked.
          */
         graph: { type: Boolean },
       };
-    }
-
-    get legacy() {
-      return this.compatibility;
-    }
-
-    set legacy(value) {
-      this.compatibility = value;
     }
 
     get mediaType() {
@@ -123,8 +110,8 @@ const mxFunction = (base) => {
     /**
      * Computes type from a `http://raml.org/vocabularies/shapes#range` object
      *
-     * @param {Object} range AMF property range object
-     * @return {String|undefined} Data type of the property.
+     * @param {any} range AMF property range object
+     * @return {string|undefined} Data type of the property.
      */
     _computeRangeDataType(range) {
       if (!range) {
@@ -170,8 +157,8 @@ const mxFunction = (base) => {
     /**
      * Computes type from a scalar shape.
      *
-     * @param {Object} range AMF property range object
-     * @return {String} Data type of the property.
+     * @param {any} range AMF property range object
+     * @return {string} Data type of the property.
      */
     _computeScalarDataType(range) {
       const rs = this.ns.aml.vocabularies.shapes;
@@ -226,8 +213,8 @@ const mxFunction = (base) => {
 
     /**
      * Computes value for `range` property.
-     * @param {Object} shape Current shape object.
-     * @return {Object} Range object
+     * @param {any} shape Current shape object.
+     * @return {any} Range object
      */
     _computeRange(shape) {
       if (!shape) {
@@ -253,7 +240,7 @@ const mxFunction = (base) => {
     /**
      * Computes properties to render Array items documentation.
      *
-     * @param {object} range Range object of current shape.
+     * @param {any} range Range object of current shape.
      * @return {ArrayPropertyItem[]|undefined} List of Array items.
      */
     _computeArrayProperties(range) {
@@ -286,11 +273,11 @@ const mxFunction = (base) => {
           let items = this._ensureArray(item[pkey]);
 
           if (!items) {
-            const skey = this._getAmfKey(this.ns.w3.rdfSchema.Seq);
-            if (this._hasType(item, skey)) {
-              const rkey = this._getAmfKey(this.ns.w3.rdfSchema.key);
+            const sKey = this._getAmfKey(this.ns.w3.rdfSchema.Seq);
+            if (this._hasType(item, sKey)) {
+              const rKey = this._getAmfKey(this.ns.w3.rdfSchema.key);
               const schemas = Object.keys(item).filter((k) =>
-                k.startsWith(rkey)
+                k.startsWith(rKey)
               );
               schemas.forEach((s) => {
                 const schema = this._ensureArray(item[s]);
@@ -352,9 +339,9 @@ const mxFunction = (base) => {
     /**
      * Computes list of type labels to render.
      *
-     * @param {Object} range
-     * @param {String} key Key to look for values in
-     * @return {Array<Object>}
+     * @param {any} range
+     * @param {string} key Key to look for values in
+     * @return {Array<Object>|undefined}
      */
     _computeTypes(range, key) {
       const list = this._ensureArray(range[key]);
@@ -363,7 +350,7 @@ const mxFunction = (base) => {
       }
       return list.map((obj) => {
         let item = obj;
-        if (item instanceof Array) {
+        if (Array.isArray(item)) {
           [item] = item;
         }
         item = this._resolve(item);
@@ -419,8 +406,8 @@ const mxFunction = (base) => {
     /**
      * Computes union type label when the union is in Array.
      *
-     * @param {Array|Object} items Array's items property or a single property
-     * @return {String|undefined} Label for the union type.
+     * @param {object|object[]} items Array's items property or a single property
+     * @return {string|undefined} Label for the union type.
      */
     _computeArrayUnionLabel(items) {
       if (!items) {
@@ -440,9 +427,9 @@ const mxFunction = (base) => {
     /**
      * Computes name label for the shape.
      *
-     * @param {Object} range Range object of current shape.
-     * @param {Object} shape The shape of the property.
-     * @return {String|undefined} Display name of the property
+     * @param {object} range Range object of current shape.
+     * @param {object} shape The shape of the property.
+     * @return {string|undefined} Display name of the property
      */
     _computeDisplayName(range, shape) {
       if (!shape || !range) {
@@ -477,7 +464,7 @@ const mxFunction = (base) => {
 
     _isPropertyReadOnly(property) {
       if (Array.isArray(property)) {
-        property = property[0];
+        [property] = property;
       }
       const rKey = this._getAmfKey(this.ns.aml.vocabularies.shapes.range);
       const range = property[rKey];
@@ -486,7 +473,7 @@ const mxFunction = (base) => {
 
     _isReadOnly(node) {
       if (Array.isArray(node)) {
-        node = node[0];
+        [node] = node;
       }
       if (!node) {
         return false;
@@ -497,6 +484,7 @@ const mxFunction = (base) => {
   }
   return PropertyDocumentMixinImpl;
 };
+
 /**
  * A mixin that contains common function for `property-*-document` elements.
  * @mixin

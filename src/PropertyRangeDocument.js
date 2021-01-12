@@ -100,7 +100,7 @@ export class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
 
   /**
    * Computes value `isEnum` property.
-   * @param {Object} range Current `range` object
+   * @param {any} range Current `range` object
    * @param {boolean} isArray Whether the `range` represent an array.
    * @return {boolean} True when the `range` represents an enum.
    */
@@ -112,8 +112,8 @@ export class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
       return this._computeIsEnumArray(range);
     }
 
-    const ikey = this._getAmfKey(this.ns.w3.shacl.in);
-    return ikey in range;
+    const inKey = this._getAmfKey(this.ns.w3.shacl.in);
+    return inKey in range;
   }
 
   /**
@@ -127,15 +127,15 @@ export class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
       return false;
     }
     const item = items[0];
-    const ikey = this._getAmfKey(this.ns.w3.shacl.in);
-    return ikey in item;
+    const inKey = this._getAmfKey(this.ns.w3.shacl.in);
+    return inKey in item;
   }
 
   /**
    * Computes value for `isFile` property
    *
-   * @param {Object} range Range object of current shape.
-   * @return {Boolean}
+   * @param {any} range Range object of current shape.
+   * @return {boolean}
    */
   _computeIsFile(range) {
     return this._hasType(range, this.ns.aml.vocabularies.shapes.FileShape);
@@ -161,9 +161,9 @@ export class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
       return undefined;
     }
     const itemsKey = this._getAmfKey(this.ns.aml.vocabularies.shapes.items);
-    const ikey = this._getAmfKey(this.ns.w3.shacl.in);
+    const inKey = this._getAmfKey(this.ns.w3.shacl.in);
 
-    let model = range[isArray ? itemsKey : ikey];
+    let model = range[isArray ? itemsKey : inKey];
     if (!model) {
       return undefined;
     }
@@ -172,7 +172,7 @@ export class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
       [model] = model;
     }
     if (isArray) {
-      model = model[ikey];
+      model = model[inKey];
     }
     const results = [];
     Object.keys(model).forEach((key) => {
@@ -220,7 +220,7 @@ export class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
     </div>`;
   }
 
-  _nonFilePropertisTemplate() {
+  _nonFilePropertiesTemplate() {
     const { range } = this;
 
     return html` ${this._hasProperty(range, this.ns.w3.shacl.minLength)
@@ -239,7 +239,7 @@ export class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
       : ''}`;
   }
 
-  _filePropertisTemplate() {
+  _filePropertiesTemplate() {
     const { range } = this;
     return html` <section class="file-properties">
       ${this._hasProperty(range, this.ns.w3.shacl.fileType)
@@ -344,13 +344,13 @@ export class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
       ${this._hasProperty(range, this.ns.w3.shacl.multipleOf)
         ? this._listItemTemplate(
             'Multiple of',
-            'The numeric value has to be multiplicable by this value',
+            'The numeric value has to be multipliable by this value',
             this.ns.w3.shacl.multipleOf
           )
         : ''}
       ${this.isFile
-        ? this._filePropertisTemplate()
-        : this._nonFilePropertisTemplate()}
+        ? this._filePropertiesTemplate()
+        : this._nonFilePropertiesTemplate()}
       ${this.isEnum ? this._enumTemplate() : ''}
 
       <section class="examples" ?hidden="${!this._hasExamples}">
@@ -359,11 +359,10 @@ export class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
           .examples="${range}"
           .mediaType="${this.mediaType}"
           .typeName="${this.propertyName}"
-          noauto
+          noAuto
           ?compatibility="${this.compatibility}"
-          ?noactions="${this.noExamplesActions}"
-          ?rawonly="${!this._hasMediaType}"
-          ?graph="${this.graph}"
+          ?noActions="${this.noExamplesActions}"
+          ?rawOnly="${!this._hasMediaType}"
           @rendered-examples-changed="${this._examplesChanged}"
           @has-examples-changed="${this._hasExamplesHandler}"
         ></api-resource-example-document>

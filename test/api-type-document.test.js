@@ -1,10 +1,16 @@
+/* eslint-disable prefer-destructuring */
 import { fixture, assert, nextFrame, aTimeout } from '@open-wc/testing';
-import { tap } from '@polymer/iron-test-helpers/mock-interactions.js';
 import { AmfLoader } from './amf-loader.js';
 import '../api-type-document.js';
 
-describe('<api-type-document>', function () {
+/** @typedef {import('..').ApiTypeDocument} ApiTypeDocument */
+
+describe('<api-type-document>', () => {
   const newOas3Types = 'new-oas3-types';
+
+  /**
+   * @returns {Promise<ApiTypeDocument>}
+   */
   async function basicFixture() {
     return fixture(`<api-type-document></api-type-document>`);
   }
@@ -37,7 +43,7 @@ describe('<api-type-document>', function () {
     const key = element._getAmfKey(element.ns.aml.vocabularies.shapes.schema);
     let schema = payload && payload[key];
     if (!schema) {
-      return;
+      return undefined;
     }
     schema = schema instanceof Array ? schema[0] : schema;
     return [schema, mt];
@@ -55,7 +61,7 @@ describe('<api-type-document>', function () {
     });
 
     describe('_computeArrayParentName()', () => {
-      let element;
+      let element = /** @type ApiTypeDocument */ (null);
       beforeEach(async () => {
         element = await basicFixture();
       });
@@ -73,14 +79,14 @@ describe('<api-type-document>', function () {
     });
 
     describe('_unionTypesChanged()', () => {
-      let element;
+      let element = /** @type ApiTypeDocument */ (null);
       beforeEach(async () => {
         element = await basicFixture();
       });
 
       it('Does nothing whe no argument', () => {
         element.selectedUnion = 1;
-        element._multiTypesChanged('selectedUnion');
+        element._multiTypesChanged('selectedUnion', undefined);
         assert.equal(element.selectedUnion, 1);
       });
 
@@ -92,7 +98,7 @@ describe('<api-type-document>', function () {
     });
 
     describe('_computeRenderMainExample()', () => {
-      let element;
+      let element = /** @type ApiTypeDocument */ (null);
       beforeEach(async () => {
         element = await basicFixture();
       });
@@ -102,7 +108,7 @@ describe('<api-type-document>', function () {
         assert.isTrue(result);
       });
 
-      it('Returns fasle when no examples and not stopped', () => {
+      it('Returns false when no examples and not stopped', () => {
         const result = element._computeRenderMainExample(false, false);
         assert.isFalse(result);
       });
@@ -118,9 +124,9 @@ describe('<api-type-document>', function () {
     ['Regular model', false],
     ['Compact model', true],
   ].forEach((item) => {
-    describe(item[0], () => {
+    describe(String(item[0]), () => {
       describe('a11y', () => {
-        let element;
+        let element = /** @type ApiTypeDocument */ (null);
         beforeEach(async () => {
           element = await basicFixture();
         });
@@ -162,7 +168,7 @@ describe('<api-type-document>', function () {
       });
 
       describe('_typeChanged()', () => {
-        let element;
+        let element = /** @type ApiTypeDocument */ (null);
         beforeEach(async () => {
           element = await basicFixture();
         });
@@ -258,7 +264,7 @@ describe('<api-type-document>', function () {
       });
 
       describe('_selectUnion()', () => {
-        let element;
+        let element = /** @type ApiTypeDocument */ (null);
         let amf;
         let type;
         before(async () => {
@@ -271,7 +277,7 @@ describe('<api-type-document>', function () {
           element = await basicFixture();
           element.amf = amf;
           element.type = type;
-          await aTimeout();
+          await aTimeout(0);
         });
 
         it('selectedUnion is 0', () => {
@@ -287,7 +293,7 @@ describe('<api-type-document>', function () {
           const nodes = element.shadowRoot.querySelectorAll(
             '.union-type-selector .union-toggle'
           );
-          tap(nodes[1]);
+          /** @type HTMLElement */ (nodes[1]).click();
           await nextFrame();
           assert.isTrue(nodes[1].hasAttribute('activated'));
         });
@@ -297,13 +303,13 @@ describe('<api-type-document>', function () {
           const nodes = element.shadowRoot.querySelectorAll(
             '.union-type-selector .union-toggle'
           );
-          tap(nodes[1]);
+          /** @type HTMLElement */ (nodes[1]).click();
           assert.equal(element.selectedUnion, 1);
         });
       });
 
       describe('_computeUnionProperty()', () => {
-        let element;
+        let element = /** @type ApiTypeDocument */ (null);
         let key;
 
         beforeEach(async () => {
@@ -345,13 +351,13 @@ describe('<api-type-document>', function () {
       });
 
       describe('_computeProperties()', () => {
-        let element;
+        let element = /** @type ApiTypeDocument */ (null);
         beforeEach(async () => {
           element = await basicFixture();
         });
 
         it('Returns passed item is array', () => {
-          // Used when recuresively rendering properties
+          // Used when recursively rendering properties
           const result = element._computeProperties(['test']);
           assert.deepEqual(result, ['test']);
         });
@@ -361,18 +367,17 @@ describe('<api-type-document>', function () {
           assert.isUndefined(result);
         });
 
-        it('Computes object properties', () => {
-          return AmfLoader.loadType('Image', item[1]).then((data) => {
-            element.amf = data[0];
-            const result = element._computeProperties(data[1]);
-            assert.typeOf(result, 'array');
-            assert.lengthOf(result, 2);
-          });
+        it('Computes object properties', async () => {
+          const data = await AmfLoader.loadType('Image', item[1]);
+          element.amf = data[0];
+          const result = element._computeProperties(data[1]);
+          assert.typeOf(result, 'array');
+          assert.lengthOf(result, 2);
         });
       });
 
       describe('_computeAndTypes()', () => {
-        let element;
+        let element = /** @type ApiTypeDocument */ (null);
         let amf;
         let type;
         let list;
@@ -411,13 +416,13 @@ describe('<api-type-document>', function () {
       });
 
       describe('Object type', () => {
-        let element;
+        let element = /** @type ApiTypeDocument */ (null);
         beforeEach(async () => {
           const data = await AmfLoader.loadType('Notification', item[1]);
           element = await basicFixture();
           element.amf = data[0];
           element.type = data[1];
-          await aTimeout();
+          await aTimeout(0);
         });
 
         it('isObject is true', () => {
@@ -461,13 +466,13 @@ describe('<api-type-document>', function () {
       });
 
       describe('Array type', () => {
-        let element;
+        let element = /** @type ApiTypeDocument */ (null);
         beforeEach(async () => {
           const data = await AmfLoader.loadType('ArrayType', item[1]);
           element = await basicFixture();
           element.amf = data[0];
           element.type = data[1];
-          await aTimeout();
+          await aTimeout(0);
         });
 
         it('isArray is true', () => {
@@ -511,14 +516,14 @@ describe('<api-type-document>', function () {
       });
 
       describe('Scalar type', () => {
-        let element;
+        let element = /** @type ApiTypeDocument */ (null);
 
         beforeEach(async () => {
           const data = await AmfLoader.loadType('BooleanType', item[1]);
           element = await basicFixture();
           element.amf = data[0];
           element.type = data[1];
-          await aTimeout();
+          await aTimeout(0);
         });
 
         it('isScalar is true', () => {
@@ -562,14 +567,14 @@ describe('<api-type-document>', function () {
       });
 
       describe('Nil type', () => {
-        let element;
+        let element = /** @type ApiTypeDocument */ (null);
 
         beforeEach(async () => {
           const data = await AmfLoader.loadType('NilType', item[1]);
           element = await basicFixture();
           element.amf = data[0];
           element.type = data[1];
-          await aTimeout();
+          await aTimeout(0);
         });
 
         it('isScalar is true', () => {
@@ -578,14 +583,14 @@ describe('<api-type-document>', function () {
       });
 
       describe('Union type', () => {
-        let element;
+        let element = /** @type ApiTypeDocument */ (null);
 
         beforeEach(async () => {
           const data = await AmfLoader.loadType('Unionable', item[1]);
           element = await basicFixture();
           element.amf = data[0];
           element.type = data[1];
-          await aTimeout();
+          await aTimeout(0);
         });
 
         it('isUnion is true', () => {
@@ -620,7 +625,7 @@ describe('<api-type-document>', function () {
           assert.ok(selector);
         });
 
-        it('Selectes first union => selectedUnion = 0', () => {
+        it('Selects first union => selectedUnion = 0', () => {
           assert.equal(element.selectedUnion, 0);
         });
 
@@ -638,7 +643,7 @@ describe('<api-type-document>', function () {
 
         it('Button change selection', () => {
           const buttons = element.shadowRoot.querySelectorAll('.union-toggle');
-          tap(buttons[1]);
+          /** @type HTMLElement */ (buttons[1]).click();
           assert.equal(element.selectedUnion, 1);
         });
 
@@ -651,19 +656,20 @@ describe('<api-type-document>', function () {
             element.ns.aml.vocabularies.shapes.anyOf
           );
           const type = element.type[key][0];
+          // @ts-ignore
           assert.deepEqual(doc.type, type);
         });
       });
 
       describe('And type', () => {
-        let element;
+        let element = /** @type ApiTypeDocument */ (null);
 
         beforeEach(async () => {
           const data = await AmfLoader.loadType('Pet', item[1], 'Petstore');
           element = await basicFixture();
           element.amf = data[0];
           element.type = data[1];
-          await aTimeout();
+          await aTimeout(0);
         });
 
         it('isAnd is true', () => {
@@ -707,7 +713,7 @@ describe('<api-type-document>', function () {
       });
 
       describe('readOnly properties', () => {
-        let element;
+        let element = /** @type ApiTypeDocument */ (null);
 
         beforeEach(async () => {
           const data = await AmfLoader.loadType(
@@ -746,9 +752,9 @@ describe('<api-type-document>', function () {
     ['Regular model - Union types', false],
     ['Compact model - Union types', true],
   ].forEach((item) => {
-    describe(item[0], () => {
+    describe(String(item[0]), () => {
       describe('_typeChanged()', () => {
-        let element;
+        let element = /** @type ApiTypeDocument */ (null);
         beforeEach(async () => {
           element = await basicFixture();
         });
@@ -765,10 +771,10 @@ describe('<api-type-document>', function () {
           element.type = schema;
           element.mediaType = mt;
 
-          await aTimeout();
+          await aTimeout(0);
 
-          const u1 = element.unionTypes[0];
-          const u2 = element.unionTypes[1];
+          const u1 = /** @type any */ (element.unionTypes[0]);
+          const u2 = /** @type any */ (element.unionTypes[1]);
           assert.isTrue(u1.isArray, 'Union1 is array');
           assert.isFalse(u1.isScalar, 'Union1 is not scalar');
           assert.isFalse(u1.isType, 'Union1 is not type');
@@ -792,10 +798,10 @@ describe('<api-type-document>', function () {
           element.type = schema;
           element.mediaType = mt;
 
-          await aTimeout();
+          await aTimeout(0);
 
-          const u1 = element.unionTypes[0];
-          const u2 = element.unionTypes[1];
+          const u1 = /** @type any */ (element.unionTypes[0]);
+          const u2 = /** @type any */ (element.unionTypes[1]);
           assert.isFalse(u1.isArray, 'Union1 is not array');
           assert.isFalse(u1.isScalar, 'Union1 is not scalar');
           assert.isTrue(u1.isType, 'Union1 is type');
@@ -814,8 +820,8 @@ describe('<api-type-document>', function () {
     ['Regular model - OAS 3 types additions', false],
     ['Compact model - OAS 3 types additions', true],
   ].forEach(([name, compact]) => {
-    describe(name, () => {
-      let element;
+    describe(String(name), () => {
+      let element = /** @type ApiTypeDocument */ (null);
 
       beforeEach(async () => {
         element = await basicFixture();
@@ -844,7 +850,7 @@ describe('<api-type-document>', function () {
         element.type = type;
         await aTimeout(0);
         assert.equal(element.selectedOneOf, 0);
-        element.shadowRoot.querySelectorAll('.one-of-toggle')[1].click();
+        /** @type HTMLElement */ (element.shadowRoot.querySelectorAll('.one-of-toggle')[1]).click();
         assert.equal(element.selectedOneOf, 1);
       });
 
@@ -871,7 +877,7 @@ describe('<api-type-document>', function () {
         element.type = type;
         await aTimeout(0);
         assert.equal(element.selectedAnyOf, 0);
-        element.shadowRoot.querySelectorAll('.any-of-toggle')[1].click();
+        /** @type HTMLElement */ (element.shadowRoot.querySelectorAll('.any-of-toggle')[1]).click();
         assert.equal(element.selectedAnyOf, 1);
       });
     });
@@ -881,8 +887,8 @@ describe('<api-type-document>', function () {
     ['Regular model - AAP-1698', false],
     ['Compact model - AAP-1698', true],
   ].forEach(([name, compact]) => {
-    describe(name, () => {
-      let element;
+    describe(String(name), () => {
+      let element = /** @type ApiTypeDocument */ (null);
       let amf;
       let type;
 
@@ -905,22 +911,23 @@ describe('<api-type-document>', function () {
   });
 
   describe('_mediaTypesChanged()', () => {
-    let element;
+    let element = /** @type ApiTypeDocument */ (null);
     beforeEach(async () => {
       element = await basicFixture();
     });
 
     it('Sets renderMediaSelector to false when no argument', () => {
-      element._mediaTypesChanged();
+      element._mediaTypesChanged(undefined);
       assert.isFalse(element.renderMediaSelector);
     });
 
     it('Sets renderMediaSelector to false when argument is not an array', () => {
+      // @ts-ignore
       element._mediaTypesChanged('test');
       assert.isFalse(element.renderMediaSelector);
     });
 
-    it('Sets renderMediaSelector to false when arument has no items', () => {
+    it('Sets renderMediaSelector to false when argument has no items', () => {
       element._mediaTypesChanged([]);
       assert.isFalse(element.renderMediaSelector);
     });
@@ -947,7 +954,7 @@ describe('<api-type-document>', function () {
   });
 
   describe('_mediaTypeActive()', () => {
-    let element;
+    let element = /** @type ApiTypeDocument */ (null);
     beforeEach(async () => {
       element = await basicFixture();
     });
@@ -964,12 +971,12 @@ describe('<api-type-document>', function () {
   });
 
   describe('_selectMediaType()', () => {
-    let element;
+    let element = /** @type ApiTypeDocument */ (null);
     let target;
 
     beforeEach(async () => {
       element = await basicFixture();
-      await aTimeout();
+      await aTimeout(0);
       target = document.createElement('span');
       target.dataset.index = '1';
     });
@@ -979,6 +986,7 @@ describe('<api-type-document>', function () {
         target,
       };
       element.mediaTypes = ['invalid', 'valid'];
+      // @ts-ignore
       element._selectMediaType(e);
       assert.equal(element.selectedMediaType, 1);
     });
@@ -988,6 +996,7 @@ describe('<api-type-document>', function () {
         target,
       };
       element.mediaTypes = ['invalid', 'valid'];
+      // @ts-ignore
       element._selectMediaType(e);
       assert.equal(element.mediaType, 'valid');
     });
@@ -998,6 +1007,7 @@ describe('<api-type-document>', function () {
       };
       element.mediaTypes = ['invalid', 'valid'];
       element.selectedMediaType = 1;
+      // @ts-ignore
       element._selectMediaType(e);
       assert.isTrue(e.target.active);
     });
@@ -1009,28 +1019,14 @@ describe('<api-type-document>', function () {
       };
       element.mediaTypes = ['invalid', 'valid'];
       element.selectedMediaType = undefined;
+      // @ts-ignore
       element._selectMediaType(e);
       assert.isUndefined(element.selectedMediaType);
     });
   });
 
-  describe('compatibility mode', () => {
-    it('sets compatibility on item when setting legacy', async () => {
-      const element = await basicFixture();
-      element.legacy = true;
-      assert.isTrue(element.legacy, 'legacy is set');
-      assert.isTrue(element.compatibility, 'compatibility is set');
-    });
-
-    it('returns compatibility value from item when getting legacy', async () => {
-      const element = await basicFixture();
-      element.compatibility = true;
-      assert.isTrue(element.legacy, 'legacy is set');
-    });
-  });
-
   describe('a11y', () => {
-    let element;
+    let element = /** @type ApiTypeDocument */ (null);
 
     beforeEach(async () => {
       element = await basicFixture();
