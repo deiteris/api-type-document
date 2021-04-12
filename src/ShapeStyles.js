@@ -26,7 +26,7 @@ export default css`
   .property-title {
     font-size: var(
       --property-shape-document-title-font-size,
-      var(--arc-font-subhead-font-size)
+      var(--arc-font-subhead-font-size, 1rem)
     );
     font-weight: var(
       --property-shape-document-title-font-weight,
@@ -38,7 +38,6 @@ export default css`
     );
 
     margin: 4px 0 4px 0;
-    font-size: 1rem;
     font-weight: var(--api-type-document-property-title-font-weight, 500);
     word-break: break-word;
     color: var(--api-type-document-property-title-color);
