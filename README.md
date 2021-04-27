@@ -58,7 +58,8 @@ Custom property | Description | Default
 ## Usage
 
 ### Installation
-```
+
+```sh
 npm install --save @api-components/api-type-document
 ```
 
@@ -108,6 +109,7 @@ npm start
 ```
 
 ### Running the tests
+
 ```sh
 npm test
 ```

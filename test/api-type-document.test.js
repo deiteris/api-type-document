@@ -753,6 +753,7 @@ describe('<api-type-document>', () => {
     ['Compact model - Union types', true],
   ].forEach((item) => {
     describe(String(item[0]), () => {
+      const compact = item[1]
       describe('_typeChanged()', () => {
         let element = /** @type ApiTypeDocument */ (null);
         beforeEach(async () => {
@@ -811,6 +812,51 @@ describe('<api-type-document>', () => {
           assert.isFalse(u2.isScalar, 'Union2 is not scalar');
           assert.isTrue(u2.isType, 'Union2 is type');
           assert.equal(u2.label, 'PropertyExamples', 'Union2 has name');
+        });
+      });
+
+      describe('APIC-631', () => {
+        let element = /** @type ApiTypeDocument */ (null);
+
+        beforeEach(async () => {
+          element = await basicFixture();
+        });
+
+        it('should render union toggle as "Array of String"', async () => {
+          const data = await AmfLoader.loadType('test2', compact, 'APIC-631');
+          element.amf = data[0];
+          element._typeChanged(element._resolve(data[1]));
+          await nextFrame();
+          const firstToggle = element.shadowRoot.querySelectorAll('.union-toggle')[0]
+          assert.equal(firstToggle.textContent.toLowerCase(), 'array of string');
+        });
+
+        it('should not render type name as "undefined" for inline type', async () => {
+          const data = await AmfLoader.loadType('test3', compact, 'APIC-631');
+          element.amf = data[0];
+          element.type = data[1]
+          await aTimeout(100);
+          const propertyName = element.shadowRoot.querySelector('property-shape-document').shadowRoot.querySelector('span.property-name');
+          assert.notExists(propertyName);
+        });
+
+        it('should render "Array of:" in title for scalar array', async () => {
+          const data = await AmfLoader.loadType('test3', compact, 'APIC-631');
+          element.amf = data[0];
+          element.type = data[1]
+          await aTimeout(100);
+          const firstSpan = element.shadowRoot.querySelector('span');
+          assert.exists(firstSpan);
+          assert.equal(firstSpan.textContent, 'Array of:');
+        });
+
+        it('should render "Array of number" data type', async () => {
+          const data = await AmfLoader.loadType('test8', compact, 'APIC-631');
+          element.amf = data[0];
+          element.type = data[1]
+          await aTimeout(100);
+          const dataType = element.shadowRoot.querySelector('property-shape-document').shadowRoot.querySelector('span.data-type');
+          assert.equal(dataType.textContent, 'Array of Number');
         });
       });
     });

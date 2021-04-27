@@ -181,6 +181,7 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       [type] = type;
       let typed = String(type['@id']);
       typed = typed.replace(this.ns.w3.xmlSchema.key, '');
+      typed = typed.replace(this.ns.aml.vocabularies.shapes.toString(), '');
       const stLetter = typed[0].toUpperCase();
       return `${stLetter}${typed.substr(1)}`;
     } catch (_) {
@@ -295,6 +296,9 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
           shape,
           this.ns.w3.shacl.name
         ));
+        if (name === undefined) {
+          return undefined
+        }
         if (name && name.indexOf('amf_inline_type') === 0) {
           return undefined;
         }

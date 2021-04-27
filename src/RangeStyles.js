@@ -26,7 +26,7 @@ export default css`
   }
 
   .attribute-label {
-    font-weight: 500;
+    font-weight: var(--api-type-document-property-range-attribute-label-font-weight, 500);
     margin-right: 12px;
   }
 
