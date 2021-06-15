@@ -126,6 +126,10 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
        * Computed value from the shape. True if the property is an anyOf
        */
       isAnyOf: { type: Boolean },
+      /**
+       * Determines if shape's range is deprecated
+       */
+      deprecated: { type: Boolean, reflect: true },
     };
   }
 
@@ -208,6 +212,7 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     this.hasPropertyDescription = false;
     this.narrow = false;
     this.renderReadOnly = false;
+    this.deprecated = false;
   }
 
   connectedCallback() {
@@ -268,6 +273,12 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       this.propertyName
     );
     this.propertyDataType = this._computeObjectDataType(range, shape);
+    const isDeprecated = Boolean(this._computeIsDeprecated(range));
+    this.deprecated = isDeprecated;
+  }
+
+  _computeIsDeprecated(range) {
+    return this._getValue(range, this._getAmfKey(this.ns.aml.vocabularies.shapes.deprecated))
   }
 
   _computeObjectDataType(range, shape) {
@@ -633,6 +644,13 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
       : ''}`;
   }
 
+  _deprecatedWarningTemplate() {
+    if (!this.deprecated) {
+      return '';
+    }
+    return html`<div class="deprecated-warning">Warning: Deprecated</div>`
+  }
+
   /**
    * @return {TemplateResult} Main render function.
    */
@@ -665,6 +683,7 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
             >`
           : ''}
       </div>
+      ${this._deprecatedWarningTemplate()}
       ${this._descriptionTemplate()}
       <property-range-document
         .amf="${this.amf}"
