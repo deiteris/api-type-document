@@ -270,6 +270,7 @@ const mxFunction = (base) => {
           return [item];
         default: {
           const pkey = this._getAmfKey(this.ns.w3.shacl.property);
+          const andKey = this._getAmfKey(this.ns.w3.shacl.and);
           let items = this._ensureArray(item[pkey]);
 
           if (!items) {
@@ -281,10 +282,14 @@ const mxFunction = (base) => {
               );
               schemas.forEach((s) => {
                 const schema = this._ensureArray(item[s]);
-                const properties = schema && schema[0][pkey];
-                if (properties) {
-                  items = (items || []).concat(properties);
+                const allOfProps = schema[0][andKey];
+                let properties = (schema && (schema[0][pkey]) || []);
+                if (allOfProps) {
+                  for (const item of allOfProps) {
+                    properties = properties.concat(this._ensureArray(item[pkey]));
+                  }
                 }
+                items = (items || []).concat(properties);
               });
             }
           }

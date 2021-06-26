@@ -293,15 +293,15 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     this.hasParentType = false;
     this.narrow = false;
     this.selectedBodyId = undefined;
-    /** 
+    /**
      * @type {number}
      */
     this.selectedUnion = undefined;
-    /** 
+    /**
      * @type {number}
      */
     this.selectedOneOf = undefined;
-    /** 
+    /**
      * @type {number}
      */
     this.selectedAnyOf = undefined;
@@ -517,8 +517,19 @@ export class ApiTypeDocument extends PropertyDocumentMixin(LitElement) {
     if (Array.isArray(item)) {
       return item;
     }
-    const key = this._getAmfKey(this.ns.w3.shacl.property);
-    return this._filterReadOnlyProperties(this._ensureArray(item[key]));
+    const propertyKey = this._getAmfKey(this.ns.w3.shacl.property);
+    const andKey = this._getAmfKey(this.ns.w3.shacl.and);
+    const allOf = this._ensureArray(item[andKey]);
+    let properties = this._filterReadOnlyProperties(this._ensureArray(item[propertyKey])) || [];
+    if (allOf) {
+      for (const item of allOf) {
+        const allOfProp = this._filterReadOnlyProperties(this._ensureArray(item[propertyKey]))
+        if (allOfProp) {
+          properties = properties.concat(allOfProp);
+        }
+      }
+    }
+    return properties;
   }
 
   /**
