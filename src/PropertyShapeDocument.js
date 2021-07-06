@@ -252,6 +252,7 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
     this.isArray = this._computeIsArray(range);
     this.isEnum = this._computeIsEnum(range, this.isArray);
     this.isReadOnly = this._isReadOnly(range);
+    this.isUniqueOnly = this._computeIsUniqueOnly(range, this.isArray);
     this.isAnyOf = this._computeIsAnyOf(range);
     this.isComplex = this._computeIsComplex(
       this.isUnion,
@@ -408,6 +409,23 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
 
     const inKey = this._getAmfKey(this.ns.w3.shacl.in);
     return inKey in range;
+  }
+
+  /**
+   * Computes value `isUnique` property.
+   * @param {Object} range Current `range` object
+   * @param {Boolean} isArray
+   * @return {Boolean}
+   */
+  _computeIsUniqueOnly(range, isArray) {
+    if (!range) {
+      return false;
+    }
+    if (!isArray) {
+      return false;
+    }
+
+    return 'raml-shapes:uniqueItems' in range && range['raml-shapes:uniqueItems'][0]['@value'];
   }
 
   /**
@@ -681,6 +699,13 @@ export class PropertyShapeDocument extends PropertyDocumentMixin(LitElement) {
               title="This property represents a read only value"
               >Read only</span
             >`
+          : ''}
+        ${this.isUniqueOnly
+          ? html`<span
+                class="unique-only-type"
+                title="This property allows only unique values"
+                >Unique only</span
+              >`
           : ''}
       </div>
       ${this._deprecatedWarningTemplate()}

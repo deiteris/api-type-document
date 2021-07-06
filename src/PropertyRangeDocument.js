@@ -239,6 +239,20 @@ export class PropertyRangeDocument extends PropertyDocumentMixin(LitElement) {
           'Maximum number of characters in the value',
           this.ns.w3.shacl.maxLength
         )
+      : ''}
+    ${this._hasProperty(range, this.ns.w3.shacl.minCount)
+      ? this._listItemTemplate(
+          'Minimum number of items',
+          'Minimum number of items in the array',
+          this.ns.w3.shacl.minCount
+        )
+      : ''}
+    ${this._hasProperty(range, 'shacl:maxCount')
+      ? this._listItemTemplate(
+          'Maximum number of items',
+          'Maximum number of items in the array',
+          'shacl:maxCount'
+        )
       : ''}`;
   }
 
